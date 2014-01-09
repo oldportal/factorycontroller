@@ -31,18 +31,19 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-oldportal::fc::network::NetworkDevice::NetworkDevice()
+const oldportal::fc::erpconnector::StateProxy* oldportal::fc::erpconnector::Connector::getStateProxy()
+{//BEGIN_f213a74acd2499b94d516aef020c3bde
+    StateProxy *ret = 0;
+    //TODO: getStateProxy()
+    return ret;
+}//END_f213a74acd2499b94d516aef020c3bde
 
-{//BEGIN_273e84bb6fb903466ceec820d3609da7
-
-}//END_273e84bb6fb903466ceec820d3609da7
-
-
-
-oldportal::fc::network::NetworkDevice::~NetworkDevice()
-{//BEGIN_5e4f14d5355f3501bcea974516620b98
-
-}//END_5e4f14d5355f3501bcea974516620b98
+const oldportal::fc::erpconnector::TaskProxy* oldportal::fc::erpconnector::Connector::getTaskProxy()
+{//BEGIN_1aa0367c5e3d167c0d41c2a7b4105f31
+    TaskProxy *ret = 0;
+    //TODO: getStateProxy()
+    return ret;
+}//END_1aa0367c5e3d167c0d41c2a7b4105f31
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE

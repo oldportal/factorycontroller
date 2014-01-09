@@ -31,18 +31,18 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-oldportal::fc::network::NetworkDevice::NetworkDevice()
+oldportal::fc::scheduler::Scheduler::Scheduler()
 
-{//BEGIN_273e84bb6fb903466ceec820d3609da7
+{//BEGIN_184bd12b122db374cac8b7195c4e72b7
 
-}//END_273e84bb6fb903466ceec820d3609da7
+}//END_184bd12b122db374cac8b7195c4e72b7
 
 
 
-oldportal::fc::network::NetworkDevice::~NetworkDevice()
-{//BEGIN_5e4f14d5355f3501bcea974516620b98
+oldportal::fc::scheduler::Scheduler::~Scheduler()
+{//BEGIN_6dbabc34a227e7f5196815f9d436aa40
 
-}//END_5e4f14d5355f3501bcea974516620b98
+}//END_6dbabc34a227e7f5196815f9d436aa40
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE

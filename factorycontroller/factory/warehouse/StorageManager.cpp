@@ -24,25 +24,25 @@
 //END_USER_SECTION_BEFORE_MASTER_INCLUDE
 
 
-#include "../factorycontroller.h"
+#include "../../factorycontroller.h"
 
 //BEGIN_USER_SECTION_AFTER_MASTER_INCLUDE
 
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-oldportal::fc::network::NetworkDevice::NetworkDevice()
+oldportal::fc::factory::warehouse::StorageManager::StorageManager()
 
-{//BEGIN_273e84bb6fb903466ceec820d3609da7
+{//BEGIN_27a62bd6e9a62afec310054a9e1685f3
 
-}//END_273e84bb6fb903466ceec820d3609da7
+}//END_27a62bd6e9a62afec310054a9e1685f3
 
 
 
-oldportal::fc::network::NetworkDevice::~NetworkDevice()
-{//BEGIN_5e4f14d5355f3501bcea974516620b98
+oldportal::fc::factory::warehouse::StorageManager::~StorageManager()
+{//BEGIN_6d3f202ab6af8256767fd4d54caceb95
 
-}//END_5e4f14d5355f3501bcea974516620b98
+}//END_6d3f202ab6af8256767fd4d54caceb95
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE

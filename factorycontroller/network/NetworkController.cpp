@@ -24,24 +24,42 @@
 //END_USER_SECTION_BEFORE_MASTER_INCLUDE
 
 
-#include "..\factorycontroller.h"
+#include "../factorycontroller.h"
 
 //BEGIN_USER_SECTION_AFTER_MASTER_INCLUDE
 
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-oldportal::fc::network::NetworkController::NetworkController(oldportal::fc::network::Network* network)
+oldportal::fc::network::NetworkController::NetworkController()
+
+{//BEGIN_108e13b6e9c79ba8ade22e512183ad53
+
+}//END_108e13b6e9c79ba8ade22e512183ad53
+
+oldportal::fc::network::NetworkController::NetworkController(QSharedPointer< oldportal::fc::network::Network > network)
 
 {//BEGIN_5ee793d28f81fe07f58fd5b2ed1b33dd
-_network = network;
+    _network = network;
 }//END_5ee793d28f81fe07f58fd5b2ed1b33dd
+
+
+
+oldportal::fc::network::NetworkController::~NetworkController()
+{//BEGIN_4de2478f0423252a7abd1d53cc26ff8d
+
+}//END_4de2478f0423252a7abd1d53cc26ff8d
 
 
 void oldportal::fc::network::NetworkController::initHardware()
 {//BEGIN_201d55558583ff12ce4fb1109a021a6e
-    //TODO: initHardware()
+
 }//END_201d55558583ff12ce4fb1109a021a6e
+
+void oldportal::fc::network::NetworkController::run()
+{//BEGIN_e0d8579838548c0a7d77d2a895c69c95
+
+}//END_e0d8579838548c0a7d77d2a895c69c95
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE

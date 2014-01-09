@@ -24,7 +24,7 @@
 //END_USER_SECTION_BEFORE_MASTER_INCLUDE
 
 
-#include "..\factorycontroller.h"
+#include "../factorycontroller.h"
 
 //BEGIN_USER_SECTION_AFTER_MASTER_INCLUDE
 

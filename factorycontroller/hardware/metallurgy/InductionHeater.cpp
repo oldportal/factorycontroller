@@ -24,25 +24,18 @@
 //END_USER_SECTION_BEFORE_MASTER_INCLUDE
 
 
-#include "../factorycontroller.h"
+#include "../../factorycontroller.h"
 
 //BEGIN_USER_SECTION_AFTER_MASTER_INCLUDE
 
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-oldportal::fc::network::NetworkDevice::NetworkDevice()
+oldportal::fc::hardware::metallurgy::InductionHeater::InductionHeater()
 
-{//BEGIN_273e84bb6fb903466ceec820d3609da7
+{//BEGIN_5da8d99ad7d2cdc3bb2d67cf27615b47
 
-}//END_273e84bb6fb903466ceec820d3609da7
-
-
-
-oldportal::fc::network::NetworkDevice::~NetworkDevice()
-{//BEGIN_5e4f14d5355f3501bcea974516620b98
-
-}//END_5e4f14d5355f3501bcea974516620b98
+}//END_5da8d99ad7d2cdc3bb2d67cf27615b47
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
