@@ -31,7 +31,11 @@ OldPortal Factory Controller project.
 
 
 //BEGIN_USER_SECTION_0
+#define __STDC_LIMIT_MACROS
+#include <stdint.h>
+
 #include <QtCore>
+#include <QtSerialPort/QSerialPort>
 //END_USER_SECTION_0
 
 
@@ -43,36 +47,124 @@ namespace oldportal
 namespace fc 
 {
 
-namespace connector 
+namespace erpconnector 
 {
-class ConfigurationProxy;
 class Connector;
 class StateProxy;
 class TaskProxy;
 
-}// namespace connector
-namespace executor 
+}// namespace erpconnector
+namespace factory 
 {
-class Configuration;
-class ConfigurationLoader;
-class ExecutorApplication;
-class ExecutorInterface;
-class LocalConfiguration;
-class Resource;
-class Task;
 
-}// namespace executor
+namespace cnc 
+{
+class ChangeToolOperation;
+class MashineCenterInterface;
+class Tool;
+class ToolSet;
+
+namespace edm 
+{
+class RepairToolOperation;
+
+}// namespace edm
+namespace proc 
+{
+class CNCExecutor;
+
+}// namespace proc
+namespace toolpath 
+{
+class ToolPath;
+
+}// namespace toolpath
+namespace wood 
+{
+class FixPartOperation;
+class UnfixPartOperation;
+
+}// namespace wood
+}// namespace cnc
+namespace handlerobot 
+{
+class HandleRobotExecutor;
+class MovePartOperation;
+
+}// namespace handlerobot
+namespace manufacturing 
+{
+class Factory;
+class FactoryLoader;
+
+namespace proc 
+{
+class FactoryPureProgramLoader;
+
+}// namespace proc
+}// namespace manufacturing
+namespace printer3d 
+{
+class Printer3DExecutor;
+class Printer3DOperation;
+
+}// namespace printer3d
+namespace warehouse 
+{
+class StorageManager;
+class StoragePallet;
+class StoragePalletPlace;
+
+}// namespace warehouse
+}// namespace factory
 namespace hardware 
 {
 class HardwareDevice;
 
+namespace edm 
+{
+class EDMPowerSource;
+class EDMWorkMode;
+
+}// namespace edm
 namespace mechatronics 
 {
 class Motor;
 struct MotorProperties;
 class MotorSettings;
 
+namespace command 
+{
+class AccelerationMotion;
+class ConstantSpeedMotion;
+class CurveMotion;
+class LineearMotion;
+class StepMotion;
+
+}// namespace command
 }// namespace mechatronics
+namespace metallurgy 
+{
+class InductionHeater;
+class InductionHeaterSettings;
+
+}// namespace metallurgy
+namespace power 
+{
+class EnergyAccumulator;
+class EnergyNetwork;
+class EnergySource;
+class EnergySourceInterface;
+class PowerBus;
+
+}// namespace power
+namespace welding 
+{
+class WeldingPowerSource;
+class WeldingPowerSourceMode;
+class WeldingPowerSourceSettings;
+
+}// namespace welding
 }// namespace hardware
 namespace network 
 {
@@ -81,14 +173,50 @@ class DeviceCommand;
 class Network;
 class NetworkController;
 class NetworkDevice;
+struct NetworkTime;
 
+namespace command 
+{
+class NetworkTimeSynchronization;
+class StateReport;
+
+}// namespace command
 namespace modbus 
 {
 class ModbusDevice;
 class ModbusMessagePair;
+class ModbusNetworkController;
 
 }// namespace modbus
 }// namespace network
+namespace scheduler 
+{
+class ExecutorInterface;
+class LocalConfiguration;
+class Project;
+class ProjectTemplate;
+class Resource;
+class Scheduler;
+class Task;
+class TaskLogMessage;
+class TaskTemplate;
+
+}// namespace scheduler
+namespace system 
+{
+
+namespace logger 
+{
+class Logger;
+
+}// namespace logger
+namespace system 
+{
+namespace serialization 
+{
+
+}// namespace serialization
+}// namespace system
 namespace storage 
 {
 class LocalResources;
@@ -99,6 +227,7 @@ namespace util
 {
 
 }// namespace util
+}// namespace system
 }// namespace fc
 }// namespace oldportal
 
@@ -109,36 +238,78 @@ namespace util
 #endif
 
 // Include project classes, for declarations
-#include "connector/ConfigurationProxy.h"
-#include "connector/Connector.h"
-#include "connector/StateProxy.h"
-#include "connector/TaskProxy.h"
-#include "executor/Configuration.h"
-#include "executor/ConfigurationLoader.h"
-#include "executor/ExecutorApplication.h"
-#include "executor/ExecutorInterface.h"
-#include "executor/LocalConfiguration.h"
-#include "executor/Resource.h"
-#include "executor/Task.h"
+#include "erpconnector/_group_erpconnector.h"
+#include "factory/_group_factory.h"
+#include "hardware/_group_hardware.h"
+#include "network/_group_network.h"
+#include "scheduler/_group_scheduler.h"
+#include "system/_group_system.h"
+#include "erpconnector/Connector.h"
+#include "erpconnector/StateProxy.h"
+#include "erpconnector/TaskProxy.h"
+#include "scheduler/TaskTemplate.h"
+#include "factory/cnc/ChangeToolOperation.h"
+#include "factory/cnc/MashineCenterInterface.h"
+#include "scheduler/Resource.h"
+#include "factory/cnc/Tool.h"
+#include "factory/cnc/ToolSet.h"
+#include "factory/cnc/edm/RepairToolOperation.h"
+#include "scheduler/ExecutorInterface.h"
+#include "factory/cnc/proc/CNCExecutor.h"
+#include "factory/cnc/toolpath/ToolPath.h"
+#include "factory/cnc/wood/FixPartOperation.h"
+#include "factory/cnc/wood/UnfixPartOperation.h"
+#include "factory/handlerobot/HandleRobotExecutor.h"
+#include "factory/handlerobot/MovePartOperation.h"
+#include "factory/manufacturing/Factory.h"
+#include "factory/manufacturing/FactoryLoader.h"
+#include "factory/manufacturing/proc/FactoryPureProgramLoader.h"
+#include "factory/printer3d/Printer3DExecutor.h"
+#include "factory/printer3d/Printer3DOperation.h"
+#include "factory/warehouse/StorageManager.h"
+#include "factory/warehouse/StoragePallet.h"
+#include "factory/warehouse/StoragePalletPlace.h"
 #include "network/NetworkDevice.h"
 #include "network/modbus/ModbusDevice.h"
 #include "hardware/HardwareDevice.h"
+#include "hardware/edm/EDMWorkMode.h"
+#include "hardware/edm/EDMPowerSource.h"
 #include "hardware/mechatronics/MotorSettings.h"
 #include "hardware/mechatronics/MotorProperties.h"
 #include "hardware/mechatronics/Motor.h"
-#include "network/ConfigurationLoader.h"
 #include "network/DeviceCommand.h"
+#include "hardware/mechatronics/command/AccelerationMotion.h"
+#include "hardware/mechatronics/command/ConstantSpeedMotion.h"
+#include "hardware/mechatronics/command/CurveMotion.h"
+#include "hardware/mechatronics/command/LineearMotion.h"
+#include "hardware/mechatronics/command/StepMotion.h"
+#include "hardware/metallurgy/InductionHeaterSettings.h"
+#include "hardware/metallurgy/InductionHeater.h"
+#include "hardware/power/EnergyAccumulator.h"
+#include "hardware/power/EnergyNetwork.h"
+#include "hardware/power/EnergySource.h"
+#include "hardware/power/EnergySourceInterface.h"
+#include "hardware/power/PowerBus.h"
+#include "hardware/welding/WeldingPowerSourceSettings.h"
+#include "hardware/welding/WeldingPowerSourceMode.h"
+#include "hardware/welding/WeldingPowerSource.h"
+#include "network/ConfigurationLoader.h"
+#include "network/NetworkTime.h"
 #include "network/Network.h"
 #include "network/NetworkController.h"
+#include "network/command/NetworkTimeSynchronization.h"
+#include "network/command/StateReport.h"
 #include "network/modbus/ModbusMessagePair.h"
-#include "storage/LocalResources.h"
-#include "storage/LocalStorage.h"
-#include "connector/Connector.h"
-#include "executor/Executor.h"
-#include "hardware/Hardware.h"
-#include "network/Network.h"
-#include "storage/Storage.h"
-#include "util/Util.h"
+#include "network/modbus/ModbusNetworkController.h"
+#include "scheduler/LocalConfiguration.h"
+#include "scheduler/Project.h"
+#include "scheduler/ProjectTemplate.h"
+#include "scheduler/Scheduler.h"
+#include "scheduler/Task.h"
+#include "scheduler/TaskLogMessage.h"
+#include "system/logger/Logger.h"
+#include "system/storage/LocalResources.h"
+#include "system/storage/LocalStorage.h"
 
 
 // global members
@@ -146,7 +317,7 @@ namespace oldportal
 {
 namespace fc 
 {
-
+// global variables declaration
 }// namespace fc
 }// namespace oldportal
 
@@ -156,7 +327,7 @@ namespace oldportal
 {
 namespace fc 
 {
-
+// global methods declaration
 }// namespace fc
 }// namespace oldportal
 
@@ -166,36 +337,78 @@ namespace fc
 
 
 // Include classes again, for inline implementation:
-#include "connector/ConfigurationProxy.h"
-#include "connector/Connector.h"
-#include "connector/StateProxy.h"
-#include "connector/TaskProxy.h"
-#include "executor/Configuration.h"
-#include "executor/ConfigurationLoader.h"
-#include "executor/ExecutorApplication.h"
-#include "executor/ExecutorInterface.h"
-#include "executor/LocalConfiguration.h"
-#include "executor/Resource.h"
-#include "executor/Task.h"
+#include "erpconnector/_group_erpconnector.h"
+#include "factory/_group_factory.h"
+#include "hardware/_group_hardware.h"
+#include "network/_group_network.h"
+#include "scheduler/_group_scheduler.h"
+#include "system/_group_system.h"
+#include "erpconnector/Connector.h"
+#include "erpconnector/StateProxy.h"
+#include "erpconnector/TaskProxy.h"
+#include "scheduler/TaskTemplate.h"
+#include "factory/cnc/ChangeToolOperation.h"
+#include "factory/cnc/MashineCenterInterface.h"
+#include "scheduler/Resource.h"
+#include "factory/cnc/Tool.h"
+#include "factory/cnc/ToolSet.h"
+#include "factory/cnc/edm/RepairToolOperation.h"
+#include "scheduler/ExecutorInterface.h"
+#include "factory/cnc/proc/CNCExecutor.h"
+#include "factory/cnc/toolpath/ToolPath.h"
+#include "factory/cnc/wood/FixPartOperation.h"
+#include "factory/cnc/wood/UnfixPartOperation.h"
+#include "factory/handlerobot/HandleRobotExecutor.h"
+#include "factory/handlerobot/MovePartOperation.h"
+#include "factory/manufacturing/Factory.h"
+#include "factory/manufacturing/FactoryLoader.h"
+#include "factory/manufacturing/proc/FactoryPureProgramLoader.h"
+#include "factory/printer3d/Printer3DExecutor.h"
+#include "factory/printer3d/Printer3DOperation.h"
+#include "factory/warehouse/StorageManager.h"
+#include "factory/warehouse/StoragePallet.h"
+#include "factory/warehouse/StoragePalletPlace.h"
 #include "network/NetworkDevice.h"
 #include "network/modbus/ModbusDevice.h"
 #include "hardware/HardwareDevice.h"
+#include "hardware/edm/EDMWorkMode.h"
+#include "hardware/edm/EDMPowerSource.h"
 #include "hardware/mechatronics/MotorSettings.h"
 #include "hardware/mechatronics/MotorProperties.h"
 #include "hardware/mechatronics/Motor.h"
-#include "network/ConfigurationLoader.h"
 #include "network/DeviceCommand.h"
+#include "hardware/mechatronics/command/AccelerationMotion.h"
+#include "hardware/mechatronics/command/ConstantSpeedMotion.h"
+#include "hardware/mechatronics/command/CurveMotion.h"
+#include "hardware/mechatronics/command/LineearMotion.h"
+#include "hardware/mechatronics/command/StepMotion.h"
+#include "hardware/metallurgy/InductionHeaterSettings.h"
+#include "hardware/metallurgy/InductionHeater.h"
+#include "hardware/power/EnergyAccumulator.h"
+#include "hardware/power/EnergyNetwork.h"
+#include "hardware/power/EnergySource.h"
+#include "hardware/power/EnergySourceInterface.h"
+#include "hardware/power/PowerBus.h"
+#include "hardware/welding/WeldingPowerSourceSettings.h"
+#include "hardware/welding/WeldingPowerSourceMode.h"
+#include "hardware/welding/WeldingPowerSource.h"
+#include "network/ConfigurationLoader.h"
+#include "network/NetworkTime.h"
 #include "network/Network.h"
 #include "network/NetworkController.h"
+#include "network/command/NetworkTimeSynchronization.h"
+#include "network/command/StateReport.h"
 #include "network/modbus/ModbusMessagePair.h"
-#include "storage/LocalResources.h"
-#include "storage/LocalStorage.h"
-#include "connector/Connector.h"
-#include "executor/Executor.h"
-#include "hardware/Hardware.h"
-#include "network/Network.h"
-#include "storage/Storage.h"
-#include "util/Util.h"
+#include "network/modbus/ModbusNetworkController.h"
+#include "scheduler/LocalConfiguration.h"
+#include "scheduler/Project.h"
+#include "scheduler/ProjectTemplate.h"
+#include "scheduler/Scheduler.h"
+#include "scheduler/Task.h"
+#include "scheduler/TaskLogMessage.h"
+#include "system/logger/Logger.h"
+#include "system/storage/LocalResources.h"
+#include "system/storage/LocalStorage.h"
 
 
 

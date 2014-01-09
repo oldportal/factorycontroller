@@ -31,18 +31,11 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-oldportal::fc::network::NetworkDevice::NetworkDevice()
+oldportal::fc::scheduler::Task::Task()
 
-{//BEGIN_273e84bb6fb903466ceec820d3609da7
+{//BEGIN_76f807342da9815d7b4d2d8aee0b02ed
 
-}//END_273e84bb6fb903466ceec820d3609da7
-
-
-
-oldportal::fc::network::NetworkDevice::~NetworkDevice()
-{//BEGIN_5e4f14d5355f3501bcea974516620b98
-
-}//END_5e4f14d5355f3501bcea974516620b98
+}//END_76f807342da9815d7b4d2d8aee0b02ed
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE

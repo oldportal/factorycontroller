@@ -27,22 +27,32 @@
 #include "../factorycontroller.h"
 
 //BEGIN_USER_SECTION_AFTER_MASTER_INCLUDE
-
+#include <QDateTime>
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-oldportal::fc::network::NetworkDevice::NetworkDevice()
+oldportal::fc::network::NetworkTime::NetworkTime()
 
-{//BEGIN_273e84bb6fb903466ceec820d3609da7
+{//BEGIN_e78e68ce2c9012b95739d0ad514a76fb
+    _network_start_time = 0;
+}//END_e78e68ce2c9012b95739d0ad514a76fb
 
-}//END_273e84bb6fb903466ceec820d3609da7
 
+void oldportal::fc::network::NetworkTime::init()
+{//BEGIN_9655658420dce1e6a0cd63336b820bdb
+    _network_start_time = QDateTime::currentMSecsSinceEpoch();
+}//END_9655658420dce1e6a0cd63336b820bdb
 
+uint64_t oldportal::fc::network::NetworkTime::toNetworkTime(uint64_t system_time) const
+{//BEGIN_cdcb1145f93e4fc57113862d59c118f3
+    int64_t difference = system_time - _network_start_time;
+    return difference;
+}//END_cdcb1145f93e4fc57113862d59c118f3
 
-oldportal::fc::network::NetworkDevice::~NetworkDevice()
-{//BEGIN_5e4f14d5355f3501bcea974516620b98
-
-}//END_5e4f14d5355f3501bcea974516620b98
+uint64_t oldportal::fc::network::NetworkTime::toSystemTime(uint64_t network_time) const
+{//BEGIN_08ceb6411a138ef839fc72ebdd751592
+    return network_time + _network_start_time;
+}//END_08ceb6411a138ef839fc72ebdd751592
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE

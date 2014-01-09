@@ -24,11 +24,22 @@
 //END_USER_SECTION_BEFORE_MASTER_INCLUDE
 
 
-#include "..\factorycontroller.h"
+#include "../factorycontroller.h"
 
 //BEGIN_USER_SECTION_AFTER_MASTER_INCLUDE
 
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
+
+
+void oldportal::fc::network::DeviceCommand::onModbusResponse(oldportal::fc::network::modbus::ModbusMessagePair& modbusMessage)
+{//BEGIN_e7f23ec91fe8f785294c8480ad24677c
+    //TODO: saveModbus()
+}//END_e7f23ec91fe8f785294c8480ad24677c
+
+void oldportal::fc::network::DeviceCommand::saveModbusMessage(oldportal::fc::network::modbus::ModbusMessagePair& modbusMessage)
+{//BEGIN_81578c5bac49fd4b96f966a8dbe82e50
+    //TODO: saveModbus()
+}//END_81578c5bac49fd4b96f966a8dbe82e50
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
