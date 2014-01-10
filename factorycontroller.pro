@@ -4,18 +4,22 @@
 #
 #-------------------------------------------------
 
-QT       += core
-QT       += serialport
+#QT       += core
+#QT       += serialport
 
 QT       -= gui
 
 TARGET = factorycontroller
 CONFIG   += console
 CONFIG   -= app_bundle
-#CONFIG   += serialport
+CONFIG   += boost
+CONFIG   += static
+
+LIBS	+= -lboost_system
 
 TEMPLATE = app
 
+QMAKE_CXXFLAGS += -std=c++0x
 
 SOURCES += main.cpp \
     factorycontroller/_group_factorycontroller.cpp \ 

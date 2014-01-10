@@ -37,7 +37,7 @@ oldportal::fc::network::NetworkController::NetworkController()
 
 }//END_108e13b6e9c79ba8ade22e512183ad53
 
-oldportal::fc::network::NetworkController::NetworkController(QSharedPointer< oldportal::fc::network::Network > network)
+oldportal::fc::network::NetworkController::NetworkController(std::shared_ptr< oldportal::fc::network::Network > network)
 
 {//BEGIN_5ee793d28f81fe07f58fd5b2ed1b33dd
     _network = network;

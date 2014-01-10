@@ -32,10 +32,22 @@ OldPortal Factory Controller project.
 
 //BEGIN_USER_SECTION_0
 #define __STDC_LIMIT_MACROS
-#include <stdint.h>
+#include <cstdint>
 
-#include <QtCore>
-#include <QtSerialPort/QSerialPort>
+#include <memory>
+#include <string>
+#include <queue>
+#include <vector>
+
+#include <boost/asio.hpp>
+
+#include <boost/date_time/posix_time/posix_time.hpp>
+
+#include <boost/uuid/uuid.hpp>
+#include <boost/uuid/uuid_generators.hpp>
+
+//#include <QtCore>
+//#include <QtSerialPort/QSerialPort>
 //END_USER_SECTION_0
 
 
@@ -138,7 +150,7 @@ namespace command
 class AccelerationMotion;
 class ConstantSpeedMotion;
 class CurveMotion;
-class LineearMotion;
+class LinearMotion;
 class StepMotion;
 
 }// namespace command
@@ -210,13 +222,12 @@ namespace logger
 class Logger;
 
 }// namespace logger
-namespace system 
-{
 namespace serialization 
 {
+class Archive;
+class Serializable;
 
 }// namespace serialization
-}// namespace system
 namespace storage 
 {
 class LocalResources;
@@ -281,7 +292,7 @@ namespace util
 #include "hardware/mechatronics/command/AccelerationMotion.h"
 #include "hardware/mechatronics/command/ConstantSpeedMotion.h"
 #include "hardware/mechatronics/command/CurveMotion.h"
-#include "hardware/mechatronics/command/LineearMotion.h"
+#include "hardware/mechatronics/command/LinearMotion.h"
 #include "hardware/mechatronics/command/StepMotion.h"
 #include "hardware/metallurgy/InductionHeaterSettings.h"
 #include "hardware/metallurgy/InductionHeater.h"
@@ -308,6 +319,8 @@ namespace util
 #include "scheduler/Task.h"
 #include "scheduler/TaskLogMessage.h"
 #include "system/logger/Logger.h"
+#include "system/serialization/Archive.h"
+#include "system/serialization/Serializable.h"
 #include "system/storage/LocalResources.h"
 #include "system/storage/LocalStorage.h"
 
@@ -380,7 +393,7 @@ namespace fc
 #include "hardware/mechatronics/command/AccelerationMotion.h"
 #include "hardware/mechatronics/command/ConstantSpeedMotion.h"
 #include "hardware/mechatronics/command/CurveMotion.h"
-#include "hardware/mechatronics/command/LineearMotion.h"
+#include "hardware/mechatronics/command/LinearMotion.h"
 #include "hardware/mechatronics/command/StepMotion.h"
 #include "hardware/metallurgy/InductionHeaterSettings.h"
 #include "hardware/metallurgy/InductionHeater.h"
@@ -407,6 +420,8 @@ namespace fc
 #include "scheduler/Task.h"
 #include "scheduler/TaskLogMessage.h"
 #include "system/logger/Logger.h"
+#include "system/serialization/Archive.h"
+#include "system/serialization/Serializable.h"
 #include "system/storage/LocalResources.h"
 #include "system/storage/LocalStorage.h"
 

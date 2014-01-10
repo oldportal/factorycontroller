@@ -1,18 +1,16 @@
 #include "factorycontroller/factorycontroller.h"
-#include <QCoreApplication>
-#include <QThread>
 
 using namespace std;
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
-
-    oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader *loader = new oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader();
-    QSharedPointer<oldportal::fc::factory::manufacturing::Factory> factory(new oldportal::fc::factory::manufacturing::Factory((oldportal::fc::factory::manufacturing::FactoryLoader*)loader));
-    delete loader;
+    auto loader = std::make_shared<oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader>();
+    loader->init();
+    auto factory = std::make_shared<oldportal::fc::factory::manufacturing::Factory>
+            (std::static_pointer_cast<oldportal::fc::factory::manufacturing::FactoryLoader>(loader));
+    loader.reset();
 
     factory->start();
 
-    return a.exec();
+    return 0;
 }
