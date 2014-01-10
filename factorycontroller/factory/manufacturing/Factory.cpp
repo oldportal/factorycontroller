@@ -31,18 +31,15 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-oldportal::fc::factory::manufacturing::Factory::Factory(oldportal::fc::factory::manufacturing::FactoryLoader* loader)
+oldportal::fc::factory::manufacturing::Factory::Factory(std::shared_ptr< oldportal::fc::factory::manufacturing::FactoryLoader > loader)
 
 {//BEGIN_0af1b742578141e3955f1e87dc8b67fd
     loader->init();
 
     // get Factory members
     _network_controller = loader->getNetworkController();
-    _network_controller->setParent(this);
     _scheduler = loader->getScheduler();
-    _scheduler->setParent(this);
     _storage_manager = loader->getStorageManager();
-    _storage_manager->setParent(this);
 }//END_0af1b742578141e3955f1e87dc8b67fd
 
 
@@ -53,17 +50,17 @@ oldportal::fc::factory::manufacturing::Factory::~Factory()
 }//END_506a49cbc48747ee89440ccc4e8cea86
 
 
-QSharedPointer< oldportal::fc::network::NetworkController > oldportal::fc::factory::manufacturing::Factory::getNetworkController()
+std::shared_ptr< oldportal::fc::network::NetworkController > oldportal::fc::factory::manufacturing::Factory::getNetworkController()
 {//BEGIN_179de6362c47a40e33c6288e6377995c
     return _network_controller;
 }//END_179de6362c47a40e33c6288e6377995c
 
-QSharedPointer< oldportal::fc::scheduler::Scheduler > oldportal::fc::factory::manufacturing::Factory::getScheduler()
+std::shared_ptr< oldportal::fc::scheduler::Scheduler > oldportal::fc::factory::manufacturing::Factory::getScheduler()
 {//BEGIN_84acbfb64dde43ce2689549162ba5b53
     return _scheduler;
 }//END_84acbfb64dde43ce2689549162ba5b53
 
-QSharedPointer< oldportal::fc::factory::warehouse::StorageManager > oldportal::fc::factory::manufacturing::Factory::getStorageManager()
+std::shared_ptr< oldportal::fc::factory::warehouse::StorageManager > oldportal::fc::factory::manufacturing::Factory::getStorageManager()
 {//BEGIN_0a256b3ec66070b7dae5847fce12b292
     return _storage_manager;
 }//END_0a256b3ec66070b7dae5847fce12b292
@@ -72,6 +69,11 @@ void oldportal::fc::factory::manufacturing::Factory::run()
 {//BEGIN_a4ad6d027289a8b7eff52dd5cd9626b6
 
 }//END_a4ad6d027289a8b7eff52dd5cd9626b6
+
+void oldportal::fc::factory::manufacturing::Factory::start()
+{//BEGIN_771bbcfbbdef24221633f30b5616553e
+    //TODO: start()
+}//END_771bbcfbbdef24221633f30b5616553e
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE

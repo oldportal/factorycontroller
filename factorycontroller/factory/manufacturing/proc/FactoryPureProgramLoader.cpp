@@ -45,17 +45,17 @@ oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::~FactoryP
 }//END_1f0482e3d3ea6c7bd98d13887ab3eeeb
 
 
-QSharedPointer< oldportal::fc::network::NetworkController > oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::getNetworkController()
+std::shared_ptr< oldportal::fc::network::NetworkController > oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::getNetworkController()
 {//BEGIN_da6b61af649cc75b8183359d2f5c8233
     return _network_controller;
 }//END_da6b61af649cc75b8183359d2f5c8233
 
-QSharedPointer< oldportal::fc::scheduler::Scheduler > oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::getScheduler()
+std::shared_ptr< oldportal::fc::scheduler::Scheduler > oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::getScheduler()
 {//BEGIN_4b75b4b3ddcdee4f1789bedef5c37859
     return _scheduler;
 }//END_4b75b4b3ddcdee4f1789bedef5c37859
 
-QSharedPointer< oldportal::fc::factory::warehouse::StorageManager > oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::getStorageManager()
+std::shared_ptr< oldportal::fc::factory::warehouse::StorageManager > oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::getStorageManager()
 {//BEGIN_5cb2dba24094466df65e1a9f1d8bf118
     return _storage_manager;
 }//END_5cb2dba24094466df65e1a9f1d8bf118
@@ -65,7 +65,7 @@ void oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::init
     // init members:
 
     // find port:
-    QList<QSerialPortInfo> ports = QSerialPortInfo::availablePorts();
+    /*QList<QSerialPortInfo> ports = QSerialPortInfo::availablePorts();
     if (ports.size() > 0)
     {
         QSerialPortInfo info = ports.at(0);
@@ -84,14 +84,14 @@ void oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::init
         // start controller thread
         _network_controller->thread()->start(QThread::TimeCriticalPriority);
     }
-    else
+    else */
     {
         //TODO: report error
-        _network_controller = QSharedPointer< oldportal::fc::network::NetworkController >(new oldportal::fc::network::NetworkController());
+        _network_controller = std::make_shared< oldportal::fc::network::NetworkController >();
     }
 
-    _scheduler = QSharedPointer< oldportal::fc::scheduler::Scheduler >(new oldportal::fc::scheduler::Scheduler());
-    _storage_manager = QSharedPointer< oldportal::fc::factory::warehouse::StorageManager >(new oldportal::fc::factory::warehouse::StorageManager());
+    _scheduler = std::make_shared< oldportal::fc::scheduler::Scheduler >();
+    _storage_manager = std::make_shared< oldportal::fc::factory::warehouse::StorageManager >();
 }//END_5110e6763784e4dbb95a3c8e4ca572d3
 
 
