@@ -24,27 +24,42 @@
 //END_USER_SECTION_BEFORE_MASTER_INCLUDE
 
 
-#include "../factorycontroller.h"
+#include "../../factorycontroller.h"
 
 //BEGIN_USER_SECTION_AFTER_MASTER_INCLUDE
 
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-void oldportal::fc::network::DeviceCommand::onModbusResponse(oldportal::fc::network::modbus::ModbusMessagePair& modbusMessage)
-{//BEGIN_e7f23ec91fe8f785294c8480ad24677c
-    //TODO: saveModbus()
-}//END_e7f23ec91fe8f785294c8480ad24677c
+oldportal::fc::system::logger::Logger oldportal::fc::system::logger::Logger::_logger;
 
-void oldportal::fc::network::DeviceCommand::onRealTimeModbusResponse(oldportal::fc::network::modbus::ModbusMessagePair& modbusMessage)
-{//BEGIN_23c01979db8c17e18dcf111e3bba40ef
-    //TODO: onRealTimeModbusResponse()
-}//END_23c01979db8c17e18dcf111e3bba40ef
 
-void oldportal::fc::network::DeviceCommand::saveModbusMessage(oldportal::fc::network::modbus::ModbusMessagePair& modbusMessage)
-{//BEGIN_81578c5bac49fd4b96f966a8dbe82e50
-    //TODO: saveModbus()
-}//END_81578c5bac49fd4b96f966a8dbe82e50
+oldportal::fc::system::logger::Logger::Logger()
+
+{//BEGIN_3af28e0c9ceeed3a2eaadfc72e55240a
+
+}//END_3af28e0c9ceeed3a2eaadfc72e55240a
+
+
+oldportal::fc::system::logger::Logger& oldportal::fc::system::logger::Logger::getLogger()
+{//BEGIN_cd3f2d455e614e6b06dcb61c6291081a
+    return _logger;
+}//END_cd3f2d455e614e6b06dcb61c6291081a
+
+void oldportal::fc::system::logger::Logger::log(std::wstring message)
+{//BEGIN_ec9c85481810a08da0714832a779e4d8
+    //TODO: log()
+}//END_ec9c85481810a08da0714832a779e4d8
+
+void oldportal::fc::system::logger::Logger::log(std::wstring topic, std::wstring message)
+{//BEGIN_e9bb0a3f97bd0a79b797dcfe01c2eb0c
+    //TODO: log()
+}//END_e9bb0a3f97bd0a79b797dcfe01c2eb0c
+
+void oldportal::fc::system::logger::Logger::log_hardware(std::wstring topic, std::wstring message)
+{//BEGIN_bf781f62d454fd34bea3f6ebce27c35a
+    //TODO: log()
+}//END_bf781f62d454fd34bea3f6ebce27c35a
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
