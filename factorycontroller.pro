@@ -13,7 +13,6 @@ TARGET = factorycontroller
 CONFIG   += console
 CONFIG   -= app_bundle
 CONFIG   += boost
-CONFIG   += static
 
 LIBS	+= -lboost_system
 
@@ -63,7 +62,7 @@ SOURCES += main.cpp \
     factorycontroller/hardware/mechatronics/Motor.cpp \
     factorycontroller/hardware/mechatronics/_group_mechatronics.cpp \
     factorycontroller/hardware/mechatronics/MotorSettings.cpp \
-    factorycontroller/hardware/mechatronics/command/LineearMotion.cpp \
+    factorycontroller/hardware/mechatronics/command/LinearMotion.cpp \
     factorycontroller/hardware/mechatronics/command/CurveMotion.cpp \
     factorycontroller/hardware/mechatronics/command/ConstantSpeedMotion.cpp \
     factorycontroller/hardware/mechatronics/command/_group_command.cpp \
