@@ -69,6 +69,8 @@ class NetworkDevice
 // constructors:
 public:
 NetworkDevice();
+public:
+NetworkDevice(std::weak_ptr< oldportal::fc::network::Network > network);
 
 
 public:
@@ -79,7 +81,9 @@ virtual ~NetworkDevice();
 public:
 int64_t _id;
 public:
-oldportal::fc::network::NetworkClock _network_time;
+oldportal::fc::network::NetworkErrorStatistics _error_statistics;
+public:
+std::weak_ptr< oldportal::fc::network::Network > _network;
 public:
 std::wstring _description;
 

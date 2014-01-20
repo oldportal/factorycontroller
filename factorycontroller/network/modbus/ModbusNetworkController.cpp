@@ -84,7 +84,12 @@ void oldportal::fc::network::modbus::ModbusNetworkController::initHardware()
     //_serial_port.open(QIODevice::ReadWrite);
 }//END_f8023113994496e435af338c650de451
 
-void oldportal::fc::network::modbus::ModbusNetworkController::run()
+void oldportal::fc::network::modbus::ModbusNetworkController::processMessagePair(oldportal::fc::network::modbus::ModbusMessagePair& message)
+{//BEGIN_9573ab2dbdd64b510691a2ff16c486b1
+    //TODO: processMessagePair()
+}//END_9573ab2dbdd64b510691a2ff16c486b1
+
+void oldportal::fc::network::modbus::ModbusNetworkController::realtime_run()
 {//BEGIN_28cef3745d943d472fa32591aa5d754b
     initHardware();
 

@@ -56,6 +56,8 @@ std::queue< std::shared_ptr<oldportal::fc::network::DeviceCommand> > _command_qu
 public:
 oldportal::fc::network::NetworkClock _network_time;
 public:
+oldportal::fc::network::NetworkErrorStatistics _error_statistics;
+public:
 std::shared_ptr< oldportal::fc::network::Network > _network;
 
 

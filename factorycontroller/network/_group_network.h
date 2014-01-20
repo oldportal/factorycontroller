@@ -25,7 +25,7 @@
 
 //BEGIN_GROUP_COMMENT
 /**
-Industr*/
+Indust*/
 //END_GROUP_COMMENT
 
 

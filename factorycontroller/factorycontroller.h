@@ -183,9 +183,10 @@ namespace network
 class ConfigurationLoader;
 class DeviceCommand;
 class Network;
+struct NetworkClock;
 class NetworkController;
 class NetworkDevice;
-struct NetworkClock;
+class NetworkErrorStatistics;
 
 namespace command 
 {
@@ -196,7 +197,7 @@ class StateReport;
 namespace modbus 
 {
 class ModbusDevice;
-class ModbusMessagePair;
+struct ModbusMessagePair;
 class ModbusNetworkController;
 
 }// namespace modbus
@@ -280,7 +281,7 @@ namespace util
 #include "factory/warehouse/StorageManager.h"
 #include "factory/warehouse/StoragePallet.h"
 #include "factory/warehouse/StoragePalletPlace.h"
-#include "network/NetworkClock.h"
+#include "network/NetworkErrorStatistics.h"
 #include "network/NetworkDevice.h"
 #include "network/modbus/ModbusDevice.h"
 #include "hardware/HardwareDevice.h"
@@ -307,6 +308,7 @@ namespace util
 #include "hardware/welding/WeldingPowerSource.h"
 #include "network/ConfigurationLoader.h"
 #include "network/Network.h"
+#include "network/NetworkClock.h"
 #include "network/NetworkController.h"
 #include "network/command/NetworkTimeSynchronization.h"
 #include "network/command/StateReport.h"
@@ -381,7 +383,7 @@ namespace fc
 #include "factory/warehouse/StorageManager.h"
 #include "factory/warehouse/StoragePallet.h"
 #include "factory/warehouse/StoragePalletPlace.h"
-#include "network/NetworkClock.h"
+#include "network/NetworkErrorStatistics.h"
 #include "network/NetworkDevice.h"
 #include "network/modbus/ModbusDevice.h"
 #include "hardware/HardwareDevice.h"
@@ -408,6 +410,7 @@ namespace fc
 #include "hardware/welding/WeldingPowerSource.h"
 #include "network/ConfigurationLoader.h"
 #include "network/Network.h"
+#include "network/NetworkClock.h"
 #include "network/NetworkController.h"
 #include "network/command/NetworkTimeSynchronization.h"
 #include "network/command/StateReport.h"
