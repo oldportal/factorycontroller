@@ -45,12 +45,12 @@ OldPortal Factory Controller project.
 
 #include <boost/uuid/uuid.hpp>
 #include <boost/uuid/uuid_generators.hpp>
-
-//#include <QtCore>
-//#include <QtSerialPort/QSerialPort>
 //END_USER_SECTION_0
 
 
+//BEGIN_TYPE_DECLARATION_10e882b2ea715e905fcda554861a73bf NETWORK_TIME
+#typedef NETWORK_TIME uint64_t;
+//END_TYPE_DECLARATION_10e882b2ea715e905fcda554861a73bf NETWORK_TIME
 
 
 // class predeclarations:
@@ -185,7 +185,7 @@ class DeviceCommand;
 class Network;
 class NetworkController;
 class NetworkDevice;
-struct NetworkTime;
+struct NetworkClock;
 
 namespace command 
 {
@@ -280,6 +280,7 @@ namespace util
 #include "factory/warehouse/StorageManager.h"
 #include "factory/warehouse/StoragePallet.h"
 #include "factory/warehouse/StoragePalletPlace.h"
+#include "network/NetworkClock.h"
 #include "network/NetworkDevice.h"
 #include "network/modbus/ModbusDevice.h"
 #include "hardware/HardwareDevice.h"
@@ -305,7 +306,6 @@ namespace util
 #include "hardware/welding/WeldingPowerSourceMode.h"
 #include "hardware/welding/WeldingPowerSource.h"
 #include "network/ConfigurationLoader.h"
-#include "network/NetworkTime.h"
 #include "network/Network.h"
 #include "network/NetworkController.h"
 #include "network/command/NetworkTimeSynchronization.h"
@@ -381,6 +381,7 @@ namespace fc
 #include "factory/warehouse/StorageManager.h"
 #include "factory/warehouse/StoragePallet.h"
 #include "factory/warehouse/StoragePalletPlace.h"
+#include "network/NetworkClock.h"
 #include "network/NetworkDevice.h"
 #include "network/modbus/ModbusDevice.h"
 #include "hardware/HardwareDevice.h"
@@ -406,7 +407,6 @@ namespace fc
 #include "hardware/welding/WeldingPowerSourceMode.h"
 #include "hardware/welding/WeldingPowerSource.h"
 #include "network/ConfigurationLoader.h"
-#include "network/NetworkTime.h"
 #include "network/Network.h"
 #include "network/NetworkController.h"
 #include "network/command/NetworkTimeSynchronization.h"

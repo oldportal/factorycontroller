@@ -79,6 +79,8 @@ virtual ~NetworkDevice();
 public:
 int64_t _id;
 public:
+oldportal::fc::network::NetworkClock _network_time;
+public:
 std::wstring _description;
 
 

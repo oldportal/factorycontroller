@@ -48,10 +48,10 @@ class ExecutorInterface
 //methods:
 
 public:
-virtual void executeTask(std::shared_ptr< oldportal::fc::scheduler::Task > task);
+virtual void executeTask(std::shared_ptr< oldportal::fc::scheduler::Task > task) = 0;
 
 public:
-virtual std::shared_ptr< oldportal::fc::scheduler::Task > getCurrentTask();
+virtual std::shared_ptr< oldportal::fc::scheduler::Task > getCurrentTask() = 0;
 
 public:
 std::shared_ptr< oldportal::fc::scheduler::Resource > getLockedResources();
@@ -60,7 +60,7 @@ std::shared_ptr< oldportal::fc::scheduler::Resource > getLockedResources();
 The function must select preferred and available task from list.
 */
 public:
-virtual std::shared_ptr< oldportal::fc::scheduler::Task > selectTask(std::vector< std::shared_ptr<oldportal::fc::scheduler::Task> >& tasks);
+virtual std::shared_ptr< oldportal::fc::scheduler::Task > selectTask(std::vector< std::shared_ptr<oldportal::fc::scheduler::Task> >& tasks) = 0;
 
 
 

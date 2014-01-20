@@ -31,31 +31,12 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-void oldportal::fc::scheduler::ExecutorInterface::executeTask(std::shared_ptr< oldportal::fc::scheduler::Task > task)
-{//BEGIN_78da14d811f9fe1464cbeed3408ec13e
-    //TODO: executeTask()
-}//END_78da14d811f9fe1464cbeed3408ec13e
-
-std::shared_ptr< oldportal::fc::scheduler::Task > oldportal::fc::scheduler::ExecutorInterface::getCurrentTask()
-{//BEGIN_6a343962ffad9432333c7960f6a2ec16
-    std::shared_ptr< oldportal::fc::scheduler::Task >ret;
-    //TODO: getCurrentTask()
-    return ret;
-}//END_6a343962ffad9432333c7960f6a2ec16
-
 std::shared_ptr< oldportal::fc::scheduler::Resource > oldportal::fc::scheduler::ExecutorInterface::getLockedResources()
 {//BEGIN_f60a964f51d60ae382cfe97cc42532df
     std::shared_ptr< oldportal::fc::scheduler::Resource > ret;
     //TODO: getLockedResources()
     return ret;
 }//END_f60a964f51d60ae382cfe97cc42532df
-
-std::shared_ptr< oldportal::fc::scheduler::Task > oldportal::fc::scheduler::ExecutorInterface::selectTask(std::vector< std::shared_ptr<oldportal::fc::scheduler::Task> >& tasks)
-{//BEGIN_ee25b13195a998845b49887b658ee4c3
-    std::shared_ptr< oldportal::fc::scheduler::Task > ret;
-    //TODO: selectTask()
-    return ret;
-}//END_ee25b13195a998845b49887b658ee4c3
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE

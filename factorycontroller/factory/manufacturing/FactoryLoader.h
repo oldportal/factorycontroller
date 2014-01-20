@@ -55,19 +55,19 @@ virtual ~FactoryLoader();
 //methods:
 
 public:
-virtual std::shared_ptr< oldportal::fc::network::NetworkController > getNetworkController();
+virtual std::shared_ptr< oldportal::fc::network::NetworkController > getNetworkController() = 0;
 
 public:
-virtual std::shared_ptr< oldportal::fc::scheduler::Scheduler > getScheduler();
+virtual std::shared_ptr< oldportal::fc::scheduler::Scheduler > getScheduler() = 0;
 
 public:
-virtual std::shared_ptr< oldportal::fc::factory::warehouse::StorageManager > getStorageManager();
+virtual std::shared_ptr< oldportal::fc::factory::warehouse::StorageManager > getStorageManager() = 0;
 
 /**
 Init program loader.
 */
 public:
-virtual void init();
+virtual void init() = 0;
 
 
 

@@ -86,7 +86,7 @@ SOURCES += main.cpp \
     factorycontroller/network/_group_network.cpp \
     factorycontroller/network/DeviceCommand.cpp \
     factorycontroller/network/ConfigurationLoader.cpp \
-    factorycontroller/network/NetworkTime.cpp \
+    factorycontroller/network/NetworkClock.cpp \
     factorycontroller/network/command/NetworkTimeSynchronization.cpp \
     factorycontroller/network/command/_group_command.cpp \
     factorycontroller/network/command/StateReport.cpp \

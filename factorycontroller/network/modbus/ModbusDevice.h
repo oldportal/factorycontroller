@@ -48,7 +48,7 @@ class ModbusDevice
 // members:
 
 public:
-uint16_t _address;
+uint16_t _modbus_address;
 
 
 //methods:
