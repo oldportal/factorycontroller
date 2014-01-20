@@ -45,13 +45,15 @@ class DeviceCommand
 // members:
 
 public:
+std::shared_ptr< oldportal::fc::hardware::HardwareDevice > _device;
+public:
 uint8_t _priority;
 
 
 //methods:
 
 public:
-virtual void onModbusResponse(oldportal::fc::network::modbus::ModbusMessagePair& modbusMessage);
+virtual void onModbusResponse(oldportal::fc::network::modbus::ModbusMessagePair& modbusMessage, std::shared_ptr< oldportal::fc::network::modbus::ModbusNetworkController > controller) = 0;
 
 /**
 Executed direct in network driver's soft realtime thread while modbus response has been readed.
@@ -59,10 +61,10 @@ Executed direct in network driver's soft realtime thread while modbus response h
 Be carefull to this function execution interval, use it only for short latency-critical tasks.
 */
 public:
-virtual void onRealTimeModbusResponse(oldportal::fc::network::modbus::ModbusMessagePair& modbusMessage);
+virtual void onRealTimeModbusResponse(oldportal::fc::network::modbus::ModbusMessagePair& modbusMessage, std::shared_ptr< oldportal::fc::network::modbus::ModbusNetworkController > controller);
 
 public:
-virtual void saveModbusMessage(oldportal::fc::network::modbus::ModbusMessagePair& modbusMessage);
+virtual void saveModbusMessage(oldportal::fc::network::modbus::ModbusMessagePair& modbusMessage) = 0;
 
 
 

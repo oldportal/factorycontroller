@@ -54,7 +54,7 @@ virtual ~NetworkController();
 private:
 std::queue< std::shared_ptr<oldportal::fc::network::DeviceCommand> > _command_queue;
 public:
-oldportal::fc::network::NetworkTime _network_time;
+oldportal::fc::network::NetworkClock _network_time;
 public:
 std::shared_ptr< oldportal::fc::network::Network > _network;
 
@@ -62,7 +62,7 @@ std::shared_ptr< oldportal::fc::network::Network > _network;
 //methods:
 
 public:
-void initHardware();
+virtual void initHardware() = 0;
 
 protected:
 virtual void run();

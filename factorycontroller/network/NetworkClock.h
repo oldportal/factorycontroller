@@ -37,11 +37,11 @@ namespace fc
 namespace network 
 {
 
-struct NetworkTime
+struct NetworkClock
 {
 // constructors:
 public:
-NetworkTime();
+NetworkClock();
 
 
 // members:
@@ -49,20 +49,26 @@ NetworkTime();
 /**
 System time in milliseconds.
 */
-public:
+private:
 uint64_t _network_start_time;
 
 
 //methods:
 
+/**
+Start time in system time,
+*/
+public:
+uint64_t getStartTime();
+
 public:
 void init();
 
 public:
-uint64_t toNetworkTime(uint64_t system_time) const;
+NETWORK_TIME toNetworkTime(uint64_t system_time) const;
 
 public:
-uint64_t toSystemTime(uint64_t network_time) const;
+uint64_t toSystemTime(NETWORK_TIME network_time) const;
 
 
 

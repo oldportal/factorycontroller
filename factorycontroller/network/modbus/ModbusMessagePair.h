@@ -42,9 +42,20 @@ namespace modbus
 class ModbusMessagePair
 {
 // constructors:
+public:
+ModbusMessagePair();
 
 
 // members:
+
+public:
+bool _received_ok;
+public:
+bool _sent_ok;
+public:
+uint8_t _received_buf[256];
+public:
+uint8_t _send_buf[256];
 
 
 //methods:

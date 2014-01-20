@@ -31,25 +31,30 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-oldportal::fc::network::NetworkTime::NetworkTime()
+oldportal::fc::network::NetworkClock::NetworkClock()
 
 {//BEGIN_e78e68ce2c9012b95739d0ad514a76fb
     _network_start_time = 0;
 }//END_e78e68ce2c9012b95739d0ad514a76fb
 
 
-void oldportal::fc::network::NetworkTime::init()
+uint64_t oldportal::fc::network::NetworkClock::getStartTime()
+{//BEGIN_0ddc1cba7d9f96ed91788bbdb91cefb9
+    return _network_start_time;
+}//END_0ddc1cba7d9f96ed91788bbdb91cefb9
+
+void oldportal::fc::network::NetworkClock::init()
 {//BEGIN_9655658420dce1e6a0cd63336b820bdb
     _network_start_time = QDateTime::currentMSecsSinceEpoch();
 }//END_9655658420dce1e6a0cd63336b820bdb
 
-uint64_t oldportal::fc::network::NetworkTime::toNetworkTime(uint64_t system_time) const
+NETWORK_TIME oldportal::fc::network::NetworkClock::toNetworkTime(uint64_t system_time) const
 {//BEGIN_cdcb1145f93e4fc57113862d59c118f3
     int64_t difference = system_time - _network_start_time;
     return difference;
 }//END_cdcb1145f93e4fc57113862d59c118f3
 
-uint64_t oldportal::fc::network::NetworkTime::toSystemTime(uint64_t network_time) const
+uint64_t oldportal::fc::network::NetworkClock::toSystemTime(NETWORK_TIME network_time) const
 {//BEGIN_08ceb6411a138ef839fc72ebdd751592
     return network_time + _network_start_time;
 }//END_08ceb6411a138ef839fc72ebdd751592

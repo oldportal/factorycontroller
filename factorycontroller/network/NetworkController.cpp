@@ -51,11 +51,6 @@ oldportal::fc::network::NetworkController::~NetworkController()
 }//END_4de2478f0423252a7abd1d53cc26ff8d
 
 
-void oldportal::fc::network::NetworkController::initHardware()
-{//BEGIN_201d55558583ff12ce4fb1109a021a6e
-
-}//END_201d55558583ff12ce4fb1109a021a6e
-
 void oldportal::fc::network::NetworkController::run()
 {//BEGIN_e0d8579838548c0a7d77d2a895c69c95
 

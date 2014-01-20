@@ -65,7 +65,7 @@ std::queue< std::shared_ptr<ModbusMessagePair> > _message_queue;
 //methods:
 
 public:
-void initHardware();
+virtual void initHardware();
 
 protected:
 virtual void run();

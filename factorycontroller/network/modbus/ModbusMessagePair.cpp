@@ -31,6 +31,13 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+oldportal::fc::network::modbus::ModbusMessagePair::ModbusMessagePair()
+
+{//BEGIN_ec0da4ab8c59963dd06b220481f2da85
+
+}//END_ec0da4ab8c59963dd06b220481f2da85
+
+
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
 
 //END_USER_SECTION_AFTER_GENERATED_CODE

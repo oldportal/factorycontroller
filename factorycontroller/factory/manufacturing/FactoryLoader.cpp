@@ -45,33 +45,6 @@ oldportal::fc::factory::manufacturing::FactoryLoader::~FactoryLoader()
 }//END_cb83b8b73db87af298a2208ece486b78
 
 
-std::shared_ptr< oldportal::fc::network::NetworkController > oldportal::fc::factory::manufacturing::FactoryLoader::getNetworkController()
-{//BEGIN_cd2f45bcd30e024c9b559fef514b9ed7
-    std::shared_ptr< oldportal::fc::network::NetworkController > ret;
-
-    return ret;
-}//END_cd2f45bcd30e024c9b559fef514b9ed7
-
-std::shared_ptr< oldportal::fc::scheduler::Scheduler > oldportal::fc::factory::manufacturing::FactoryLoader::getScheduler()
-{//BEGIN_c1af0a30f2cdcb800ae61ef7078516e3
-    std::shared_ptr< oldportal::fc::scheduler::Scheduler > ret;
-
-    return ret;
-}//END_c1af0a30f2cdcb800ae61ef7078516e3
-
-std::shared_ptr< oldportal::fc::factory::warehouse::StorageManager > oldportal::fc::factory::manufacturing::FactoryLoader::getStorageManager()
-{//BEGIN_0f587d81b1b7649975deacd2cda84610
-    std::shared_ptr< oldportal::fc::factory::warehouse::StorageManager > ret;
-
-    return ret;
-}//END_0f587d81b1b7649975deacd2cda84610
-
-void oldportal::fc::factory::manufacturing::FactoryLoader::init()
-{//BEGIN_3783c3414e6c5523d53e6fb4dc24ad15
-
-}//END_3783c3414e6c5523d53e6fb4dc24ad15
-
-
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
 
 //END_USER_SECTION_AFTER_GENERATED_CODE
