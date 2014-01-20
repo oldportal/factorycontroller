@@ -17,60 +17,33 @@
 *    
 *    Copyright (C) Dmitry Ognyannikov, 2012
 */
-#ifndef H_f625a75b9b2f0463cb43e3cae5188c2f_H
-#define H_f625a75b9b2f0463cb43e3cae5188c2f_H
 
 
+//BEGIN_USER_SECTION_BEFORE_MASTER_INCLUDE
+
+//END_USER_SECTION_BEFORE_MASTER_INCLUDE
 
 
-//BEGIN_GROUP_COMMENT
-/**
-Workflow Engine for manufacturing hard*/
-//END_GROUP_COMMENT
+#include "../factorycontroller.h"
+
+//BEGIN_USER_SECTION_AFTER_MASTER_INCLUDE
+
+//END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-//BEGIN_USER_SECTION_0
+oldportal::fc::network::NetworkErrorStatistics::NetworkErrorStatistics()
 
-//END_USER_SECTION_0
-
-
-namespace oldportal 
-{
-namespace fc 
-{
-namespace scheduler 
-{
-// global variables declaration
-}// namespace scheduler
-}// namespace fc
-}// namespace oldportal
+{//BEGIN_15a28158f7aea94116d22a99c2dbef28
+    clear();
+}//END_15a28158f7aea94116d22a99c2dbef28
 
 
-namespace oldportal 
-{
-namespace fc 
-{
-namespace scheduler 
-{
-// global methods declaration
-}// namespace scheduler
-}// namespace fc
-}// namespace oldportal
+void oldportal::fc::network::NetworkErrorStatistics::clear()
+{//BEGIN_2c6924c4a9b6616e52344a8393ff4641
+    //TODO: clear()
+}//END_2c6924c4a9b6616e52344a8393ff4641
 
 
+//BEGIN_USER_SECTION_AFTER_GENERATED_CODE
 
-
-
-#endif // H_f625a75b9b2f0463cb43e3cae5188c2f_H
-
-#ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_f625a75b9b2f0463cb43e3cae5188c2f_INLINES_H
-#define H_f625a75b9b2f0463cb43e3cae5188c2f_INLINES_H
-//BEGIN_USER_SECTION_1
-
-//END_USER_SECTION_1
-
-
-#endif // H_f625a75b9b2f0463cb43e3cae5188c2f_INLINES_H
-
-#endif //OBJECTS_BUILDER_PROJECT_INLINES
+//END_USER_SECTION_AFTER_GENERATED_CODE

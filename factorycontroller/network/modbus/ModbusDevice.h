@@ -45,6 +45,9 @@ class ModbusDevice
 // constructors:
 
 
+public:
+virtual ~ModbusDevice();
+
 // members:
 
 public:

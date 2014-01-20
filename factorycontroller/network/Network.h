@@ -47,8 +47,6 @@ class Network
 public:
 int64_t _id;
 public:
-oldportal::fc::network::NetworkClock _network_time;
-public:
 std::string _serialPortPath;
 public:
 std::vector< std::shared_ptr<NetworkDevice> > _devices;

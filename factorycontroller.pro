@@ -109,7 +109,8 @@ SOURCES += main.cpp \
     factorycontroller/scheduler/Scheduler.cpp \
     factorycontroller/network/Network.cpp \
     factorycontroller/network/modbus/ModbusNetworkController.cpp \
-    factorycontroller/scheduler/TaskLogMessage.cpp
+    factorycontroller/scheduler/TaskLogMessage.cpp \
+    factorycontroller/network/NetworkErrorStatistics.cpp
 
 HEADERS += \
     factorycontroller/factorycontroller.h 

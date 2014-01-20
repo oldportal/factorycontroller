@@ -64,11 +64,19 @@ std::queue< std::shared_ptr<ModbusMessagePair> > _message_queue;
 
 //methods:
 
+/**
+1. Iniit and open Modbus port.
+2. Start low-level realtime network thread.
+3. Call high level NetworkContrroller function.
+*/
 public:
 virtual void initHardware();
 
 protected:
-virtual void run();
+void processMessagePair(oldportal::fc::network::modbus::ModbusMessagePair& message);
+
+private:
+void realtime_run();
 
 
 

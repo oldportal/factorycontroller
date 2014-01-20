@@ -17,8 +17,8 @@
 *    
 *    Copyright (C) Dmitry Ognyannikov, 2012
 */
-#ifndef H_882fa2af205cedb8d28d8550b0d300f9_H
-#define H_882fa2af205cedb8d28d8550b0d300f9_H
+#ifndef H_3dc81caf81b40301be705b80b84db0c2_H
+#define H_3dc81caf81b40301be705b80b84db0c2_H
 
 
 
@@ -28,7 +28,7 @@
 
 
 /**
-
+Network error counter.
 */
 namespace oldportal 
 {
@@ -36,29 +36,28 @@ namespace fc
 {
 namespace network 
 {
-namespace modbus 
-{
 
-struct ModbusMessagePair
+class NetworkErrorStatistics
 {
 // constructors:
 public:
-ModbusMessagePair();
+NetworkErrorStatistics();
 
 
 // members:
 
-public:
-bool _received_ok;
-public:
-bool _sent_ok;
-public:
-uint8_t _received_buf[256];
-public:
-uint8_t _send_buf[256];
+private:
+uint64_t _total_error_count;
 
 
 //methods:
+
+/**
+Clear counter. 
+*/
+public:
+void clear();
+
 
 
 //child groups:
@@ -71,7 +70,6 @@ uint8_t _send_buf[256];
 }// namespace oldportal
 }// namespace fc
 }// namespace network
-}// namespace modbus
 
 
 //BEGIN_USER_SECTION_AFTER_CLASS_DECLARATION
@@ -79,11 +77,11 @@ uint8_t _send_buf[256];
 //END_USER_SECTION_AFTER_CLASS_DECLARATION
 
 
-#endif // H_882fa2af205cedb8d28d8550b0d300f9_H
+#endif // H_3dc81caf81b40301be705b80b84db0c2_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_882fa2af205cedb8d28d8550b0d300f9_INLINES_H
-#define H_882fa2af205cedb8d28d8550b0d300f9_INLINES_H
+#ifndef H_3dc81caf81b40301be705b80b84db0c2_INLINES_H
+#define H_3dc81caf81b40301be705b80b84db0c2_INLINES_H
 
-#endif // H_882fa2af205cedb8d28d8550b0d300f9_INLINES_H
+#endif // H_3dc81caf81b40301be705b80b84db0c2_INLINES_H
 #endif //OBJECTS_BUILDER_PROJECT_INLINES
