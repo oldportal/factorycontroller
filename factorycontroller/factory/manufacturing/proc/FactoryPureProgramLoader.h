@@ -57,15 +57,25 @@ virtual ~FactoryPureProgramLoader();
 protected:
 std::shared_ptr< oldportal::fc::factory::warehouse::StorageManager > _storage_manager;
 protected:
-std::shared_ptr< oldportal::fc::network::NetworkController > _network_controller;
-protected:
 std::shared_ptr< oldportal::fc::scheduler::Scheduler > _scheduler;
+protected:
+std::vector< std::shared_ptr<oldportal::fc::network::Network> > _networks;
+protected:
+std::vector< std::shared_ptr<oldportal::fc::network::NetworkController> > _network_controllers;
+protected:
+std::vector< std::shared_ptr<oldportal::fc::scheduler::ExecutorInterface> > _executors;
 
 
 //methods:
 
 public:
-virtual std::shared_ptr< oldportal::fc::network::NetworkController > getNetworkController();
+virtual std::vector< std::shared_ptr<oldportal::fc::scheduler::ExecutorInterface> > getExecutors();
+
+public:
+virtual std::vector< std::shared_ptr<oldportal::fc::network::NetworkController> > getNetworkControllers();
+
+public:
+virtual std::vector< std::shared_ptr<oldportal::fc::network::Network> > getNetworks();
 
 public:
 virtual std::shared_ptr< oldportal::fc::scheduler::Scheduler > getScheduler();

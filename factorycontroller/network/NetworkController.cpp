@@ -56,6 +56,11 @@ void oldportal::fc::network::NetworkController::run()
 
 }//END_e0d8579838548c0a7d77d2a895c69c95
 
+void oldportal::fc::network::NetworkController::step()
+{//BEGIN_3033921a3e8dfcbf8411d6d9f69e8ac8
+    //TODO: step()
+}//END_3033921a3e8dfcbf8411d6d9f69e8ac8
+
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
 

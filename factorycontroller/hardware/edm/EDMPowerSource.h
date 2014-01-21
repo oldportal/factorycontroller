@@ -53,6 +53,14 @@ oldportal::fc::hardware::edm::EDMWorkMode _mode;
 
 //methods:
 
+/**
+Update state.
+Logic processes step.
+*/
+public:
+virtual void step();
+
+
 
 //child groups:
 

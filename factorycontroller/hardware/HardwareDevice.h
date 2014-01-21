@@ -59,6 +59,14 @@ float _deviceTemperature;
 
 //methods:
 
+/**
+Update state.
+Logic processes step.
+*/
+public:
+virtual void step();
+
+
 
 //child groups:
 

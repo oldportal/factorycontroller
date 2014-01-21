@@ -69,6 +69,13 @@ virtual void initHardware() = 0;
 protected:
 virtual void run();
 
+/**
+Update state.
+Logic processes step.
+*/
+public:
+virtual void step();
+
 
 
 //child groups:

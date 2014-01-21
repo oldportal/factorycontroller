@@ -62,6 +62,13 @@ The function must select preferred and available task from list.
 public:
 virtual std::shared_ptr< oldportal::fc::scheduler::Task > selectTask(std::vector< std::shared_ptr<oldportal::fc::scheduler::Task> >& tasks) = 0;
 
+/**
+Update state.
+Logic processes step.
+*/
+public:
+virtual void step() = 0;
+
 
 
 //child groups:

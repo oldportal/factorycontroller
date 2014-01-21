@@ -67,6 +67,14 @@ std::vector< std::shared_ptr<Task> > _tasksQueue;
 
 //methods:
 
+/**
+Update state.
+Logic processes step.
+*/
+public:
+virtual void step();
+
+
 
 //child groups:
 

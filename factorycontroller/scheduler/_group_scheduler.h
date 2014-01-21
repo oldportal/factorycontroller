@@ -25,7 +25,7 @@
 
 //BEGIN_GROUP_COMMENT
 /**
-Workflow Engine for manufacturing hard*/
+Workflow Engine for manufacturing har*/
 //END_GROUP_COMMENT
 
 

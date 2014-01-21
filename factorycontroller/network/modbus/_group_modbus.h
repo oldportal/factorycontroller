@@ -25,7 +25,7 @@
 
 //BEGIN_GROUP_COMMENT
 /**
-Modbus in*/
+Modbus i*/
 //END_GROUP_COMMENT
 
 

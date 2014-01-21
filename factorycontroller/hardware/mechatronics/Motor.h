@@ -69,6 +69,14 @@ oldportal::fc::hardware::mechatronics::MotorSettings _settings;
 
 //methods:
 
+/**
+Update state.
+Logic processes step.
+*/
+public:
+virtual void step();
+
+
 
 //child groups:
 

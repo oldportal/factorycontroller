@@ -38,6 +38,12 @@ oldportal::fc::hardware::HardwareDevice::HardwareDevice()
 }//END_001b57e88de26f85c27fce08008e0dd8
 
 
+void oldportal::fc::hardware::HardwareDevice::step()
+{//BEGIN_d42686e1ac956e97373c774ee3cd2a15
+    //TODO: step()
+}//END_d42686e1ac956e97373c774ee3cd2a15
+
+
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
 
 //END_USER_SECTION_AFTER_GENERATED_CODE

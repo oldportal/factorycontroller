@@ -56,6 +56,14 @@ uint16_t _modbus_address;
 
 //methods:
 
+/**
+Update state.
+Logic processes step.
+*/
+public:
+virtual void step();
+
+
 
 //child groups:
 

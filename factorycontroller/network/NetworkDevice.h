@@ -90,6 +90,14 @@ std::wstring _description;
 
 //methods:
 
+/**
+Update state.
+Logic processes step.
+*/
+public:
+virtual void step() = 0;
+
+
 
 //child groups:
 
