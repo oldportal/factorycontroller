@@ -55,7 +55,13 @@ virtual ~FactoryLoader();
 //methods:
 
 public:
-virtual std::shared_ptr< oldportal::fc::network::NetworkController > getNetworkController() = 0;
+virtual std::vector< std::shared_ptr<oldportal::fc::scheduler::ExecutorInterface> > getExecutors() = 0;
+
+public:
+virtual std::vector< std::shared_ptr<oldportal::fc::network::NetworkController> > getNetworkControllers() = 0;
+
+public:
+virtual std::vector< std::shared_ptr<oldportal::fc::network::Network> > getNetworks() = 0;
 
 public:
 virtual std::shared_ptr< oldportal::fc::scheduler::Scheduler > getScheduler() = 0;

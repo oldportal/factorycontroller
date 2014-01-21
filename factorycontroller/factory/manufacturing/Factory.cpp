@@ -37,9 +37,11 @@ oldportal::fc::factory::manufacturing::Factory::Factory(std::shared_ptr< oldport
     loader->init();
 
     // get Factory members
-    _network_controller = loader->getNetworkController();
+    _networks = loader->getNetworks();
+    _network_controllers = loader->getNetworkControllers();
     _scheduler = loader->getScheduler();
     _storage_manager = loader->getStorageManager();
+    _executors = loader->getExecutors();
 }//END_0af1b742578141e3955f1e87dc8b67fd
 
 
@@ -50,10 +52,20 @@ oldportal::fc::factory::manufacturing::Factory::~Factory()
 }//END_506a49cbc48747ee89440ccc4e8cea86
 
 
-std::shared_ptr< oldportal::fc::network::NetworkController > oldportal::fc::factory::manufacturing::Factory::getNetworkController()
+std::vector< std::shared_ptr<oldportal::fc::scheduler::ExecutorInterface> > oldportal::fc::factory::manufacturing::Factory::getExecutors()
 {//BEGIN_179de6362c47a40e33c6288e6377995c
-    return _network_controller;
+    return _executors;
 }//END_179de6362c47a40e33c6288e6377995c
+
+std::vector< std::shared_ptr<oldportal::fc::network::NetworkController> > oldportal::fc::factory::manufacturing::Factory::getNetworkControllers()
+{//BEGIN_cf9709af7e9634a7d7ecc8f708f6f2ed
+    return _network_controllers;
+}//END_cf9709af7e9634a7d7ecc8f708f6f2ed
+
+std::vector< std::shared_ptr<oldportal::fc::network::Network> > oldportal::fc::factory::manufacturing::Factory::getNetworks()
+{//BEGIN_76a1bb1eb6971f7be5a65996536540af
+    return _networks;
+}//END_76a1bb1eb6971f7be5a65996536540af
 
 std::shared_ptr< oldportal::fc::scheduler::Scheduler > oldportal::fc::factory::manufacturing::Factory::getScheduler()
 {//BEGIN_84acbfb64dde43ce2689549162ba5b53
@@ -71,8 +83,13 @@ void oldportal::fc::factory::manufacturing::Factory::run()
 }//END_a4ad6d027289a8b7eff52dd5cd9626b6
 
 void oldportal::fc::factory::manufacturing::Factory::start()
-{//BEGIN_771bbcfbbdef24221633f30b5616553e
+{//BEGIN_72e7c33dacb46addbda1cbca090efe91
     //TODO: start()
+}//END_72e7c33dacb46addbda1cbca090efe91
+
+void oldportal::fc::factory::manufacturing::Factory::step()
+{//BEGIN_771bbcfbbdef24221633f30b5616553e
+    //TODO: step()
 }//END_771bbcfbbdef24221633f30b5616553e
 
 

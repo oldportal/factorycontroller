@@ -91,7 +91,6 @@ void oldportal::fc::network::modbus::ModbusNetworkController::processMessagePair
 
 void oldportal::fc::network::modbus::ModbusNetworkController::realtime_run()
 {//BEGIN_28cef3745d943d472fa32591aa5d754b
-    initHardware();
 
     // make thread self-owner:
     //this->moveToThread(this);
@@ -109,7 +108,7 @@ void oldportal::fc::network::modbus::ModbusNetworkController::realtime_run()
         while (!_message_queue.empty())
         {
             auto message = _message_queue.front();
-            //TODO: read modbus commnds queue and send, wait for response
+            //TODO: read modbus commands queue and send, wait for response
             _message_queue.pop();
             //TODO: handle port errors
         }

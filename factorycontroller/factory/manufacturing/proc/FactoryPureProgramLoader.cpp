@@ -45,10 +45,20 @@ oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::~FactoryP
 }//END_1f0482e3d3ea6c7bd98d13887ab3eeeb
 
 
-std::shared_ptr< oldportal::fc::network::NetworkController > oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::getNetworkController()
-{//BEGIN_da6b61af649cc75b8183359d2f5c8233
-    return _network_controller;
-}//END_da6b61af649cc75b8183359d2f5c8233
+std::vector< std::shared_ptr<oldportal::fc::scheduler::ExecutorInterface> > oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::getExecutors()
+{//BEGIN_35dc9994ce03b036850012793fb08c1e
+    return _executors;
+}//END_35dc9994ce03b036850012793fb08c1e
+
+std::vector< std::shared_ptr<oldportal::fc::network::NetworkController> > oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::getNetworkControllers()
+{//BEGIN_c4430f402fbaa9ec643d23863d633559
+    return _network_controllers;
+}//END_c4430f402fbaa9ec643d23863d633559
+
+std::vector< std::shared_ptr<oldportal::fc::network::Network> > oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::getNetworks()
+{//BEGIN_7e7aa6fd48769d1d8d1c9d1f4393bfd5
+    return _networks;
+}//END_7e7aa6fd48769d1d8d1c9d1f4393bfd5
 
 std::shared_ptr< oldportal::fc::scheduler::Scheduler > oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::getScheduler()
 {//BEGIN_4b75b4b3ddcdee4f1789bedef5c37859
@@ -87,7 +97,7 @@ void oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::init
     else */
     {
         //TODO: report error
-        _network_controller = std::make_shared< oldportal::fc::network::NetworkController >();
+        //_network_controllers = std::make_shared< oldportal::fc::network::NetworkController >();
     }
 
     _scheduler = std::make_shared< oldportal::fc::scheduler::Scheduler >();

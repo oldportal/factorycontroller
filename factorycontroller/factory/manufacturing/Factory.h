@@ -54,17 +54,25 @@ virtual ~Factory();
 protected:
 std::shared_ptr< oldportal::fc::factory::warehouse::StorageManager > _storage_manager;
 protected:
-std::shared_ptr< oldportal::fc::network::NetworkController > _network_controller;
-protected:
 std::shared_ptr< oldportal::fc::scheduler::Scheduler > _scheduler;
-public:
+protected:
+std::vector< std::shared_ptr<oldportal::fc::network::Network> > _networks;
+protected:
+std::vector< std::shared_ptr<oldportal::fc::network::NetworkController> > _network_controllers;
+protected:
 std::vector< std::shared_ptr<oldportal::fc::scheduler::ExecutorInterface> > _executors;
 
 
 //methods:
 
 public:
-std::shared_ptr< oldportal::fc::network::NetworkController > getNetworkController();
+std::vector< std::shared_ptr<oldportal::fc::scheduler::ExecutorInterface> > getExecutors();
+
+public:
+std::vector< std::shared_ptr<oldportal::fc::network::NetworkController> > getNetworkControllers();
+
+public:
+std::vector< std::shared_ptr<oldportal::fc::network::Network> > getNetworks();
 
 public:
 std::shared_ptr< oldportal::fc::scheduler::Scheduler > getScheduler();
@@ -72,14 +80,23 @@ std::shared_ptr< oldportal::fc::scheduler::Scheduler > getScheduler();
 public:
 std::shared_ptr< oldportal::fc::factory::warehouse::StorageManager > getStorageManager();
 
-protected:
-virtual void run();
+private:
+void run();
 
 /**
 Start factory run in separate thread.
 */
 public:
 virtual void start();
+
+/**
+Update state.
+Logic processes step.
+
+main step cycle for all subcomponents.
+*/
+protected:
+virtual void step();
 
 
 

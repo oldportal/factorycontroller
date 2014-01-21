@@ -45,6 +45,12 @@ oldportal::fc::scheduler::Scheduler::~Scheduler()
 }//END_6dbabc34a227e7f5196815f9d436aa40
 
 
+void oldportal::fc::scheduler::Scheduler::step()
+{//BEGIN_c567ab57f17a524a7a447734b9d48168
+    //TODO: step()
+}//END_c567ab57f17a524a7a447734b9d48168
+
+
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
 
 //END_USER_SECTION_AFTER_GENERATED_CODE
