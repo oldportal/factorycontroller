@@ -55,9 +55,13 @@ virtual ~ModbusNetworkController();
 // members:
 
 private:
+bool _run_thread_cycle_flag;
+private:
 boost::asio::io_service _serial_port_io;
 private:
 std::shared_ptr< boost::asio::serial_port > _serial_port;
+protected:
+std::shared_ptr< std::thread > _realtime_thread;
 public:
 std::queue< std::shared_ptr<ModbusMessagePair> > _message_queue;
 
@@ -76,7 +80,7 @@ protected:
 void processMessagePair(oldportal::fc::network::modbus::ModbusMessagePair& message);
 
 private:
-void realtime_run();
+static void realtime_run(oldportal::fc::network::modbus::ModbusNetworkController* controller);
 
 
 

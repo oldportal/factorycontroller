@@ -47,6 +47,8 @@ oldportal::fc::network::modbus::ModbusNetworkController::ModbusNetworkController
 
 oldportal::fc::network::modbus::ModbusNetworkController::~ModbusNetworkController()
 {//BEGIN_d7d316a8510aff274bca8908a5a3b0b7
+    _run_thread_cycle_flag = false;
+
     if (_serial_port && _serial_port->is_open())
         _serial_port->close();
 }//END_d7d316a8510aff274bca8908a5a3b0b7
@@ -80,8 +82,10 @@ void oldportal::fc::network::modbus::ModbusNetworkController::initHardware()
 
     //TODO: handle open port errors
 
-    //_serial_port.setPortName(_network->_serialPortPath);
-    //_serial_port.open(QIODevice::ReadWrite);
+    // start soft realtime thread
+    _run_thread_cycle_flag = true;
+    _realtime_thread = std::make_shared<std::thread>(oldportal::fc::network::modbus::ModbusNetworkController::realtime_run, this);
+    //TODO: set realtime thread priority
 }//END_f8023113994496e435af338c650de451
 
 void oldportal::fc::network::modbus::ModbusNetworkController::processMessagePair(oldportal::fc::network::modbus::ModbusMessagePair& message)
@@ -89,29 +93,29 @@ void oldportal::fc::network::modbus::ModbusNetworkController::processMessagePair
     //TODO: processMessagePair()
 }//END_9573ab2dbdd64b510691a2ff16c486b1
 
-void oldportal::fc::network::modbus::ModbusNetworkController::realtime_run()
+void oldportal::fc::network::modbus::ModbusNetworkController::realtime_run(oldportal::fc::network::modbus::ModbusNetworkController* controller)
 {//BEGIN_28cef3745d943d472fa32591aa5d754b
+    assert(controller);
 
-    // make thread self-owner:
-    //this->moveToThread(this);
-
-    if (!_serial_port || !_serial_port->is_open())
+    if (!controller->_serial_port || !controller->_serial_port->is_open())
     {
         //TODO: report error
         return;
     }
 
-    while (true)
+    while (controller->_run_thread_cycle_flag)
     {
-        //QThread::msleep(10);
-
-        while (!_message_queue.empty())
+        while (!controller->_message_queue.empty())
         {
-            auto message = _message_queue.front();
+            auto message = controller->_message_queue.front();
             //TODO: read modbus commands queue and send, wait for response
-            _message_queue.pop();
+            controller->_message_queue.pop();
             //TODO: handle port errors
         }
+
+        // sleep with chrono
+        std::chrono::milliseconds sleep_duration( 1 );
+        std::this_thread::sleep_for( sleep_duration );
     }
 }//END_28cef3745d943d472fa32591aa5d754b
 
