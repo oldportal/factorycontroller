@@ -48,7 +48,7 @@ oldportal::fc::factory::manufacturing::Factory::Factory(std::shared_ptr< oldport
 
 oldportal::fc::factory::manufacturing::Factory::~Factory()
 {//BEGIN_506a49cbc48747ee89440ccc4e8cea86
-
+    _run_thread_cycle_flag = false;
 }//END_506a49cbc48747ee89440ccc4e8cea86
 
 
@@ -79,22 +79,41 @@ std::shared_ptr< oldportal::fc::factory::warehouse::StorageManager > oldportal::
 
 void oldportal::fc::factory::manufacturing::Factory::run(oldportal::fc::factory::manufacturing::Factory* factory)
 {//BEGIN_a4ad6d027289a8b7eff52dd5cd9626b6
-    while(true)
+    assert(factory);
+    while(factory->_run_thread_cycle_flag)
     {
         factory->step();
-        //TODO: sleep std::this_thread.
+        //TODO: sleep with chrono std::this_thread.
     }
 }//END_a4ad6d027289a8b7eff52dd5cd9626b6
 
 void oldportal::fc::factory::manufacturing::Factory::start()
 {//BEGIN_72e7c33dacb46addbda1cbca090efe91
+    _run_thread_cycle_flag = true;
     _run_thread = std::make_shared<std::thread>(oldportal::fc::factory::manufacturing::Factory::run, this);
 }//END_72e7c33dacb46addbda1cbca090efe91
 
 void oldportal::fc::factory::manufacturing::Factory::step()
 {//BEGIN_771bbcfbbdef24221633f30b5616553e
-    //TODO: step()
+
+    for (int i=0; i<_network_controllers.size(); i++)
+    {
+        _network_controllers[i]->step();
+    }
+
+    for (int i=0; i<_executors.size(); i++)
+    {
+        _executors[i]->step();
+    }
+
+    _storage_manager->step();
+    _scheduler->step();
 }//END_771bbcfbbdef24221633f30b5616553e
+
+void oldportal::fc::factory::manufacturing::Factory::stop()
+{//BEGIN_416fa323fc52050b30eba79d16026243
+    _run_thread_cycle_flag = false;
+}//END_416fa323fc52050b30eba79d16026243
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE

@@ -25,7 +25,7 @@
 
 //BEGIN_GROUP_COMMENT
 /**
-Modbu*/
+Mod*/
 //END_GROUP_COMMENT
 
 

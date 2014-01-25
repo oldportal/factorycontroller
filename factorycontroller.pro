@@ -13,8 +13,9 @@ TARGET = factorycontroller
 CONFIG   += console
 CONFIG   -= app_bundle
 CONFIG   += boost
+CONFIG   += thread
 
-LIBS	+= -lboost_system
+LIBS	+= -lboost_system -lpthread
 
 TEMPLATE = app
 
