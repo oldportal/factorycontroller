@@ -37,7 +37,9 @@ OldPortal Factory Controller project.
 #include <memory>
 #include <string>
 #include <queue>
+#include <map>
 #include <vector>
+#include <thread>
 
 #include <boost/asio.hpp>
 
