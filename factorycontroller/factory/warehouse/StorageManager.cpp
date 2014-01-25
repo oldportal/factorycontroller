@@ -45,6 +45,12 @@ oldportal::fc::factory::warehouse::StorageManager::~StorageManager()
 }//END_6d3f202ab6af8256767fd4d54caceb95
 
 
+void oldportal::fc::factory::warehouse::StorageManager::step()
+{//BEGIN_877678a3436de986246f8c9bcb865545
+    //TODO: step()
+}//END_877678a3436de986246f8c9bcb865545
+
+
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
 
 //END_USER_SECTION_AFTER_GENERATED_CODE

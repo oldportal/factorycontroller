@@ -51,6 +51,8 @@ virtual ~Factory();
 
 // members:
 
+private:
+bool _run_thread_cycle_flag;
 protected:
 std::shared_ptr< oldportal::fc::factory::warehouse::StorageManager > _storage_manager;
 protected:
@@ -99,6 +101,9 @@ main step cycle for all subcomponents.
 */
 protected:
 virtual void step();
+
+public:
+virtual void stop();
 
 
 
