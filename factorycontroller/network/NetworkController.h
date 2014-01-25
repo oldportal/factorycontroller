@@ -66,9 +66,6 @@ std::shared_ptr< oldportal::fc::network::Network > _network;
 public:
 virtual void initHardware() = 0;
 
-protected:
-virtual void run();
-
 /**
 Update state.
 Logic processes step.

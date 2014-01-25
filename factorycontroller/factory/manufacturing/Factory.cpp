@@ -83,7 +83,11 @@ void oldportal::fc::factory::manufacturing::Factory::run(oldportal::fc::factory:
     while(factory->_run_thread_cycle_flag)
     {
         factory->step();
-        //TODO: sleep with chrono std::this_thread.
+
+        // sleep with chrono
+        std::chrono::milliseconds sleep_duration( 1 );
+        std::this_thread::sleep_for( sleep_duration );
+        //std::this_thread::yield();
     }
 }//END_a4ad6d027289a8b7eff52dd5cd9626b6
 

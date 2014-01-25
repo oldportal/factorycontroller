@@ -27,36 +27,39 @@
 #include "../factorycontroller.h"
 
 //BEGIN_USER_SECTION_AFTER_MASTER_INCLUDE
-#include <QDateTime>
+
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
 oldportal::fc::network::NetworkClock::NetworkClock()
 
 {//BEGIN_e78e68ce2c9012b95739d0ad514a76fb
-    _network_start_time = 0;
+    _network_start_time = std::chrono::high_resolution_clock::now();
 }//END_e78e68ce2c9012b95739d0ad514a76fb
 
 
-uint64_t oldportal::fc::network::NetworkClock::getStartTime()
+std::chrono::high_resolution_clock::time_point oldportal::fc::network::NetworkClock::getStartTime()
 {//BEGIN_0ddc1cba7d9f96ed91788bbdb91cefb9
     return _network_start_time;
 }//END_0ddc1cba7d9f96ed91788bbdb91cefb9
 
 void oldportal::fc::network::NetworkClock::init()
 {//BEGIN_9655658420dce1e6a0cd63336b820bdb
-    _network_start_time = QDateTime::currentMSecsSinceEpoch();
+    _network_start_time = std::chrono::high_resolution_clock::now();
 }//END_9655658420dce1e6a0cd63336b820bdb
 
-NETWORK_TIME oldportal::fc::network::NetworkClock::toNetworkTime(uint64_t system_time) const
+NETWORK_TIME oldportal::fc::network::NetworkClock::toNetworkTime(std::chrono::high_resolution_clock::time_point system_time) const
 {//BEGIN_cdcb1145f93e4fc57113862d59c118f3
-    int64_t difference = system_time - _network_start_time;
+    std::chrono::high_resolution_clock::time_point current_time =
+        std::chrono::high_resolution_clock::now();
+    std::chrono::milliseconds time_span = std::chrono::duration_cast<std::chrono::milliseconds>(current_time - _network_start_time);
+    NETWORK_TIME difference = time_span.count();
     return difference;
 }//END_cdcb1145f93e4fc57113862d59c118f3
 
-uint64_t oldportal::fc::network::NetworkClock::toSystemTime(NETWORK_TIME network_time) const
+std::chrono::high_resolution_clock::time_point oldportal::fc::network::NetworkClock::toSystemTime(NETWORK_TIME network_time) const
 {//BEGIN_08ceb6411a138ef839fc72ebdd751592
-    return network_time + _network_start_time;
+    return _network_start_time + std::chrono::milliseconds(network_time); // = _network_start_time + network_time;
 }//END_08ceb6411a138ef839fc72ebdd751592
 
 

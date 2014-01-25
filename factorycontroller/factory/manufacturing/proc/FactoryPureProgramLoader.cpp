@@ -27,7 +27,7 @@
 #include "../../../factorycontroller.h"
 
 //BEGIN_USER_SECTION_AFTER_MASTER_INCLUDE
-#include <QtSerialPort/QSerialPortInfo>
+
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 

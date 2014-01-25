@@ -50,7 +50,7 @@ NetworkClock();
 System time in milliseconds.
 */
 private:
-uint64_t _network_start_time;
+std::chrono::high_resolution_clock::time_point _network_start_time;
 
 
 //methods:
@@ -59,16 +59,16 @@ uint64_t _network_start_time;
 Start time in system time,
 */
 public:
-uint64_t getStartTime();
+std::chrono::high_resolution_clock::time_point getStartTime();
 
 public:
 void init();
 
 public:
-NETWORK_TIME toNetworkTime(uint64_t system_time) const;
+NETWORK_TIME toNetworkTime(std::chrono::high_resolution_clock::time_point system_time) const;
 
 public:
-uint64_t toSystemTime(NETWORK_TIME network_time) const;
+std::chrono::high_resolution_clock::time_point toSystemTime(NETWORK_TIME network_time) const;
 
 
 
