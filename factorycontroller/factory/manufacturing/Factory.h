@@ -56,6 +56,8 @@ std::shared_ptr< oldportal::fc::factory::warehouse::StorageManager > _storage_ma
 protected:
 std::shared_ptr< oldportal::fc::scheduler::Scheduler > _scheduler;
 protected:
+std::shared_ptr< std::thread > _run_thread;
+protected:
 std::vector< std::shared_ptr<oldportal::fc::network::Network> > _networks;
 protected:
 std::vector< std::shared_ptr<oldportal::fc::network::NetworkController> > _network_controllers;
@@ -81,7 +83,7 @@ public:
 std::shared_ptr< oldportal::fc::factory::warehouse::StorageManager > getStorageManager();
 
 private:
-void run();
+static void run(oldportal::fc::factory::manufacturing::Factory* factory);
 
 /**
 Start factory run in separate thread.

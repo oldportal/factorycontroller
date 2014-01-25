@@ -7,7 +7,7 @@
 #QT       += core
 #QT       += serialport
 
-QT       -= gui
+QT       -= gui core
 
 TARGET = factorycontroller
 CONFIG   += console
@@ -19,6 +19,7 @@ LIBS	+= -lboost_system
 TEMPLATE = app
 
 QMAKE_CXXFLAGS += -std=c++0x
+#QMAKE_CXXFLAGS += -std=c++11
 
 SOURCES += main.cpp \
     factorycontroller/_group_factorycontroller.cpp \ 

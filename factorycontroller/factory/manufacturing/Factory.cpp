@@ -77,14 +77,18 @@ std::shared_ptr< oldportal::fc::factory::warehouse::StorageManager > oldportal::
     return _storage_manager;
 }//END_0a256b3ec66070b7dae5847fce12b292
 
-void oldportal::fc::factory::manufacturing::Factory::run()
+void oldportal::fc::factory::manufacturing::Factory::run(oldportal::fc::factory::manufacturing::Factory* factory)
 {//BEGIN_a4ad6d027289a8b7eff52dd5cd9626b6
-
+    while(true)
+    {
+        factory->step();
+        //TODO: sleep std::this_thread.
+    }
 }//END_a4ad6d027289a8b7eff52dd5cd9626b6
 
 void oldportal::fc::factory::manufacturing::Factory::start()
 {//BEGIN_72e7c33dacb46addbda1cbca090efe91
-    //TODO: start()
+    _run_thread = std::make_shared<std::thread>(oldportal::fc::factory::manufacturing::Factory::run, this);
 }//END_72e7c33dacb46addbda1cbca090efe91
 
 void oldportal::fc::factory::manufacturing::Factory::step()
