@@ -58,6 +58,12 @@ namespace system
 namespace logger 
 {
 // global methods declaration
+void log(std::wstring message);
+
+void log(std::wstring topic, std::wstring message);
+
+void log_hardware(std::wstring topic, std::wstring message);
+
 }// namespace logger
 }// namespace system
 }// namespace fc

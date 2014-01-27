@@ -55,6 +55,8 @@ virtual ~ModbusNetworkController();
 // members:
 
 private:
+bool _close_interrupted_flag;
+private:
 bool _run_thread_cycle_flag;
 private:
 boost::asio::io_service _serial_port_io;
@@ -69,6 +71,15 @@ std::queue< std::shared_ptr<ModbusMessagePair> > _message_queue;
 //methods:
 
 /**
+Close realtime thread after queue empty.
+*/
+public:
+virtual void close();
+
+private:
+void closeSerialPort();
+
+/**
 1. Iniit and open Modbus port.
 2. Start low-level realtime network thread.
 3. Call high level NetworkContrroller function.
@@ -76,8 +87,11 @@ std::queue< std::shared_ptr<ModbusMessagePair> > _message_queue;
 public:
 virtual void initHardware();
 
+/**
+Send, wait for response, process response.
+*/
 protected:
-void processMessagePair(oldportal::fc::network::modbus::ModbusMessagePair& message);
+void processMessagePair(std::shared_ptr< oldportal::fc::network::modbus::ModbusMessagePair > message);
 
 private:
 static void realtime_run(oldportal::fc::network::modbus::ModbusNetworkController* controller);

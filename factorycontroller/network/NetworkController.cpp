@@ -51,6 +51,12 @@ oldportal::fc::network::NetworkController::~NetworkController()
 }//END_4de2478f0423252a7abd1d53cc26ff8d
 
 
+void oldportal::fc::network::NetworkController::close()
+{//BEGIN_72aaf2eea836be1532496923ffafeaf3
+    //TODO: closeController()
+}//END_72aaf2eea836be1532496923ffafeaf3
+
+
 void oldportal::fc::network::NetworkController::step()
 {//BEGIN_3033921a3e8dfcbf8411d6d9f69e8ac8
     //TODO: step()

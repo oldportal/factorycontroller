@@ -38,12 +38,13 @@
 oldportal::fc::network::modbus::ModbusNetworkController::ModbusNetworkController()
 
 {//BEGIN_6724b29e7b540ba96d924367ee3d6b85
-
+    _close_interrupted_flag = false;
 }//END_6724b29e7b540ba96d924367ee3d6b85
 
 oldportal::fc::network::modbus::ModbusNetworkController::ModbusNetworkController(std::shared_ptr< oldportal::fc::network::Network > network)
     : oldportal::fc::network::NetworkController(network)
 {//BEGIN_07e0f66a5c8adc2ca4ad385b32e14479
+    _close_interrupted_flag = false;
     _network = network;
 }//END_07e0f66a5c8adc2ca4ad385b32e14479
 
@@ -52,11 +53,25 @@ oldportal::fc::network::modbus::ModbusNetworkController::ModbusNetworkController
 oldportal::fc::network::modbus::ModbusNetworkController::~ModbusNetworkController()
 {//BEGIN_d7d316a8510aff274bca8908a5a3b0b7
     _run_thread_cycle_flag = false;
+    _close_interrupted_flag = true;
 
-    if (_serial_port && _serial_port->is_open())
-        _serial_port->close();
+    closeSerialPort();
 }//END_d7d316a8510aff274bca8908a5a3b0b7
 
+
+void oldportal::fc::network::modbus::ModbusNetworkController::close()
+{//BEGIN_59b44143cde316021c103d93a2acb7fc
+    _close_interrupted_flag = true;
+}//END_59b44143cde316021c103d93a2acb7fc
+
+void oldportal::fc::network::modbus::ModbusNetworkController::closeSerialPort()
+{//BEGIN_1ee5c89496456a1159e90add755bcadc
+    if (_serial_port && _serial_port->is_open())
+    {
+        _serial_port->close();
+        _serial_port.reset();
+    }
+}//END_1ee5c89496456a1159e90add755bcadc
 
 void oldportal::fc::network::modbus::ModbusNetworkController::initHardware()
 {//BEGIN_f8023113994496e435af338c650de451
@@ -64,6 +79,7 @@ void oldportal::fc::network::modbus::ModbusNetworkController::initHardware()
     _network_time.init();
 
     // open serial port with reference to boost::asio::io_service _serial_port_io
+    oldportal::fc::system::logger::log(L"oldportal::fc::network::modbus::ModbusNetworkController::initHardware() open serial port...");
     _serial_port = std::make_shared<boost::asio::serial_port>(_serial_port_io, _network->_serialPortPath);
 
     //TODO: set predefined settings
@@ -86,11 +102,14 @@ void oldportal::fc::network::modbus::ModbusNetworkController::initHardware()
 
     //TODO: handle open port errors
 
+    oldportal::fc::system::logger::log(L"oldportal::fc::network::modbus::ModbusNetworkController::initHardware() serial port opened");
+
     // start soft realtime thread
     _run_thread_cycle_flag = true;
+    _close_interrupted_flag = false;
     _realtime_thread = std::make_shared<std::thread>(oldportal::fc::network::modbus::ModbusNetworkController::realtime_run, this);
-    //TODO: set realtime thread priority
 
+    // set realtime thread priority
 #ifdef WIN32
     // WIN API
     // HIGH_PRIORITY_CLASS->REALTIME_PRIORITY_CLASS
@@ -114,9 +133,11 @@ void oldportal::fc::network::modbus::ModbusNetworkController::initHardware()
 #endif
 }//END_f8023113994496e435af338c650de451
 
-void oldportal::fc::network::modbus::ModbusNetworkController::processMessagePair(oldportal::fc::network::modbus::ModbusMessagePair& message)
+void oldportal::fc::network::modbus::ModbusNetworkController::processMessagePair(std::shared_ptr< oldportal::fc::network::modbus::ModbusMessagePair > message)
 {//BEGIN_9573ab2dbdd64b510691a2ff16c486b1
     //TODO: processMessagePair()
+    //TODO: read modbus commands queue and send, wait for response
+    //TODO: handle port errors
 }//END_9573ab2dbdd64b510691a2ff16c486b1
 
 void oldportal::fc::network::modbus::ModbusNetworkController::realtime_run(oldportal::fc::network::modbus::ModbusNetworkController* controller)
@@ -125,18 +146,31 @@ void oldportal::fc::network::modbus::ModbusNetworkController::realtime_run(oldpo
 
     if (!controller->_serial_port || !controller->_serial_port->is_open())
     {
-        //TODO: report error
+        //TODO: report error as error status
+        oldportal::fc::system::logger::log(L"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() ERROR - serial port is not opened, thread stopping...");
+
         return;
     }
+    oldportal::fc::system::logger::log(L"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() realtime thread started");
 
     while (controller->_run_thread_cycle_flag)
     {
+        // main work, process messages
         while (!controller->_message_queue.empty())
         {
             auto message = controller->_message_queue.front();
-            //TODO: read modbus commands queue and send, wait for response
+            controller->processMessagePair(message);
             controller->_message_queue.pop();
-            //TODO: handle port errors
+        }
+
+        // check for interruption and closing
+        if (controller->_close_interrupted_flag)
+        {
+            oldportal::fc::system::logger::log(L"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() thread stopping...");
+            controller->_run_thread_cycle_flag = false;
+            controller->closeSerialPort();
+            oldportal::fc::system::logger::log(L"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() thread stopped");
+            return;
         }
 
         // sleep with chrono

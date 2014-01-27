@@ -63,6 +63,12 @@ std::shared_ptr< oldportal::fc::network::Network > _network;
 
 //methods:
 
+/**
+Close realtime thread after queue empty.
+*/
+public:
+virtual void close();
+
 public:
 virtual void initHardware() = 0;
 
