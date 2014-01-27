@@ -94,6 +94,12 @@ public:
 virtual void start();
 
 /**
+Start factory run in separate thread.
+*/
+public:
+virtual void start_in_new_thread();
+
+/**
 Update state.
 Logic processes step.
 
