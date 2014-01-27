@@ -112,7 +112,9 @@ SOURCES += main.cpp \
     factorycontroller/network/Network.cpp \
     factorycontroller/network/modbus/ModbusNetworkController.cpp \
     factorycontroller/scheduler/TaskLogMessage.cpp \
-    factorycontroller/network/NetworkErrorStatistics.cpp
+    factorycontroller/network/NetworkErrorStatistics.cpp \
+    factorycontroller/system/logger/_group_logger.cpp \
+    factorycontroller/system/logger/Logger.cpp
 
 HEADERS += \
     factorycontroller/factorycontroller.h 
