@@ -25,7 +25,7 @@
 
 //BEGIN_GROUP_COMMENT
 /**
-Workflow Engine for m*/
+Workflow Engine for */
 //END_GROUP_COMMENT
 
 

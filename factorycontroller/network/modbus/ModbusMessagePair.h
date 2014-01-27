@@ -60,6 +60,25 @@ uint8_t _send_buf[256];
 
 //methods:
 
+public:
+bool checkResponseCRC();
+
+public:
+uint8_t getResponseMessageLength();
+
+public:
+void setCRC(uint8_t message_length);
+
+public:
+void setMessageAddress(uint16_t modbus_address);
+
+public:
+void setMessageFunction(uint8_t function_number);
+
+public:
+void setMessageLength(uint8_t message_length);
+
+
 
 //child groups:
 
