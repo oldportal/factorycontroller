@@ -97,7 +97,7 @@ virtual void start();
 Start factory run in separate thread.
 */
 public:
-virtual void start_in_new_thread();
+virtual void startInNewThread();
 
 /**
 Update state.

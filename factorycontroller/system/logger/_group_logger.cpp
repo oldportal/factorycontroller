@@ -33,6 +33,21 @@
 
 
 
+void log(std::wstring message)
+{//BEGIN_b034dc6cf51407f73a74b6854e70a466
+    std::wcout << message << std::endl;
+}//END_b034dc6cf51407f73a74b6854e70a466
+
+void log(std::wstring topic, std::wstring message)
+{//BEGIN_5b2146e1131feb320ab73025d505782c
+    std::wcout << topic << L" : " << message << std::endl;
+}//END_5b2146e1131feb320ab73025d505782c
+
+void log_hardware(std::wstring topic, std::wstring message)
+{//BEGIN_ee21dc1c4d309ca38ea32370452ebc7f
+    std::wcout << L"hardware log : " << topic << L" : " << message << std::endl;
+}//END_ee21dc1c4d309ca38ea32370452ebc7f
+
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE

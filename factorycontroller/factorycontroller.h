@@ -44,8 +44,6 @@ OldPortal Factory Controller project.
 #include <chrono>
 #include <boost/asio.hpp>
 
-//#include <boost/date_time/posix_time/posix_time.hpp>
-
 #include <boost/uuid/uuid.hpp>
 #include <boost/uuid/uuid_generators.hpp>
 //END_USER_SECTION_0

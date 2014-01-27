@@ -80,6 +80,7 @@ std::shared_ptr< oldportal::fc::factory::warehouse::StorageManager > oldportal::
 void oldportal::fc::factory::manufacturing::Factory::run(oldportal::fc::factory::manufacturing::Factory* factory)
 {//BEGIN_a4ad6d027289a8b7eff52dd5cd9626b6
     assert(factory);
+    oldportal::fc::system::logger::log(L"oldportal::fc::factory::manufacturing::Factory::run() main cycle started");
     while(factory->_run_thread_cycle_flag)
     {
         factory->step();
@@ -97,7 +98,7 @@ void oldportal::fc::factory::manufacturing::Factory::start()
     oldportal::fc::factory::manufacturing::Factory::run(this);
 }//END_72e7c33dacb46addbda1cbca090efe91
 
-void oldportal::fc::factory::manufacturing::Factory::start_in_new_thread()
+void oldportal::fc::factory::manufacturing::Factory::startInNewThread()
 {//BEGIN_f429e5bc386427f537e83288357ab5e0
     _run_thread_cycle_flag = true;
     _run_thread = std::make_shared<std::thread>(oldportal::fc::factory::manufacturing::Factory::run, this);

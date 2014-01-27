@@ -46,21 +46,6 @@ oldportal::fc::system::logger::Logger& oldportal::fc::system::logger::Logger::ge
     return _logger;
 }//END_cd3f2d455e614e6b06dcb61c6291081a
 
-void oldportal::fc::system::logger::Logger::log(std::wstring message)
-{//BEGIN_ec9c85481810a08da0714832a779e4d8
-    std::wcout << message << std::endl;
-}//END_ec9c85481810a08da0714832a779e4d8
-
-void oldportal::fc::system::logger::Logger::log(std::wstring topic, std::wstring message)
-{//BEGIN_e9bb0a3f97bd0a79b797dcfe01c2eb0c
-    std::wcout << topic << L" : " << message << std::endl;
-}//END_e9bb0a3f97bd0a79b797dcfe01c2eb0c
-
-void oldportal::fc::system::logger::Logger::log_hardware(std::wstring topic, std::wstring message)
-{//BEGIN_bf781f62d454fd34bea3f6ebce27c35a
-    std::wcout << L"hardware log : " << topic << L" : " << message << std::endl;
-}//END_bf781f62d454fd34bea3f6ebce27c35a
-
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
 

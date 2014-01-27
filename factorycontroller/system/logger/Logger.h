@@ -59,18 +59,6 @@ static oldportal::fc::system::logger::Logger _logger;
 public:
 static oldportal::fc::system::logger::Logger& getLogger();
 
-public:
-static void log(std::wstring message);
-
-public:
-static void log(std::wstring topic, std::wstring message);
-
-/**
-Log hardware message event.
-*/
-public:
-static void log_hardware(std::wstring topic, std::wstring message);
-
 
 
 //child groups:
