@@ -25,7 +25,7 @@
 
 //BEGIN_GROUP_COMMENT
 /**
-Workflow Engine for manufact*/
+Workflow Engine for manufac*/
 //END_GROUP_COMMENT
 
 

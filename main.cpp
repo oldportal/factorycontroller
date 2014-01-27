@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
     // free loader
     loader.reset();
 
-    // start the Factory
+    // start the Factory cycle
     factory->start();
 
     return 0;

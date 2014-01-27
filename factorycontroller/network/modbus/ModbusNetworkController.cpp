@@ -27,7 +27,11 @@
 #include "../../factorycontroller.h"
 
 //BEGIN_USER_SECTION_AFTER_MASTER_INCLUDE
-
+#ifdef WIN32
+#include <windows.h>
+#else
+#include <pthread.h>
+#endif
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
@@ -86,6 +90,28 @@ void oldportal::fc::network::modbus::ModbusNetworkController::initHardware()
     _run_thread_cycle_flag = true;
     _realtime_thread = std::make_shared<std::thread>(oldportal::fc::network::modbus::ModbusNetworkController::realtime_run, this);
     //TODO: set realtime thread priority
+
+#ifdef WIN32
+    // WIN API
+    // HIGH_PRIORITY_CLASS->REALTIME_PRIORITY_CLASS
+    if (!SetPriorityClass(_realtime_thread->native_handle(), HIGH_PRIORITY_CLASS))
+    // THREAD_PRIORITY_NORMAL->THREAD_PRIORITY_HIGHEST->THREAD_PRIORITY_TIME_CRITICAL
+    if (!SetThreadPriority(_realtime_thread->native_handle(), THREAD_PRIORITY_TIME_CRITICAL))
+    {
+        DWORD dwError = GetLastError();
+        std::cout << "cannot set modbus thread priority, error: " << dwError;
+    }
+#else
+    // pthread library
+    int policy;
+    struct sched_param param;
+
+    pthread_getschedparam(_realtime_thread->native_handle(), &policy, &param);
+    // you would use policies SCHED_FIFO, SCHED_RR where you can specify HIGH priority of thread
+    policy = SCHED_RR;
+    param.sched_priority = sched_get_priority_max(policy);
+    pthread_setschedparam(_realtime_thread->native_handle(), policy, &param);
+#endif
 }//END_f8023113994496e435af338c650de451
 
 void oldportal::fc::network::modbus::ModbusNetworkController::processMessagePair(oldportal::fc::network::modbus::ModbusMessagePair& message)

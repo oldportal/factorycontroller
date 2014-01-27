@@ -94,8 +94,14 @@ void oldportal::fc::factory::manufacturing::Factory::run(oldportal::fc::factory:
 void oldportal::fc::factory::manufacturing::Factory::start()
 {//BEGIN_72e7c33dacb46addbda1cbca090efe91
     _run_thread_cycle_flag = true;
-    _run_thread = std::make_shared<std::thread>(oldportal::fc::factory::manufacturing::Factory::run, this);
+    oldportal::fc::factory::manufacturing::Factory::run(this);
 }//END_72e7c33dacb46addbda1cbca090efe91
+
+void oldportal::fc::factory::manufacturing::Factory::start_in_new_thread()
+{//BEGIN_f429e5bc386427f537e83288357ab5e0
+    _run_thread_cycle_flag = true;
+    _run_thread = std::make_shared<std::thread>(oldportal::fc::factory::manufacturing::Factory::run, this);
+}//END_f429e5bc386427f537e83288357ab5e0
 
 void oldportal::fc::factory::manufacturing::Factory::step()
 {//BEGIN_771bbcfbbdef24221633f30b5616553e
