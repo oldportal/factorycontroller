@@ -53,9 +53,9 @@ bool _received_ok;
 public:
 bool _sent_ok;
 public:
-uint8_t _received_buf[256];
+std::array< uint8_t, 256 > _received_buf;
 public:
-uint8_t _send_buf[256];
+std::array< uint8_t, 256 > _send_buf;
 
 
 //methods:

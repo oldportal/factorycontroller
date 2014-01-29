@@ -37,6 +37,7 @@ OldPortal Factory Controller project.
 
 #include <memory>
 #include <string>
+#include <array>
 #include <queue>
 #include <map>
 #include <vector>
@@ -52,9 +53,6 @@ OldPortal Factory Controller project.
 //BEGIN_TYPE_DECLARATION_10e882b2ea715e905fcda554861a73bf NETWORK_TIME
 typedef uint64_t NETWORK_TIME;
 //END_TYPE_DECLARATION_10e882b2ea715e905fcda554861a73bf NETWORK_TIME
-//BEGIN_TYPE_DECLARATION_43306d536d2287a64fc7b4be7493a637 NETWORK_TIME_INTERVAL
-typedef uint64_t NETWORK_TIME_INTERVAL;
-//END_TYPE_DECLARATION_43306d536d2287a64fc7b4be7493a637 NETWORK_TIME_INTERVAL
 
 
 // class predeclarations:
