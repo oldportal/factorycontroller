@@ -19,7 +19,7 @@ LIBS	+= -lboost_system -lpthread
 
 TEMPLATE = app
 
-QMAKE_CXXFLAGS += -std=c++0x -M
+QMAKE_CXXFLAGS += -std=c++0x
 #QMAKE_CXXFLAGS += -std=c++11
 
 PRECOMPILED_HEADER = factorycontroller/factorycontroller.h 
