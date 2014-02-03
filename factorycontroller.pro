@@ -9,7 +9,7 @@
 
 QT       -= gui core
 
-TARGET = factorycontroller
+TARGET = factory_controller
 CONFIG   += console
 CONFIG   -= app_bundle
 CONFIG   += boost
@@ -19,8 +19,10 @@ LIBS	+= -lboost_system -lpthread
 
 TEMPLATE = app
 
-QMAKE_CXXFLAGS += -std=c++0x
+QMAKE_CXXFLAGS += -std=c++0x -M
 #QMAKE_CXXFLAGS += -std=c++11
+
+PRECOMPILED_HEADER = factorycontroller/factorycontroller.h 
 
 SOURCES += main.cpp \
     factorycontroller/_group_factorycontroller.cpp \ 
@@ -116,5 +118,4 @@ SOURCES += main.cpp \
     factorycontroller/system/logger/_group_logger.cpp \
     factorycontroller/system/logger/Logger.cpp
 
-HEADERS += \
-    factorycontroller/factorycontroller.h 
+HEADERS += factorycontroller/factorycontroller.h 

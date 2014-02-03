@@ -53,7 +53,7 @@ uint64_t _total_error_count;
 //methods:
 
 /**
-Clear counter. 
+Clear counter.
 */
 public:
 void clear();
