@@ -45,6 +45,8 @@ OldPortal Factory Controller project.
 #include <chrono>
 #include <boost/asio.hpp>
 
+#include <boost/crc.hpp>
+
 #include <boost/uuid/uuid.hpp>
 #include <boost/uuid/uuid_generators.hpp>
 //END_USER_SECTION_0

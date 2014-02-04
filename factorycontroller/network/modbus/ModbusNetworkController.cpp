@@ -136,7 +136,7 @@ void oldportal::fc::network::modbus::ModbusNetworkController::initHardware()
 void oldportal::fc::network::modbus::ModbusNetworkController::processMessagePair(std::shared_ptr< oldportal::fc::network::modbus::ModbusMessagePair > message)
 {//BEGIN_9573ab2dbdd64b510691a2ff16c486b1
     //TODO: processMessagePair()
-    //TODO: read modbus commands queue and send, wait for response
+    //TODO: read modbus commands queue and send, read response with timeout
     //TODO: handle port errors
 }//END_9573ab2dbdd64b510691a2ff16c486b1
 
