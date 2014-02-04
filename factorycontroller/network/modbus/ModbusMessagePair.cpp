@@ -54,6 +54,12 @@ uint8_t oldportal::fc::network::modbus::ModbusMessagePair::getResponseMessageLen
 
 void oldportal::fc::network::modbus::ModbusMessagePair::setCRC(uint8_t message_length)
 {//BEGIN_4300ea1c4e1113846fd7fa4f2ad25c47
+    boost::crc_16_type crc16sum;
+    //crc16sum.process_block(_send_buf.data(), 250);
+    //TODO: real data length
+    uint16_t sum16 = crc16sum.checksum();
+    //TODO: set sum16
+
     //TODO: setCRC()
 }//END_4300ea1c4e1113846fd7fa4f2ad25c47
 
