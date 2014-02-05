@@ -1,0 +1,4 @@
+todo
+
+- rename group Factory (groups).+++
+- cmake or qmake code generation
