@@ -202,8 +202,8 @@ namespace modbus
 {
 class ModbusDevice;
 struct ModbusMessagePair;
-class ModbusNetworkController;
 class ModbusMessageWrapper;
+class ModbusNetworkController;
 
 }// namespace modbus
 }// namespace network
