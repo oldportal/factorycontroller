@@ -17,60 +17,36 @@
 *    
 *    Copyright (C) Dmitry Ognyannikov, 2012
 */
-#ifndef H_f625a75b9b2f0463cb43e3cae5188c2f_H
-#define H_f625a75b9b2f0463cb43e3cae5188c2f_H
 
 
+//BEGIN_USER_SECTION_BEFORE_MASTER_INCLUDE
+
+//END_USER_SECTION_BEFORE_MASTER_INCLUDE
 
 
-//BEGIN_GROUP_COMMENT
-/**
-Workflow Engine */
-//END_GROUP_COMMENT
+#include "../../factorycontroller.h"
+
+//BEGIN_USER_SECTION_AFTER_MASTER_INCLUDE
+
+//END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-//BEGIN_USER_SECTION_0
+oldportal::fc::network::modbus::ModbusMessageWrapper::ModbusMessageWrapper(oldportal::fc::network::modbus::ModbusMessagePair* pair)
 
-//END_USER_SECTION_0
+{//BEGIN_b3ff4a7c3f3e9310541352e219295968
+    assert(pair);
 
-
-namespace oldportal 
-{
-namespace fc 
-{
-namespace scheduler 
-{
-// global variables declaration
-}// namespace scheduler
-}// namespace fc
-}// namespace oldportal
+    _pair = pair;
+    _command_number = 0;
+}//END_b3ff4a7c3f3e9310541352e219295968
 
 
-namespace oldportal 
-{
-namespace fc 
-{
-namespace scheduler 
-{
-// global methods declaration
-}// namespace scheduler
-}// namespace fc
-}// namespace oldportal
+uint8_t oldportal::fc::network::modbus::ModbusMessageWrapper::get_command_number()
+{//BEGIN_923b0eb724f5e02392a4fafbde4ae0c2
+    return _command_number;
+}//END_923b0eb724f5e02392a4fafbde4ae0c2
 
 
+//BEGIN_USER_SECTION_AFTER_GENERATED_CODE
 
-
-
-#endif // H_f625a75b9b2f0463cb43e3cae5188c2f_H
-
-#ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_f625a75b9b2f0463cb43e3cae5188c2f_INLINES_H
-#define H_f625a75b9b2f0463cb43e3cae5188c2f_INLINES_H
-//BEGIN_USER_SECTION_1
-
-//END_USER_SECTION_1
-
-
-#endif // H_f625a75b9b2f0463cb43e3cae5188c2f_INLINES_H
-
-#endif //OBJECTS_BUILDER_PROJECT_INLINES
+//END_USER_SECTION_AFTER_GENERATED_CODE

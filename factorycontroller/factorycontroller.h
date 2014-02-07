@@ -203,6 +203,7 @@ namespace modbus
 class ModbusDevice;
 struct ModbusMessagePair;
 class ModbusNetworkController;
+class ModbusMessageWrapper;
 
 }// namespace modbus
 }// namespace network
@@ -317,6 +318,7 @@ namespace util
 #include "network/command/NetworkTimeSynchronization.h"
 #include "network/command/StateReport.h"
 #include "network/modbus/ModbusMessagePair.h"
+#include "network/modbus/ModbusMessageWrapper.h"
 #include "network/modbus/ModbusNetworkController.h"
 #include "scheduler/LocalConfiguration.h"
 #include "scheduler/Project.h"
@@ -419,6 +421,7 @@ namespace fc
 #include "network/command/NetworkTimeSynchronization.h"
 #include "network/command/StateReport.h"
 #include "network/modbus/ModbusMessagePair.h"
+#include "network/modbus/ModbusMessageWrapper.h"
 #include "network/modbus/ModbusNetworkController.h"
 #include "scheduler/LocalConfiguration.h"
 #include "scheduler/Project.h"
