@@ -17,8 +17,8 @@
 *    
 *    Copyright (C) Dmitry Ognyannikov, 2012
 */
-#ifndef H_882fa2af205cedb8d28d8550b0d300f9_H
-#define H_882fa2af205cedb8d28d8550b0d300f9_H
+#ifndef H_893c5f7a84c9f6c310f6a6e903ece71d_H
+#define H_893c5f7a84c9f6c310f6a6e903ece71d_H
 
 
 
@@ -28,7 +28,7 @@
 
 
 /**
-
+Modbus RTU mesage pair (request and response) general data wrapper.
 */
 namespace oldportal 
 {
@@ -39,48 +39,28 @@ namespace network
 namespace modbus 
 {
 
-struct ModbusMessagePair
+class ModbusMessageWrapper
 {
 // constructors:
 public:
-ModbusMessagePair();
+ModbusMessageWrapper(oldportal::fc::network::modbus::ModbusMessagePair* pair);
 
 
 // members:
 
-public:
-bool _is_received_ok;
-public:
-bool _is_response_dynamic_size;
-public:
-bool _is_sent_ok;
-public:
-std::array< uint8_t, 256 > _received_buf;
-public:
-std::array< uint8_t, 256 > _send_buf;
-public:
-uint8_t _response_minimum_length;
+protected:
+oldportal::fc::network::modbus::ModbusMessagePair* _pair;
+/**
+Modbus command number.
+*/
+protected:
+uint8_t _command_number;
 
 
 //methods:
 
 public:
-bool checkResponseCRC();
-
-public:
-uint8_t getResponseMessageLength();
-
-public:
-void setCRC(uint8_t message_length);
-
-public:
-void setMessageAddress(uint16_t modbus_address);
-
-public:
-void setMessageFunction(uint8_t function_number);
-
-public:
-void setMessageLength(uint8_t message_length);
+uint8_t get_command_number();
 
 
 
@@ -102,11 +82,11 @@ void setMessageLength(uint8_t message_length);
 //END_USER_SECTION_AFTER_CLASS_DECLARATION
 
 
-#endif // H_882fa2af205cedb8d28d8550b0d300f9_H
+#endif // H_893c5f7a84c9f6c310f6a6e903ece71d_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_882fa2af205cedb8d28d8550b0d300f9_INLINES_H
-#define H_882fa2af205cedb8d28d8550b0d300f9_INLINES_H
+#ifndef H_893c5f7a84c9f6c310f6a6e903ece71d_INLINES_H
+#define H_893c5f7a84c9f6c310f6a6e903ece71d_INLINES_H
 
-#endif // H_882fa2af205cedb8d28d8550b0d300f9_INLINES_H
+#endif // H_893c5f7a84c9f6c310f6a6e903ece71d_INLINES_H
 #endif //OBJECTS_BUILDER_PROJECT_INLINES

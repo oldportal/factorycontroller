@@ -78,8 +78,9 @@ oldportal::fc::network::modbus::ModbusMessagePair::ModbusMessagePair()
 
 {//BEGIN_ec0da4ab8c59963dd06b220481f2da85
     // flags:
-    _received_ok = false;
-    _sent_ok = false;
+    _is_response_dynamic_size = false;
+    _is_received_ok = false;
+    _is_sent_ok = false;
 
     // clear data structures:
     for (uint8_t& buf_byte : _received_buf)
