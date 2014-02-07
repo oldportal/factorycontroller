@@ -28,7 +28,9 @@
 
 
 /**
-Synchronize network time command
+Synchronize network time command.
+
+Send controller clock time to all devices for synchronization.
 */
 namespace oldportal 
 {

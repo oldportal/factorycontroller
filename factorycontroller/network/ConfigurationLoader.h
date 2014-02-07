@@ -28,7 +28,12 @@
 
 
 /**
+Industrial network configuration data reader.
 
+Configuration data:
+- Network type.
+- Network settings (frequency-speed, etc.)
+- Network devices (device type, device settings, etc).
 */
 namespace oldportal 
 {

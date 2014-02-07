@@ -28,7 +28,7 @@
 
 
 /**
-
+Modbus network slave device (Terminal Unit).
 */
 namespace oldportal 
 {

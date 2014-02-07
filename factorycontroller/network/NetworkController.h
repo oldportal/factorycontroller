@@ -28,7 +28,7 @@
 
 
 /**
-
+Abstract Industrial Bus (Network) controller.
 */
 namespace oldportal 
 {
