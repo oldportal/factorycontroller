@@ -28,7 +28,7 @@
 
 
 /**
-Network error counter.
+Industrial network error counter.
 */
 namespace oldportal 
 {

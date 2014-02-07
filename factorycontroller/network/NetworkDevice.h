@@ -55,7 +55,7 @@ typedef enum
 
 
 /**
-
+Abstract industrial network slave device (terminal unit).
 */
 namespace oldportal 
 {
