@@ -51,16 +51,26 @@ ModbusMessageWrapper(oldportal::fc::network::modbus::ModbusMessagePair* pair);
 protected:
 oldportal::fc::network::modbus::ModbusMessagePair* _pair;
 /**
-Modbus command number.
+Modbus function code.
 */
 protected:
-uint8_t _command_number;
+uint8_t _function_code;
+/**
+Predefined response frame size for fixed size frame.
+
+Minimum response frame size for dynamic size frame (with wariable data section size).
+*/
+protected:
+uint8_t _response_minimum_length;
 
 
 //methods:
 
 public:
-uint8_t get_command_number();
+uint8_t get_function_code();
+
+public:
+uint8_t get_response_minimum_length();
 
 
 

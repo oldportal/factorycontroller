@@ -37,14 +37,20 @@ oldportal::fc::network::modbus::ModbusMessageWrapper::ModbusMessageWrapper(oldpo
     assert(pair);
 
     _pair = pair;
-    _command_number = 0;
+    _function_code = 0;
+    _response_minimum_length = 0;
 }//END_b3ff4a7c3f3e9310541352e219295968
 
 
-uint8_t oldportal::fc::network::modbus::ModbusMessageWrapper::get_command_number()
+uint8_t oldportal::fc::network::modbus::ModbusMessageWrapper::get_function_code()
 {//BEGIN_923b0eb724f5e02392a4fafbde4ae0c2
-    return _command_number;
+    return _function_code;
 }//END_923b0eb724f5e02392a4fafbde4ae0c2
+
+uint8_t oldportal::fc::network::modbus::ModbusMessageWrapper::get_response_minimum_length()
+{//BEGIN_bf7cc0309f716e96f4b3746972307c83
+    return _response_minimum_length;
+}//END_bf7cc0309f716e96f4b3746972307c83
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE

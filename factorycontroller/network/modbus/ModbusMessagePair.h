@@ -28,7 +28,7 @@
 
 
 /**
-
+Modbus RTU request frame and response frame data.
 */
 namespace oldportal 
 {
@@ -50,6 +50,9 @@ ModbusMessagePair();
 
 public:
 bool _is_received_ok;
+/**
+true if response with dynamic size (data section size readed from response).
+*/
 public:
 bool _is_response_dynamic_size;
 public:
@@ -58,8 +61,6 @@ public:
 std::array< uint8_t, 256 > _received_buf;
 public:
 std::array< uint8_t, 256 > _send_buf;
-public:
-uint8_t _response_minimum_length;
 
 
 //methods:
