@@ -100,6 +100,7 @@ void oldportal::fc::network::modbus::ModbusNetworkController::initHardware()
     // set serial port name and settings
     _modbus_ctx = modbus_new_rtu("/dev/ttyAMA0", 115200, 'E', 8, 1);
     // mb = modbus_new_rtu("/dev/ttyUSB0", 38400, 'N', 8, 1);
+
     if (_modbus_ctx == NULL)
     {
         oldportal::fc::system::logger::error(L"oldportal::fc::network::modbus::ModbusNetworkController::initHardware() serial port create context error");
@@ -173,11 +174,13 @@ bool oldportal::fc::network::modbus::ModbusNetworkController::isOpened()
 void oldportal::fc::network::modbus::ModbusNetworkController::processDeviceCommand(std::shared_ptr< oldportal::fc::network::DeviceCommand > command)
 {//BEGIN_079bd15ede78f816935638b9f4abdb08
     //TODO: processDeviceCommand()
+    // std::dynamic_pointer_cast<>
 }//END_079bd15ede78f816935638b9f4abdb08
 
 void oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(std::shared_ptr< oldportal::fc::network::DeviceCommand > command)
 {//BEGIN_ffdc0eba50937a0a0c606b1972bc444e
     //TODO: runtime check for modbus command
+    // std::dynamic_pointer_cast<>
 
     // parent class function call
     oldportal::fc::network::NetworkController::pushCommand(command);

@@ -213,13 +213,6 @@ struct ModbusMessagePair;
 class ModbusMessageWrapper;
 class ModbusNetworkController;
 
-namespace func 
-{
-class ModbusReadHoldingRegisters;
-class ModbusReadInputRegisters;
-class ModbusWriteHoldingRegisters;
-
-}// namespace func
 }// namespace modbus
 }// namespace network
 namespace scheduler 
@@ -334,9 +327,6 @@ namespace util
 #include "network/modbus/ModbusMessagePair.h"
 #include "network/modbus/ModbusMessageWrapper.h"
 #include "network/modbus/ModbusNetworkController.h"
-#include "network/modbus/func/ModbusReadHoldingRegisters.h"
-#include "network/modbus/func/ModbusReadInputRegisters.h"
-#include "network/modbus/func/ModbusWriteHoldingRegisters.h"
 #include "scheduler/LocalConfiguration.h"
 #include "scheduler/Project.h"
 #include "scheduler/ProjectTemplate.h"
@@ -439,9 +429,6 @@ namespace fc
 #include "network/modbus/ModbusMessagePair.h"
 #include "network/modbus/ModbusMessageWrapper.h"
 #include "network/modbus/ModbusNetworkController.h"
-#include "network/modbus/func/ModbusReadHoldingRegisters.h"
-#include "network/modbus/func/ModbusReadInputRegisters.h"
-#include "network/modbus/func/ModbusWriteHoldingRegisters.h"
 #include "scheduler/LocalConfiguration.h"
 #include "scheduler/Project.h"
 #include "scheduler/ProjectTemplate.h"

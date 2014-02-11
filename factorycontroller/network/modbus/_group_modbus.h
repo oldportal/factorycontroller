@@ -64,7 +64,6 @@ namespace modbus
 }// namespace oldportal
 
 
-#include "func/_group_func.h"
 
 
 
@@ -76,8 +75,6 @@ namespace modbus
 //BEGIN_USER_SECTION_1
 
 //END_USER_SECTION_1
-
-#include "func/_group_func.h"
 
 
 #endif // H_a9d062375efdfaa1c85f9274802c7f8c_INLINES_H
