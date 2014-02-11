@@ -51,10 +51,12 @@ virtual ~NetworkController();
 
 // members:
 
-private:
-std::queue< std::shared_ptr<oldportal::fc::network::DeviceCommand> > _command_queue;
-public:
+protected:
 oldportal::fc::network::NetworkClock _network_time;
+protected:
+std::queue< std::shared_ptr<oldportal::fc::network::DeviceCommand> > _command_queue;
+protected:
+std::recursive_mutex _command_queue_lock;
 public:
 oldportal::fc::network::NetworkErrorStatistics _error_statistics;
 public:
@@ -71,6 +73,9 @@ virtual void close();
 
 public:
 virtual void initHardware() = 0;
+
+public:
+virtual void pushCommand(std::shared_ptr< oldportal::fc::network::DeviceCommand > command);
 
 /**
 Update state.

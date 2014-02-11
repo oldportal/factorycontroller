@@ -53,6 +53,8 @@ namespace fc
 namespace system 
 {
 // global methods declaration
+void log(std::wstring message);
+
 }// namespace system
 }// namespace fc
 }// namespace oldportal

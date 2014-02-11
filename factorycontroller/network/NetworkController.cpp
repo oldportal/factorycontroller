@@ -53,13 +53,19 @@ oldportal::fc::network::NetworkController::~NetworkController()
 
 void oldportal::fc::network::NetworkController::close()
 {//BEGIN_72aaf2eea836be1532496923ffafeaf3
-    //TODO: closeController()
+    // closeController() : empty
 }//END_72aaf2eea836be1532496923ffafeaf3
 
 
+void oldportal::fc::network::NetworkController::pushCommand(std::shared_ptr< oldportal::fc::network::DeviceCommand > command)
+{//BEGIN_03ce7a06742d3023b663f24e13458d90
+    std::lock_guard<std::recursive_mutex> lock(_command_queue_lock);
+    _command_queue.push(command);
+}//END_03ce7a06742d3023b663f24e13458d90
+
 void oldportal::fc::network::NetworkController::step()
 {//BEGIN_3033921a3e8dfcbf8411d6d9f69e8ac8
-    //TODO: step()
+    // step() : empty
 }//END_3033921a3e8dfcbf8411d6d9f69e8ac8
 
 
