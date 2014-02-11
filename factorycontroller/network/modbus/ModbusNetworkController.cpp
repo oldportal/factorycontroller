@@ -34,6 +34,7 @@
 oldportal::fc::network::modbus::ModbusNetworkController::ModbusNetworkController()
 
 {//BEGIN_1540738fb4e875afede8ad1c3eb3677c
+    _run_thread_cycle_flag = false;
     _close_interrupted_flag = false;
 }//END_1540738fb4e875afede8ad1c3eb3677c
 
@@ -42,6 +43,7 @@ oldportal::fc::network::modbus::ModbusNetworkController::ModbusNetworkController
 {//BEGIN_17140ab021ca3f2bd11e039871242a38
     assert(network && "ModbusNetworkController cannot be initialized with empty Network");
 
+    _run_thread_cycle_flag = false;
     _close_interrupted_flag = false;
     _network = network;
 
@@ -158,7 +160,7 @@ void oldportal::fc::network::modbus::ModbusNetworkController::initHardware()
         DWORD dwError = GetLastError();
         std::cout << "cannot set modbus thread priority, error: " << dwError;
     }
-#else
+#else // POSIX thread
     // pthread library
     int policy;
     struct sched_param param;
