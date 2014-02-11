@@ -126,6 +126,11 @@ void oldportal::fc::network::modbus::ModbusNetworkController::initHardware()
     new_response_timeout.tv_usec =150000;
     modbus_set_response_timeout(_modbus_ctx, &new_response_timeout);
 
+    struct timeval new_byte_timeout;
+    new_byte_timeout.tv_sec =0;
+    new_byte_timeout.tv_usec =50000;
+    modbus_set_byte_timeout(_modbus_ctx, &new_byte_timeout);
+
     // set destination address
     if (modbus_set_slave(_modbus_ctx, MODBUS_BROADCAST_ADDRESS) != 0)
     {
