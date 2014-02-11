@@ -209,6 +209,7 @@ class StateReport;
 namespace modbus 
 {
 class ModbusDevice;
+class ModbusDeviceCommand;
 struct ModbusMessagePair;
 class ModbusMessageWrapper;
 class ModbusNetworkController;
@@ -303,6 +304,7 @@ namespace util
 #include "hardware/mechatronics/MotorProperties.h"
 #include "hardware/mechatronics/Motor.h"
 #include "network/DeviceCommand.h"
+#include "network/modbus/ModbusDeviceCommand.h"
 #include "hardware/mechatronics/command/AccelerationMotion.h"
 #include "hardware/mechatronics/command/ConstantSpeedMotion.h"
 #include "hardware/mechatronics/command/CurveMotion.h"
@@ -405,6 +407,7 @@ namespace fc
 #include "hardware/mechatronics/MotorProperties.h"
 #include "hardware/mechatronics/Motor.h"
 #include "network/DeviceCommand.h"
+#include "network/modbus/ModbusDeviceCommand.h"
 #include "hardware/mechatronics/command/AccelerationMotion.h"
 #include "hardware/mechatronics/command/ConstantSpeedMotion.h"
 #include "hardware/mechatronics/command/CurveMotion.h"

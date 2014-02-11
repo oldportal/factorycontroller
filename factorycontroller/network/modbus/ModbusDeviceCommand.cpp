@@ -24,17 +24,29 @@
 //END_USER_SECTION_BEFORE_MASTER_INCLUDE
 
 
-#include "../../../factorycontroller.h"
+#include "../../factorycontroller.h"
 
 //BEGIN_USER_SECTION_AFTER_MASTER_INCLUDE
 
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-void oldportal::fc::hardware::mechatronics::command::LinearMotion::process()
-{//BEGIN_5a4ca282f77a69d1fdd39facedaec3a6
+oldportal::fc::network::modbus::ModbusDeviceCommand::ModbusDeviceCommand()
+
+{//BEGIN_f9f11e3926f4b2cc2d7a8949e4efe11e
+    _modbus_ctx = nullptr;
+}//END_f9f11e3926f4b2cc2d7a8949e4efe11e
+
+
+void oldportal::fc::network::modbus::ModbusDeviceCommand::onProcessed()
+{//BEGIN_f7fd91d01e45d3af0b5b6cd1f6ef68ba
+    // empty
+}//END_f7fd91d01e45d3af0b5b6cd1f6ef68ba
+
+void oldportal::fc::network::modbus::ModbusDeviceCommand::process()
+{//BEGIN_1ff74e62ebfce954857fac5f039c3234
     assert(_modbus_ctx);
-}//END_5a4ca282f77a69d1fdd39facedaec3a6
+}//END_1ff74e62ebfce954857fac5f039c3234
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE

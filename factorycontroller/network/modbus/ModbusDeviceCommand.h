@@ -17,8 +17,8 @@
 *    
 *    Copyright (C) Dmitry Ognyannikov, 2012
 */
-#ifndef H_34e1b3ff613e5277d3c39829e1db238a_H
-#define H_34e1b3ff613e5277d3c39829e1db238a_H
+#ifndef H_12b33b1f36b39bb0a1d4431491cc73ff_H
+#define H_12b33b1f36b39bb0a1d4431491cc73ff_H
 
 
 
@@ -28,9 +28,7 @@
 
 
 /**
-Synchronize network time command.
-
-Send controller clock time to all devices for synchronization.
+General planned (TO DO) command to network device. Could keep real-time stamp for execution start.
 */
 namespace oldportal 
 {
@@ -38,19 +36,41 @@ namespace fc
 {
 namespace network 
 {
-namespace command 
+namespace modbus 
 {
 
-class NetworkTimeSynchronization
-:  public virtual oldportal::fc::network::modbus::ModbusDeviceCommand
+class ModbusDeviceCommand
+:  public virtual oldportal::fc::network::DeviceCommand
 {
 // constructors:
+public:
+ModbusDeviceCommand();
 
 
 // members:
 
+public:
+modbus_t* _modbus_ctx;
+
 
 //methods:
+
+/**
+Handler.
+Called after command processed. Called in main step thread.
+*/
+protected:
+virtual void onProcessed();
+
+/**
+Process command to device in realtime background thread.
+This handler must know about used protocol.
+
+With Modbus this handler shold process request and response with libmodbus modbus_t context stored in  _modbus_ctx
+*/
+public:
+virtual void process();
+
 
 
 //child groups:
@@ -63,7 +83,7 @@ class NetworkTimeSynchronization
 }// namespace oldportal
 }// namespace fc
 }// namespace network
-}// namespace command
+}// namespace modbus
 
 
 //BEGIN_USER_SECTION_AFTER_CLASS_DECLARATION
@@ -71,11 +91,11 @@ class NetworkTimeSynchronization
 //END_USER_SECTION_AFTER_CLASS_DECLARATION
 
 
-#endif // H_34e1b3ff613e5277d3c39829e1db238a_H
+#endif // H_12b33b1f36b39bb0a1d4431491cc73ff_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_34e1b3ff613e5277d3c39829e1db238a_INLINES_H
-#define H_34e1b3ff613e5277d3c39829e1db238a_INLINES_H
+#ifndef H_12b33b1f36b39bb0a1d4431491cc73ff_INLINES_H
+#define H_12b33b1f36b39bb0a1d4431491cc73ff_INLINES_H
 
-#endif // H_34e1b3ff613e5277d3c39829e1db238a_INLINES_H
+#endif // H_12b33b1f36b39bb0a1d4431491cc73ff_INLINES_H
 #endif //OBJECTS_BUILDER_PROJECT_INLINES

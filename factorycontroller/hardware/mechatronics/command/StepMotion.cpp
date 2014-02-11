@@ -31,6 +31,12 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+void oldportal::fc::hardware::mechatronics::command::StepMotion::process()
+{//BEGIN_4e3507a92ef4831d96535832e77d1c87
+    assert(_modbus_ctx);
+}//END_4e3507a92ef4831d96535832e77d1c87
+
+
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
 
 //END_USER_SECTION_AFTER_GENERATED_CODE

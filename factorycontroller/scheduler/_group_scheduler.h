@@ -25,7 +25,7 @@
 
 //BEGIN_GROUP_COMMENT
 /**
-Wo*/
+W*/
 //END_GROUP_COMMENT
 
 

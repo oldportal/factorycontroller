@@ -45,7 +45,7 @@ namespace command
 {
 
 class StateReport
-:  public virtual oldportal::fc::network::DeviceCommand
+:  public virtual oldportal::fc::network::modbus::ModbusDeviceCommand
 {
 // constructors:
 

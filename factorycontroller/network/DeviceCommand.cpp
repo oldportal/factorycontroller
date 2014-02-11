@@ -31,10 +31,10 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-void oldportal::fc::network::DeviceCommand::onRealTimeModbusResponse(oldportal::fc::network::modbus::ModbusMessagePair& modbusMessage, std::shared_ptr< oldportal::fc::network::modbus::ModbusNetworkController > controller)
-{//BEGIN_23c01979db8c17e18dcf111e3bba40ef
-    //TODO: onRealTimeModbusResponse()
-}//END_23c01979db8c17e18dcf111e3bba40ef
+void oldportal::fc::network::DeviceCommand::onProcessed()
+{//BEGIN_e7f23ec91fe8f785294c8480ad24677c
+    // empty
+}//END_e7f23ec91fe8f785294c8480ad24677c
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE

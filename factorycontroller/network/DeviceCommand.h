@@ -47,24 +47,26 @@ class DeviceCommand
 public:
 std::shared_ptr< oldportal::fc::hardware::HardwareDevice > _device;
 public:
+std::shared_ptr< oldportal::fc::network::NetworkController > _controller;
+public:
 uint8_t _priority;
 
 
 //methods:
 
-public:
-virtual void onModbusResponse(oldportal::fc::network::modbus::ModbusMessagePair& modbusMessage, std::shared_ptr< oldportal::fc::network::modbus::ModbusNetworkController > controller) = 0;
+/**
+Handler.
+Called after command processed. Called in main step thread.
+*/
+protected:
+void onProcessed();
 
 /**
-Executed direct in network driver's soft realtime thread while modbus response has been readed.
-
-Be carefull to this function execution interval, use it only for short latency-critical tasks.
+Process command to device in realtime background thread.
+This handler must know about used protocol.
 */
-public:
-virtual void onRealTimeModbusResponse(oldportal::fc::network::modbus::ModbusMessagePair& modbusMessage, std::shared_ptr< oldportal::fc::network::modbus::ModbusNetworkController > controller);
-
-public:
-virtual void saveModbusMessage(oldportal::fc::network::modbus::ModbusMessagePair& modbusMessage) = 0;
+protected:
+virtual void process() = 0;
 
 
 

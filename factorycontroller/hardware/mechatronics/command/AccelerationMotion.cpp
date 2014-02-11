@@ -31,6 +31,12 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+void oldportal::fc::hardware::mechatronics::command::AccelerationMotion::process()
+{//BEGIN_3cf4c714d2918c3ad2d6767fdb99c855
+    assert(_modbus_ctx);
+}//END_3cf4c714d2918c3ad2d6767fdb99c855
+
+
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
 
 //END_USER_SECTION_AFTER_GENERATED_CODE
