@@ -42,7 +42,7 @@ namespace command
 {
 
 class AccelerationMotion
-:  public virtual oldportal::fc::network::DeviceCommand
+:  public virtual oldportal::fc::network::modbus::ModbusDeviceCommand
 {
 // constructors:
 
@@ -51,6 +51,16 @@ class AccelerationMotion
 
 
 //methods:
+
+/**
+Process command to device in realtime background thread.
+This handler must know about used protocol.
+
+With Modbus this handler shold process request and response with libmodbus modbus_t context stored in  _modbus_ctx
+*/
+protected:
+virtual void process();
+
 
 
 //child groups:

@@ -178,14 +178,53 @@ bool oldportal::fc::network::modbus::ModbusNetworkController::isOpened()
 
 void oldportal::fc::network::modbus::ModbusNetworkController::processDeviceCommand(std::shared_ptr< oldportal::fc::network::DeviceCommand > command)
 {//BEGIN_079bd15ede78f816935638b9f4abdb08
-    //TODO: processDeviceCommand()
-    // std::dynamic_pointer_cast<>
+    // runtime check for modbus command
+    std::shared_ptr<oldportal::fc::network::modbus::ModbusDeviceCommand> modbus_command = std::dynamic_pointer_cast<oldportal::fc::network::modbus::ModbusDeviceCommand>(command);
+    assert(modbus_command);
+    if (!modbus_command) {
+        oldportal::fc::system::logger::error(L"oldportal::fc::network::modbus::ModbusNetworkController::processDeviceCommand(command) - RTTI error, object bust inherit ModbusDeviceCommand");
+
+        return;
+    }
+
+    modbus_command->_modbus_ctx = getModbusContext();
+
+    // process request->response
+    modbus_command->process();
+
+    // clear command context
+    modbus_command->_modbus_ctx = nullptr;
+
 }//END_079bd15ede78f816935638b9f4abdb08
 
 void oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(std::shared_ptr< oldportal::fc::network::DeviceCommand > command)
 {//BEGIN_ffdc0eba50937a0a0c606b1972bc444e
-    //TODO: runtime check for modbus command
-    // std::dynamic_pointer_cast<>
+    // runtime check for modbus command
+    std::shared_ptr<oldportal::fc::network::modbus::ModbusDeviceCommand> modbus_command = std::dynamic_pointer_cast<oldportal::fc::network::modbus::ModbusDeviceCommand>(command);
+    assert(modbus_command);
+    if (!modbus_command)
+    {
+        oldportal::fc::system::logger::error(L"oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(command) - RTTI error, command must inherit ModbusDeviceCommand");
+        //TODO: dynamic error process
+        return;
+    }
+
+    std::shared_ptr<oldportal::fc::network::modbus::ModbusNetworkController> modbus_controller = std::dynamic_pointer_cast<oldportal::fc::network::modbus::ModbusNetworkController>(modbus_command->_controller);
+    assert(modbus_controller);
+    if (!modbus_controller)
+    {
+        oldportal::fc::system::logger::error(L"oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(command) - RTTI error, command->_controller must inherit ModbusNetworkController");
+        //TODO: dynamic error process
+        return;
+    }
+
+    assert(modbus_controller.get() == this);
+    if (modbus_controller.get() != this)
+    {
+        oldportal::fc::system::logger::error(L"oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(command) - command->_controller set not to this ModbusNetworkController");
+        //TODO: dynamic error process
+        return;
+    }
 
     // parent class function call
     oldportal::fc::network::NetworkController::pushCommand(command);
