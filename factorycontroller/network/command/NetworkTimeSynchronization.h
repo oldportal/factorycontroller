@@ -52,6 +52,16 @@ class NetworkTimeSynchronization
 
 //methods:
 
+/**
+Process command to device in realtime background thread.
+This handler must know about used protocol.
+
+With Modbus this handler shold process request and response with libmodbus modbus_t context stored in  _modbus_ctx
+*/
+public:
+virtual void process();
+
+
 
 //child groups:
 
