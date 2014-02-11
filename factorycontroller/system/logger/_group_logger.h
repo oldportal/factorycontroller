@@ -58,9 +58,27 @@ namespace system
 namespace logger 
 {
 // global methods declaration
+void error(std::string message);
+
+void error(std::wstring message);
+
+void error(std::string topic, std::string message);
+
+void error(std::wstring topic, std::wstring message);
+
+void error_hardware(std::string topic, std::string message);
+
+void error_hardware(std::wstring topic, std::wstring message);
+
+void log(std::string message);
+
 void log(std::wstring message);
 
+void log(std::string topic, std::string message);
+
 void log(std::wstring topic, std::wstring message);
+
+void log_hardware(std::string topic, std::string message);
 
 void log_hardware(std::wstring topic, std::wstring message);
 

@@ -75,13 +75,13 @@ public:
 void setCRC(uint8_t message_length);
 
 public:
-void setMessageAddress(uint16_t modbus_address);
+void setRequestAddress(uint16_t modbus_address);
 
 public:
-void setMessageFunction(uint8_t function_number);
+void setRequestFunctionCode(uint8_t function_number);
 
 public:
-void setMessageLength(uint8_t message_length);
+void setRequestLength(uint8_t message_length);
 
 
 

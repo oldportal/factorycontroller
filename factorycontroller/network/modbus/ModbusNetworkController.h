@@ -17,8 +17,8 @@
 *    
 *    Copyright (C) Dmitry Ognyannikov, 2012
 */
-#ifndef H_71348f18c8812d9608a169b997550a2a_H
-#define H_71348f18c8812d9608a169b997550a2a_H
+#ifndef H_1bcb52a90131fe0924008fee3f7993d2_H
+#define H_1bcb52a90131fe0924008fee3f7993d2_H
 
 
 
@@ -55,17 +55,13 @@ virtual ~ModbusNetworkController();
 // members:
 
 private:
-bool _close_interrupted_flag;
+mutable bool _close_interrupted_flag;
 private:
-bool _run_thread_cycle_flag;
+mutable bool _run_thread_cycle_flag;
 private:
-boost::asio::io_service _serial_port_io;
-private:
-std::shared_ptr< boost::asio::serial_port > _serial_port;
+mutable modbus_t* _modbus_ctx;
 protected:
 std::shared_ptr< std::thread > _realtime_thread;
-public:
-std::queue< std::shared_ptr<ModbusMessagePair> > _message_queue;
 
 
 //methods:
@@ -76,22 +72,35 @@ Close realtime thread after queue empty.
 public:
 virtual void close();
 
+/**
+Close and free _modbus_ctx context.
+Set _modbus_ctx to nullptr.
+*/
 private:
-void closeSerialPort();
+void closeModbusContext();
+
+public:
+modbus_t* getModbusContext();
 
 /**
-1. Iniit and open Modbus port.
-2. Start low-level realtime network thread.
-3. Call high level NetworkContrroller function.
+1. Init and open Modbus port.
+2. Start background realtime network thread.
 */
 public:
 virtual void initHardware();
 
 /**
-Send, wait for response, process response.
+Return true if serial port successfull opened and background realtime thread run.
+Otherwise return false.
 */
+public:
+bool isOpened();
+
 protected:
-void processMessagePair(std::shared_ptr< oldportal::fc::network::modbus::ModbusMessagePair > message);
+virtual void processDeviceCommand(std::shared_ptr< oldportal::fc::network::DeviceCommand > command);
+
+public:
+virtual void pushCommand(std::shared_ptr< oldportal::fc::network::DeviceCommand > command);
 
 private:
 static void realtime_run(oldportal::fc::network::modbus::ModbusNetworkController* controller);
@@ -116,11 +125,11 @@ static void realtime_run(oldportal::fc::network::modbus::ModbusNetworkController
 //END_USER_SECTION_AFTER_CLASS_DECLARATION
 
 
-#endif // H_71348f18c8812d9608a169b997550a2a_H
+#endif // H_1bcb52a90131fe0924008fee3f7993d2_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_71348f18c8812d9608a169b997550a2a_INLINES_H
-#define H_71348f18c8812d9608a169b997550a2a_INLINES_H
+#ifndef H_1bcb52a90131fe0924008fee3f7993d2_INLINES_H
+#define H_1bcb52a90131fe0924008fee3f7993d2_INLINES_H
 
-#endif // H_71348f18c8812d9608a169b997550a2a_INLINES_H
+#endif // H_1bcb52a90131fe0924008fee3f7993d2_INLINES_H
 #endif //OBJECTS_BUILDER_PROJECT_INLINES

@@ -27,80 +27,112 @@
 #include "../../factorycontroller.h"
 
 //BEGIN_USER_SECTION_AFTER_MASTER_INCLUDE
-#ifdef WIN32
-#include <windows.h>
-#else
-#include <pthread.h>
-#endif
+
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
 oldportal::fc::network::modbus::ModbusNetworkController::ModbusNetworkController()
 
-{//BEGIN_6724b29e7b540ba96d924367ee3d6b85
+{//BEGIN_1540738fb4e875afede8ad1c3eb3677c
     _close_interrupted_flag = false;
-}//END_6724b29e7b540ba96d924367ee3d6b85
+}//END_1540738fb4e875afede8ad1c3eb3677c
 
 oldportal::fc::network::modbus::ModbusNetworkController::ModbusNetworkController(std::shared_ptr< oldportal::fc::network::Network > network)
     : oldportal::fc::network::NetworkController(network)
-{//BEGIN_07e0f66a5c8adc2ca4ad385b32e14479
+{//BEGIN_17140ab021ca3f2bd11e039871242a38
+    assert(network && "ModbusNetworkController cannot be initialized with empty Network");
+
     _close_interrupted_flag = false;
     _network = network;
-}//END_07e0f66a5c8adc2ca4ad385b32e14479
+
+    _modbus_ctx = nullptr;
+}//END_17140ab021ca3f2bd11e039871242a38
 
 
 
 oldportal::fc::network::modbus::ModbusNetworkController::~ModbusNetworkController()
-{//BEGIN_d7d316a8510aff274bca8908a5a3b0b7
+{//BEGIN_10f48711bd06cd04d26eed80dc27d4e2
     _run_thread_cycle_flag = false;
     _close_interrupted_flag = true;
 
-    closeSerialPort();
-}//END_d7d316a8510aff274bca8908a5a3b0b7
+    closeModbusContext();
+}//END_10f48711bd06cd04d26eed80dc27d4e2
 
 
 void oldportal::fc::network::modbus::ModbusNetworkController::close()
-{//BEGIN_59b44143cde316021c103d93a2acb7fc
+{//BEGIN_167ba3f506ed978ecd007619040b2c88
     _close_interrupted_flag = true;
-}//END_59b44143cde316021c103d93a2acb7fc
+    closeModbusContext();
 
-void oldportal::fc::network::modbus::ModbusNetworkController::closeSerialPort()
-{//BEGIN_1ee5c89496456a1159e90add755bcadc
-    if (_serial_port && _serial_port->is_open())
+    oldportal::fc::network::NetworkController::close();
+}//END_167ba3f506ed978ecd007619040b2c88
+
+void oldportal::fc::network::modbus::ModbusNetworkController::closeModbusContext()
+{//BEGIN_8cc827bd3b715fdc5ddd2337eb7bb9b7
+    if (_modbus_ctx != nullptr)
     {
-        _serial_port->close();
-        _serial_port.reset();
+        modbus_close(_modbus_ctx);
+        modbus_free(_modbus_ctx);
+
+        _modbus_ctx = nullptr;
     }
-}//END_1ee5c89496456a1159e90add755bcadc
+}//END_8cc827bd3b715fdc5ddd2337eb7bb9b7
+
+modbus_t* oldportal::fc::network::modbus::ModbusNetworkController::getModbusContext()
+{//BEGIN_1a64478473d63071e22cd7199aff31ff
+    return _modbus_ctx;
+}//END_1a64478473d63071e22cd7199aff31ff
 
 void oldportal::fc::network::modbus::ModbusNetworkController::initHardware()
-{//BEGIN_f8023113994496e435af338c650de451
+{//BEGIN_803ad91ba2984c5f99212c75897a3c72
+    assert(_modbus_ctx == nullptr && "ModbusNetworkController must be closed with close() before new initHardware() call");
+
     // init network time
     _network_time.init();
 
-    // open serial port with reference to boost::asio::io_service _serial_port_io
-    oldportal::fc::system::logger::log(L"oldportal::fc::network::modbus::ModbusNetworkController::initHardware() open serial port...");
-    _serial_port = std::make_shared<boost::asio::serial_port>(_serial_port_io, _network->_serialPortPath);
-
     //TODO: set predefined settings
-    // what baud rate do we communicate at
-    boost::asio::serial_port_base::baud_rate BAUD(19200);
-    // how big is each "packet" of data (default is 8 bits)
-    boost::asio::serial_port_base::character_size CHARACTER_SIZE( 8 );
-    // what flow control is used (default is none)
-    boost::asio::serial_port_base::flow_control FLOW( boost::asio::serial_port_base::flow_control::none );
-    // what parity is used (default is none)
-    boost::asio::serial_port_base::parity PARITY( boost::asio::serial_port_base::parity::none );
-    // how many stop bits are used (default is one)
-    boost::asio::serial_port_base::stop_bits STOP( boost::asio::serial_port_base::stop_bits::one );
+    /*Set up arrays with the different possibilities for communications parameters */
+    //int baud_rates[12] = {110, 300, 600, 1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200, 230400};
+    //char parity[3] = {'N', 'E', 'O'};
+    //int databits[2] ={7, 8};
+    //int stopbits[2] = {1, 2};
 
-    _serial_port->set_option( BAUD );
-    _serial_port->set_option( CHARACTER_SIZE );
-    _serial_port->set_option( FLOW );
-    _serial_port->set_option( PARITY );
-    _serial_port->set_option( STOP );
+    // set serial port name and settings
+    _modbus_ctx = modbus_new_rtu("/dev/ttyAMA0", 115200, 'E', 8, 1);
+    // mb = modbus_new_rtu("/dev/ttyUSB0", 38400, 'N', 8, 1);
+    if (_modbus_ctx == NULL)
+    {
+        oldportal::fc::system::logger::error(L"oldportal::fc::network::modbus::ModbusNetworkController::initHardware() serial port create context error");
+    }
 
-    //TODO: handle open port errors
+    //Enable debugging for tests
+    // modbus_set_debug(mb,TRUE);
+
+    modbus_rtu_set_serial_mode(_modbus_ctx, MODBUS_RTU_RS485);
+    // set to send request state
+    //modbus_rtu_set_rts(_modbus_ctx, MODBUS_RTU_RTS_UP);
+
+    if (modbus_connect(_modbus_ctx) != 0)
+    {
+        oldportal::fc::system::logger::error(L"oldportal::fc::network::modbus::ModbusNetworkController::initHardware() serial port open error");
+        oldportal::fc::system::logger::error(modbus_strerror(errno));
+        closeModbusContext();
+        return;
+    }
+
+    struct timeval new_response_timeout;
+    new_response_timeout.tv_sec =0;
+    new_response_timeout.tv_usec =150000;
+    modbus_set_response_timeout(_modbus_ctx, &new_response_timeout);
+
+    // set destination address
+    if (modbus_set_slave(_modbus_ctx, MODBUS_BROADCAST_ADDRESS) != 0)
+    {
+        oldportal::fc::system::logger::error(L"oldportal::fc::network::modbus::ModbusNetworkController::initHardware() serial port set device address error");
+        oldportal::fc::system::logger::error(modbus_strerror(errno));
+        closeModbusContext();
+        return;
+    }
 
     oldportal::fc::system::logger::log(L"oldportal::fc::network::modbus::ModbusNetworkController::initHardware() serial port opened");
 
@@ -131,44 +163,59 @@ void oldportal::fc::network::modbus::ModbusNetworkController::initHardware()
     param.sched_priority = sched_get_priority_max(policy);
     pthread_setschedparam(_realtime_thread->native_handle(), policy, &param);
 #endif
-}//END_f8023113994496e435af338c650de451
+}//END_803ad91ba2984c5f99212c75897a3c72
 
-void oldportal::fc::network::modbus::ModbusNetworkController::processMessagePair(std::shared_ptr< oldportal::fc::network::modbus::ModbusMessagePair > message)
-{//BEGIN_9573ab2dbdd64b510691a2ff16c486b1
-    //TODO: processMessagePair()
-    //TODO: read modbus commands queue and send, read response with timeout
-    //TODO: handle port errors
-}//END_9573ab2dbdd64b510691a2ff16c486b1
+bool oldportal::fc::network::modbus::ModbusNetworkController::isOpened()
+{//BEGIN_ce9e0665a989f6bbf012e31384526717
+    return _modbus_ctx != nullptr && _realtime_thread;
+}//END_ce9e0665a989f6bbf012e31384526717
+
+void oldportal::fc::network::modbus::ModbusNetworkController::processDeviceCommand(std::shared_ptr< oldportal::fc::network::DeviceCommand > command)
+{//BEGIN_079bd15ede78f816935638b9f4abdb08
+    //TODO: processDeviceCommand()
+}//END_079bd15ede78f816935638b9f4abdb08
+
+void oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(std::shared_ptr< oldportal::fc::network::DeviceCommand > command)
+{//BEGIN_ffdc0eba50937a0a0c606b1972bc444e
+    //TODO: runtime check for modbus command
+
+    // parent class function call
+    oldportal::fc::network::NetworkController::pushCommand(command);
+}//END_ffdc0eba50937a0a0c606b1972bc444e
 
 void oldportal::fc::network::modbus::ModbusNetworkController::realtime_run(oldportal::fc::network::modbus::ModbusNetworkController* controller)
-{//BEGIN_28cef3745d943d472fa32591aa5d754b
+{//BEGIN_de81e20cb5afc7c60970dd4c25f3f0ac
     assert(controller);
 
-    if (!controller->_serial_port || !controller->_serial_port->is_open())
+    if (controller->_modbus_ctx == nullptr)
     {
         //TODO: report error as error status
-        oldportal::fc::system::logger::log(L"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() ERROR - serial port is not opened, thread stopping...");
+        oldportal::fc::system::logger::error(L"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() ERROR - serial port is not opened, thread stopping...");
 
         return;
     }
+
     oldportal::fc::system::logger::log(L"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() realtime thread started");
 
     while (controller->_run_thread_cycle_flag)
     {
         // main work, process messages
-        while (!controller->_message_queue.empty())
+        while (!controller->_command_queue.empty())
         {
-            auto message = controller->_message_queue.front();
-            controller->processMessagePair(message);
-            controller->_message_queue.pop();
+            auto command = controller->_command_queue.front();
+            controller->processDeviceCommand(command);
+
+            std::lock_guard<std::recursive_mutex> lock(controller->_command_queue_lock);
+            controller->_command_queue.pop();
         }
 
         // check for interruption and closing
         if (controller->_close_interrupted_flag)
         {
+            // default thread exit
             oldportal::fc::system::logger::log(L"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() thread stopping...");
             controller->_run_thread_cycle_flag = false;
-            controller->closeSerialPort();
+            controller->closeModbusContext();
             oldportal::fc::system::logger::log(L"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() thread stopped");
             return;
         }
@@ -177,7 +224,11 @@ void oldportal::fc::network::modbus::ModbusNetworkController::realtime_run(oldpo
         std::chrono::milliseconds sleep_duration( 1 );
         std::this_thread::sleep_for( sleep_duration );
     }
-}//END_28cef3745d943d472fa32591aa5d754b
+
+    // unexpected exit, the threas should exit with controller->_close_interrupted_flag = true
+    controller->closeModbusContext();
+    oldportal::fc::system::logger::log(L"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() thread stopped");
+}//END_de81e20cb5afc7c60970dd4c25f3f0ac
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE

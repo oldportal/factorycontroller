@@ -25,7 +25,7 @@
 
 //BEGIN_GROUP_COMMENT
 /**
-Workflow Engi*/
+Wor*/
 //END_GROUP_COMMENT
 
 

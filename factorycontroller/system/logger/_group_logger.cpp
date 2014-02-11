@@ -33,20 +33,65 @@
 
 
 
-void oldportal::fc::system::logger::log(std::wstring message)
+void oldportal::fc::system::logger::error(std::string message)
+{//BEGIN_b314fa6ad66678d1424326ea1ecea514
+    std::cerr << message << std::endl;
+}//END_b314fa6ad66678d1424326ea1ecea514
+
+void oldportal::fc::system::logger::error(std::wstring message)
+{//BEGIN_718a5be680c5cd3f2877db828f4b003d
+    std::wcerr << message << std::endl;
+}//END_718a5be680c5cd3f2877db828f4b003d
+
+void oldportal::fc::system::logger::error(std::string topic, std::string message)
+{//BEGIN_b39db29869dd05f377b890a63044aad8
+    std::cerr << topic << " : " << message << std::endl;
+}//END_b39db29869dd05f377b890a63044aad8
+
+void oldportal::fc::system::logger::error(std::wstring topic, std::wstring message)
+{//BEGIN_63f0235b80b0fd3d27380d6b38c2d947
+    std::wcerr << topic << L" : " << message << std::endl;
+}//END_63f0235b80b0fd3d27380d6b38c2d947
+
+void oldportal::fc::system::logger::error_hardware(std::string topic, std::string message)
+{//BEGIN_7cc7907f2991739748563fc61fffed48
+    std::cerr << "hardware log : " << topic << " : " << message << std::endl;
+}//END_7cc7907f2991739748563fc61fffed48
+
+void oldportal::fc::system::logger::error_hardware(std::wstring topic, std::wstring message)
+{//BEGIN_2ff0cbbe3cf50e0d8392b7e58d227636
+    std::wcerr << L"hardware log : " << topic << L" : " << message << std::endl;
+}//END_2ff0cbbe3cf50e0d8392b7e58d227636
+
+void oldportal::fc::system::logger::log(std::string message)
 {//BEGIN_b034dc6cf51407f73a74b6854e70a466
-    std::wcout << message << std::endl;
+    std::cout << message << std::endl;
 }//END_b034dc6cf51407f73a74b6854e70a466
 
-void oldportal::fc::system::logger::log(std::wstring topic, std::wstring message)
+void oldportal::fc::system::logger::log(std::wstring message)
+{//BEGIN_52112f037e01c585c2baffcb7ba90875
+    std::wcout << message << std::endl;
+}//END_52112f037e01c585c2baffcb7ba90875
+
+void oldportal::fc::system::logger::log(std::string topic, std::string message)
 {//BEGIN_5b2146e1131feb320ab73025d505782c
-    std::wcout << topic << L" : " << message << std::endl;
+    std::cout << topic << " : " << message << std::endl;
 }//END_5b2146e1131feb320ab73025d505782c
 
-void oldportal::fc::system::logger::log_hardware(std::wstring topic, std::wstring message)
+void oldportal::fc::system::logger::log(std::wstring topic, std::wstring message)
+{//BEGIN_4750c431f3e654aef752e5133ab34789
+    std::wcout << topic << L" : " << message << std::endl;
+}//END_4750c431f3e654aef752e5133ab34789
+
+void oldportal::fc::system::logger::log_hardware(std::string topic, std::string message)
 {//BEGIN_ee21dc1c4d309ca38ea32370452ebc7f
-    std::wcout << L"hardware log : " << topic << L" : " << message << std::endl;
+    std::cout << "hardware log : " << topic << " : " << message << std::endl;
 }//END_ee21dc1c4d309ca38ea32370452ebc7f
+
+void oldportal::fc::system::logger::log_hardware(std::wstring topic, std::wstring message)
+{//BEGIN_8dc02bc4284321d5a7b60dfcc1b14992
+    std::wcout << L"hardware log : " << topic << L" : " << message << std::endl;
+}//END_8dc02bc4284321d5a7b60dfcc1b14992
 
 
 

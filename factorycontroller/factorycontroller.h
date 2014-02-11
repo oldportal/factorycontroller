@@ -42,19 +42,27 @@ OldPortal Factory Controller project.
 #include <map>
 #include <vector>
 #include <thread>
+#include <mutex>
 #include <chrono>
-#include <boost/asio.hpp>
+
+#include <boost/date_time/posix_time/posix_time.hpp>
 
 #include <boost/crc.hpp>
 
 #include <boost/uuid/uuid.hpp>
 #include <boost/uuid/uuid_generators.hpp>
+
+#include <modbus/modbus.h>
+#include <modbus/modbus-rtu.h>
 //END_USER_SECTION_0
 
 
 //BEGIN_TYPE_DECLARATION_10e882b2ea715e905fcda554861a73bf NETWORK_TIME
 typedef uint64_t NETWORK_TIME;
 //END_TYPE_DECLARATION_10e882b2ea715e905fcda554861a73bf NETWORK_TIME
+//BEGIN_TYPE_DECLARATION_72767107e7694a839e6e9825d968b14f modbus_t
+/* libmodbus context */
+//END_TYPE_DECLARATION_72767107e7694a839e6e9825d968b14f modbus_t
 
 
 // class predeclarations:
@@ -205,6 +213,13 @@ struct ModbusMessagePair;
 class ModbusMessageWrapper;
 class ModbusNetworkController;
 
+namespace func 
+{
+class ModbusReadHoldingRegisters;
+class ModbusReadInputRegisters;
+class ModbusWriteHoldingRegisters;
+
+}// namespace func
 }// namespace modbus
 }// namespace network
 namespace scheduler 
@@ -225,7 +240,6 @@ namespace system
 
 namespace logger 
 {
-class Logger;
 
 }// namespace logger
 namespace serialization 
@@ -320,13 +334,15 @@ namespace util
 #include "network/modbus/ModbusMessagePair.h"
 #include "network/modbus/ModbusMessageWrapper.h"
 #include "network/modbus/ModbusNetworkController.h"
+#include "network/modbus/func/ModbusReadHoldingRegisters.h"
+#include "network/modbus/func/ModbusReadInputRegisters.h"
+#include "network/modbus/func/ModbusWriteHoldingRegisters.h"
 #include "scheduler/LocalConfiguration.h"
 #include "scheduler/Project.h"
 #include "scheduler/ProjectTemplate.h"
 #include "scheduler/Scheduler.h"
 #include "scheduler/Task.h"
 #include "scheduler/TaskLogMessage.h"
-#include "system/logger/Logger.h"
 #include "system/serialization/Archive.h"
 #include "system/serialization/Serializable.h"
 #include "system/storage/LocalResources.h"
@@ -423,13 +439,15 @@ namespace fc
 #include "network/modbus/ModbusMessagePair.h"
 #include "network/modbus/ModbusMessageWrapper.h"
 #include "network/modbus/ModbusNetworkController.h"
+#include "network/modbus/func/ModbusReadHoldingRegisters.h"
+#include "network/modbus/func/ModbusReadInputRegisters.h"
+#include "network/modbus/func/ModbusWriteHoldingRegisters.h"
 #include "scheduler/LocalConfiguration.h"
 #include "scheduler/Project.h"
 #include "scheduler/ProjectTemplate.h"
 #include "scheduler/Scheduler.h"
 #include "scheduler/Task.h"
 #include "scheduler/TaskLogMessage.h"
-#include "system/logger/Logger.h"
 #include "system/serialization/Archive.h"
 #include "system/serialization/Serializable.h"
 #include "system/storage/LocalResources.h"
