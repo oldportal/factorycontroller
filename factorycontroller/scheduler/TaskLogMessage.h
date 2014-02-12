@@ -53,7 +53,7 @@ boost::uuids::uuid _taskId;
 public:
 int64_t _deviceId;
 public:
-std::wstring _message;
+std::u16string _message;
 
 
 //methods:

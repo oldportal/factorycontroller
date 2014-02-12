@@ -47,6 +47,9 @@ class NetworkTimeSynchronization
 // constructors:
 
 
+public:
+virtual ~NetworkTimeSynchronization();
+
 // members:
 
 

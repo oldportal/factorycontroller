@@ -47,6 +47,9 @@ class LinearMotion
 // constructors:
 
 
+public:
+virtual ~LinearMotion();
+
 // members:
 
 

@@ -31,6 +31,12 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+oldportal::fc::hardware::mechatronics::command::LinearMotion::~LinearMotion()
+{//BEGIN_3ae7cbc70058cbc03bebf6e27865f011
+
+}//END_3ae7cbc70058cbc03bebf6e27865f011
+
+
 void oldportal::fc::hardware::mechatronics::command::LinearMotion::process()
 {//BEGIN_5a4ca282f77a69d1fdd39facedaec3a6
     assert(_modbus_ctx);

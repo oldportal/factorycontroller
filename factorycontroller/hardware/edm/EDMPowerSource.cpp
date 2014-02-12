@@ -31,6 +31,12 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+oldportal::fc::hardware::edm::EDMPowerSource::~EDMPowerSource()
+{//BEGIN_c2d7c28ad30e4f8b3634cd85c7022e05
+
+}//END_c2d7c28ad30e4f8b3634cd85c7022e05
+
+
 void oldportal::fc::hardware::edm::EDMPowerSource::step()
 {//BEGIN_f0b0bb0bd39422d889bd21b8ad360899
     //TODO: step()

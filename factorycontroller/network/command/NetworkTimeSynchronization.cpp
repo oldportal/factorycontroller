@@ -31,6 +31,12 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+oldportal::fc::network::command::NetworkTimeSynchronization::~NetworkTimeSynchronization()
+{//BEGIN_e5b984236a7706eb620d3a695b5e018f
+
+}//END_e5b984236a7706eb620d3a695b5e018f
+
+
 void oldportal::fc::network::command::NetworkTimeSynchronization::process()
 {//BEGIN_ba5a8c22a6c4cc0d2dfa663125379790
     assert(_modbus_ctx);

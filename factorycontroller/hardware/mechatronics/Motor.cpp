@@ -38,6 +38,13 @@ oldportal::fc::hardware::mechatronics::Motor::Motor()
 }//END_eab62535ba9e31490cb17c7de0762a52
 
 
+
+oldportal::fc::hardware::mechatronics::Motor::~Motor()
+{//BEGIN_8bb6ee18806a602cc1b2c6ff6db638a3
+
+}//END_8bb6ee18806a602cc1b2c6ff6db638a3
+
+
 void oldportal::fc::hardware::mechatronics::Motor::step()
 {//BEGIN_efb26d301c0e5bd441e858e48b90b202
     //TODO: step()

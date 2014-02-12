@@ -31,6 +31,26 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+oldportal::fc::hardware::power::EnergyNetwork::EnergyNetwork()
+
+{//BEGIN_f41a2011dbc8b1f10e238b17150d496f
+
+}//END_f41a2011dbc8b1f10e238b17150d496f
+
+
+
+oldportal::fc::hardware::power::EnergyNetwork::~EnergyNetwork()
+{//BEGIN_39c59a296252a5e1c42acccba9faff4b
+
+}//END_39c59a296252a5e1c42acccba9faff4b
+
+
+void oldportal::fc::hardware::power::EnergyNetwork::step()
+{//BEGIN_e903b43759a109e70b0b6a304c9416d2
+    //TODO: step()
+}//END_e903b43759a109e70b0b6a304c9416d2
+
+
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
 
 //END_USER_SECTION_AFTER_GENERATED_CODE

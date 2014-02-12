@@ -62,9 +62,9 @@ float _current;
 public:
 float _impulse_rate;
 public:
-std::wstring _description;
+std::u16string _description;
 public:
-std::wstring _name;
+std::u16string _name;
 
 
 //methods:

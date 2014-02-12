@@ -45,12 +45,25 @@ class EnergyNetwork
 :  public virtual oldportal::fc::hardware::HardwareDevice
 {
 // constructors:
+public:
+EnergyNetwork();
 
+
+public:
+virtual ~EnergyNetwork();
 
 // members:
 
 
 //methods:
+
+/**
+Update state.
+Logic processes step.
+*/
+public:
+virtual void step();
+
 
 
 //child groups:

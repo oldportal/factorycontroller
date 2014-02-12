@@ -47,6 +47,9 @@ public:
 Motor();
 
 
+public:
+virtual ~Motor();
+
 // members:
 
 public:

@@ -47,6 +47,9 @@ class StepMotion
 // constructors:
 
 
+public:
+virtual ~StepMotion();
+
 // members:
 
 

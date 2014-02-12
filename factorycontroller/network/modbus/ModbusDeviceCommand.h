@@ -47,6 +47,9 @@ public:
 ModbusDeviceCommand();
 
 
+public:
+virtual ~ModbusDeviceCommand();
+
 // members:
 
 public:

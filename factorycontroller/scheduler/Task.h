@@ -59,9 +59,9 @@ boost::uuids::uuid _id;
 public:
 boost::uuids::uuid _templateId;
 public:
-std::vector< std::shared_ptr<Task> > _subtasks;
+std::u16string _name;
 public:
-std::wstring _name;
+std::vector< std::shared_ptr<Task> > _subtasks;
 
 
 //methods:

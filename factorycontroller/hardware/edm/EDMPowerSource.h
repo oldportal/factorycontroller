@@ -45,6 +45,9 @@ class EDMPowerSource
 // constructors:
 
 
+public:
+virtual ~EDMPowerSource();
+
 // members:
 
 public:
