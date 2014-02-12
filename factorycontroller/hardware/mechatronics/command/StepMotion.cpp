@@ -31,6 +31,12 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+oldportal::fc::hardware::mechatronics::command::StepMotion::~StepMotion()
+{//BEGIN_ac02cdcf28c219da19e50d05ba0e28ae
+
+}//END_ac02cdcf28c219da19e50d05ba0e28ae
+
+
 void oldportal::fc::hardware::mechatronics::command::StepMotion::process()
 {//BEGIN_4e3507a92ef4831d96535832e77d1c87
     assert(_modbus_ctx);

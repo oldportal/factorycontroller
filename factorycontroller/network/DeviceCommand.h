@@ -42,6 +42,9 @@ class DeviceCommand
 // constructors:
 
 
+public:
+virtual ~DeviceCommand();
+
 // members:
 
 public:

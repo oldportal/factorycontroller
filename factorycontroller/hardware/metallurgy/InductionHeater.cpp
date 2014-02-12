@@ -38,6 +38,13 @@ oldportal::fc::hardware::metallurgy::InductionHeater::InductionHeater()
 }//END_5da8d99ad7d2cdc3bb2d67cf27615b47
 
 
+
+oldportal::fc::hardware::metallurgy::InductionHeater::~InductionHeater()
+{//BEGIN_6b492ca205da1b54c7309ed603e2f512
+
+}//END_6b492ca205da1b54c7309ed603e2f512
+
+
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
 
 //END_USER_SECTION_AFTER_GENERATED_CODE

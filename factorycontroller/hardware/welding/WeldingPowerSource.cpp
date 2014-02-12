@@ -31,6 +31,26 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+oldportal::fc::hardware::welding::WeldingPowerSource::WeldingPowerSource()
+
+{//BEGIN_4ec380fc71088764a3453cbf245f29a7
+
+}//END_4ec380fc71088764a3453cbf245f29a7
+
+
+
+oldportal::fc::hardware::welding::WeldingPowerSource::~WeldingPowerSource()
+{//BEGIN_db6fab050cd2ab97f124f7c33101a458
+
+}//END_db6fab050cd2ab97f124f7c33101a458
+
+
+void oldportal::fc::hardware::welding::WeldingPowerSource::step()
+{//BEGIN_e51505802574a24be0c8d6caa48d9c64
+    //TODO: step()
+}//END_e51505802574a24be0c8d6caa48d9c64
+
+
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
 
 //END_USER_SECTION_AFTER_GENERATED_CODE

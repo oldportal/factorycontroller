@@ -83,9 +83,9 @@ int64_t _id;
 public:
 oldportal::fc::network::NetworkErrorStatistics _error_statistics;
 public:
-std::weak_ptr< oldportal::fc::network::Network > _network;
+std::u16string _description;
 public:
-std::wstring _description;
+std::weak_ptr< oldportal::fc::network::Network > _network;
 
 
 //methods:

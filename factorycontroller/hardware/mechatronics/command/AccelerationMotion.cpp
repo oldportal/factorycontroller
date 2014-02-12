@@ -31,6 +31,12 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+oldportal::fc::hardware::mechatronics::command::AccelerationMotion::~AccelerationMotion()
+{//BEGIN_1556f3b4bc618a35a8010806093d10fb
+
+}//END_1556f3b4bc618a35a8010806093d10fb
+
+
 void oldportal::fc::hardware::mechatronics::command::AccelerationMotion::process()
 {//BEGIN_3cf4c714d2918c3ad2d6767fdb99c855
     assert(_modbus_ctx);

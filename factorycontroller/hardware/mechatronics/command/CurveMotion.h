@@ -47,6 +47,9 @@ class CurveMotion
 // constructors:
 
 
+public:
+virtual ~CurveMotion();
+
 // members:
 
 

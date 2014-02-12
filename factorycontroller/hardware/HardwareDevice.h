@@ -45,6 +45,9 @@ public:
 HardwareDevice();
 
 
+public:
+virtual ~HardwareDevice();
+
 // members:
 
 public:

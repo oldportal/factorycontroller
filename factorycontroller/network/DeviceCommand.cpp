@@ -31,6 +31,12 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+oldportal::fc::network::DeviceCommand::~DeviceCommand()
+{//BEGIN_32877179041669eccee5e1d6ed563552
+
+}//END_32877179041669eccee5e1d6ed563552
+
+
 void oldportal::fc::network::DeviceCommand::onProcessed()
 {//BEGIN_e7f23ec91fe8f785294c8480ad24677c
     // empty

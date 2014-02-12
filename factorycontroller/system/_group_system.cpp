@@ -33,11 +33,6 @@
 
 
 
-void oldportal::fc::system::log(std::wstring message)
-{//BEGIN_eb30795896cd899d2ae390f10f708f8c
-    std::wcout << message << std::endl;
-}//END_eb30795896cd899d2ae390f10f708f8c
-
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE

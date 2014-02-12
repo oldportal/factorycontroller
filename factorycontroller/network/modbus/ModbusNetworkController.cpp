@@ -105,7 +105,7 @@ void oldportal::fc::network::modbus::ModbusNetworkController::initHardware()
 
     if (_modbus_ctx == NULL)
     {
-        oldportal::fc::system::logger::error(L"oldportal::fc::network::modbus::ModbusNetworkController::initHardware() serial port create context error");
+        oldportal::fc::system::logger::error(u"oldportal::fc::network::modbus::ModbusNetworkController::initHardware() serial port create context error");
     }
 
     //Enable debugging for tests
@@ -117,7 +117,7 @@ void oldportal::fc::network::modbus::ModbusNetworkController::initHardware()
 
     if (modbus_connect(_modbus_ctx) != 0)
     {
-        oldportal::fc::system::logger::error(L"oldportal::fc::network::modbus::ModbusNetworkController::initHardware() serial port open error");
+        oldportal::fc::system::logger::error(u"oldportal::fc::network::modbus::ModbusNetworkController::initHardware() serial port open error");
         oldportal::fc::system::logger::error(modbus_strerror(errno));
         closeModbusContext();
         return;
@@ -136,13 +136,13 @@ void oldportal::fc::network::modbus::ModbusNetworkController::initHardware()
     // set destination address
     if (modbus_set_slave(_modbus_ctx, MODBUS_BROADCAST_ADDRESS) != 0)
     {
-        oldportal::fc::system::logger::error(L"oldportal::fc::network::modbus::ModbusNetworkController::initHardware() serial port set device address error");
+        oldportal::fc::system::logger::error(u"oldportal::fc::network::modbus::ModbusNetworkController::initHardware() serial port set device address error");
         oldportal::fc::system::logger::error(modbus_strerror(errno));
         closeModbusContext();
         return;
     }
 
-    oldportal::fc::system::logger::log(L"oldportal::fc::network::modbus::ModbusNetworkController::initHardware() serial port opened");
+    oldportal::fc::system::logger::log(u"oldportal::fc::network::modbus::ModbusNetworkController::initHardware() serial port opened");
 
     // start soft realtime thread
     _run_thread_cycle_flag = true;
@@ -184,7 +184,7 @@ void oldportal::fc::network::modbus::ModbusNetworkController::processDeviceComma
     std::shared_ptr<oldportal::fc::network::modbus::ModbusDeviceCommand> modbus_command = std::dynamic_pointer_cast<oldportal::fc::network::modbus::ModbusDeviceCommand>(command);
     assert(modbus_command);
     if (!modbus_command) {
-        oldportal::fc::system::logger::error(L"oldportal::fc::network::modbus::ModbusNetworkController::processDeviceCommand(command) - RTTI error, object bust inherit ModbusDeviceCommand");
+        oldportal::fc::system::logger::error(u"oldportal::fc::network::modbus::ModbusNetworkController::processDeviceCommand(command) - RTTI error, object bust inherit ModbusDeviceCommand");
 
         return;
     }
@@ -206,7 +206,7 @@ void oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(std::s
     assert(modbus_command);
     if (!modbus_command)
     {
-        oldportal::fc::system::logger::error(L"oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(command) - RTTI error, command must inherit ModbusDeviceCommand");
+        oldportal::fc::system::logger::error(u"oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(command) - RTTI error, command must inherit ModbusDeviceCommand");
         //TODO: dynamic error process
         return;
     }
@@ -215,7 +215,7 @@ void oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(std::s
     assert(modbus_controller);
     if (!modbus_controller)
     {
-        oldportal::fc::system::logger::error(L"oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(command) - RTTI error, command->_controller must inherit ModbusNetworkController");
+        oldportal::fc::system::logger::error(u"oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(command) - RTTI error, command->_controller must inherit ModbusNetworkController");
         //TODO: dynamic error process
         return;
     }
@@ -223,7 +223,7 @@ void oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(std::s
     assert(modbus_controller.get() == this);
     if (modbus_controller.get() != this)
     {
-        oldportal::fc::system::logger::error(L"oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(command) - command->_controller set not to this ModbusNetworkController");
+        oldportal::fc::system::logger::error(u"oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(command) - command->_controller set not to this ModbusNetworkController");
         //TODO: dynamic error process
         return;
     }
@@ -239,12 +239,12 @@ void oldportal::fc::network::modbus::ModbusNetworkController::realtime_run(oldpo
     if (controller->_modbus_ctx == nullptr)
     {
         //TODO: report error as error status
-        oldportal::fc::system::logger::error(L"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() ERROR - serial port is not opened, thread stopping...");
+        oldportal::fc::system::logger::error(u"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() ERROR - serial port is not opened, thread stopping...");
 
         return;
     }
 
-    oldportal::fc::system::logger::log(L"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() realtime thread started");
+    oldportal::fc::system::logger::log(u"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() realtime thread started");
 
     while (controller->_run_thread_cycle_flag)
     {
@@ -262,10 +262,10 @@ void oldportal::fc::network::modbus::ModbusNetworkController::realtime_run(oldpo
         if (controller->_close_interrupted_flag)
         {
             // default thread exit
-            oldportal::fc::system::logger::log(L"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() thread stopping...");
+            oldportal::fc::system::logger::log(u"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() thread stopping...");
             controller->_run_thread_cycle_flag = false;
             controller->closeModbusContext();
-            oldportal::fc::system::logger::log(L"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() thread stopped");
+            oldportal::fc::system::logger::log(u"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() thread stopped");
             return;
         }
 
@@ -276,7 +276,7 @@ void oldportal::fc::network::modbus::ModbusNetworkController::realtime_run(oldpo
 
     // unexpected exit, the threas should exit with controller->_close_interrupted_flag = true
     controller->closeModbusContext();
-    oldportal::fc::system::logger::log(L"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() thread stopped");
+    oldportal::fc::system::logger::log(u"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() thread stopped");
 }//END_de81e20cb5afc7c60970dd4c25f3f0ac
 
 

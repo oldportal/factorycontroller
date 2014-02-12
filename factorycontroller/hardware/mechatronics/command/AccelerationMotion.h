@@ -47,6 +47,9 @@ class AccelerationMotion
 // constructors:
 
 
+public:
+virtual ~AccelerationMotion();
+
 // members:
 
 

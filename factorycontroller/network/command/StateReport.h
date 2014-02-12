@@ -50,6 +50,9 @@ class StateReport
 // constructors:
 
 
+public:
+virtual ~StateReport();
+
 // members:
 
 

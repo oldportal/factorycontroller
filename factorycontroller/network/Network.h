@@ -49,9 +49,9 @@ int64_t _id;
 public:
 std::string _serialPortPath;
 public:
-std::vector< std::shared_ptr<NetworkDevice> > _devices;
+std::u16string _name;
 public:
-std::wstring _name;
+std::vector< std::shared_ptr<NetworkDevice> > _devices;
 
 
 //methods:

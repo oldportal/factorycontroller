@@ -43,7 +43,12 @@ class WeldingPowerSource
 :  public virtual oldportal::fc::hardware::HardwareDevice
 {
 // constructors:
+public:
+WeldingPowerSource();
 
+
+public:
+virtual ~WeldingPowerSource();
 
 // members:
 
@@ -54,6 +59,14 @@ oldportal::fc::hardware::welding::WeldingPowerSourceSettings _settings;
 
 
 //methods:
+
+/**
+Update state.
+Logic processes step.
+*/
+public:
+virtual void step();
+
 
 
 //child groups:

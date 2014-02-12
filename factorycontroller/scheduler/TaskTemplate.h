@@ -47,9 +47,9 @@ class TaskTemplate
 public:
 boost::uuids::uuid _id;
 public:
-std::vector< std::shared_ptr<TaskTemplate> > _subtasks;
+std::u16string _name;
 public:
-std::wstring _name;
+std::vector< std::shared_ptr<TaskTemplate> > _subtasks;
 
 
 //methods:

@@ -47,6 +47,9 @@ class ConstantSpeedMotion
 // constructors:
 
 
+public:
+virtual ~ConstantSpeedMotion();
+
 // members:
 
 

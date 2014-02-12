@@ -31,6 +31,12 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+oldportal::fc::hardware::mechatronics::command::CurveMotion::~CurveMotion()
+{//BEGIN_ef2eb2a4a709629721d79b69aab3d7f9
+
+}//END_ef2eb2a4a709629721d79b69aab3d7f9
+
+
 void oldportal::fc::hardware::mechatronics::command::CurveMotion::process()
 {//BEGIN_640ed55747407171dde65949e41b13d1
     assert(_modbus_ctx);

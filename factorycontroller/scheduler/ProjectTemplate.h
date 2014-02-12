@@ -51,11 +51,11 @@ boost::uuids::uuid _id;
 public:
 int32_t _version;
 public:
+std::u16string _description;
+public:
+std::u16string _name;
+public:
 std::vector< std::shared_ptr<TaskTemplate> > _subtasks;
-public:
-std::wstring _description;
-public:
-std::wstring _name;
 
 
 //methods:

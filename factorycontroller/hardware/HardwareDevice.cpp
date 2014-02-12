@@ -38,6 +38,13 @@ oldportal::fc::hardware::HardwareDevice::HardwareDevice()
 }//END_001b57e88de26f85c27fce08008e0dd8
 
 
+
+oldportal::fc::hardware::HardwareDevice::~HardwareDevice()
+{//BEGIN_8519f1a5f484e96cc696a63a92d6029c
+
+}//END_8519f1a5f484e96cc696a63a92d6029c
+
+
 void oldportal::fc::hardware::HardwareDevice::step()
 {//BEGIN_d42686e1ac956e97373c774ee3cd2a15
     //TODO: step()

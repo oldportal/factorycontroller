@@ -47,6 +47,9 @@ public:
 InductionHeater();
 
 
+public:
+virtual ~InductionHeater();
+
 // members:
 
 public:

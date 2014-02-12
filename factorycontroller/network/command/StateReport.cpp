@@ -31,6 +31,12 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+oldportal::fc::network::command::StateReport::~StateReport()
+{//BEGIN_d1555c3373090cf5a5b01ddf233ffacc
+
+}//END_d1555c3373090cf5a5b01ddf233ffacc
+
+
 void oldportal::fc::network::command::StateReport::process()
 {//BEGIN_b9522da80d4b05e42e2b9d9a702ae52d
     assert(_modbus_ctx);

@@ -42,12 +42,16 @@ oldportal::fc::factory::manufacturing::Factory::Factory(std::shared_ptr< oldport
     _scheduler = loader->getScheduler();
     _storage_manager = loader->getStorageManager();
     _executors = loader->getExecutors();
+
+    // main cycle not run now
+    _run_thread_cycle_flag = false;
 }//END_0af1b742578141e3955f1e87dc8b67fd
 
 
 
 oldportal::fc::factory::manufacturing::Factory::~Factory()
 {//BEGIN_506a49cbc48747ee89440ccc4e8cea86
+    // stop main cycle
     _run_thread_cycle_flag = false;
 }//END_506a49cbc48747ee89440ccc4e8cea86
 
@@ -80,7 +84,7 @@ std::shared_ptr< oldportal::fc::factory::warehouse::StorageManager > oldportal::
 void oldportal::fc::factory::manufacturing::Factory::run(oldportal::fc::factory::manufacturing::Factory* factory)
 {//BEGIN_a4ad6d027289a8b7eff52dd5cd9626b6
     assert(factory);
-    oldportal::fc::system::logger::log(L"oldportal::fc::factory::manufacturing::Factory::run() main cycle started");
+    oldportal::fc::system::logger::log(u"oldportal::fc::factory::manufacturing::Factory::run() main cycle started");
     while(factory->_run_thread_cycle_flag)
     {
         factory->step();
@@ -94,12 +98,14 @@ void oldportal::fc::factory::manufacturing::Factory::run(oldportal::fc::factory:
 
 void oldportal::fc::factory::manufacturing::Factory::start()
 {//BEGIN_72e7c33dacb46addbda1cbca090efe91
+    // go current thread to main cycle
     _run_thread_cycle_flag = true;
     oldportal::fc::factory::manufacturing::Factory::run(this);
 }//END_72e7c33dacb46addbda1cbca090efe91
 
 void oldportal::fc::factory::manufacturing::Factory::startInNewThread()
 {//BEGIN_f429e5bc386427f537e83288357ab5e0
+    // start new thread with main cycle
     _run_thread_cycle_flag = true;
     _run_thread = std::make_shared<std::thread>(oldportal::fc::factory::manufacturing::Factory::run, this);
 }//END_f429e5bc386427f537e83288357ab5e0
