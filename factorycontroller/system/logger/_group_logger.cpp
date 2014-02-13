@@ -29,6 +29,7 @@
 //BEGIN_USER_SECTION_AFTER_MASTER_INCLUDE
 #include <locale>
 #include <memory>
+#include <cwchar>
 //#include <codecvt>
 //#include <cuchar>
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
@@ -46,7 +47,7 @@ void oldportal::fc::system::logger::error(std::u16string message)
 
 // variant 1
 //    std::wstring_convert<std::codecvt_utf8_utf16<char16_t>,char16_t> convert;
-//    std::string a = convert.to_bytes(u"This string has UTF-16 content");
+//    std::string a = convert.to_bytes(u8"This string has UTF-16 content");
 
 // variant 2
 //    std::wstring_convert<std::codecvt_utf16<wchar_t, WCHAR_MAX, std::consume_header>, wchar_t> conv;
