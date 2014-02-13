@@ -15,7 +15,7 @@
 *    along with factorycontroller; if not, write to the Free Software
 *    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 *    
-*    Copyright (C) Dmitry Ognyannikov, 2012
+*    Copyright (C) Dmitry Ognyannikov, 2012-2014
 */
 #ifndef H_67268b50d928ad6489eb5ee764ef75cc_H
 #define H_67268b50d928ad6489eb5ee764ef75cc_H
@@ -54,6 +54,11 @@ class InductionHeaterSettings
 
 
 //child classes:
+
+
+//BEGIN_USER_SECTION_INSIDE_CLASS_DECLARATION
+
+//END_USER_SECTION_INSIDE_CLASS_DECLARATION
 
 
 };

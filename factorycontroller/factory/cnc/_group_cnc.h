@@ -15,7 +15,7 @@
 *    along with factorycontroller; if not, write to the Free Software
 *    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 *    
-*    Copyright (C) Dmitry Ognyannikov, 2012
+*    Copyright (C) Dmitry Ognyannikov, 2012-2014
 */
 #ifndef H_718f06ffd19d959cf98263150c2a81f7_H
 #define H_718f06ffd19d959cf98263150c2a81f7_H

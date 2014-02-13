@@ -15,7 +15,7 @@
 *    along with factorycontroller; if not, write to the Free Software
 *    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 *    
-*    Copyright (C) Dmitry Ognyannikov, 2012
+*    Copyright (C) Dmitry Ognyannikov, 2012-2014
 */
 #ifndef H_3e0cd1cdd0a8e7729fa9e73d8a745c85_H
 #define H_3e0cd1cdd0a8e7729fa9e73d8a745c85_H
@@ -68,6 +68,11 @@ const oldportal::fc::erpconnector::TaskProxy* getTaskProxy();
 
 
 //child classes:
+
+
+//BEGIN_USER_SECTION_INSIDE_CLASS_DECLARATION
+
+//END_USER_SECTION_INSIDE_CLASS_DECLARATION
 
 
 };

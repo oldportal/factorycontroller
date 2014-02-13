@@ -15,7 +15,7 @@
 *    along with factorycontroller; if not, write to the Free Software
 *    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 *    
-*    Copyright (C) Dmitry Ognyannikov, 2012
+*    Copyright (C) Dmitry Ognyannikov, 2012-2014
 */
 #ifndef H_6cd52159e3e2d4fd9e286cf9f6db7cbd_H
 #define H_6cd52159e3e2d4fd9e286cf9f6db7cbd_H
@@ -70,6 +70,11 @@ virtual void step();
 
 
 //child classes:
+
+
+//BEGIN_USER_SECTION_INSIDE_CLASS_DECLARATION
+
+//END_USER_SECTION_INSIDE_CLASS_DECLARATION
 
 
 };

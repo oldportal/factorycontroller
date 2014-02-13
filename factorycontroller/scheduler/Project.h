@@ -15,7 +15,7 @@
 *    along with factorycontroller; if not, write to the Free Software
 *    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 *    
-*    Copyright (C) Dmitry Ognyannikov, 2012
+*    Copyright (C) Dmitry Ognyannikov, 2012-2014
 */
 #ifndef H_486108abcfb6940d0227e72b66d8fa65_H
 #define H_486108abcfb6940d0227e72b66d8fa65_H
@@ -65,6 +65,11 @@ std::vector< std::shared_ptr<Task> > _tasks;
 
 
 //child classes:
+
+
+//BEGIN_USER_SECTION_INSIDE_CLASS_DECLARATION
+
+//END_USER_SECTION_INSIDE_CLASS_DECLARATION
 
 
 };
