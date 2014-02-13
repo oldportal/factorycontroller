@@ -15,7 +15,7 @@
 *    along with factorycontroller; if not, write to the Free Software
 *    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 *    
-*    Copyright (C) Dmitry Ognyannikov, 2012
+*    Copyright (C) Dmitry Ognyannikov, 2012-2014
 */
 #ifndef H_12b33b1f36b39bb0a1d4431491cc73ff_H
 #define H_12b33b1f36b39bb0a1d4431491cc73ff_H
@@ -52,7 +52,7 @@ virtual ~ModbusDeviceCommand();
 
 // members:
 
-public:
+protected:
 modbus_t* _modbus_ctx;
 
 
@@ -71,7 +71,7 @@ This handler must know about used protocol.
 
 With Modbus this handler shold process request and response with libmodbus modbus_t context stored in  _modbus_ctx
 */
-public:
+protected:
 virtual void process();
 
 
@@ -80,6 +80,11 @@ virtual void process();
 
 
 //child classes:
+
+
+//BEGIN_USER_SECTION_INSIDE_CLASS_DECLARATION
+friend class oldportal::fc::network::modbus::ModbusNetworkController;
+//END_USER_SECTION_INSIDE_CLASS_DECLARATION
 
 
 };
