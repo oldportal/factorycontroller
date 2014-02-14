@@ -29,6 +29,9 @@
 //BEGIN_USER_SECTION_AFTER_MASTER_INCLUDE
 //#include <codecvt>
 //#include <cuchar>
+
+//#include <boost/locale.hpp>
+#include "../../../foreign_libs/utf8.h"
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
@@ -52,9 +55,22 @@ void oldportal::fc::system::logger::error(std::u16string message)
 //            reinterpret_cast<const char*> (&message[s.size()]));
 //    std::wcerr << ws << std::endl;
 
+// variant 3
     // c16rtomb as variant
 
-    std::wcerr << reinterpret_cast<const wchar_t*>(message.c_str()) << std::endl;
+// variant 4 - Boost.Locale
+    // Boost.Locale provides stream codepage conversion facets based on the std::codecvt facet. This allows conversion between wide-character encodings and 8-bit encodings like UTF-8, ISO-8859 or Shift-JIS.
+    //std::string utf8_string = to_utf<char>(latin1_string,"Latin1");
+    //std::wstring wide_string = to_utf<wchar_t>(latin1_string,"Latin1");
+    //std::string utf8_string2 = utf_to_utf<char>(wide_string);
+    //std::wstring s=to_utf<wchar_t>("string","UTF-8",stop);
+
+// variant 5 - utf8 library
+    // convert to UTF-8
+    std::string utf8message;
+    utf8::utf16to8(message.begin(), message.end(), back_inserter(utf8message));
+
+    std::cerr << utf8message << std::endl;
 }//END_718a5be680c5cd3f2877db828f4b003d
 
 void oldportal::fc::system::logger::error(std::string topic, std::string message)
@@ -64,19 +80,33 @@ void oldportal::fc::system::logger::error(std::string topic, std::string message
 
 void oldportal::fc::system::logger::error(std::u16string topic, std::u16string message)
 {//BEGIN_63f0235b80b0fd3d27380d6b38c2d947
-    //std::wcerr << topic << L" : " << message << std::endl;
+    //std::wcerr << topic << L" : " << message << std::endl; - for widestring, obsolete
 
-    std::wcerr << reinterpret_cast<const wchar_t*>(topic.c_str()) << L" : " << reinterpret_cast<const wchar_t*>(message.c_str()) << std::endl;
+    // convert to UTF-8
+    std::string utf8topic;
+    utf8::utf16to8(topic.begin(), topic.end(), back_inserter(utf8topic));
+
+    std::string utf8message;
+    utf8::utf16to8(message.begin(), message.end(), back_inserter(utf8message));
+
+    std::cerr << "hardware log : " << utf8topic << " : " << utf8message << std::endl;
 }//END_63f0235b80b0fd3d27380d6b38c2d947
 
 void oldportal::fc::system::logger::error_hardware(std::string topic, std::string message)
 {//BEGIN_7cc7907f2991739748563fc61fffed48
-    std::cerr << "hardware log : " << topic << " : " << message << std::endl;
+    std::cerr << "hardware error : " << topic << " : " << message << std::endl;
 }//END_7cc7907f2991739748563fc61fffed48
 
 void oldportal::fc::system::logger::error_hardware(std::u16string topic, std::u16string message)
 {//BEGIN_2ff0cbbe3cf50e0d8392b7e58d227636
-    std::wcerr << reinterpret_cast<const wchar_t*>(topic.c_str()) << L"hardware error : " << reinterpret_cast<const wchar_t*>(message.c_str()) << std::endl;
+    // convert to UTF-8
+    std::string utf8topic;
+    utf8::utf16to8(topic.begin(), topic.end(), back_inserter(utf8topic));
+
+    std::string utf8message;
+    utf8::utf16to8(message.begin(), message.end(), back_inserter(utf8message));
+
+    std::cerr << "hardware error : " << utf8topic << " : " << utf8message << std::endl;
 }//END_2ff0cbbe3cf50e0d8392b7e58d227636
 
 void oldportal::fc::system::logger::log(std::string message)
@@ -86,7 +116,11 @@ void oldportal::fc::system::logger::log(std::string message)
 
 void oldportal::fc::system::logger::log(std::u16string message)
 {//BEGIN_52112f037e01c585c2baffcb7ba90875
-    std::wcout << reinterpret_cast<const wchar_t*>(message.c_str()) << std::endl;
+    // convert to UTF-8
+    std::string utf8message;
+    utf8::utf16to8(message.begin(), message.end(), back_inserter(utf8message));
+
+    std::cout << utf8message << std::endl;
 }//END_52112f037e01c585c2baffcb7ba90875
 
 void oldportal::fc::system::logger::log(std::string topic, std::string message)
@@ -96,7 +130,14 @@ void oldportal::fc::system::logger::log(std::string topic, std::string message)
 
 void oldportal::fc::system::logger::log(std::u16string topic, std::u16string message)
 {//BEGIN_4750c431f3e654aef752e5133ab34789
-    std::wcout << reinterpret_cast<const wchar_t*>(topic.c_str()) << L" : " << reinterpret_cast<const wchar_t*>(message.c_str()) << std::endl;
+    // convert to UTF-8
+    std::string utf8topic;
+    utf8::utf16to8(topic.begin(), topic.end(), back_inserter(utf8topic));
+
+    std::string utf8message;
+    utf8::utf16to8(message.begin(), message.end(), back_inserter(utf8message));
+
+    std::cout << utf8topic << " : " << utf8message << std::endl;
 }//END_4750c431f3e654aef752e5133ab34789
 
 void oldportal::fc::system::logger::log_hardware(std::string topic, std::string message)
@@ -106,7 +147,14 @@ void oldportal::fc::system::logger::log_hardware(std::string topic, std::string 
 
 void oldportal::fc::system::logger::log_hardware(std::u16string topic, std::u16string message)
 {//BEGIN_8dc02bc4284321d5a7b60dfcc1b14992
-    std::wcout << L"hardware log : " << reinterpret_cast<const wchar_t*>(topic.c_str()) << L" : " << reinterpret_cast<const wchar_t*>(message.c_str()) << std::endl;
+    // convert to UTF-8
+    std::string utf8topic;
+    utf8::utf16to8(topic.begin(), topic.end(), back_inserter(utf8topic));
+
+    std::string utf8message;
+    utf8::utf16to8(message.begin(), message.end(), back_inserter(utf8message));
+
+    std::cout << "hardware log : " << utf8topic << " : " << utf8message << std::endl;
 }//END_8dc02bc4284321d5a7b60dfcc1b14992
 
 
