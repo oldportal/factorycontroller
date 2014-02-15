@@ -251,11 +251,23 @@ void oldportal::fc::network::modbus::ModbusNetworkController::realtime_run(oldpo
         // main work, process messages
         while (!controller->_command_queue.empty())
         {
-            auto command = controller->_command_queue.front();
+            std::shared_ptr<oldportal::fc::network::DeviceCommand> command;
+
+            {
+                // pop command with mutex lock
+                std::lock_guard<std::recursive_mutex> lock(controller->_command_queue_lock);
+                command = controller->_command_queue.front();
+                controller->_command_queue.pop();
+            }
+
+            // process command real-time part:
             controller->processDeviceCommand(command);
 
-            std::lock_guard<std::recursive_mutex> lock(controller->_command_queue_lock);
-            controller->_command_queue.pop();
+            {
+                // push command to back queue with mutex lock
+                std::lock_guard<std::recursive_mutex> lock(controller->_command_queue_lock);
+                controller->_command_back_queue.push(command);
+            }
         }
 
         // check for interruption and closing
@@ -278,6 +290,16 @@ void oldportal::fc::network::modbus::ModbusNetworkController::realtime_run(oldpo
     controller->closeModbusContext();
     oldportal::fc::system::logger::log(u8"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() thread stopped");
 }//END_de81e20cb5afc7c60970dd4c25f3f0ac
+
+void oldportal::fc::network::modbus::ModbusNetworkController::step()
+{//BEGIN_342546856c9e2b6aaccaec98c99c43a9
+    // parent class call
+    oldportal::fc::network::NetworkController::step();
+
+    // TODO: check for last system time update deadline
+
+    // TODO: ping unused actively devices (update devices state)
+}//END_342546856c9e2b6aaccaec98c99c43a9
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
