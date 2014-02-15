@@ -105,6 +105,13 @@ virtual void pushCommand(std::shared_ptr< oldportal::fc::network::DeviceCommand 
 private:
 static void realtime_run(oldportal::fc::network::modbus::ModbusNetworkController* controller);
 
+/**
+Update state.
+Logic processes step.
+*/
+public:
+virtual void step();
+
 
 
 //child groups:

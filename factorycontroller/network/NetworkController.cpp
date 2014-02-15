@@ -34,13 +34,15 @@
 oldportal::fc::network::NetworkController::NetworkController()
 
 {//BEGIN_108e13b6e9c79ba8ade22e512183ad53
-
+    _step_counter = 0;
 }//END_108e13b6e9c79ba8ade22e512183ad53
 
 oldportal::fc::network::NetworkController::NetworkController(std::shared_ptr< oldportal::fc::network::Network > network)
 
 {//BEGIN_5ee793d28f81fe07f58fd5b2ed1b33dd
     _network = network;
+
+    _step_counter = 0;
 }//END_5ee793d28f81fe07f58fd5b2ed1b33dd
 
 
@@ -65,7 +67,25 @@ void oldportal::fc::network::NetworkController::pushCommand(std::shared_ptr< old
 
 void oldportal::fc::network::NetworkController::step()
 {//BEGIN_3033921a3e8dfcbf8411d6d9f69e8ac8
-    // step() : empty
+    while (!_command_back_queue.empty())
+    {
+        std::shared_ptr<oldportal::fc::network::DeviceCommand> command;
+
+        {
+            // pop command with mutex lock
+            std::lock_guard<std::recursive_mutex> lock(_command_queue_lock);
+            command = _command_back_queue.front();
+            _command_back_queue.pop();
+        }
+
+        // after-process command step
+        command->onProcessed();
+    }
+
+    _step_counter++;
+
+    if (_step_counter >= std::numeric_limits<uint64_t>::max())
+        _step_counter = 0;
 }//END_3033921a3e8dfcbf8411d6d9f69e8ac8
 
 
