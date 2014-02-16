@@ -317,7 +317,11 @@ void oldportal::fc::network::modbus::ModbusNetworkController::timeSynchronizatio
     // check for last system time synchronization deadline
     if (_last_time_synchronization + std::chrono::milliseconds(_network_settings._network_time_sync_interval_msec) > std::chrono::high_resolution_clock::now())
     {
-        //TODO: insert synchronization command
+        _last_time_synchronization = std::chrono::high_resolution_clock::now();
+
+        // insert synchronization command
+        auto command = std::make_shared<oldportal::fc::network::command::NetworkTimeSynchronization>();
+        pushCommand(command);
     }
 }//END_b3b2f1eae83a0e0478ce3d83ef35bfef
 
