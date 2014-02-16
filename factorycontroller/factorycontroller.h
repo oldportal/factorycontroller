@@ -37,6 +37,7 @@ OldPortal Factory Controller project.
 
 #include <memory>
 #include <string>
+#include <atomic>
 #include <array>
 #include <queue>
 #include <map>
@@ -251,6 +252,7 @@ class LocalStorage;
 }// namespace storage
 namespace util 
 {
+class StepCounter;
 
 }// namespace util
 }// namespace system
@@ -287,6 +289,7 @@ namespace util
 #include "factory/cnc/wood/UnfixPartOperation.h"
 #include "factory/handlerobot/HandleRobotExecutor.h"
 #include "factory/handlerobot/MovePartOperation.h"
+#include "system/util/StepCounter.h"
 #include "factory/manufacturing/Factory.h"
 #include "factory/manufacturing/FactoryLoader.h"
 #include "factory/manufacturing/proc/FactoryPureProgramLoader.h"
@@ -390,6 +393,7 @@ namespace fc
 #include "factory/cnc/wood/UnfixPartOperation.h"
 #include "factory/handlerobot/HandleRobotExecutor.h"
 #include "factory/handlerobot/MovePartOperation.h"
+#include "system/util/StepCounter.h"
 #include "factory/manufacturing/Factory.h"
 #include "factory/manufacturing/FactoryLoader.h"
 #include "factory/manufacturing/proc/FactoryPureProgramLoader.h"

@@ -17,8 +17,8 @@
 *    
 *    Copyright (C) Dmitry Ognyannikov, 2012-2014
 */
-#ifndef H_861355b4f15ffef9415bc66842c46794_H
-#define H_861355b4f15ffef9415bc66842c46794_H
+#ifndef H_68f7b6cd30e569a797cef7aab1df5254_H
+#define H_68f7b6cd30e569a797cef7aab1df5254_H
 
 
 
@@ -28,68 +28,58 @@
 
 
 /**
-Abstract Industrial Bus (Network) controller.
+
 */
 namespace oldportal 
 {
 namespace fc 
 {
-namespace network 
+namespace system 
+{
+namespace util 
 {
 
-class NetworkController
+class StepCounter
 {
 // constructors:
 public:
-NetworkController();
-public:
-NetworkController(std::shared_ptr< oldportal::fc::network::Network > network);
+StepCounter();
 
-
-public:
-virtual ~NetworkController();
 
 // members:
 
-protected:
-oldportal::fc::network::NetworkClock _network_time;
-protected:
-std::queue< std::shared_ptr<oldportal::fc::network::DeviceCommand> > _command_back_queue;
-protected:
-std::queue< std::shared_ptr<oldportal::fc::network::DeviceCommand> > _command_queue;
-/**
-Mutex for both command front (to execution) and back queues.
-*/
-protected:
-std::recursive_mutex _command_queue_lock;
-public:
-oldportal::fc::network::NetworkErrorStatistics _error_statistics;
-public:
-oldportal::fc::system::util::StepCounter _step_counter;
-public:
-std::shared_ptr< oldportal::fc::network::Network > _network;
+private:
+std::atomic< uint64_t > _counter;
 
 
 //methods:
 
 /**
-Close realtime thread after queue empty.
+check counter % divider == 0;
 */
 public:
-virtual void close();
-
-public:
-virtual void initHardware() = 0;
-
-public:
-virtual void pushCommand(std::shared_ptr< oldportal::fc::network::DeviceCommand > command);
+bool checkDivider(const uint32_t divider) const;
 
 /**
-Update state.
-Logic processes step.
+check counter % divider == add;
 */
 public:
-virtual void step();
+bool checkDivider(const uint32_t divider, const uint32_t add) const;
+
+/**
+Reset counter to 0.
+*/
+public:
+void clear();
+
+/**
+Get counter value.
+*/
+public:
+uint64_t get() const;
+
+public:
+void increment();
 
 
 
@@ -107,7 +97,8 @@ virtual void step();
 };
 }// namespace oldportal
 }// namespace fc
-}// namespace network
+}// namespace system
+}// namespace util
 
 
 //BEGIN_USER_SECTION_AFTER_CLASS_DECLARATION
@@ -115,11 +106,11 @@ virtual void step();
 //END_USER_SECTION_AFTER_CLASS_DECLARATION
 
 
-#endif // H_861355b4f15ffef9415bc66842c46794_H
+#endif // H_68f7b6cd30e569a797cef7aab1df5254_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_861355b4f15ffef9415bc66842c46794_INLINES_H
-#define H_861355b4f15ffef9415bc66842c46794_INLINES_H
+#ifndef H_68f7b6cd30e569a797cef7aab1df5254_INLINES_H
+#define H_68f7b6cd30e569a797cef7aab1df5254_INLINES_H
 
-#endif // H_861355b4f15ffef9415bc66842c46794_INLINES_H
+#endif // H_68f7b6cd30e569a797cef7aab1df5254_INLINES_H
 #endif //OBJECTS_BUILDER_PROJECT_INLINES
