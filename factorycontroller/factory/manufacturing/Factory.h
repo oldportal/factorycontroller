@@ -52,7 +52,7 @@ virtual ~Factory();
 // members:
 
 private:
-bool _run_thread_cycle_flag;
+mutable bool _run_thread_cycle_flag;
 protected:
 std::shared_ptr< oldportal::fc::factory::warehouse::StorageManager > _storage_manager;
 protected:

@@ -55,11 +55,11 @@ virtual ~ModbusNetworkController();
 // members:
 
 private:
+modbus_t* _modbus_ctx;
+private:
 mutable bool _close_interrupted_flag;
 private:
 mutable bool _run_thread_cycle_flag;
-private:
-mutable modbus_t* _modbus_ctx;
 protected:
 std::chrono::high_resolution_clock::time_point _last_time_synchronization;
 protected:
