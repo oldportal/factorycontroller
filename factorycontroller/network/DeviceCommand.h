@@ -40,6 +40,8 @@ namespace network
 class DeviceCommand
 {
 // constructors:
+public:
+DeviceCommand();
 
 
 public:
