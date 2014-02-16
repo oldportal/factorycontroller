@@ -39,7 +39,9 @@ oldportal::fc::network::DeviceCommand::~DeviceCommand()
 
 void oldportal::fc::network::DeviceCommand::clear()
 {//BEGIN_713376dd3b1f502c6abb2eb2d96053e2
-    //TODO: clear()
+    _controller.reset();
+    _device.reset();
+    _executor.reset();
 }//END_713376dd3b1f502c6abb2eb2d96053e2
 
 void oldportal::fc::network::DeviceCommand::onProcessed()
