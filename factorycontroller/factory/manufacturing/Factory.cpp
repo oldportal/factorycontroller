@@ -90,9 +90,7 @@ void oldportal::fc::factory::manufacturing::Factory::run(oldportal::fc::factory:
         factory->step();
 
         // sleep with chrono
-        std::chrono::milliseconds sleep_duration( 1 );
-        std::this_thread::sleep_for( sleep_duration );
-        //std::this_thread::yield();
+        std::this_thread::sleep_for( std::chrono::milliseconds(1) );
     }
 }//END_a4ad6d027289a8b7eff52dd5cd9626b6
 
@@ -125,6 +123,8 @@ void oldportal::fc::factory::manufacturing::Factory::step()
 
     _storage_manager->step();
     _scheduler->step();
+
+    _step_counter.increment();
 }//END_771bbcfbbdef24221633f30b5616553e
 
 void oldportal::fc::factory::manufacturing::Factory::stop()
