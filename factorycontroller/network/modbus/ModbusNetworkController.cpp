@@ -180,11 +180,33 @@ bool oldportal::fc::network::modbus::ModbusNetworkController::isOpened()
 
 void oldportal::fc::network::modbus::ModbusNetworkController::pingDevicesStep()
 {//BEGIN_43113dc6f1f9435f6e36376d79451491
-    // maximum 1 device per step, if device timepout passed
+    // ping unused actively devices (update devices state)
 
-    // TODO: ping unused actively devices (update devices state)
+    auto now_time_point = std::chrono::high_resolution_clock::now();
 
-    //TODO: devicesPingStep()
+    for (auto& device : _network->_devices )
+    {
+        auto last_response = device->getLastResponse();
+        auto last_ping = device->getLastPing();
+
+        if (last_response + std::chrono::milliseconds(_network_settings._device_update_state_interval_msec) > now_time_point)
+            if (last_ping + std::chrono::milliseconds(_network_settings._device_update_state_interval_msec) > now_time_point)
+            {
+                device->updateLastPing();
+
+                // insert update state (=ping) command
+                auto hardware_device = std::dynamic_pointer_cast<oldportal::fc::hardware::HardwareDevice>(device);
+
+                if (!hardware_device)
+                    continue;// ping commands only for hardware device instances
+
+                auto command = std::make_shared<oldportal::fc::network::command::DeviceStateReport>(hardware_device);
+                pushCommand(command);
+
+                // maximum 1 device per step, if device timepout passed (keep network low-loaded)
+                return;
+            }
+    }
 }//END_43113dc6f1f9435f6e36376d79451491
 
 void oldportal::fc::network::modbus::ModbusNetworkController::processDeviceCommand(std::shared_ptr< oldportal::fc::network::DeviceCommand > command)
@@ -192,7 +214,9 @@ void oldportal::fc::network::modbus::ModbusNetworkController::processDeviceComma
     // runtime check for modbus command
     std::shared_ptr<oldportal::fc::network::modbus::ModbusDeviceCommand> modbus_command = std::dynamic_pointer_cast<oldportal::fc::network::modbus::ModbusDeviceCommand>(command);
     assert(modbus_command);
-    if (!modbus_command) {
+
+    if (!modbus_command)
+    {
         oldportal::fc::system::logger::error(u8"oldportal::fc::network::modbus::ModbusNetworkController::processDeviceCommand(command) - RTTI error, object bust inherit ModbusDeviceCommand");
 
         return;
@@ -200,12 +224,25 @@ void oldportal::fc::network::modbus::ModbusNetworkController::processDeviceComma
 
     modbus_command->_modbus_ctx = getModbusContext();
 
-    // process request->response
-    modbus_command->process();
+    try
+    {
+        // process request->response
+        modbus_command->process();
+
+        // update device last response time
+        if (modbus_command->_device)
+        {
+            modbus_command->_device->updateLastResponse();
+        }
+    }
+    catch (std::exception& ex)
+    {
+        oldportal::fc::system::logger::error_hardware("MODBUS command process exception", ex.what());
+        // add srror to statistics
+    }
 
     // clear command context
     modbus_command->_modbus_ctx = nullptr;
-
 }//END_079bd15ede78f816935638b9f4abdb08
 
 void oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(std::shared_ptr< oldportal::fc::network::DeviceCommand > command)

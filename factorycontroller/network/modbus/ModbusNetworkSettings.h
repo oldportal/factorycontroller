@@ -54,6 +54,11 @@ uint32_t _byte_timeout_usec;
 Interval for network time synchronization in milliseconds.
 */
 public:
+uint32_t _device_update_state_interval_msec;
+/**
+Interval for network time synchronization in milliseconds.
+*/
+public:
 uint32_t _network_time_sync_interval_msec;
 public:
 uint32_t _response_timeout_usec;

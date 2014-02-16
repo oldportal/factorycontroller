@@ -79,6 +79,8 @@ virtual ~NetworkDevice();
 // members:
 
 protected:
+std::chrono::high_resolution_clock::time_point _last_ping;
+protected:
 std::chrono::high_resolution_clock::time_point _last_response;
 public:
 boost::uuids::uuid _id;
@@ -93,6 +95,9 @@ std::weak_ptr< oldportal::fc::network::Network > _network;
 //methods:
 
 public:
+std::chrono::high_resolution_clock::time_point getLastPing() const;
+
+public:
 std::chrono::high_resolution_clock::time_point getLastResponse() const;
 
 /**
@@ -101,6 +106,9 @@ Logic processes step.
 */
 public:
 virtual void step() = 0;
+
+public:
+void updateLastPing();
 
 public:
 void updateLastResponse();

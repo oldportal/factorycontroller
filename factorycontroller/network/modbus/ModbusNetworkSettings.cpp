@@ -34,9 +34,13 @@
 oldportal::fc::network::modbus::ModbusNetworkSettings::ModbusNetworkSettings()
 
 {//BEGIN_31e83a27a778e7434be11dc010d2e8a0
+    // modbus general settings
     _response_timeout_usec = 150000;
     _byte_timeout_usec = 50000;
+
+    // network options
     _network_time_sync_interval_msec = 10000;
+    _device_update_state_interval_msec = 30000;
 }//END_31e83a27a778e7434be11dc010d2e8a0
 
 
