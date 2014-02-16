@@ -42,6 +42,9 @@ class TaskTemplate
 // constructors:
 
 
+public:
+virtual ~TaskTemplate();
+
 // members:
 
 public:

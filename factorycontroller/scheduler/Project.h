@@ -40,7 +40,12 @@ namespace scheduler
 class Project
 {
 // constructors:
+public:
+Project();
 
+
+public:
+virtual ~Project();
 
 // members:
 

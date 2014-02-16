@@ -31,6 +31,20 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+oldportal::fc::scheduler::LocalConfiguration::LocalConfiguration()
+
+{//BEGIN_d0811f0501bcbd1ce17304b0d8468109
+
+}//END_d0811f0501bcbd1ce17304b0d8468109
+
+
+
+oldportal::fc::scheduler::LocalConfiguration::~LocalConfiguration()
+{//BEGIN_bafcc8353cc25e899f7170850b1cbd3f
+
+}//END_bafcc8353cc25e899f7170850b1cbd3f
+
+
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
 
 //END_USER_SECTION_AFTER_GENERATED_CODE

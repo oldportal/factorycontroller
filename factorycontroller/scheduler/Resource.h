@@ -40,7 +40,12 @@ namespace scheduler
 class Resource
 {
 // constructors:
+public:
+Resource();
 
+
+public:
+virtual ~Resource();
 
 // members:
 

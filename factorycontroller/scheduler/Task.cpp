@@ -38,6 +38,13 @@ oldportal::fc::scheduler::Task::Task()
 }//END_76f807342da9815d7b4d2d8aee0b02ed
 
 
+
+oldportal::fc::scheduler::Task::~Task()
+{//BEGIN_c8ec3e77a523b48ffb651fc6761426bd
+
+}//END_c8ec3e77a523b48ffb651fc6761426bd
+
+
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
 
 //END_USER_SECTION_AFTER_GENERATED_CODE

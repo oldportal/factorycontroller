@@ -38,6 +38,13 @@ oldportal::fc::factory::cnc::proc::CNCExecutor::CNCExecutor()
 }//END_f0ee8858341912d220e0076168336e4f
 
 
+
+oldportal::fc::factory::cnc::proc::CNCExecutor::~CNCExecutor()
+{//BEGIN_588b12e4373f52d07419a551f41de210
+
+}//END_588b12e4373f52d07419a551f41de210
+
+
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
 
 //END_USER_SECTION_AFTER_GENERATED_CODE

@@ -31,6 +31,12 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+oldportal::fc::factory::cnc::wood::FixPartOperation::~FixPartOperation()
+{//BEGIN_499a05c037d9cb066e5fdfcc08550b1a
+
+}//END_499a05c037d9cb066e5fdfcc08550b1a
+
+
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
 
 //END_USER_SECTION_AFTER_GENERATED_CODE

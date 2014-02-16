@@ -42,6 +42,9 @@ class ExecutorInterface
 // constructors:
 
 
+public:
+virtual ~ExecutorInterface();
+
 // members:
 
 

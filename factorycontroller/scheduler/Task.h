@@ -44,6 +44,9 @@ public:
 Task();
 
 
+public:
+virtual ~Task();
+
 // members:
 
 public:

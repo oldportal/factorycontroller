@@ -31,6 +31,12 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+oldportal::fc::factory::cnc::MashineCenterInterface::~MashineCenterInterface()
+{//BEGIN_64f8e8562dbc1e95e3a423b6f86ac2ea
+
+}//END_64f8e8562dbc1e95e3a423b6f86ac2ea
+
+
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
 
 //END_USER_SECTION_AFTER_GENERATED_CODE

@@ -46,6 +46,9 @@ class ToolPath
 // constructors:
 
 
+public:
+virtual ~ToolPath();
+
 // members:
 
 

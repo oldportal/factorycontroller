@@ -42,7 +42,12 @@ namespace scheduler
 class ProjectTemplate
 {
 // constructors:
+public:
+ProjectTemplate();
 
+
+public:
+virtual ~ProjectTemplate();
 
 // members:
 

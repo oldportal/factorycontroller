@@ -46,6 +46,9 @@ public:
 StoragePallet();
 
 
+public:
+virtual ~StoragePallet();
+
 // members:
 
 

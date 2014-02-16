@@ -45,6 +45,9 @@ class MovePartOperation
 // constructors:
 
 
+public:
+virtual ~MovePartOperation();
+
 // members:
 
 
