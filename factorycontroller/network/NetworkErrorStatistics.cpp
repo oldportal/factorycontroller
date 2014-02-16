@@ -40,7 +40,7 @@ oldportal::fc::network::NetworkErrorStatistics::NetworkErrorStatistics()
 
 void oldportal::fc::network::NetworkErrorStatistics::clear()
 {//BEGIN_2c6924c4a9b6616e52344a8393ff4641
-    //TODO: clear()
+    _total_error_count = 0;
 }//END_2c6924c4a9b6616e52344a8393ff4641
 
 

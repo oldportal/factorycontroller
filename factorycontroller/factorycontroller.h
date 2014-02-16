@@ -204,8 +204,8 @@ class NetworkErrorStatistics;
 
 namespace command 
 {
-class NetworkTimeSynchronization;
 class DeviceStateReport;
+class NetworkTimeSynchronization;
 
 }// namespace command
 namespace modbus 

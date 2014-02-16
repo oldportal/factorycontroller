@@ -47,7 +47,7 @@ NetworkErrorStatistics();
 // members:
 
 private:
-uint64_t _total_error_count;
+mutable uint64_t _total_error_count;
 
 
 //methods:
