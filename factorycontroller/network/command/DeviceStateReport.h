@@ -44,14 +44,16 @@ namespace network
 namespace command 
 {
 
-class StateReport
+class DeviceStateReport
 :  public virtual oldportal::fc::network::modbus::ModbusDeviceCommand
 {
 // constructors:
+public:
+DeviceStateReport(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device);
 
 
 public:
-virtual ~StateReport();
+virtual ~DeviceStateReport();
 
 // members:
 

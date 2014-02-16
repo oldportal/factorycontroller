@@ -61,6 +61,8 @@ mutable bool _run_thread_cycle_flag;
 private:
 mutable modbus_t* _modbus_ctx;
 protected:
+std::chrono::high_resolution_clock::time_point _last_time_synchronization;
+protected:
 std::shared_ptr< std::thread > _realtime_thread;
 public:
 oldportal::fc::network::modbus::ModbusNetworkSettings _network_settings;
@@ -100,6 +102,14 @@ Otherwise return false.
 public:
 bool isOpened();
 
+/**
+Ping devices, for which timeout passed.
+
+Maximum 1 device per step.
+*/
+private:
+void pingDevicesStep();
+
 protected:
 virtual void processDeviceCommand(std::shared_ptr< oldportal::fc::network::DeviceCommand > command);
 
@@ -115,6 +125,12 @@ Logic processes step.
 */
 public:
 virtual void step();
+
+/**
+Host time synchronization with devices, if timeout in settings passed.
+*/
+private:
+void timeSynchronizationStep();
 
 
 

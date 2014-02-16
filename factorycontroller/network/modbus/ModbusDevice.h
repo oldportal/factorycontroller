@@ -43,6 +43,8 @@ class ModbusDevice
 :  public virtual oldportal::fc::network::NetworkDevice
 {
 // constructors:
+public:
+ModbusDevice();
 
 
 public:
@@ -51,7 +53,7 @@ virtual ~ModbusDevice();
 // members:
 
 public:
-uint16_t _modbus_address;
+uint8_t _modbus_address;
 
 
 //methods:

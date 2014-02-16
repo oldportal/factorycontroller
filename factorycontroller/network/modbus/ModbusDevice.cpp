@@ -31,6 +31,14 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+oldportal::fc::network::modbus::ModbusDevice::ModbusDevice()
+
+{//BEGIN_7980cbd43f20ffab61abaff66841e934
+
+}//END_7980cbd43f20ffab61abaff66841e934
+
+
+
 oldportal::fc::network::modbus::ModbusDevice::~ModbusDevice()
 {//BEGIN_62bf9caba9919fd9879939f4cd773646
 
