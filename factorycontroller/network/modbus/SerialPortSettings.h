@@ -17,8 +17,8 @@
 *    
 *    Copyright (C) Dmitry Ognyannikov, 2012-2014
 */
-#ifndef H_68f7b6cd30e569a797cef7aab1df5254_H
-#define H_68f7b6cd30e569a797cef7aab1df5254_H
+#ifndef H_175d66dfe33102a889043fad55a4af45_H
+#define H_175d66dfe33102a889043fad55a4af45_H
 
 
 
@@ -34,53 +34,57 @@ namespace oldportal
 {
 namespace fc 
 {
-namespace system 
+namespace network 
 {
-namespace util 
+namespace modbus 
 {
 
-class StepCounter
+class SerialPortSettings
 {
 // constructors:
 public:
-StepCounter();
+SerialPortSettings();
 
 
 // members:
 
-private:
-std::atomic_uint_fast64_t _counter;
+/**
+'N' = None
+'E' = 
+'O' = Odd
+*/
+public:
+char _parity;
+/**
+System serial port name.
+
+Unix/Linux examples:
+"/dev/ttyUSB0", "/dev/ttyAMA0"
+
+Windows examples:
+"COM1" - "COM255"
+*/
+public:
+std::string _port_name;
+/**
+Typical values:
+{110, 300, 600, 1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200, 230400};
+*/
+public:
+uint32_t _baud_rate;
+/**
+7 or 8 databits in transferred byte.
+*/
+public:
+uint8_t _databits;
+/**
+1 or 2 stopbits.
+*/
+public:
+uint8_t _stopbits;
 
 
 //methods:
-
-/**
-check counter % divider == 0;
-*/
-public:
-bool checkDivider(const uint32_t divider) const;
-
-/**
-check counter % divider == add;
-*/
-public:
-bool checkDivider(const uint32_t divider, const uint32_t add) const;
-
-/**
-Reset counter to 0.
-*/
-public:
-void clear();
-
-/**
-Get counter value.
-*/
-public:
-uint64_t get() const;
-
-public:
-void increment();
-
 
 
 //child groups:
@@ -97,8 +101,8 @@ void increment();
 };
 }// namespace oldportal
 }// namespace fc
-}// namespace system
-}// namespace util
+}// namespace network
+}// namespace modbus
 
 
 //BEGIN_USER_SECTION_AFTER_CLASS_DECLARATION
@@ -106,11 +110,11 @@ void increment();
 //END_USER_SECTION_AFTER_CLASS_DECLARATION
 
 
-#endif // H_68f7b6cd30e569a797cef7aab1df5254_H
+#endif // H_175d66dfe33102a889043fad55a4af45_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_68f7b6cd30e569a797cef7aab1df5254_INLINES_H
-#define H_68f7b6cd30e569a797cef7aab1df5254_INLINES_H
+#ifndef H_175d66dfe33102a889043fad55a4af45_INLINES_H
+#define H_175d66dfe33102a889043fad55a4af45_INLINES_H
 
-#endif // H_68f7b6cd30e569a797cef7aab1df5254_INLINES_H
+#endif // H_175d66dfe33102a889043fad55a4af45_INLINES_H
 #endif //OBJECTS_BUILDER_PROJECT_INLINES

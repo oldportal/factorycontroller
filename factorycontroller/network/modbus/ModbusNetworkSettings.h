@@ -17,8 +17,8 @@
 *    
 *    Copyright (C) Dmitry Ognyannikov, 2012-2014
 */
-#ifndef H_68f7b6cd30e569a797cef7aab1df5254_H
-#define H_68f7b6cd30e569a797cef7aab1df5254_H
+#ifndef H_0d9ef377dfd096d2bd3dcddd29242cd5_H
+#define H_0d9ef377dfd096d2bd3dcddd29242cd5_H
 
 
 
@@ -34,53 +34,32 @@ namespace oldportal
 {
 namespace fc 
 {
-namespace system 
+namespace network 
 {
-namespace util 
+namespace modbus 
 {
 
-class StepCounter
+class ModbusNetworkSettings
 {
 // constructors:
 public:
-StepCounter();
+ModbusNetworkSettings();
 
 
 // members:
 
-private:
-std::atomic_uint_fast64_t _counter;
+public:
+uint32_t _byte_timeout_usec;
+/**
+Interval for network time synchronization in milliseconds.
+*/
+public:
+uint32_t _network_time_sync_interval_msec;
+public:
+uint32_t _response_timeout_usec;
 
 
 //methods:
-
-/**
-check counter % divider == 0;
-*/
-public:
-bool checkDivider(const uint32_t divider) const;
-
-/**
-check counter % divider == add;
-*/
-public:
-bool checkDivider(const uint32_t divider, const uint32_t add) const;
-
-/**
-Reset counter to 0.
-*/
-public:
-void clear();
-
-/**
-Get counter value.
-*/
-public:
-uint64_t get() const;
-
-public:
-void increment();
-
 
 
 //child groups:
@@ -97,8 +76,8 @@ void increment();
 };
 }// namespace oldportal
 }// namespace fc
-}// namespace system
-}// namespace util
+}// namespace network
+}// namespace modbus
 
 
 //BEGIN_USER_SECTION_AFTER_CLASS_DECLARATION
@@ -106,11 +85,11 @@ void increment();
 //END_USER_SECTION_AFTER_CLASS_DECLARATION
 
 
-#endif // H_68f7b6cd30e569a797cef7aab1df5254_H
+#endif // H_0d9ef377dfd096d2bd3dcddd29242cd5_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_68f7b6cd30e569a797cef7aab1df5254_INLINES_H
-#define H_68f7b6cd30e569a797cef7aab1df5254_INLINES_H
+#ifndef H_0d9ef377dfd096d2bd3dcddd29242cd5_INLINES_H
+#define H_0d9ef377dfd096d2bd3dcddd29242cd5_INLINES_H
 
-#endif // H_68f7b6cd30e569a797cef7aab1df5254_INLINES_H
+#endif // H_0d9ef377dfd096d2bd3dcddd29242cd5_INLINES_H
 #endif //OBJECTS_BUILDER_PROJECT_INLINES

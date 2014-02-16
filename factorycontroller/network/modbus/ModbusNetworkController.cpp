@@ -92,16 +92,16 @@ void oldportal::fc::network::modbus::ModbusNetworkController::initHardware()
     // init network time
     _network_time.init();
 
-    //TODO: set predefined settings
+    // settings example
     /*Set up arrays with the different possibilities for communications parameters */
+    // port_name "/dev/ttyAMA0", "/dev/ttyUSB0"
     //int baud_rates[12] = {110, 300, 600, 1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200, 230400};
     //char parity[3] = {'N', 'E', 'O'};
     //int databits[2] ={7, 8};
     //int stopbits[2] = {1, 2};
 
     // set serial port name and settings
-    _modbus_ctx = modbus_new_rtu("/dev/ttyAMA0", 115200, 'E', 8, 1);
-    // mb = modbus_new_rtu("/dev/ttyUSB0", 38400, 'N', 8, 1);
+    _modbus_ctx = modbus_new_rtu(_port_settings._port_name.c_str(), _port_settings._baud_rate, _port_settings._parity, _port_settings._databits, _port_settings._stopbits);
 
     if (_modbus_ctx == NULL)
     {
@@ -124,13 +124,13 @@ void oldportal::fc::network::modbus::ModbusNetworkController::initHardware()
     }
 
     struct timeval new_response_timeout;
-    new_response_timeout.tv_sec =0;
-    new_response_timeout.tv_usec =150000;
+    new_response_timeout.tv_sec = 0;
+    new_response_timeout.tv_usec = _network_settings._response_timeout_usec;
     modbus_set_response_timeout(_modbus_ctx, &new_response_timeout);
 
     struct timeval new_byte_timeout;
-    new_byte_timeout.tv_sec =0;
-    new_byte_timeout.tv_usec =50000;
+    new_byte_timeout.tv_sec = 0;
+    new_byte_timeout.tv_usec = _network_settings._byte_timeout_usec;
     modbus_set_byte_timeout(_modbus_ctx, &new_byte_timeout);
 
     // set destination address

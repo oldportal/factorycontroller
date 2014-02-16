@@ -24,28 +24,22 @@
 //END_USER_SECTION_BEFORE_MASTER_INCLUDE
 
 
-#include "../factorycontroller.h"
+#include "../../factorycontroller.h"
 
 //BEGIN_USER_SECTION_AFTER_MASTER_INCLUDE
 
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-oldportal::fc::network::DeviceCommand::~DeviceCommand()
-{//BEGIN_32877179041669eccee5e1d6ed563552
+oldportal::fc::network::modbus::SerialPortSettings::SerialPortSettings()
 
-}//END_32877179041669eccee5e1d6ed563552
-
-
-void oldportal::fc::network::DeviceCommand::clear()
-{//BEGIN_713376dd3b1f502c6abb2eb2d96053e2
-    //TODO: clear()
-}//END_713376dd3b1f502c6abb2eb2d96053e2
-
-void oldportal::fc::network::DeviceCommand::onProcessed()
-{//BEGIN_e7f23ec91fe8f785294c8480ad24677c
-    // empty
-}//END_e7f23ec91fe8f785294c8480ad24677c
+{//BEGIN_4198f7313c2f670c8e5dd385ec0c433d
+    _port_name = "/dev/ttyUSB0";
+    _baud_rate = 115200;
+    _parity = 'N';
+    _databits = 8;
+    _stopbits = 1;
+}//END_4198f7313c2f670c8e5dd385ec0c433d
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE

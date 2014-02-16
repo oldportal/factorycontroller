@@ -118,6 +118,8 @@ SOURCES += main.cpp \
     factorycontroller/system/logger/_group_logger.cpp \
     factorycontroller/network/modbus/ModbusMessageWrapper.cpp \
     factorycontroller/network/modbus/ModbusDeviceCommand.cpp \
-    factorycontroller/system/util/StepCounter.cpp
+    factorycontroller/system/util/StepCounter.cpp \
+    factorycontroller/network/modbus/SerialPortSettings.cpp \
+    factorycontroller/network/modbus/ModbusNetworkSettings.cpp
 
 HEADERS += factorycontroller/factorycontroller.h 
