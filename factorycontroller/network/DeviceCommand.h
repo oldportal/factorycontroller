@@ -52,7 +52,7 @@ std::shared_ptr< oldportal::fc::hardware::HardwareDevice > _device;
 public:
 std::shared_ptr< oldportal::fc::network::NetworkController > _controller;
 public:
-std::shared_ptr< oldportal::fc::scheduler::ExecutorInterface > __executor;
+std::shared_ptr< oldportal::fc::scheduler::ExecutorInterface > _executor;
 public:
 uint8_t _priority;
 

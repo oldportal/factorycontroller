@@ -78,6 +78,9 @@ void oldportal::fc::network::NetworkController::step()
 
         // after-process command step
         command->onProcessed();
+
+        // clear command for avoid memory leaks:
+        command->clear();
     }
 
     _step_counter.increment();
