@@ -205,7 +205,7 @@ class NetworkErrorStatistics;
 namespace command 
 {
 class NetworkTimeSynchronization;
-class StateReport;
+class DeviceStateReport;
 
 }// namespace command
 namespace modbus 
@@ -215,8 +215,8 @@ class ModbusDeviceCommand;
 struct ModbusMessagePair;
 class ModbusMessageWrapper;
 class ModbusNetworkController;
-class SerialPortSettings;
 class ModbusNetworkSettings;
+class SerialPortSettings;
 
 }// namespace modbus
 }// namespace network
@@ -330,8 +330,8 @@ class StepCounter;
 #include "network/Network.h"
 #include "network/NetworkClock.h"
 #include "network/NetworkController.h"
+#include "network/command/DeviceStateReport.h"
 #include "network/command/NetworkTimeSynchronization.h"
-#include "network/command/StateReport.h"
 #include "network/modbus/ModbusMessagePair.h"
 #include "network/modbus/ModbusMessageWrapper.h"
 #include "network/modbus/SerialPortSettings.h"
@@ -436,8 +436,8 @@ namespace fc
 #include "network/Network.h"
 #include "network/NetworkClock.h"
 #include "network/NetworkController.h"
+#include "network/command/DeviceStateReport.h"
 #include "network/command/NetworkTimeSynchronization.h"
-#include "network/command/StateReport.h"
 #include "network/modbus/ModbusMessagePair.h"
 #include "network/modbus/ModbusMessageWrapper.h"
 #include "network/modbus/SerialPortSettings.h"

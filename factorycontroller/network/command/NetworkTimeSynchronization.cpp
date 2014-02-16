@@ -31,6 +31,14 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+oldportal::fc::network::command::NetworkTimeSynchronization::NetworkTimeSynchronization()
+
+{//BEGIN_eb0f1b90102c8aa5e194df6319fafd88
+
+}//END_eb0f1b90102c8aa5e194df6319fafd88
+
+
+
 oldportal::fc::network::command::NetworkTimeSynchronization::~NetworkTimeSynchronization()
 {//BEGIN_e5b984236a7706eb620d3a695b5e018f
 
@@ -40,6 +48,8 @@ oldportal::fc::network::command::NetworkTimeSynchronization::~NetworkTimeSynchro
 void oldportal::fc::network::command::NetworkTimeSynchronization::process()
 {//BEGIN_ba5a8c22a6c4cc0d2dfa663125379790
     assert(_modbus_ctx);
+
+    //TODO: synchronize network time command
 }//END_ba5a8c22a6c4cc0d2dfa663125379790
 
 

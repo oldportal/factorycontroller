@@ -31,15 +31,26 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-oldportal::fc::network::command::StateReport::~StateReport()
+oldportal::fc::network::command::DeviceStateReport::DeviceStateReport(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device)
+
+{//BEGIN_7beba502117e9095cf401c036398cc43
+    assert(device);
+    _device = device;
+}//END_7beba502117e9095cf401c036398cc43
+
+
+
+oldportal::fc::network::command::DeviceStateReport::~DeviceStateReport()
 {//BEGIN_d1555c3373090cf5a5b01ddf233ffacc
 
 }//END_d1555c3373090cf5a5b01ddf233ffacc
 
 
-void oldportal::fc::network::command::StateReport::process()
+void oldportal::fc::network::command::DeviceStateReport::process()
 {//BEGIN_b9522da80d4b05e42e2b9d9a702ae52d
     assert(_modbus_ctx);
+
+    //TODO: ping device
 }//END_b9522da80d4b05e42e2b9d9a702ae52d
 
 

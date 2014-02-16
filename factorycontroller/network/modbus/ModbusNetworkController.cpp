@@ -178,6 +178,15 @@ bool oldportal::fc::network::modbus::ModbusNetworkController::isOpened()
     return _modbus_ctx != nullptr && _realtime_thread;
 }//END_ce9e0665a989f6bbf012e31384526717
 
+void oldportal::fc::network::modbus::ModbusNetworkController::pingDevicesStep()
+{//BEGIN_43113dc6f1f9435f6e36376d79451491
+    // maximum 1 device per step, if device timepout passed
+
+    // TODO: ping unused actively devices (update devices state)
+
+    //TODO: devicesPingStep()
+}//END_43113dc6f1f9435f6e36376d79451491
+
 void oldportal::fc::network::modbus::ModbusNetworkController::processDeviceCommand(std::shared_ptr< oldportal::fc::network::DeviceCommand > command)
 {//BEGIN_079bd15ede78f816935638b9f4abdb08
     // runtime check for modbus command
@@ -296,10 +305,21 @@ void oldportal::fc::network::modbus::ModbusNetworkController::step()
     // parent class call
     oldportal::fc::network::NetworkController::step();
 
-    // TODO: check for last system time update deadline
+    // check for last system time synchronization deadline
+    timeSynchronizationStep();
 
-    // TODO: ping unused actively devices (update devices state)
+    // ping unused actively devices (update devices state)
+    pingDevicesStep();
 }//END_342546856c9e2b6aaccaec98c99c43a9
+
+void oldportal::fc::network::modbus::ModbusNetworkController::timeSynchronizationStep()
+{//BEGIN_b3b2f1eae83a0e0478ce3d83ef35bfef
+    // check for last system time synchronization deadline
+    if (_last_time_synchronization + std::chrono::milliseconds(_network_settings._network_time_sync_interval_msec) > std::chrono::high_resolution_clock::now())
+    {
+        //TODO: insert synchronization command
+    }
+}//END_b3b2f1eae83a0e0478ce3d83ef35bfef
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE

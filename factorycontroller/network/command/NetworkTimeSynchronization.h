@@ -45,6 +45,8 @@ class NetworkTimeSynchronization
 :  public virtual oldportal::fc::network::modbus::ModbusDeviceCommand
 {
 // constructors:
+public:
+NetworkTimeSynchronization();
 
 
 public:

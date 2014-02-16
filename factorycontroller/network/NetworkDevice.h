@@ -78,8 +78,10 @@ virtual ~NetworkDevice();
 
 // members:
 
+protected:
+std::chrono::high_resolution_clock::time_point _last_response;
 public:
-int64_t _id;
+boost::uuids::uuid _id;
 public:
 oldportal::fc::network::NetworkErrorStatistics _error_statistics;
 public:
@@ -90,12 +92,18 @@ std::weak_ptr< oldportal::fc::network::Network > _network;
 
 //methods:
 
+public:
+std::chrono::high_resolution_clock::time_point getLastResponse() const;
+
 /**
 Update state.
 Logic processes step.
 */
 public:
 virtual void step() = 0;
+
+public:
+void updateLastResponse();
 
 
 

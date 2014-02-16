@@ -93,7 +93,6 @@ SOURCES += main.cpp \
     factorycontroller/network/NetworkClock.cpp \
     factorycontroller/network/command/NetworkTimeSynchronization.cpp \
     factorycontroller/network/command/_group_command.cpp \
-    factorycontroller/network/command/StateReport.cpp \
     factorycontroller/network/modbus/ModbusDevice.cpp \
     factorycontroller/network/modbus/_group_modbus.cpp \
     factorycontroller/network/modbus/ModbusMessagePair.cpp \
@@ -120,6 +119,7 @@ SOURCES += main.cpp \
     factorycontroller/network/modbus/ModbusDeviceCommand.cpp \
     factorycontroller/system/util/StepCounter.cpp \
     factorycontroller/network/modbus/SerialPortSettings.cpp \
-    factorycontroller/network/modbus/ModbusNetworkSettings.cpp
+    factorycontroller/network/modbus/ModbusNetworkSettings.cpp \
+    factorycontroller/network/command/DeviceStateReport.cpp
 
 HEADERS += factorycontroller/factorycontroller.h 
