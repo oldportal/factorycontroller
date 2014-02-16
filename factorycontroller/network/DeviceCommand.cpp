@@ -31,6 +31,15 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+oldportal::fc::network::DeviceCommand::DeviceCommand()
+
+{//BEGIN_9a4ba54f2d4c69e1e269ae077d234d34
+    // set minimum priority
+    priority = 0;
+}//END_9a4ba54f2d4c69e1e269ae077d234d34
+
+
+
 oldportal::fc::network::DeviceCommand::~DeviceCommand()
 {//BEGIN_32877179041669eccee5e1d6ed563552
 
@@ -42,6 +51,8 @@ void oldportal::fc::network::DeviceCommand::clear()
     _controller.reset();
     _device.reset();
     _executor.reset();
+    // set minimum priority
+    priority = 0;
 }//END_713376dd3b1f502c6abb2eb2d96053e2
 
 void oldportal::fc::network::DeviceCommand::onProcessed()
