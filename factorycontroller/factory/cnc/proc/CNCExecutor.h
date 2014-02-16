@@ -49,6 +49,9 @@ public:
 CNCExecutor();
 
 
+public:
+virtual ~CNCExecutor();
+
 // members:
 
 

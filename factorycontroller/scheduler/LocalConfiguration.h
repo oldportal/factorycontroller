@@ -44,7 +44,12 @@ namespace scheduler
 class LocalConfiguration
 {
 // constructors:
+public:
+LocalConfiguration();
 
+
+public:
+virtual ~LocalConfiguration();
 
 // members:
 

@@ -45,6 +45,9 @@ class Printer3DExecutor
 // constructors:
 
 
+public:
+virtual ~Printer3DExecutor();
+
 // members:
 
 

@@ -31,6 +31,12 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+oldportal::fc::factory::cnc::ChangeToolOperation::~ChangeToolOperation()
+{//BEGIN_aae143b2353c76e4f10ef8c0b6fe7484
+
+}//END_aae143b2353c76e4f10ef8c0b6fe7484
+
+
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
 
 //END_USER_SECTION_AFTER_GENERATED_CODE

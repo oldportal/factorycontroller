@@ -44,6 +44,9 @@ class MashineCenterInterface
 // constructors:
 
 
+public:
+virtual ~MashineCenterInterface();
+
 // members:
 
 

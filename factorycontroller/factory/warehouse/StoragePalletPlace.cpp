@@ -38,6 +38,13 @@ oldportal::fc::factory::warehouse::StoragePalletPlace::StoragePalletPlace()
 }//END_313613ba1e79212203d4325dd477f5aa
 
 
+
+oldportal::fc::factory::warehouse::StoragePalletPlace::~StoragePalletPlace()
+{//BEGIN_1315aad236db2dfec72b1c01ed2ea608
+
+}//END_1315aad236db2dfec72b1c01ed2ea608
+
+
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
 
 //END_USER_SECTION_AFTER_GENERATED_CODE

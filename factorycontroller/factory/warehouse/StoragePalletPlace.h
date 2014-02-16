@@ -46,6 +46,9 @@ public:
 StoragePalletPlace();
 
 
+public:
+virtual ~StoragePalletPlace();
+
 // members:
 
 

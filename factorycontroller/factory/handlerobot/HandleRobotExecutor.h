@@ -45,6 +45,9 @@ class HandleRobotExecutor
 // constructors:
 
 
+public:
+virtual ~HandleRobotExecutor();
+
 // members:
 
 

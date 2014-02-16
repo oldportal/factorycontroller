@@ -47,6 +47,9 @@ class FixPartOperation
 // constructors:
 
 
+public:
+virtual ~FixPartOperation();
+
 // members:
 
 

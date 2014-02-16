@@ -47,6 +47,9 @@ class RepairToolOperation
 // constructors:
 
 
+public:
+virtual ~RepairToolOperation();
+
 // members:
 
 

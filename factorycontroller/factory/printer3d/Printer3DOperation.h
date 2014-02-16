@@ -45,6 +45,9 @@ class Printer3DOperation
 // constructors:
 
 
+public:
+virtual ~Printer3DOperation();
+
 // members:
 
 

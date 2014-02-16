@@ -45,6 +45,9 @@ class ChangeToolOperation
 // constructors:
 
 
+public:
+virtual ~ChangeToolOperation();
+
 // members:
 
 

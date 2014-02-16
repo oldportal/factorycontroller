@@ -31,6 +31,12 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+oldportal::fc::scheduler::ExecutorInterface::~ExecutorInterface()
+{//BEGIN_21a9e663f6e779884a26e7bfb836e4b9
+
+}//END_21a9e663f6e779884a26e7bfb836e4b9
+
+
 std::shared_ptr< oldportal::fc::scheduler::Resource > oldportal::fc::scheduler::ExecutorInterface::getLockedResources()
 {//BEGIN_f60a964f51d60ae382cfe97cc42532df
     std::shared_ptr< oldportal::fc::scheduler::Resource > ret;

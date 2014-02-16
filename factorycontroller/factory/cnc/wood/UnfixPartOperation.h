@@ -47,6 +47,9 @@ class UnfixPartOperation
 // constructors:
 
 
+public:
+virtual ~UnfixPartOperation();
+
 // members:
 
 

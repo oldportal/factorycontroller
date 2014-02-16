@@ -45,6 +45,9 @@ class ToolSet
 // constructors:
 
 
+public:
+virtual ~ToolSet();
+
 // members:
 
 
