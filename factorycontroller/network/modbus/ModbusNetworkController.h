@@ -62,6 +62,10 @@ private:
 mutable modbus_t* _modbus_ctx;
 protected:
 std::shared_ptr< std::thread > _realtime_thread;
+public:
+oldportal::fc::network::modbus::ModbusNetworkSettings _network_settings;
+public:
+oldportal::fc::network::modbus::SerialPortSettings _port_settings;
 
 
 //methods:

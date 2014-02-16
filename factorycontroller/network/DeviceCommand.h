@@ -52,17 +52,22 @@ std::shared_ptr< oldportal::fc::hardware::HardwareDevice > _device;
 public:
 std::shared_ptr< oldportal::fc::network::NetworkController > _controller;
 public:
+std::shared_ptr< oldportal::fc::scheduler::ExecutorInterface > __executor;
+public:
 uint8_t _priority;
 
 
 //methods:
+
+public:
+virtual void clear();
 
 /**
 Handler.
 Called after command processed. Called in main step thread.
 */
 protected:
-void onProcessed();
+virtual void onProcessed();
 
 /**
 Process command to device in realtime background thread.

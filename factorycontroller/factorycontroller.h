@@ -215,6 +215,8 @@ class ModbusDeviceCommand;
 struct ModbusMessagePair;
 class ModbusMessageWrapper;
 class ModbusNetworkController;
+class SerialPortSettings;
+class ModbusNetworkSettings;
 
 }// namespace modbus
 }// namespace network
@@ -332,6 +334,8 @@ class StepCounter;
 #include "network/command/StateReport.h"
 #include "network/modbus/ModbusMessagePair.h"
 #include "network/modbus/ModbusMessageWrapper.h"
+#include "network/modbus/SerialPortSettings.h"
+#include "network/modbus/ModbusNetworkSettings.h"
 #include "network/modbus/ModbusNetworkController.h"
 #include "scheduler/LocalConfiguration.h"
 #include "scheduler/Project.h"
@@ -436,6 +440,8 @@ namespace fc
 #include "network/command/StateReport.h"
 #include "network/modbus/ModbusMessagePair.h"
 #include "network/modbus/ModbusMessageWrapper.h"
+#include "network/modbus/SerialPortSettings.h"
+#include "network/modbus/ModbusNetworkSettings.h"
 #include "network/modbus/ModbusNetworkController.h"
 #include "scheduler/LocalConfiguration.h"
 #include "scheduler/Project.h"

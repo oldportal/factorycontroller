@@ -24,28 +24,20 @@
 //END_USER_SECTION_BEFORE_MASTER_INCLUDE
 
 
-#include "../factorycontroller.h"
+#include "../../factorycontroller.h"
 
 //BEGIN_USER_SECTION_AFTER_MASTER_INCLUDE
 
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-oldportal::fc::network::DeviceCommand::~DeviceCommand()
-{//BEGIN_32877179041669eccee5e1d6ed563552
+oldportal::fc::network::modbus::ModbusNetworkSettings::ModbusNetworkSettings()
 
-}//END_32877179041669eccee5e1d6ed563552
-
-
-void oldportal::fc::network::DeviceCommand::clear()
-{//BEGIN_713376dd3b1f502c6abb2eb2d96053e2
-    //TODO: clear()
-}//END_713376dd3b1f502c6abb2eb2d96053e2
-
-void oldportal::fc::network::DeviceCommand::onProcessed()
-{//BEGIN_e7f23ec91fe8f785294c8480ad24677c
-    // empty
-}//END_e7f23ec91fe8f785294c8480ad24677c
+{//BEGIN_31e83a27a778e7434be11dc010d2e8a0
+    _response_timeout_usec = 150000;
+    _byte_timeout_usec = 50000;
+    _network_time_sync_interval_msec = 10000;
+}//END_31e83a27a778e7434be11dc010d2e8a0
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
