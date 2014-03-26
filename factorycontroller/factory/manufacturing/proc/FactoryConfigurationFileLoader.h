@@ -17,8 +17,8 @@
 *    
 *    Copyright (C) Dmitry Ognyannikov, 2012-2014
 */
-#ifndef H_042bd9be2a4b76649043eab2c8ea018d_H
-#define H_042bd9be2a4b76649043eab2c8ea018d_H
+#ifndef H_27b01b8d0e674fd1dc735b761cacb3c7_H
+#define H_27b01b8d0e674fd1dc735b761cacb3c7_H
 
 
 
@@ -41,16 +41,16 @@ namespace manufacturing
 namespace proc 
 {
 
-class FactoryPureProgramLoader
+class FactoryConfigurationFileLoader
 :  public virtual oldportal::fc::factory::manufacturing::FactoryLoader
 {
 // constructors:
 public:
-FactoryPureProgramLoader();
+FactoryConfigurationFileLoader(const std::string& configuration_filename);
 
 
 public:
-virtual ~FactoryPureProgramLoader();
+virtual ~FactoryConfigurationFileLoader();
 
 // members:
 
@@ -58,6 +58,8 @@ protected:
 std::shared_ptr< oldportal::fc::factory::warehouse::StorageManager > _storage_manager;
 protected:
 std::shared_ptr< oldportal::fc::scheduler::Scheduler > _scheduler;
+protected:
+std::string _configuration_filename;
 protected:
 std::vector< std::shared_ptr<oldportal::fc::network::Network> > _networks;
 protected:
@@ -112,11 +114,11 @@ virtual void init();
 //END_USER_SECTION_AFTER_CLASS_DECLARATION
 
 
-#endif // H_042bd9be2a4b76649043eab2c8ea018d_H
+#endif // H_27b01b8d0e674fd1dc735b761cacb3c7_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_042bd9be2a4b76649043eab2c8ea018d_INLINES_H
-#define H_042bd9be2a4b76649043eab2c8ea018d_INLINES_H
+#ifndef H_27b01b8d0e674fd1dc735b761cacb3c7_INLINES_H
+#define H_27b01b8d0e674fd1dc735b761cacb3c7_INLINES_H
 
-#endif // H_042bd9be2a4b76649043eab2c8ea018d_INLINES_H
+#endif // H_27b01b8d0e674fd1dc735b761cacb3c7_INLINES_H
 #endif //OBJECTS_BUILDER_PROJECT_INLINES

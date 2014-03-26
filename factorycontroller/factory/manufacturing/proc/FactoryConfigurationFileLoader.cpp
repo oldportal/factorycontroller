@@ -31,47 +31,47 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::FactoryPureProgramLoader()
+oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader::FactoryConfigurationFileLoader(const std::string& configuration_filename)
     :   oldportal::fc::factory::manufacturing::FactoryLoader()
-{//BEGIN_e0a5d0495f08716c756e3e993ca14893
+{//BEGIN_c037b730f87c52811d3fd00dd6c2693f
 
-}//END_e0a5d0495f08716c756e3e993ca14893
-
-
-
-oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::~FactoryPureProgramLoader()
-{//BEGIN_7a0e75b80e41e26bb0eaf042f0d9d94b
-
-}//END_7a0e75b80e41e26bb0eaf042f0d9d94b
+}//END_c037b730f87c52811d3fd00dd6c2693f
 
 
-std::vector< std::shared_ptr<oldportal::fc::scheduler::ExecutorInterface> > oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::getExecutors()
-{//BEGIN_d44041889adcd6e97e834f3d5ef839aa
+
+oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader::~FactoryConfigurationFileLoader()
+{//BEGIN_1f0482e3d3ea6c7bd98d13887ab3eeeb
+
+}//END_1f0482e3d3ea6c7bd98d13887ab3eeeb
+
+
+std::vector< std::shared_ptr<oldportal::fc::scheduler::ExecutorInterface> > oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader::getExecutors()
+{//BEGIN_35dc9994ce03b036850012793fb08c1e
     return _executors;
-}//END_d44041889adcd6e97e834f3d5ef839aa
+}//END_35dc9994ce03b036850012793fb08c1e
 
-std::vector< std::shared_ptr<oldportal::fc::network::NetworkController> > oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::getNetworkControllers()
-{//BEGIN_33fc9b3c9a65d8482e0a49fff8af996f
+std::vector< std::shared_ptr<oldportal::fc::network::NetworkController> > oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader::getNetworkControllers()
+{//BEGIN_c4430f402fbaa9ec643d23863d633559
     return _network_controllers;
-}//END_33fc9b3c9a65d8482e0a49fff8af996f
+}//END_c4430f402fbaa9ec643d23863d633559
 
-std::vector< std::shared_ptr<oldportal::fc::network::Network> > oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::getNetworks()
-{//BEGIN_43e79750f9c2f923afbc63d883c85398
+std::vector< std::shared_ptr<oldportal::fc::network::Network> > oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader::getNetworks()
+{//BEGIN_7e7aa6fd48769d1d8d1c9d1f4393bfd5
     return _networks;
-}//END_43e79750f9c2f923afbc63d883c85398
+}//END_7e7aa6fd48769d1d8d1c9d1f4393bfd5
 
-std::shared_ptr< oldportal::fc::scheduler::Scheduler > oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::getScheduler()
-{//BEGIN_7021c2722148304bc5672bb6c7f6df42
+std::shared_ptr< oldportal::fc::scheduler::Scheduler > oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader::getScheduler()
+{//BEGIN_4b75b4b3ddcdee4f1789bedef5c37859
     return _scheduler;
-}//END_7021c2722148304bc5672bb6c7f6df42
+}//END_4b75b4b3ddcdee4f1789bedef5c37859
 
-std::shared_ptr< oldportal::fc::factory::warehouse::StorageManager > oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::getStorageManager()
-{//BEGIN_2aa240c8065342c9824468454a0e68e6
+std::shared_ptr< oldportal::fc::factory::warehouse::StorageManager > oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader::getStorageManager()
+{//BEGIN_5cb2dba24094466df65e1a9f1d8bf118
     return _storage_manager;
-}//END_2aa240c8065342c9824468454a0e68e6
+}//END_5cb2dba24094466df65e1a9f1d8bf118
 
-void oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::init()
-{//BEGIN_5b0594ae28e0d5ff4cbae77b275fda91
+void oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader::init()
+{//BEGIN_5110e6763784e4dbb95a3c8e4ca572d3
     // init members:
 
     // find port:
@@ -102,7 +102,7 @@ void oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::init
 
     _scheduler = std::make_shared< oldportal::fc::scheduler::Scheduler >();
     _storage_manager = std::make_shared< oldportal::fc::factory::warehouse::StorageManager >();
-}//END_5b0594ae28e0d5ff4cbae77b275fda91
+}//END_5110e6763784e4dbb95a3c8e4ca572d3
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
