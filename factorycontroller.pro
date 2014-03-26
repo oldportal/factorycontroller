@@ -120,6 +120,7 @@ SOURCES += main.cpp \
     factorycontroller/system/util/StepCounter.cpp \
     factorycontroller/network/modbus/SerialPortSettings.cpp \
     factorycontroller/network/modbus/ModbusNetworkSettings.cpp \
-    factorycontroller/network/command/DeviceStateReport.cpp
+    factorycontroller/network/command/DeviceStateReport.cpp \
+    factorycontroller/factory/manufacturing/proc/FactoryConfigurationFileLoader.cpp
 
 HEADERS += factorycontroller/factorycontroller.h 
