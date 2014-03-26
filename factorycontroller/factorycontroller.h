@@ -51,6 +51,8 @@ OldPortal Factory Controller project.
 
 #include <boost/crc.hpp>
 
+#include <boost/property_tree/ptree.hpp>
+
 #include <boost/uuid/uuid.hpp>
 #include <boost/uuid/uuid_generators.hpp>
 
