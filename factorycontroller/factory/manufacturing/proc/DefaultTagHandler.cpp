@@ -31,18 +31,31 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-oldportal::fc::factory::manufacturing::proc::ConfigurationLoaderTagHandler::ConfigurationLoaderTagHandler()
+oldportal::fc::factory::manufacturing::proc::DefaultTagHandler::DefaultTagHandler()
 
-{//BEGIN_3f26a77f5a7a0f87a6682fcab424dbff
+{//BEGIN_6e9f7ce607e6782f6b048b5ba86ff2f5
 
-}//END_3f26a77f5a7a0f87a6682fcab424dbff
+}//END_6e9f7ce607e6782f6b048b5ba86ff2f5
 
 
 
-oldportal::fc::factory::manufacturing::proc::ConfigurationLoaderTagHandler::~ConfigurationLoaderTagHandler()
-{//BEGIN_cc36bfd3380d846931cd824d20576f0d
+oldportal::fc::factory::manufacturing::proc::DefaultTagHandler::~DefaultTagHandler()
+{//BEGIN_b3a7e3c7ecd42fdced50b62726e5eec0
 
-}//END_cc36bfd3380d846931cd824d20576f0d
+}//END_b3a7e3c7ecd42fdced50b62726e5eec0
+
+
+std::vector< std::string > oldportal::fc::factory::manufacturing::proc::DefaultTagHandler::getTagList()
+{//BEGIN_fb14e05bde7d8c61534d44d1cc8846fa
+    std::vector< std::string > ret;
+    //TODO: getTagList()
+    return ret;
+}//END_fb14e05bde7d8c61534d44d1cc8846fa
+
+void oldportal::fc::factory::manufacturing::proc::DefaultTagHandler::processElement(std::string tag_name, boost::property_tree::ptree& property_tree, boost::property_tree::ptree::value_type& element)
+{//BEGIN_8628844f5d70f80ab3c49b37d2049b09
+    //TODO: processElement()
+}//END_8628844f5d70f80ab3c49b37d2049b09
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
