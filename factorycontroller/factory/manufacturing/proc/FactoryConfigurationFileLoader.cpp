@@ -27,14 +27,16 @@
 #include "../../../factorycontroller.h"
 
 //BEGIN_USER_SECTION_AFTER_MASTER_INCLUDE
-
+#include <boost/property_tree/xml_parser.hpp>
+#include <boost/property_tree/json_parser.hpp>
+#include <boost/property_tree/info_parser.hpp>
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
 oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader::FactoryConfigurationFileLoader(const std::string& configuration_filename)
     :   oldportal::fc::factory::manufacturing::FactoryLoader()
 {//BEGIN_c037b730f87c52811d3fd00dd6c2693f
-
+    _configuration_filename = configuration_filename;
 }//END_c037b730f87c52811d3fd00dd6c2693f
 
 
@@ -72,6 +74,9 @@ std::shared_ptr< oldportal::fc::factory::warehouse::StorageManager > oldportal::
 
 void oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader::init()
 {//BEGIN_5110e6763784e4dbb95a3c8e4ca572d3
+    // open configuration file and load property_tree
+    //TODO: load _configuration_filename
+
     // init members:
 
     // find port:
