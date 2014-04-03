@@ -37,6 +37,10 @@ oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader::Fac
     :   oldportal::fc::factory::manufacturing::FactoryLoader()
 {//BEGIN_c037b730f87c52811d3fd00dd6c2693f
     _configuration_filename = configuration_filename;
+
+    // add DefaultTagHandler
+    std::shared_ptr< oldportal::fc::factory::manufacturing::proc::DefaultTagHandler > defaultTagHandler = std::make_shared< oldportal::fc::factory::manufacturing::proc::DefaultTagHandler >();
+    addTagHandler(std::dynamic_pointer_cast< oldportal::fc::factory::manufacturing::proc::ConfigurationLoaderTagHandler >(defaultTagHandler));
 }//END_c037b730f87c52811d3fd00dd6c2693f
 
 
@@ -49,7 +53,17 @@ oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader::~Fa
 
 void oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader::addTagHandler(std::shared_ptr< oldportal::fc::factory::manufacturing::proc::ConfigurationLoaderTagHandler > tag_handler)
 {//BEGIN_489331ee736bf8b1a2f4e78e3e5959a0
-    //TODO: addTagHandler()
+    // TagHandler class should be unigue
+    // check for existing class with same type
+    for (size_t i=0; i<_tag_handlers.size(); i++)
+    //std::for_each(_tag_handlers.begin(), _tag_handlers.end(), )
+    {
+        if (typeid(_tag_handlers[i].get()) == typeid(tag_handler.get()))
+            return;// do not add duplicated handler
+    }
+
+    // add TagHandler
+    _tag_handlers.push_back(tag_handler);
 }//END_489331ee736bf8b1a2f4e78e3e5959a0
 
 std::vector< std::shared_ptr<oldportal::fc::scheduler::ExecutorInterface> > oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader::getExecutors()

@@ -42,6 +42,7 @@ namespace proc
 {
 
 class DefaultTagHandler
+:  public virtual oldportal::fc::factory::manufacturing::proc::ConfigurationLoaderTagHandler
 {
 // constructors:
 public:
