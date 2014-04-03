@@ -17,8 +17,8 @@
 *    
 *    Copyright (C) Dmitry Ognyannikov, 2012-2014
 */
-#ifndef H_5fa4f3e1d51742ab66420451f9b3230d_H
-#define H_5fa4f3e1d51742ab66420451f9b3230d_H
+#ifndef H_bc57ac8b38cddbacb6f5834dca9cffac_H
+#define H_bc57ac8b38cddbacb6f5834dca9cffac_H
 
 
 
@@ -41,15 +41,15 @@ namespace manufacturing
 namespace proc 
 {
 
-class ConfigurationLoaderTagHandler
+class DefaultTagHandler
 {
 // constructors:
 public:
-ConfigurationLoaderTagHandler();
+DefaultTagHandler();
 
 
 public:
-virtual ~ConfigurationLoaderTagHandler();
+virtual ~DefaultTagHandler();
 
 // members:
 
@@ -60,10 +60,10 @@ virtual ~ConfigurationLoaderTagHandler();
 Get list of configuration tags (keys), which can be processed with this Handler.
 */
 public:
-virtual std::vector< std::string > getTagList() = 0;
+virtual std::vector< std::string > getTagList();
 
 public:
-virtual void processElement(std::string tag_name, boost::property_tree::ptree& property_tree, boost::property_tree::ptree::value_type& element) = 0;
+virtual void processElement(std::string tag_name, boost::property_tree::ptree& property_tree, boost::property_tree::ptree::value_type& element);
 
 
 
@@ -91,11 +91,11 @@ virtual void processElement(std::string tag_name, boost::property_tree::ptree& p
 //END_USER_SECTION_AFTER_CLASS_DECLARATION
 
 
-#endif // H_5fa4f3e1d51742ab66420451f9b3230d_H
+#endif // H_bc57ac8b38cddbacb6f5834dca9cffac_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_5fa4f3e1d51742ab66420451f9b3230d_INLINES_H
-#define H_5fa4f3e1d51742ab66420451f9b3230d_INLINES_H
+#ifndef H_bc57ac8b38cddbacb6f5834dca9cffac_INLINES_H
+#define H_bc57ac8b38cddbacb6f5834dca9cffac_INLINES_H
 
-#endif // H_5fa4f3e1d51742ab66420451f9b3230d_INLINES_H
+#endif // H_bc57ac8b38cddbacb6f5834dca9cffac_INLINES_H
 #endif //OBJECTS_BUILDER_PROJECT_INLINES

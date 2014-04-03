@@ -128,6 +128,7 @@ class FactoryLoader;
 namespace proc 
 {
 class ConfigurationLoaderTagHandler;
+class DefaultTagHandler;
 class FactoryConfigurationFileLoader;
 class FactoryPureProgramLoader;
 
@@ -299,6 +300,7 @@ class StepCounter;
 #include "factory/manufacturing/Factory.h"
 #include "factory/manufacturing/FactoryLoader.h"
 #include "factory/manufacturing/proc/ConfigurationLoaderTagHandler.h"
+#include "factory/manufacturing/proc/DefaultTagHandler.h"
 #include "factory/manufacturing/proc/FactoryConfigurationFileLoader.h"
 #include "factory/manufacturing/proc/FactoryPureProgramLoader.h"
 #include "factory/printer3d/Printer3DExecutor.h"
@@ -407,6 +409,7 @@ namespace fc
 #include "factory/manufacturing/Factory.h"
 #include "factory/manufacturing/FactoryLoader.h"
 #include "factory/manufacturing/proc/ConfigurationLoaderTagHandler.h"
+#include "factory/manufacturing/proc/DefaultTagHandler.h"
 #include "factory/manufacturing/proc/FactoryConfigurationFileLoader.h"
 #include "factory/manufacturing/proc/FactoryPureProgramLoader.h"
 #include "factory/printer3d/Printer3DExecutor.h"
