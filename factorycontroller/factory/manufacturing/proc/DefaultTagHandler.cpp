@@ -48,6 +48,12 @@ oldportal::fc::factory::manufacturing::proc::DefaultTagHandler::~DefaultTagHandl
 std::vector< std::string > oldportal::fc::factory::manufacturing::proc::DefaultTagHandler::getTagList()
 {//BEGIN_fb14e05bde7d8c61534d44d1cc8846fa
     std::vector< std::string > ret;
+
+    // processed tags:
+    ret.push_back(u8"network.Network");
+    ret.push_back(u8"network.modbus.NetworkController");
+    ret.push_back(u8"network.modbus.NetworkDevice");
+
     //TODO: getTagList()
     return ret;
 }//END_fb14e05bde7d8c61534d44d1cc8846fa
