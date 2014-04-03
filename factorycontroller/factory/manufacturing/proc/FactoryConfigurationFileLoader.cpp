@@ -47,6 +47,11 @@ oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader::~Fa
 }//END_1f0482e3d3ea6c7bd98d13887ab3eeeb
 
 
+void oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader::addTagHandler(std::shared_ptr< oldportal::fc::factory::manufacturing::proc::ConfigurationLoaderTagHandler > tag_handler)
+{//BEGIN_489331ee736bf8b1a2f4e78e3e5959a0
+    //TODO: addTagHandler()
+}//END_489331ee736bf8b1a2f4e78e3e5959a0
+
 std::vector< std::shared_ptr<oldportal::fc::scheduler::ExecutorInterface> > oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader::getExecutors()
 {//BEGIN_35dc9994ce03b036850012793fb08c1e
     return _executors;
