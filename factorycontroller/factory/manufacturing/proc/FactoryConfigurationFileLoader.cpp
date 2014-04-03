@@ -75,37 +75,26 @@ std::shared_ptr< oldportal::fc::factory::warehouse::StorageManager > oldportal::
 void oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader::init()
 {//BEGIN_5110e6763784e4dbb95a3c8e4ca572d3
     // open configuration file and load property_tree
-    //TODO: load _configuration_filename
+    // load _configuration_filename
+
+    boost::property_tree::ptree pt;
+
+    //TODO: JSON and INFO support
+    read_xml(_configuration_filename, pt);
 
     // init members:
 
-    // find port:
-    /*QList<QSerialPortInfo> ports = QSerialPortInfo::availablePorts();
-    if (ports.size() > 0)
-    {
-        QSerialPortInfo info = ports.at(0);
-        QSharedPointer< oldportal::fc::network::Network > network(new oldportal::fc::network::Network());
-        network->_id = 1;
-        network->_name = "default network";
-        network->_serialPortPath = info.portName();
-        _network_controller = QSharedPointer< oldportal::fc::network::NetworkController >(new oldportal::fc::network::modbus::ModbusNetworkController(network));
+    // network controllers:
+    std::shared_ptr< oldportal::fc::network::Network > network = std::make_shared< oldportal::fc::network::Network >();
 
-        QSharedPointer<oldportal::fc::network::modbus::ModbusDevice> networkDevice(new oldportal::fc::network::modbus::ModbusDevice());
-        networkDevice->_id = 4;
-        networkDevice->_description = "test device";
-        networkDevice->_address = 119;
-        network->_devices.append(networkDevice);
+    std::shared_ptr< oldportal::fc::network::modbus::ModbusNetworkController > networkController = std::make_shared< oldportal::fc::network::modbus::ModbusNetworkController >();
 
-        // start controller thread
-        _network_controller->thread()->start(QThread::TimeCriticalPriority);
-    }
-    else */
-    {
-        //TODO: report error
-        //_network_controllers = std::make_shared< oldportal::fc::network::NetworkController >();
-    }
+    std::shared_ptr< oldportal::fc::network::modbus::ModbusDevice > networkDevice = std::make_shared< oldportal::fc::network::modbus::ModbusDevice >();
 
+    // task schedulers:
     _scheduler = std::make_shared< oldportal::fc::scheduler::Scheduler >();
+
+    // storage manager:
     _storage_manager = std::make_shared< oldportal::fc::factory::warehouse::StorageManager >();
 }//END_5110e6763784e4dbb95a3c8e4ca572d3
 
