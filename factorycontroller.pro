@@ -121,6 +121,8 @@ SOURCES += main.cpp \
     factorycontroller/network/modbus/SerialPortSettings.cpp \
     factorycontroller/network/modbus/ModbusNetworkSettings.cpp \
     factorycontroller/network/command/DeviceStateReport.cpp \
-    factorycontroller/factory/manufacturing/proc/FactoryConfigurationFileLoader.cpp
+    factorycontroller/factory/manufacturing/proc/FactoryConfigurationFileLoader.cpp \
+    factorycontroller/factory/manufacturing/proc/ConfigurationLoaderTagHandler.cpp
 
 HEADERS += factorycontroller/factorycontroller.h 
+

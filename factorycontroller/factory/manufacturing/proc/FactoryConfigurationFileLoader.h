@@ -61,6 +61,8 @@ std::shared_ptr< oldportal::fc::scheduler::Scheduler > _scheduler;
 protected:
 std::string _configuration_filename;
 protected:
+std::vector< std::shared_ptr<oldportal::fc::factory::manufacturing::proc::ConfigurationLoaderTagHandler > > _tag_handlers;
+protected:
 std::vector< std::shared_ptr<oldportal::fc::network::Network> > _networks;
 protected:
 std::vector< std::shared_ptr<oldportal::fc::network::NetworkController> > _network_controllers;
@@ -69,6 +71,9 @@ std::vector< std::shared_ptr<oldportal::fc::scheduler::ExecutorInterface> > _exe
 
 
 //methods:
+
+public:
+void addTagHandler(std::shared_ptr< oldportal::fc::factory::manufacturing::proc::ConfigurationLoaderTagHandler > tag_handler);
 
 public:
 virtual std::vector< std::shared_ptr<oldportal::fc::scheduler::ExecutorInterface> > getExecutors();
