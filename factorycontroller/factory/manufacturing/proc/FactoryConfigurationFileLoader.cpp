@@ -103,6 +103,9 @@ void oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader
 
     // init members:
 
+    // TODO: recursive parsing of ptree
+    //pt.get_child_optional()
+
     // network controllers:
     std::shared_ptr< oldportal::fc::network::Network > network = std::make_shared< oldportal::fc::network::Network >();
 
