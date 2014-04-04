@@ -64,6 +64,8 @@ void oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader
 
     // add TagHandler
     _tag_handlers.push_back(tag_handler);
+
+    fc::system::logger::log(FC_LOGGER_TAG_SERIALIZATION, std::string(u8"added new TagHandler: ") + typeid(*tag_handler.get()).name());
 }//END_489331ee736bf8b1a2f4e78e3e5959a0
 
 std::vector< std::shared_ptr<oldportal::fc::scheduler::ExecutorInterface> > oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader::getExecutors()
