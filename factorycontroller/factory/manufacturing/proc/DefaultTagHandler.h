@@ -64,7 +64,16 @@ public:
 virtual std::vector< std::string > getTagList();
 
 public:
-virtual void processElement(std::string tag_name, boost::property_tree::ptree& property_tree, boost::property_tree::ptree::value_type& element);
+virtual void processElement(std::string tag_name, boost::property_tree::ptree& root_ptree, boost::property_tree::ptree& element_ptree, oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader* loader, void* parentModelObject);
+
+private:
+void processModbusDevice(std::string tag_name, boost::property_tree::ptree& root_ptree, boost::property_tree::ptree& element_ptree, oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader* loader, void* parentModelObject);
+
+private:
+void processNetwork(std::string tag_name, boost::property_tree::ptree& root_ptree, boost::property_tree::ptree& element_ptree, oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader* loader, void* parentModelObject);
+
+private:
+void processNetworkController(std::string tag_name, boost::property_tree::ptree& root_ptree, boost::property_tree::ptree& element_ptree, oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader* loader, void* parentModelObject);
 
 
 

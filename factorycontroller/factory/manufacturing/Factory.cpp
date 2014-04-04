@@ -37,6 +37,8 @@ oldportal::fc::factory::manufacturing::Factory::Factory(std::shared_ptr< oldport
     loader->init();
 
     // get Factory members
+    _name = loader->_name;
+
     _networks = loader->getNetworks();
     _network_controllers = loader->getNetworkControllers();
     _scheduler = loader->getScheduler();
@@ -111,12 +113,12 @@ void oldportal::fc::factory::manufacturing::Factory::startInNewThread()
 void oldportal::fc::factory::manufacturing::Factory::step()
 {//BEGIN_771bbcfbbdef24221633f30b5616553e
 
-    for (int i=0; i<_network_controllers.size(); i++)
+    for (size_t i=0; i<_network_controllers.size(); i++)
     {
         _network_controllers[i]->step();
     }
 
-    for (int i=0; i<_executors.size(); i++)
+    for (size_t i=0; i<_executors.size(); i++)
     {
         _executors[i]->step();
     }

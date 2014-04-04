@@ -63,7 +63,7 @@ public:
 virtual std::vector< std::string > getTagList() = 0;
 
 public:
-virtual void processElement(std::string tag_name, boost::property_tree::ptree& property_tree, boost::property_tree::ptree::value_type& element) = 0;
+virtual void processElement(std::string tag_name, boost::property_tree::ptree& root_ptree, boost::property_tree::ptree& element_ptree, oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader* loader, void* parentModelObject) = 0;
 
 
 

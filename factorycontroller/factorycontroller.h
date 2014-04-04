@@ -31,10 +31,15 @@ OldPortal Factory Controller project.
 
 
 //BEGIN_USER_SECTION_0
-#define __STDC_LIMIT_MACROS
+// C Standard Libraries
 #include <cstdint>
-#include <cassert>
 
+// diagnostics
+#include <cassert>
+#include <cerrno>
+#include <stdexcept>
+
+// C++ Standard Libraries
 #include <memory>
 #include <string>
 #include <atomic>
@@ -48,6 +53,7 @@ OldPortal Factory Controller project.
 #include <limits>
 #include <typeinfo>
 
+// Boost
 #include <boost/date_time/posix_time/posix_time.hpp>
 
 #include <boost/crc.hpp>
@@ -57,8 +63,10 @@ OldPortal Factory Controller project.
 #include <boost/uuid/uuid.hpp>
 #include <boost/uuid/uuid_generators.hpp>
 
+// Third party libraries
 #include <modbus/modbus.h>
 #include <modbus/modbus-rtu.h>
+
 //END_USER_SECTION_0
 
 
