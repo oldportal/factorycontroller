@@ -67,6 +67,8 @@ protected:
 std::vector< std::shared_ptr<oldportal::fc::scheduler::ExecutorInterface> > _executors;
 public:
 oldportal::fc::system::util::StepCounter _step_counter;
+public:
+std::u16string _name;
 
 
 //methods:

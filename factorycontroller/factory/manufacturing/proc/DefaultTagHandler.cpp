@@ -51,33 +51,67 @@ std::vector< std::string > oldportal::fc::factory::manufacturing::proc::DefaultT
 
     // processed tags:
     ret.push_back(u8"network.Network");
-    ret.push_back(u8"network.modbus.NetworkController");
-    ret.push_back(u8"network.modbus.NetworkDevice");
+    ret.push_back(u8"network.modbus.ModbusNetworkController");
+    ret.push_back(u8"network.modbus.ModbusDevice");
 
-    //TODO: getTagList()
+    //TODO: getTagList() - add tags
     return ret;
 }//END_fb14e05bde7d8c61534d44d1cc8846fa
 
-void oldportal::fc::factory::manufacturing::proc::DefaultTagHandler::processElement(std::string tag_name, boost::property_tree::ptree& property_tree, boost::property_tree::ptree::value_type& element)
-{//BEGIN_8628844f5d70f80ab3c49b37d2049b09
+void oldportal::fc::factory::manufacturing::proc::DefaultTagHandler::processElement(std::string tag_name, boost::property_tree::ptree& root_ptree, boost::property_tree::ptree& element_ptree, oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader* loader, void* parentModelObject)
+{//BEGIN_ff9d319bd3032866013c5741e7cf82a5
+    assert(loader);
+    assert(parentModelObject);
+
     if (tag_name == u8"network.Network")
     {
         fc::system::logger::log(FC_LOGGER_TAG_SERIALIZATION, u8"tag network.Network");
-        ;//TODO: processElement()
+        processNetwork(tag_name, root_ptree, element_ptree, loader, parentModelObject);
     }
-    else if (tag_name == u8"network.modbus.NetworkController")
+    else if (tag_name == u8"network.modbus.ModbusNetworkController")
     {
-        fc::system::logger::log(FC_LOGGER_TAG_SERIALIZATION, u8"tag network.modbus.NetworkController");
-        ;//TODO: processElement()
+        fc::system::logger::log(FC_LOGGER_TAG_SERIALIZATION, u8"tag network.modbus.ModbusNetworkController");
+        processNetworkController(tag_name, root_ptree, element_ptree, loader, parentModelObject);
     }
-    else if (tag_name == u8"network.modbus.NetworkDevice")
+    else if (tag_name == u8"network.modbus.ModbusDevice")
     {
-        fc::system::logger::log(FC_LOGGER_TAG_SERIALIZATION, u8"tag network.modbus.NetworkDevice");
-        ;//TODO: processElement()
+        fc::system::logger::log(FC_LOGGER_TAG_SERIALIZATION, u8"tag network.modbus.ModbusDevice");
+        processModbusDevice(tag_name, root_ptree, element_ptree, loader, parentModelObject);
     }
+}//END_ff9d319bd3032866013c5741e7cf82a5
+
+void oldportal::fc::factory::manufacturing::proc::DefaultTagHandler::processModbusDevice(std::string tag_name, boost::property_tree::ptree& root_ptree, boost::property_tree::ptree& element_ptree, oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader* loader, void* parentModelObject)
+{//BEGIN_a171779b4305c997f5c6ee56b5d4a742
+    assert(loader);
+    assert(parentModelObject);
+    assert (tag_name == u8"network.modbus.ModbusDevice");
+
+    fc::system::logger::log(FC_LOGGER_TAG_SERIALIZATION, u8"processModbusDevice() call");
+
+    //TODO: processElement()
+}//END_a171779b4305c997f5c6ee56b5d4a742
+
+void oldportal::fc::factory::manufacturing::proc::DefaultTagHandler::processNetwork(std::string tag_name, boost::property_tree::ptree& root_ptree, boost::property_tree::ptree& element_ptree, oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader* loader, void* parentModelObject)
+{//BEGIN_8628844f5d70f80ab3c49b37d2049b09
+    assert(loader);
+    assert(parentModelObject);
+    assert (tag_name == u8"tag network.Network");
+
+    fc::system::logger::log(FC_LOGGER_TAG_SERIALIZATION, u8"processNetwork() call");
 
     //TODO: processElement()
 }//END_8628844f5d70f80ab3c49b37d2049b09
+
+void oldportal::fc::factory::manufacturing::proc::DefaultTagHandler::processNetworkController(std::string tag_name, boost::property_tree::ptree& root_ptree, boost::property_tree::ptree& element_ptree, oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader* loader, void* parentModelObject)
+{//BEGIN_bdd3fa5da99ee98f06d1b53906a4f6b6
+    assert(loader);
+    assert(parentModelObject);
+    assert (tag_name == u8"network.modbus.ModbusNetworkController");
+
+    fc::system::logger::log(FC_LOGGER_TAG_SERIALIZATION, u8"processNetworkController() call");
+
+    //TODO: processElement()
+}//END_bdd3fa5da99ee98f06d1b53906a4f6b6
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE

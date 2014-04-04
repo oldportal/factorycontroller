@@ -58,6 +58,18 @@ namespace system
 namespace util 
 {
 // global methods declaration
+std::string utf16_to_utf8(std::u16string str);
+
+std::wstring utf16_to_w(std::u16string str);
+
+std::u16string utf8_to_utf16(std::string str);
+
+std::wstring utf8_to_w(std::string str);
+
+std::u16string w_to_utf16(std::wstring str);
+
+std::string w_to_utf8(std::wstring str);
+
 }// namespace util
 }// namespace system
 }// namespace fc

@@ -95,6 +95,8 @@ std::shared_ptr< oldportal::fc::factory::warehouse::StorageManager > oldportal::
 
 void oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader::init()
 {//BEGIN_5110e6763784e4dbb95a3c8e4ca572d3
+    fc::system::logger::log(FC_LOGGER_TAG_SERIALIZATION, std::string(u8"FactoryConfigurationFileLoader init() with filename: ") + _configuration_filename);
+
     // open configuration file and load property_tree
     // load _configuration_filename
 
@@ -102,6 +104,21 @@ void oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader
 
     //TODO: JSON and INFO support
     read_xml(_configuration_filename, pt);
+
+    fc::system::logger::log(FC_LOGGER_TAG_SERIALIZATION, std::string(u8"FactoryConfigurationFileLoader init() property_tree loaded for parsing"));
+
+    // load name
+    std::string factory_name = pt.get<std::string>("name");
+    _name = fc::system::util::utf8_to_utf16(factory_name);
+
+    // load all child elements:
+    for (boost::property_tree::ptree::iterator i = pt.begin(); i!=pt.end(); i++)
+    {
+        boost::property_tree::ptree::value_type &v = *i;
+        //v.first
+        //i->
+        //std::string tag_name = i.
+    }
 
     // init members:
 
