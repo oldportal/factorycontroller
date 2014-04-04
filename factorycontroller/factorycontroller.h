@@ -46,6 +46,7 @@ OldPortal Factory Controller project.
 #include <mutex>
 #include <chrono>
 #include <limits>
+#include <typeinfo>
 
 #include <boost/date_time/posix_time/posix_time.hpp>
 

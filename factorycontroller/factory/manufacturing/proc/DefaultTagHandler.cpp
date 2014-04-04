@@ -60,6 +60,22 @@ std::vector< std::string > oldportal::fc::factory::manufacturing::proc::DefaultT
 
 void oldportal::fc::factory::manufacturing::proc::DefaultTagHandler::processElement(std::string tag_name, boost::property_tree::ptree& property_tree, boost::property_tree::ptree::value_type& element)
 {//BEGIN_8628844f5d70f80ab3c49b37d2049b09
+    if (tag_name == u8"network.Network")
+    {
+        fc::system::logger::log(FC_LOGGER_TAG_SERIALIZATION, u8"tag network.Network");
+        ;//TODO: processElement()
+    }
+    else if (tag_name == u8"network.modbus.NetworkController")
+    {
+        fc::system::logger::log(FC_LOGGER_TAG_SERIALIZATION, u8"tag network.modbus.NetworkController");
+        ;//TODO: processElement()
+    }
+    else if (tag_name == u8"network.modbus.NetworkDevice")
+    {
+        fc::system::logger::log(FC_LOGGER_TAG_SERIALIZATION, u8"tag network.modbus.NetworkDevice");
+        ;//TODO: processElement()
+    }
+
     //TODO: processElement()
 }//END_8628844f5d70f80ab3c49b37d2049b09
 
