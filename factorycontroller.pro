@@ -15,7 +15,7 @@ CONFIG   -= app_bundle
 CONFIG   += boost
 CONFIG   += thread
 
-LIBS	+= -lboost_system -lpthread -lmodbus
+LIBS	+= -lboost_system -lpthread -lmodbus -lboost_program_options
 
 TEMPLATE = app
 
