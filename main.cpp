@@ -8,14 +8,17 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    //command line parser
+    // command line parser
+
     boost::program_options::options_description desc("Allowed options");
     desc.add_options()
-    ("help", "produce help message")
+    ("help,h", "produce help message")
     ("version", "print program version")
-    ("config", boost::program_options::value<std::string>(), "initialize with configuration file")
-    ("emulation", "emulate hardware")
-    ("test", "run internal tests")
+    ("config,c", boost::program_options::value<std::string>(), "initialize with configuration file")
+    ("emulation,e", "emulate hardware")
+    ("test,t", "run internal tests")
+    ("project,p", boost::program_options::value<std::vector< std::string > >(), "project configuration file(s), by default test hardware if empty")
+    ("reset,r", "reset all active projects and project tasks (or continue last projects otherwise)")
     ;
 
     boost::program_options::variables_map vm;
@@ -38,7 +41,6 @@ int main(int argc, char *argv[])
     {
         std::cout << "emulation mode is not supported yet" << std::endl;
         //TODO: emulation mode
-        return 1;
     }
     if (vm.count("test"))
     {
@@ -64,6 +66,14 @@ int main(int argc, char *argv[])
         factory->start();
 
         return 0;
+    }
+    if (vm.count("project"))
+    {
+        //TODO: run projects
+    }
+    if (vm.count("reset"))
+    {
+        //TODO: reset projects
     }
 
     // pure program loader as default
