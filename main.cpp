@@ -10,21 +10,33 @@ int main(int argc, char *argv[])
 {
     // command line parser
 
-    boost::program_options::options_description desc("Allowed options");
+    boost::program_options::options_description desc("General options");
     desc.add_options()
     ("help,h", "produce help message")
     ("version", "print program version")
     ("config,c", boost::program_options::value<std::string>(), "initialize with configuration file")
-    ("emulation,e", "emulate hardware")
+    ("emulation,e", "validate input and emulate without hardware")
     ("test,t", "run internal tests")
     ("project,p", boost::program_options::value<std::vector< std::string > >(), "project configuration file(s), by default test hardware if empty")
     ("reset,r", "reset all active projects and project tasks (or continue last projects otherwise)")
     ;
 
+    // without unnamed parameters
+    //boost::program_options::variables_map vm;
+    //boost::program_options::store(boost::program_options::parse_command_line(argc, argv, desc), vm);
+    //boost::program_options::notify(vm);
+
+    // with unnamed parameters
+    boost::program_options::positional_options_description p;
+    p.add("project", -1);
+
     boost::program_options::variables_map vm;
-    boost::program_options::store(boost::program_options::parse_command_line(argc, argv, desc), vm);
+    boost::program_options::store(boost::program_options::command_line_parser(argc, argv).
+              options(desc).positional(p).run(), vm);
     boost::program_options::notify(vm);
 
+
+    // print general program description
     std::cout << "factorycontroller - Manufacturing Execution System" << std::endl;
 
     if (vm.count("help"))
@@ -37,17 +49,11 @@ int main(int argc, char *argv[])
         std::cout << "version 0.1 alpha" << std::endl;
         return 1;
     }
-    if (vm.count("emulation"))
-    {
-        std::cout << "emulation mode is not supported yet" << std::endl;
-        //TODO: emulation mode
-    }
-    if (vm.count("test"))
-    {
-        std::cout << "test mode is not supported yet" << std::endl;
-        //TODO: run tests mode
-        return 1;
-    }
+
+    // Global Factory object
+    std::shared_ptr<oldportal::fc::factory::manufacturing::Factory> factory;
+
+    // init factory
     if (vm.count("config"))
     {
         std::string config_filename = vm["config"].as<std::string>();
@@ -57,33 +63,46 @@ int main(int argc, char *argv[])
         // init loader
         auto loader = std::make_shared<oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader>(config_filename);
         loader->init();
-        auto factory = std::make_shared<oldportal::fc::factory::manufacturing::Factory>
+        factory = std::make_shared<oldportal::fc::factory::manufacturing::Factory>
                 (std::static_pointer_cast<oldportal::fc::factory::manufacturing::FactoryLoader>(loader));
         // free loader
         loader.reset();
+    }
+    else
+    {
+        // pure program loader as default
+        // init loader
+        auto loader = std::make_shared<oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader>();
+        loader->init();
+        factory = std::make_shared<oldportal::fc::factory::manufacturing::Factory>
+                (std::static_pointer_cast<oldportal::fc::factory::manufacturing::FactoryLoader>(loader));
+        // free loader
+        loader.reset();
+    }
 
-        // start the Factory cycle
-        factory->start();
-
-        return 0;
+    // load factory options
+    if (vm.count("emulation"))
+    {
+        std::cerr << "emulation mode is not supported yet" << std::endl;
+        //TODO: emulation mode
+        return 1;
+    }
+    if (vm.count("test"))
+    {
+        std::cerr << "test mode is not supported yet" << std::endl;
+        //TODO: run tests mode
+        return 1;
     }
     if (vm.count("project"))
     {
-        //TODO: run projects
+        std::vector<std::string> project_filenames = vm["project"].as< std::vector<std::string> >();
+
+        //TODO: add and run projects
     }
     if (vm.count("reset"))
     {
-        //TODO: reset projects
+        //TODO: clear running projects
     }
-
-    // pure program loader as default
-    // init loader
-    auto loader = std::make_shared<oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader>();
-    loader->init();
-    auto factory = std::make_shared<oldportal::fc::factory::manufacturing::Factory>
-            (std::static_pointer_cast<oldportal::fc::factory::manufacturing::FactoryLoader>(loader));
-    // free loader
-    loader.reset();
 
     // start the Factory cycle
     factory->start();
