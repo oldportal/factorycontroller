@@ -1,0 +1,29 @@
+<factorycontroller>
+  <name>Test XML factorycontroller Configuration</name>
+  <networks>
+    <network.Network>
+      <name>FastRate Modbus RTU network</name>
+      <network.modbus.ModbusNetworkController>
+	<name>FastRate Modbus RTU network controller</name>
+      </network.modbus.ModbusNetworkController>
+      <devices>
+	
+      </devices>
+    </network.Network>
+    
+    <network.Network>
+      <name>SlowRate Modbus RTU network</name>
+      <network.modbus.ModbusNetworkController>
+	<name>SlowRate Modbus RTU network controller</name>
+      </network.modbus.ModbusNetworkController>
+      <devices>
+	
+      </devices>
+    </network.Network>
+  </networks>
+  <executors>
+    
+  </executors>
+  <factory.warehouse.StorageManager/>
+  <scheduler.Scheduler/>
+</factorycontroller>
