@@ -17,15 +17,15 @@
 *    
 *    Copyright (C) Dmitry Ognyannikov, 2012-2014
 */
-#ifndef H_ced2254c79b19631a6b7833b41e92f52_H
-#define H_ced2254c79b19631a6b7833b41e92f52_H
+#ifndef H_342ea3dce7507afca5f050454cbf68de_H
+#define H_342ea3dce7507afca5f050454cbf68de_H
 
 
 
 
 //BEGIN_GROUP_COMMENT
 /**
-I*/
+Test Modbus network classes.*/
 //END_GROUP_COMMENT
 
 
@@ -40,7 +40,10 @@ namespace fc
 {
 namespace network 
 {
+namespace test 
+{
 // global variables declaration
+}// namespace test
 }// namespace network
 }// namespace fc
 }// namespace oldportal
@@ -52,32 +55,28 @@ namespace fc
 {
 namespace network 
 {
+namespace test 
+{
 // global methods declaration
+}// namespace test
 }// namespace network
 }// namespace fc
 }// namespace oldportal
 
 
-#include "command/_group_command.h"
-#include "modbus/_group_modbus.h"
-#include "test/_group_test.h"
 
 
 
-#endif // H_ced2254c79b19631a6b7833b41e92f52_H
+#endif // H_342ea3dce7507afca5f050454cbf68de_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_ced2254c79b19631a6b7833b41e92f52_INLINES_H
-#define H_ced2254c79b19631a6b7833b41e92f52_INLINES_H
+#ifndef H_342ea3dce7507afca5f050454cbf68de_INLINES_H
+#define H_342ea3dce7507afca5f050454cbf68de_INLINES_H
 //BEGIN_USER_SECTION_1
 
 //END_USER_SECTION_1
 
-#include "command/_group_command.h"
-#include "modbus/_group_modbus.h"
-#include "test/_group_test.h"
 
-
-#endif // H_ced2254c79b19631a6b7833b41e92f52_INLINES_H
+#endif // H_342ea3dce7507afca5f050454cbf68de_INLINES_H
 
 #endif //OBJECTS_BUILDER_PROJECT_INLINES

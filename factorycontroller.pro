@@ -123,7 +123,8 @@ SOURCES += main.cpp \
     factorycontroller/network/command/DeviceStateReport.cpp \
     factorycontroller/factory/manufacturing/proc/FactoryConfigurationFileLoader.cpp \
     factorycontroller/factory/manufacturing/proc/ConfigurationLoaderTagHandler.cpp \
-    factorycontroller/factory/manufacturing/proc/DefaultTagHandler.cpp
+    factorycontroller/factory/manufacturing/proc/DefaultTagHandler.cpp \
+    factorycontroller/network/test/TestNetworkController.cpp
 
 HEADERS += factorycontroller/factorycontroller.h 
 

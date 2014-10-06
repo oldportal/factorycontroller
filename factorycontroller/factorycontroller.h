@@ -233,6 +233,11 @@ class ModbusNetworkSettings;
 class SerialPortSettings;
 
 }// namespace modbus
+namespace test 
+{
+class TestNetworkController;
+
+}// namespace test
 }// namespace network
 namespace scheduler 
 {
@@ -354,6 +359,7 @@ class StepCounter;
 #include "network/modbus/SerialPortSettings.h"
 #include "network/modbus/ModbusNetworkSettings.h"
 #include "network/modbus/ModbusNetworkController.h"
+#include "network/test/TestNetworkController.h"
 #include "scheduler/LocalConfiguration.h"
 #include "scheduler/Project.h"
 #include "scheduler/ProjectTemplate.h"
@@ -463,6 +469,7 @@ namespace fc
 #include "network/modbus/SerialPortSettings.h"
 #include "network/modbus/ModbusNetworkSettings.h"
 #include "network/modbus/ModbusNetworkController.h"
+#include "network/test/TestNetworkController.h"
 #include "scheduler/LocalConfiguration.h"
 #include "scheduler/Project.h"
 #include "scheduler/ProjectTemplate.h"

@@ -17,8 +17,8 @@
 *    
 *    Copyright (C) Dmitry Ognyannikov, 2012-2014
 */
-#ifndef H_12b33b1f36b39bb0a1d4431491cc73ff_H
-#define H_12b33b1f36b39bb0a1d4431491cc73ff_H
+#ifndef H_15f928f0b9f17e068913ffd298281be6_H
+#define H_15f928f0b9f17e068913ffd298281be6_H
 
 
 
@@ -28,7 +28,7 @@
 
 
 /**
-General planned (TO DO) command to network device. Could keep real-time stamp for execution start.
+
 */
 namespace oldportal 
 {
@@ -36,43 +36,38 @@ namespace fc
 {
 namespace network 
 {
-namespace modbus 
+namespace test 
 {
 
-class ModbusDeviceCommand
-:  public virtual oldportal::fc::network::DeviceCommand
+class TestNetworkController
+:  public virtual oldportal::fc::network::NetworkController
 {
 // constructors:
-public:
-ModbusDeviceCommand();
 
 
 public:
-virtual ~ModbusDeviceCommand();
+virtual ~TestNetworkController();
 
 // members:
-
-protected:
-modbus_t* _modbus_ctx;
 
 
 //methods:
 
 /**
-Handler.
-Called after command processed. Called in main step thread.
+Close realtime thread after queue empty.
 */
-protected:
-virtual void onProcessed();
+public:
+virtual void close();
+
+public:
+virtual void initHardware();
 
 /**
-Process command to device in realtime background thread.
-This handler must know about used protocol.
-
-With Modbus this handler shold process request and response with libmodbus modbus_t context stored in  _modbus_ctx
+Update state.
+Logic processes step.
 */
-protected:
-virtual void process() = 0;
+public:
+virtual void step();
 
 
 
@@ -83,7 +78,7 @@ virtual void process() = 0;
 
 
 //BEGIN_USER_SECTION_INSIDE_CLASS_DECLARATION
-friend class oldportal::fc::network::modbus::ModbusNetworkController;
+
 //END_USER_SECTION_INSIDE_CLASS_DECLARATION
 
 
@@ -91,7 +86,7 @@ friend class oldportal::fc::network::modbus::ModbusNetworkController;
 }// namespace oldportal
 }// namespace fc
 }// namespace network
-}// namespace modbus
+}// namespace test
 
 
 //BEGIN_USER_SECTION_AFTER_CLASS_DECLARATION
@@ -99,11 +94,11 @@ friend class oldportal::fc::network::modbus::ModbusNetworkController;
 //END_USER_SECTION_AFTER_CLASS_DECLARATION
 
 
-#endif // H_12b33b1f36b39bb0a1d4431491cc73ff_H
+#endif // H_15f928f0b9f17e068913ffd298281be6_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_12b33b1f36b39bb0a1d4431491cc73ff_INLINES_H
-#define H_12b33b1f36b39bb0a1d4431491cc73ff_INLINES_H
+#ifndef H_15f928f0b9f17e068913ffd298281be6_INLINES_H
+#define H_15f928f0b9f17e068913ffd298281be6_INLINES_H
 
-#endif // H_12b33b1f36b39bb0a1d4431491cc73ff_INLINES_H
+#endif // H_15f928f0b9f17e068913ffd298281be6_INLINES_H
 #endif //OBJECTS_BUILDER_PROJECT_INLINES
