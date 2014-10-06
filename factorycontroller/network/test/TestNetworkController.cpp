@@ -31,24 +31,26 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-oldportal::fc::network::modbus::ModbusDeviceCommand::ModbusDeviceCommand()
+oldportal::fc::network::test::TestNetworkController::~TestNetworkController()
+{//BEGIN_76058ff9472a91dd56c649daea129d31
 
-{//BEGIN_f9f11e3926f4b2cc2d7a8949e4efe11e
-    _modbus_ctx = nullptr;
-}//END_f9f11e3926f4b2cc2d7a8949e4efe11e
-
+}//END_76058ff9472a91dd56c649daea129d31
 
 
-oldportal::fc::network::modbus::ModbusDeviceCommand::~ModbusDeviceCommand()
-{//BEGIN_e06e6ffe43623a9d85f2171b34d077af
+void oldportal::fc::network::test::TestNetworkController::close()
+{//BEGIN_82eae4bef3672100ed4503365393c1a3
+    // close() : empty
+}//END_82eae4bef3672100ed4503365393c1a3
 
-}//END_e06e6ffe43623a9d85f2171b34d077af
+void oldportal::fc::network::test::TestNetworkController::initHardware()
+{//BEGIN_303b6d9cb230b23ea149795bd0d06e69
+    // initHardware() : empty
+}//END_303b6d9cb230b23ea149795bd0d06e69
 
-
-void oldportal::fc::network::modbus::ModbusDeviceCommand::onProcessed()
-{//BEGIN_f7fd91d01e45d3af0b5b6cd1f6ef68ba
-    // empty
-}//END_f7fd91d01e45d3af0b5b6cd1f6ef68ba
+void oldportal::fc::network::test::TestNetworkController::step()
+{//BEGIN_ae97a14dc042da1bef1d2d3f62dd7c88
+    oldportal::fc::network::NetworkController::step();
+}//END_ae97a14dc042da1bef1d2d3f62dd7c88
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE

@@ -53,7 +53,7 @@ oldportal::fc::network::NetworkController::~NetworkController()
 
 void oldportal::fc::network::NetworkController::close()
 {//BEGIN_72aaf2eea836be1532496923ffafeaf3
-    // closeController() : empty
+    // close() : empty
 }//END_72aaf2eea836be1532496923ffafeaf3
 
 

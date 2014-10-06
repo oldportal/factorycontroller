@@ -31,24 +31,8 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-oldportal::fc::network::modbus::ModbusDeviceCommand::ModbusDeviceCommand()
-
-{//BEGIN_f9f11e3926f4b2cc2d7a8949e4efe11e
-    _modbus_ctx = nullptr;
-}//END_f9f11e3926f4b2cc2d7a8949e4efe11e
 
 
-
-oldportal::fc::network::modbus::ModbusDeviceCommand::~ModbusDeviceCommand()
-{//BEGIN_e06e6ffe43623a9d85f2171b34d077af
-
-}//END_e06e6ffe43623a9d85f2171b34d077af
-
-
-void oldportal::fc::network::modbus::ModbusDeviceCommand::onProcessed()
-{//BEGIN_f7fd91d01e45d3af0b5b6cd1f6ef68ba
-    // empty
-}//END_f7fd91d01e45d3af0b5b6cd1f6ef68ba
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE

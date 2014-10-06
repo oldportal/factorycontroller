@@ -120,17 +120,17 @@ void oldportal::fc::network::modbus::ModbusMessagePair::setCRC(uint8_t message_l
 
 void oldportal::fc::network::modbus::ModbusMessagePair::setRequestAddress(uint16_t modbus_address)
 {//BEGIN_27d1c6b8262657603a141b32939a314e
-    //TODO: setMessageAddress()
+    //TODO: setRequestAddress()
 }//END_27d1c6b8262657603a141b32939a314e
 
 void oldportal::fc::network::modbus::ModbusMessagePair::setRequestFunctionCode(uint8_t function_number)
 {//BEGIN_9dcb234106ede48c1d7609cfd0dd245d
-    //TODO: setMessageAddress()
+    //TODO: setRequestFunctionCode()
 }//END_9dcb234106ede48c1d7609cfd0dd245d
 
 void oldportal::fc::network::modbus::ModbusMessagePair::setRequestLength(uint8_t message_length)
 {//BEGIN_1d7e8bfe0b992b38f28de1ac061a9ec1
-    //TODO: setCRC()
+    //TODO: setRequestLength()
 }//END_1d7e8bfe0b992b38f28de1ac061a9ec1
 
 
