@@ -25,7 +25,7 @@
 
 //BEGIN_GROUP_COMMENT
 /**
-Test Modbus network classes.*/
+Test Modbus network classes*/
 //END_GROUP_COMMENT
 
 

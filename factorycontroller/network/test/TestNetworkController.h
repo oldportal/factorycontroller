@@ -28,7 +28,7 @@
 
 
 /**
-
+Connect with test modbus network emulator via Modbus over TCP/IP connection.
 */
 namespace oldportal 
 {
@@ -43,12 +43,25 @@ class TestNetworkController
 :  public virtual oldportal::fc::network::NetworkController
 {
 // constructors:
+public:
+TestNetworkController(std::shared_ptr< oldportal::fc::network::Network > network);
 
 
 public:
 virtual ~TestNetworkController();
 
 // members:
+
+private:
+modbus_t* _modbus_ctx;
+private:
+mutable bool _close_interrupted_flag;
+private:
+mutable bool _run_thread_cycle_flag;
+protected:
+std::chrono::high_resolution_clock::time_point _last_time_synchronization;
+protected:
+std::shared_ptr< std::thread > _realtime_thread;
 
 
 //methods:
@@ -59,8 +72,22 @@ Close realtime thread after queue empty.
 public:
 virtual void close();
 
+/**
+Close and free _modbus_ctx context.
+Set _modbus_ctx to nullptr.
+*/
+private:
+void closeModbusContext();
+
 public:
 virtual void initHardware();
+
+/**
+Return true if serial port successfull opened and background realtime thread run.
+Otherwise return false.
+*/
+public:
+bool isOpened();
 
 /**
 Update state.
