@@ -31,19 +31,19 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-oldportal::fc::network::modbus::ModbusNetworkController::ModbusNetworkController()
+oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::ModbusSerialRTUNetworkController()
 
-{//BEGIN_cd00ac92443e7f306587c174a17982c5
+{//BEGIN_1540738fb4e875afede8ad1c3eb3677c
     _run_thread_cycle_flag = false;
     _close_interrupted_flag = false;
 
     _modbus_ctx = nullptr;
     _last_time_synchronization = std::chrono::high_resolution_clock::time_point::min();
-}//END_cd00ac92443e7f306587c174a17982c5
+}//END_1540738fb4e875afede8ad1c3eb3677c
 
-oldportal::fc::network::modbus::ModbusNetworkController::ModbusNetworkController(std::shared_ptr< oldportal::fc::network::Network > network)
+oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::ModbusSerialRTUNetworkController(std::shared_ptr< oldportal::fc::network::Network > network)
     : oldportal::fc::network::NetworkController(network)
-{//BEGIN_395dabaf1dd0f55f10296bd3b44a1eff
+{//BEGIN_17140ab021ca3f2bd11e039871242a38
     assert(network && "ModbusNetworkController cannot be initialized with empty Network");
 
     _run_thread_cycle_flag = false;
@@ -52,29 +52,29 @@ oldportal::fc::network::modbus::ModbusNetworkController::ModbusNetworkController
 
     _modbus_ctx = nullptr;
     _last_time_synchronization = std::chrono::high_resolution_clock::time_point::min();
-}//END_395dabaf1dd0f55f10296bd3b44a1eff
+}//END_17140ab021ca3f2bd11e039871242a38
 
 
 
-oldportal::fc::network::modbus::ModbusNetworkController::~ModbusNetworkController()
-{//BEGIN_3c4678448d8da5178c82745c442437c5
+oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::~ModbusSerialRTUNetworkController()
+{//BEGIN_10f48711bd06cd04d26eed80dc27d4e2
     _run_thread_cycle_flag = false;
     _close_interrupted_flag = true;
 
     closeModbusContext();
-}//END_3c4678448d8da5178c82745c442437c5
+}//END_10f48711bd06cd04d26eed80dc27d4e2
 
 
-void oldportal::fc::network::modbus::ModbusNetworkController::close()
-{//BEGIN_0b68cbaba9eab80fc79d1462a1740f71
+void oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::close()
+{//BEGIN_167ba3f506ed978ecd007619040b2c88
     _close_interrupted_flag = true;
     closeModbusContext();
 
     oldportal::fc::network::NetworkController::close();
-}//END_0b68cbaba9eab80fc79d1462a1740f71
+}//END_167ba3f506ed978ecd007619040b2c88
 
-void oldportal::fc::network::modbus::ModbusNetworkController::closeModbusContext()
-{//BEGIN_ed62e985906ed4e86994909533a6a0ae
+void oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::closeModbusContext()
+{//BEGIN_8cc827bd3b715fdc5ddd2337eb7bb9b7
     if (_modbus_ctx != nullptr)
     {
         modbus_close(_modbus_ctx);
@@ -82,15 +82,15 @@ void oldportal::fc::network::modbus::ModbusNetworkController::closeModbusContext
 
         _modbus_ctx = nullptr;
     }
-}//END_ed62e985906ed4e86994909533a6a0ae
+}//END_8cc827bd3b715fdc5ddd2337eb7bb9b7
 
-modbus_t* oldportal::fc::network::modbus::ModbusNetworkController::getModbusContext()
-{//BEGIN_da23bdb87d3f2a0a04861da4574a4bb7
+modbus_t* oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::getModbusContext()
+{//BEGIN_1a64478473d63071e22cd7199aff31ff
     return _modbus_ctx;
-}//END_da23bdb87d3f2a0a04861da4574a4bb7
+}//END_1a64478473d63071e22cd7199aff31ff
 
-void oldportal::fc::network::modbus::ModbusNetworkController::initHardware()
-{//BEGIN_80e389aeefd7f8ddfdf6e004f6391f22
+void oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::initHardware()
+{//BEGIN_803ad91ba2984c5f99212c75897a3c72
     assert(_modbus_ctx == nullptr && "ModbusNetworkController must be closed with close() before new initHardware() call");
 
     // init network time
@@ -151,7 +151,7 @@ void oldportal::fc::network::modbus::ModbusNetworkController::initHardware()
     // start soft realtime thread
     _run_thread_cycle_flag = true;
     _close_interrupted_flag = false;
-    _realtime_thread = std::make_shared<std::thread>(oldportal::fc::network::modbus::ModbusNetworkController::realtime_run, this);
+    _realtime_thread = std::make_shared<std::thread>(oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::realtime_run, this);
 
     // set realtime thread priority
 #ifdef WIN32
@@ -175,15 +175,15 @@ void oldportal::fc::network::modbus::ModbusNetworkController::initHardware()
     param.sched_priority = sched_get_priority_max(policy);
     pthread_setschedparam(_realtime_thread->native_handle(), policy, &param);
 #endif
-}//END_80e389aeefd7f8ddfdf6e004f6391f22
+}//END_803ad91ba2984c5f99212c75897a3c72
 
-bool oldportal::fc::network::modbus::ModbusNetworkController::isOpened()
-{//BEGIN_be54a7540bed925c6d6f274a683353e8
+bool oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::isOpened()
+{//BEGIN_ce9e0665a989f6bbf012e31384526717
     return _modbus_ctx != nullptr && _realtime_thread;
-}//END_be54a7540bed925c6d6f274a683353e8
+}//END_ce9e0665a989f6bbf012e31384526717
 
-void oldportal::fc::network::modbus::ModbusNetworkController::pingDevicesStep()
-{//BEGIN_49445c0a1f2dc10fff596fc5d2a31eec
+void oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::pingDevicesStep()
+{//BEGIN_43113dc6f1f9435f6e36376d79451491
     // ping unused actively devices (update devices state)
 
     auto now_time_point = std::chrono::high_resolution_clock::now();
@@ -211,10 +211,10 @@ void oldportal::fc::network::modbus::ModbusNetworkController::pingDevicesStep()
                 return;
             }
     }
-}//END_49445c0a1f2dc10fff596fc5d2a31eec
+}//END_43113dc6f1f9435f6e36376d79451491
 
-void oldportal::fc::network::modbus::ModbusNetworkController::processDeviceCommand(std::shared_ptr< oldportal::fc::network::DeviceCommand > command)
-{//BEGIN_cb8fd5b980bc7603de060be0feb37eed
+void oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::processDeviceCommand(std::shared_ptr< oldportal::fc::network::DeviceCommand > command)
+{//BEGIN_079bd15ede78f816935638b9f4abdb08
     // runtime check for modbus command
     std::shared_ptr<oldportal::fc::network::modbus::ModbusDeviceCommand> modbus_command = std::dynamic_pointer_cast<oldportal::fc::network::modbus::ModbusDeviceCommand>(command);
     assert(modbus_command);
@@ -247,10 +247,10 @@ void oldportal::fc::network::modbus::ModbusNetworkController::processDeviceComma
 
     // clear command context
     modbus_command->_modbus_ctx = nullptr;
-}//END_cb8fd5b980bc7603de060be0feb37eed
+}//END_079bd15ede78f816935638b9f4abdb08
 
-void oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(std::shared_ptr< oldportal::fc::network::DeviceCommand > command)
-{//BEGIN_3663c08fced66ad2a61a9dbc07f868ae
+void oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::pushCommand(std::shared_ptr< oldportal::fc::network::DeviceCommand > command)
+{//BEGIN_ffdc0eba50937a0a0c606b1972bc444e
     // runtime check for modbus command
     std::shared_ptr<oldportal::fc::network::modbus::ModbusDeviceCommand> modbus_command = std::dynamic_pointer_cast<oldportal::fc::network::modbus::ModbusDeviceCommand>(command);
     assert(modbus_command && "pushCommand() - must be oldportal::fc::network::modbus::ModbusDeviceCommand instance");
@@ -264,7 +264,7 @@ void oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(std::s
     // check pointer to this controller
     if (modbus_command->_controller)
     {
-        std::shared_ptr<oldportal::fc::network::modbus::ModbusNetworkController> modbus_controller = std::dynamic_pointer_cast<oldportal::fc::network::modbus::ModbusNetworkController>(modbus_command->_controller);
+        std::shared_ptr<oldportal::fc::network::modbus::ModbusSerialRTUNetworkController> modbus_controller = std::dynamic_pointer_cast<oldportal::fc::network::modbus::ModbusSerialRTUNetworkController>(modbus_command->_controller);
         assert(modbus_controller && "command->_controller must inherit ModbusNetworkController");
         if (!modbus_controller)
         {
@@ -284,10 +284,10 @@ void oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(std::s
 
     // parent class function call
     oldportal::fc::network::NetworkController::pushCommand(command);
-}//END_3663c08fced66ad2a61a9dbc07f868ae
+}//END_ffdc0eba50937a0a0c606b1972bc444e
 
-void oldportal::fc::network::modbus::ModbusNetworkController::realtime_run(oldportal::fc::network::modbus::ModbusNetworkController* controller)
-{//BEGIN_92de8593a2dab2b10e17272d29b47493
+void oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::realtime_run(oldportal::fc::network::modbus::ModbusSerialRTUNetworkController* controller)
+{//BEGIN_de81e20cb5afc7c60970dd4c25f3f0ac
     assert(controller);
 
     if (controller->_modbus_ctx == nullptr)
@@ -343,10 +343,10 @@ void oldportal::fc::network::modbus::ModbusNetworkController::realtime_run(oldpo
     // unexpected exit, the threas should exit with controller->_close_interrupted_flag = true
     controller->closeModbusContext();
     oldportal::fc::system::logger::log(u8"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() thread stopped");
-}//END_92de8593a2dab2b10e17272d29b47493
+}//END_de81e20cb5afc7c60970dd4c25f3f0ac
 
-void oldportal::fc::network::modbus::ModbusNetworkController::step()
-{//BEGIN_098807b48ba62b9baf8eaed28095384e
+void oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::step()
+{//BEGIN_342546856c9e2b6aaccaec98c99c43a9
     // parent class call
     oldportal::fc::network::NetworkController::step();
 
@@ -355,10 +355,10 @@ void oldportal::fc::network::modbus::ModbusNetworkController::step()
 
     // ping unused actively devices (update devices state)
     pingDevicesStep();
-}//END_098807b48ba62b9baf8eaed28095384e
+}//END_342546856c9e2b6aaccaec98c99c43a9
 
-void oldportal::fc::network::modbus::ModbusNetworkController::timeSynchronizationStep()
-{//BEGIN_982c99b2d25d29e138dc4a91edb623c5
+void oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::timeSynchronizationStep()
+{//BEGIN_b3b2f1eae83a0e0478ce3d83ef35bfef
     // check for last system time synchronization deadline
     if (_last_time_synchronization + std::chrono::milliseconds(_network_settings._network_time_sync_interval_msec) > std::chrono::high_resolution_clock::now())
     {
@@ -368,7 +368,7 @@ void oldportal::fc::network::modbus::ModbusNetworkController::timeSynchronizatio
         auto command = std::make_shared<oldportal::fc::network::command::NetworkTimeSynchronization>();
         pushCommand(command);
     }
-}//END_982c99b2d25d29e138dc4a91edb623c5
+}//END_b3b2f1eae83a0e0478ce3d83ef35bfef
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE

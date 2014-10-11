@@ -84,6 +84,8 @@ virtual void process() = 0;
 
 //BEGIN_USER_SECTION_INSIDE_CLASS_DECLARATION
 friend class oldportal::fc::network::modbus::ModbusNetworkController;
+friend class oldportal::fc::network::modbus::ModbusSerialRTUNetworkController;
+friend class oldportal::fc::network::modbus::ModbusTCPIPNetworkController;
 //END_USER_SECTION_INSIDE_CLASS_DECLARATION
 
 

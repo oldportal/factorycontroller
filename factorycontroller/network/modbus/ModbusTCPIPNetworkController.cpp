@@ -31,19 +31,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-oldportal::fc::network::modbus::ModbusNetworkController::ModbusNetworkController()
-
-{//BEGIN_cd00ac92443e7f306587c174a17982c5
-    _run_thread_cycle_flag = false;
-    _close_interrupted_flag = false;
-
-    _modbus_ctx = nullptr;
-    _last_time_synchronization = std::chrono::high_resolution_clock::time_point::min();
-}//END_cd00ac92443e7f306587c174a17982c5
-
-oldportal::fc::network::modbus::ModbusNetworkController::ModbusNetworkController(std::shared_ptr< oldportal::fc::network::Network > network)
+oldportal::fc::network::modbus::ModbusTCPIPNetworkController::ModbusTCPIPNetworkController(std::shared_ptr< oldportal::fc::network::Network > network)
     : oldportal::fc::network::NetworkController(network)
-{//BEGIN_395dabaf1dd0f55f10296bd3b44a1eff
+{//BEGIN_da7390f47b64c6919e1ad8426b698765
     assert(network && "ModbusNetworkController cannot be initialized with empty Network");
 
     _run_thread_cycle_flag = false;
@@ -52,29 +42,23 @@ oldportal::fc::network::modbus::ModbusNetworkController::ModbusNetworkController
 
     _modbus_ctx = nullptr;
     _last_time_synchronization = std::chrono::high_resolution_clock::time_point::min();
-}//END_395dabaf1dd0f55f10296bd3b44a1eff
+}//END_da7390f47b64c6919e1ad8426b698765
 
 
 
-oldportal::fc::network::modbus::ModbusNetworkController::~ModbusNetworkController()
-{//BEGIN_3c4678448d8da5178c82745c442437c5
-    _run_thread_cycle_flag = false;
-    _close_interrupted_flag = true;
+oldportal::fc::network::modbus::ModbusTCPIPNetworkController::~ModbusTCPIPNetworkController()
+{//BEGIN_c14b688eeb561dc50dd75338cfd271b1
 
-    closeModbusContext();
-}//END_3c4678448d8da5178c82745c442437c5
+}//END_c14b688eeb561dc50dd75338cfd271b1
 
 
-void oldportal::fc::network::modbus::ModbusNetworkController::close()
-{//BEGIN_0b68cbaba9eab80fc79d1462a1740f71
-    _close_interrupted_flag = true;
-    closeModbusContext();
+void oldportal::fc::network::modbus::ModbusTCPIPNetworkController::close()
+{//BEGIN_65a8663699173cdad93ef707f8be35f1
+    // close() : empty
+}//END_65a8663699173cdad93ef707f8be35f1
 
-    oldportal::fc::network::NetworkController::close();
-}//END_0b68cbaba9eab80fc79d1462a1740f71
-
-void oldportal::fc::network::modbus::ModbusNetworkController::closeModbusContext()
-{//BEGIN_ed62e985906ed4e86994909533a6a0ae
+void oldportal::fc::network::modbus::ModbusTCPIPNetworkController::closeModbusContext()
+{//BEGIN_8c5d012dfd029193fb817d2a6854046b
     if (_modbus_ctx != nullptr)
     {
         modbus_close(_modbus_ctx);
@@ -82,46 +66,27 @@ void oldportal::fc::network::modbus::ModbusNetworkController::closeModbusContext
 
         _modbus_ctx = nullptr;
     }
-}//END_ed62e985906ed4e86994909533a6a0ae
+}//END_8c5d012dfd029193fb817d2a6854046b
 
-modbus_t* oldportal::fc::network::modbus::ModbusNetworkController::getModbusContext()
-{//BEGIN_da23bdb87d3f2a0a04861da4574a4bb7
+modbus_t* oldportal::fc::network::modbus::ModbusTCPIPNetworkController::getModbusContext()
+{//BEGIN_ebc414b8501cba844601b0eca4956fe9
     return _modbus_ctx;
-}//END_da23bdb87d3f2a0a04861da4574a4bb7
+}//END_ebc414b8501cba844601b0eca4956fe9
 
-void oldportal::fc::network::modbus::ModbusNetworkController::initHardware()
-{//BEGIN_80e389aeefd7f8ddfdf6e004f6391f22
-    assert(_modbus_ctx == nullptr && "ModbusNetworkController must be closed with close() before new initHardware() call");
+void oldportal::fc::network::modbus::ModbusTCPIPNetworkController::initHardware()
+{//BEGIN_f919d3d7379153553fbea5b0aa2a6cd5
+    assert(_modbus_ctx == nullptr && "TestNetworkController must be closed with close() before new initHardware() call");
 
     // init network time
     _network_time.init();
 
-    // settings example
-    /*Set up arrays with the different possibilities for communications parameters */
-    // port_name "/dev/ttyAMA0", "/dev/ttyUSB0"
-    //int baud_rates[12] = {110, 300, 600, 1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200, 230400};
-    //char parity[3] = {'N', 'E', 'O'};
-    //int databits[2] ={7, 8};
-    //int stopbits[2] = {1, 2};
+    std::string address = oldportal::fc::system::util::utf16_to_utf8(_address_settings._ip_address);
 
-    // set serial port name and settings
-    _modbus_ctx = modbus_new_rtu(_port_settings._port_name.c_str(), _port_settings._baud_rate, _port_settings._parity, _port_settings._databits, _port_settings._stopbits);
-
-    if (_modbus_ctx == NULL)
-    {
-        oldportal::fc::system::logger::error(u8"oldportal::fc::network::modbus::ModbusNetworkController::initHardware() serial port create context error");
-    }
-
-    //Enable debugging for tests
-    // modbus_set_debug(mb,TRUE);
-
-    modbus_rtu_set_serial_mode(_modbus_ctx, MODBUS_RTU_RS485);
-    // set to send request state
-    //modbus_rtu_set_rts(_modbus_ctx, MODBUS_RTU_RTS_UP);
+    _modbus_ctx = modbus_new_tcp(address.c_str(), _address_settings._port_number);
 
     if (modbus_connect(_modbus_ctx) != 0)
     {
-        oldportal::fc::system::logger::error(u8"oldportal::fc::network::modbus::ModbusNetworkController::initHardware() serial port open error");
+        oldportal::fc::system::logger::error(u8"oldportal::fc::network::test::TestNetworkController::initHardware() TCPIP port open error");
         oldportal::fc::system::logger::error(modbus_strerror(errno));
         closeModbusContext();
         return;
@@ -137,21 +102,12 @@ void oldportal::fc::network::modbus::ModbusNetworkController::initHardware()
     new_byte_timeout.tv_usec = _network_settings._byte_timeout_usec;
     modbus_set_byte_timeout(_modbus_ctx, &new_byte_timeout);
 
-    // set destination address
-    if (modbus_set_slave(_modbus_ctx, MODBUS_BROADCAST_ADDRESS) != 0)
-    {
-        oldportal::fc::system::logger::error(u8"oldportal::fc::network::modbus::ModbusNetworkController::initHardware() serial port set device address error");
-        oldportal::fc::system::logger::error(modbus_strerror(errno));
-        closeModbusContext();
-        return;
-    }
-
-    oldportal::fc::system::logger::log(u8"oldportal::fc::network::modbus::ModbusNetworkController::initHardware() serial port opened");
+    oldportal::fc::system::logger::log(u8"oldportal::fc::network::test::TestNetworkController::initHardware() TCPIP port opened");
 
     // start soft realtime thread
     _run_thread_cycle_flag = true;
     _close_interrupted_flag = false;
-    _realtime_thread = std::make_shared<std::thread>(oldportal::fc::network::modbus::ModbusNetworkController::realtime_run, this);
+    _realtime_thread = std::make_shared<std::thread>(oldportal::fc::network::modbus::ModbusTCPIPNetworkController::realtime_run, this);
 
     // set realtime thread priority
 #ifdef WIN32
@@ -175,15 +131,15 @@ void oldportal::fc::network::modbus::ModbusNetworkController::initHardware()
     param.sched_priority = sched_get_priority_max(policy);
     pthread_setschedparam(_realtime_thread->native_handle(), policy, &param);
 #endif
-}//END_80e389aeefd7f8ddfdf6e004f6391f22
+}//END_f919d3d7379153553fbea5b0aa2a6cd5
 
-bool oldportal::fc::network::modbus::ModbusNetworkController::isOpened()
-{//BEGIN_be54a7540bed925c6d6f274a683353e8
+bool oldportal::fc::network::modbus::ModbusTCPIPNetworkController::isOpened()
+{//BEGIN_af2b8d86ad22c650b5a5b3c41889e28d
     return _modbus_ctx != nullptr && _realtime_thread;
-}//END_be54a7540bed925c6d6f274a683353e8
+}//END_af2b8d86ad22c650b5a5b3c41889e28d
 
-void oldportal::fc::network::modbus::ModbusNetworkController::pingDevicesStep()
-{//BEGIN_49445c0a1f2dc10fff596fc5d2a31eec
+void oldportal::fc::network::modbus::ModbusTCPIPNetworkController::pingDevicesStep()
+{//BEGIN_a146e249b08301984a9e69b7b3b29d0a
     // ping unused actively devices (update devices state)
 
     auto now_time_point = std::chrono::high_resolution_clock::now();
@@ -211,17 +167,17 @@ void oldportal::fc::network::modbus::ModbusNetworkController::pingDevicesStep()
                 return;
             }
     }
-}//END_49445c0a1f2dc10fff596fc5d2a31eec
+}//END_a146e249b08301984a9e69b7b3b29d0a
 
-void oldportal::fc::network::modbus::ModbusNetworkController::processDeviceCommand(std::shared_ptr< oldportal::fc::network::DeviceCommand > command)
-{//BEGIN_cb8fd5b980bc7603de060be0feb37eed
+void oldportal::fc::network::modbus::ModbusTCPIPNetworkController::processDeviceCommand(std::shared_ptr< oldportal::fc::network::DeviceCommand > command)
+{//BEGIN_20af3dcabca3af7b1a1b62955a6d0161
     // runtime check for modbus command
     std::shared_ptr<oldportal::fc::network::modbus::ModbusDeviceCommand> modbus_command = std::dynamic_pointer_cast<oldportal::fc::network::modbus::ModbusDeviceCommand>(command);
     assert(modbus_command);
 
     if (!modbus_command)
     {
-        oldportal::fc::system::logger::error(u8"oldportal::fc::network::modbus::ModbusNetworkController::processDeviceCommand(command) - RTTI error, object bust inherit ModbusDeviceCommand");
+        oldportal::fc::system::logger::error(u8"oldportal::fc::network::test::TestNetworkController::processDeviceCommand(command) - RTTI error, object bust inherit ModbusDeviceCommand");
 
         return;
     }
@@ -247,16 +203,16 @@ void oldportal::fc::network::modbus::ModbusNetworkController::processDeviceComma
 
     // clear command context
     modbus_command->_modbus_ctx = nullptr;
-}//END_cb8fd5b980bc7603de060be0feb37eed
+}//END_20af3dcabca3af7b1a1b62955a6d0161
 
-void oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(std::shared_ptr< oldportal::fc::network::DeviceCommand > command)
-{//BEGIN_3663c08fced66ad2a61a9dbc07f868ae
+void oldportal::fc::network::modbus::ModbusTCPIPNetworkController::pushCommand(std::shared_ptr< oldportal::fc::network::DeviceCommand > command)
+{//BEGIN_da7db483ed044ae2805cd25e338de658
     // runtime check for modbus command
     std::shared_ptr<oldportal::fc::network::modbus::ModbusDeviceCommand> modbus_command = std::dynamic_pointer_cast<oldportal::fc::network::modbus::ModbusDeviceCommand>(command);
     assert(modbus_command && "pushCommand() - must be oldportal::fc::network::modbus::ModbusDeviceCommand instance");
     if (!modbus_command)
     {
-        oldportal::fc::system::logger::error(u8"oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(command) - command must inherit ModbusDeviceCommand");
+        oldportal::fc::system::logger::error(u8"oldportal::fc::network::test::TestNetworkController::pushCommand(command) - command must inherit ModbusDeviceCommand");
         // dynamic error process
         throw std::invalid_argument("pushCommand() - must be oldportal::fc::network::modbus::ModbusDeviceCommand instance");
     }
@@ -264,41 +220,41 @@ void oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(std::s
     // check pointer to this controller
     if (modbus_command->_controller)
     {
-        std::shared_ptr<oldportal::fc::network::modbus::ModbusNetworkController> modbus_controller = std::dynamic_pointer_cast<oldportal::fc::network::modbus::ModbusNetworkController>(modbus_command->_controller);
+        std::shared_ptr<oldportal::fc::network::modbus::ModbusTCPIPNetworkController> modbus_controller = std::dynamic_pointer_cast<oldportal::fc::network::modbus::ModbusTCPIPNetworkController>(modbus_command->_controller);
         assert(modbus_controller && "command->_controller must inherit ModbusNetworkController");
         if (!modbus_controller)
         {
-            oldportal::fc::system::logger::error(u8"oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(command) - command->_controller must inherit ModbusNetworkController");
+            oldportal::fc::system::logger::error(u8"oldportal::fc::network::test::TestNetworkController::pushCommand(command) - command->_controller must inherit TestNetworkController");
             // dynamic error process
-            throw std::invalid_argument("pushCommand() - command->_controller must be oldportal::fc::network::modbus::ModbusNetworkController instance");
+            throw std::invalid_argument("pushCommand() - command->_controller must be oldportal::fc::network::test::TestNetworkController instance");
         }
 
-        assert(modbus_controller.get() == this && "pushCommand(command) - command->_controller not set to this ModbusNetworkController");
+        assert(modbus_controller.get() == this && "pushCommand(command) - command->_controller not set to this TestNetworkController");
         if (modbus_controller.get() != this)
         {
-            oldportal::fc::system::logger::error(u8"oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(command) - command->_controller not set to this ModbusNetworkController");
+            oldportal::fc::system::logger::error(u8"oldportal::fc::network::test::TestNetworkController::pushCommand(command) - command->_controller not set to this TestNetworkController");
             // dynamic error process
-            throw std::invalid_argument("pushCommand(command) - command->_controller not set to this ModbusNetworkController");
+            throw std::invalid_argument("pushCommand(command) - command->_controller not set to this TestNetworkController");
         }
     }
 
     // parent class function call
     oldportal::fc::network::NetworkController::pushCommand(command);
-}//END_3663c08fced66ad2a61a9dbc07f868ae
+}//END_da7db483ed044ae2805cd25e338de658
 
-void oldportal::fc::network::modbus::ModbusNetworkController::realtime_run(oldportal::fc::network::modbus::ModbusNetworkController* controller)
-{//BEGIN_92de8593a2dab2b10e17272d29b47493
+void oldportal::fc::network::modbus::ModbusTCPIPNetworkController::realtime_run(oldportal::fc::network::modbus::ModbusTCPIPNetworkController* controller)
+{//BEGIN_f1d3cfab80749d628578926e1da0ff27
     assert(controller);
 
     if (controller->_modbus_ctx == nullptr)
     {
         //TODO: report error as error status
-        oldportal::fc::system::logger::error(u8"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() ERROR - serial port is not opened, thread stopping...");
+        oldportal::fc::system::logger::error(u8"oldportal::fc::network::test::TestNetworkController::realtime_run() ERROR - serial port is not opened, thread stopping...");
 
         return;
     }
 
-    oldportal::fc::system::logger::log(u8"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() realtime thread started");
+    oldportal::fc::system::logger::log(u8"oldportal::fc::network::test::TestNetworkController::realtime_run() realtime thread started");
 
     while (controller->_run_thread_cycle_flag)
     {
@@ -328,10 +284,10 @@ void oldportal::fc::network::modbus::ModbusNetworkController::realtime_run(oldpo
         if (controller->_close_interrupted_flag)
         {
             // default thread exit
-            oldportal::fc::system::logger::log(u8"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() thread stopping...");
+            oldportal::fc::system::logger::log(u8"oldportal::fc::network::test::TestNetworkController::realtime_run() thread stopping...");
             controller->_run_thread_cycle_flag = false;
             controller->closeModbusContext();
-            oldportal::fc::system::logger::log(u8"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() thread stopped");
+            oldportal::fc::system::logger::log(u8"oldportal::fc::network::test::TestNetworkController::realtime_run() thread stopped");
             return;
         }
 
@@ -342,23 +298,16 @@ void oldportal::fc::network::modbus::ModbusNetworkController::realtime_run(oldpo
 
     // unexpected exit, the threas should exit with controller->_close_interrupted_flag = true
     controller->closeModbusContext();
-    oldportal::fc::system::logger::log(u8"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() thread stopped");
-}//END_92de8593a2dab2b10e17272d29b47493
+    oldportal::fc::system::logger::log(u8"oldportal::fc::network::test::TestNetworkController::realtime_run() thread stopped");
+}//END_f1d3cfab80749d628578926e1da0ff27
 
-void oldportal::fc::network::modbus::ModbusNetworkController::step()
-{//BEGIN_098807b48ba62b9baf8eaed28095384e
-    // parent class call
+void oldportal::fc::network::modbus::ModbusTCPIPNetworkController::step()
+{//BEGIN_0dfe25b988906585ef99118c290f55f7
     oldportal::fc::network::NetworkController::step();
+}//END_0dfe25b988906585ef99118c290f55f7
 
-    // check for last system time synchronization deadline
-    timeSynchronizationStep();
-
-    // ping unused actively devices (update devices state)
-    pingDevicesStep();
-}//END_098807b48ba62b9baf8eaed28095384e
-
-void oldportal::fc::network::modbus::ModbusNetworkController::timeSynchronizationStep()
-{//BEGIN_982c99b2d25d29e138dc4a91edb623c5
+void oldportal::fc::network::modbus::ModbusTCPIPNetworkController::timeSynchronizationStep()
+{//BEGIN_1be996297f3c0eae8a801d1ff1648a82
     // check for last system time synchronization deadline
     if (_last_time_synchronization + std::chrono::milliseconds(_network_settings._network_time_sync_interval_msec) > std::chrono::high_resolution_clock::now())
     {
@@ -368,7 +317,7 @@ void oldportal::fc::network::modbus::ModbusNetworkController::timeSynchronizatio
         auto command = std::make_shared<oldportal::fc::network::command::NetworkTimeSynchronization>();
         pushCommand(command);
     }
-}//END_982c99b2d25d29e138dc4a91edb623c5
+}//END_1be996297f3c0eae8a801d1ff1648a82
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE

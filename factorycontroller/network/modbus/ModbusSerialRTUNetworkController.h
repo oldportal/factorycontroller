@@ -17,8 +17,8 @@
 *    
 *    Copyright (C) Dmitry Ognyannikov, 2012-2014
 */
-#ifndef H_15f928f0b9f17e068913ffd298281be6_H
-#define H_15f928f0b9f17e068913ffd298281be6_H
+#ifndef H_1bcb52a90131fe0924008fee3f7993d2_H
+#define H_1bcb52a90131fe0924008fee3f7993d2_H
 
 
 
@@ -28,7 +28,7 @@
 
 
 /**
-Connect with test modbus network emulator via Modbus over TCP/IP connection.
+
 */
 namespace oldportal 
 {
@@ -36,19 +36,21 @@ namespace fc
 {
 namespace network 
 {
-namespace test 
+namespace modbus 
 {
 
-class TestNetworkController
+class ModbusSerialRTUNetworkController
 :  public virtual oldportal::fc::network::NetworkController
 {
 // constructors:
 public:
-TestNetworkController(std::shared_ptr< oldportal::fc::network::Network > network);
+ModbusSerialRTUNetworkController();
+public:
+ModbusSerialRTUNetworkController(std::shared_ptr< oldportal::fc::network::Network > network);
 
 
 public:
-virtual ~TestNetworkController();
+virtual ~ModbusSerialRTUNetworkController();
 
 // members:
 
@@ -62,6 +64,10 @@ protected:
 std::chrono::high_resolution_clock::time_point _last_time_synchronization;
 protected:
 std::shared_ptr< std::thread > _realtime_thread;
+public:
+oldportal::fc::network::modbus::ModbusNetworkSettings _network_settings;
+public:
+oldportal::fc::network::modbus::SerialPortSettings _port_settings;
 
 
 //methods:
@@ -80,6 +86,13 @@ private:
 void closeModbusContext();
 
 public:
+modbus_t* getModbusContext();
+
+/**
+1. Init and open Modbus port.
+2. Start background realtime network thread.
+*/
+public:
 virtual void initHardware();
 
 /**
@@ -90,11 +103,34 @@ public:
 bool isOpened();
 
 /**
+Ping devices, for which timeout passed.
+
+Maximum 1 device per step.
+*/
+private:
+void pingDevicesStep();
+
+protected:
+virtual void processDeviceCommand(std::shared_ptr< oldportal::fc::network::DeviceCommand > command);
+
+public:
+virtual void pushCommand(std::shared_ptr< oldportal::fc::network::DeviceCommand > command);
+
+private:
+static void realtime_run(oldportal::fc::network::modbus::ModbusSerialRTUNetworkController* controller);
+
+/**
 Update state.
 Logic processes step.
 */
 public:
 virtual void step();
+
+/**
+Host time synchronization with devices, if timeout in settings passed.
+*/
+private:
+void timeSynchronizationStep();
 
 
 
@@ -113,7 +149,7 @@ virtual void step();
 }// namespace oldportal
 }// namespace fc
 }// namespace network
-}// namespace test
+}// namespace modbus
 
 
 //BEGIN_USER_SECTION_AFTER_CLASS_DECLARATION
@@ -121,11 +157,11 @@ virtual void step();
 //END_USER_SECTION_AFTER_CLASS_DECLARATION
 
 
-#endif // H_15f928f0b9f17e068913ffd298281be6_H
+#endif // H_1bcb52a90131fe0924008fee3f7993d2_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_15f928f0b9f17e068913ffd298281be6_INLINES_H
-#define H_15f928f0b9f17e068913ffd298281be6_INLINES_H
+#ifndef H_1bcb52a90131fe0924008fee3f7993d2_INLINES_H
+#define H_1bcb52a90131fe0924008fee3f7993d2_INLINES_H
 
-#endif // H_15f928f0b9f17e068913ffd298281be6_INLINES_H
+#endif // H_1bcb52a90131fe0924008fee3f7993d2_INLINES_H
 #endif //OBJECTS_BUILDER_PROJECT_INLINES

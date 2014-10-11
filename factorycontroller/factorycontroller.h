@@ -230,12 +230,14 @@ struct ModbusMessagePair;
 class ModbusMessageWrapper;
 class ModbusNetworkController;
 class ModbusNetworkSettings;
+class ModbusSerialRTUNetworkController;
+class ModbusTCPIPNetworkController;
 class SerialPortSettings;
+class TCPIPAddressSettings;
 
 }// namespace modbus
 namespace test 
 {
-class TestNetworkController;
 
 }// namespace test
 }// namespace network
@@ -359,7 +361,9 @@ class StepCounter;
 #include "network/modbus/SerialPortSettings.h"
 #include "network/modbus/ModbusNetworkSettings.h"
 #include "network/modbus/ModbusNetworkController.h"
-#include "network/test/TestNetworkController.h"
+#include "network/modbus/ModbusSerialRTUNetworkController.h"
+#include "network/modbus/TCPIPAddressSettings.h"
+#include "network/modbus/ModbusTCPIPNetworkController.h"
 #include "scheduler/LocalConfiguration.h"
 #include "scheduler/Project.h"
 #include "scheduler/ProjectTemplate.h"
@@ -469,7 +473,9 @@ namespace fc
 #include "network/modbus/SerialPortSettings.h"
 #include "network/modbus/ModbusNetworkSettings.h"
 #include "network/modbus/ModbusNetworkController.h"
-#include "network/test/TestNetworkController.h"
+#include "network/modbus/ModbusSerialRTUNetworkController.h"
+#include "network/modbus/TCPIPAddressSettings.h"
+#include "network/modbus/ModbusTCPIPNetworkController.h"
 #include "scheduler/LocalConfiguration.h"
 #include "scheduler/Project.h"
 #include "scheduler/ProjectTemplate.h"
