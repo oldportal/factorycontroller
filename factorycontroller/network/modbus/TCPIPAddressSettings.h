@@ -17,8 +17,8 @@
 *    
 *    Copyright (C) Dmitry Ognyannikov, 2012-2014
 */
-#ifndef H_0d9ef377dfd096d2bd3dcddd29242cd5_H
-#define H_0d9ef377dfd096d2bd3dcddd29242cd5_H
+#ifndef H_35419d95bb002f341d69cb131c3ac997_H
+#define H_35419d95bb002f341d69cb131c3ac997_H
 
 
 
@@ -39,32 +39,23 @@ namespace network
 namespace modbus 
 {
 
-class ModbusNetworkSettings
+class TCPIPAddressSettings
+:  public virtual oldportal::fc::network::modbus::ModbusNetworkSettings
 {
 // constructors:
 public:
-ModbusNetworkSettings();
+TCPIPAddressSettings();
 
 
 public:
-virtual ~ModbusNetworkSettings();
+virtual ~TCPIPAddressSettings();
 
 // members:
 
 public:
-uint32_t _byte_timeout_usec;
-/**
-Interval for network time synchronization in milliseconds.
-*/
+std::u16string _ip_address;
 public:
-uint32_t _device_update_state_interval_msec;
-/**
-Interval for network time synchronization in milliseconds.
-*/
-public:
-uint32_t _network_time_sync_interval_msec;
-public:
-uint32_t _response_timeout_usec;
+uint16_t _port_number;
 
 
 //methods:
@@ -93,11 +84,11 @@ uint32_t _response_timeout_usec;
 //END_USER_SECTION_AFTER_CLASS_DECLARATION
 
 
-#endif // H_0d9ef377dfd096d2bd3dcddd29242cd5_H
+#endif // H_35419d95bb002f341d69cb131c3ac997_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_0d9ef377dfd096d2bd3dcddd29242cd5_INLINES_H
-#define H_0d9ef377dfd096d2bd3dcddd29242cd5_INLINES_H
+#ifndef H_35419d95bb002f341d69cb131c3ac997_INLINES_H
+#define H_35419d95bb002f341d69cb131c3ac997_INLINES_H
 
-#endif // H_0d9ef377dfd096d2bd3dcddd29242cd5_INLINES_H
+#endif // H_35419d95bb002f341d69cb131c3ac997_INLINES_H
 #endif //OBJECTS_BUILDER_PROJECT_INLINES

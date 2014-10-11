@@ -17,8 +17,8 @@
 *    
 *    Copyright (C) Dmitry Ognyannikov, 2012-2014
 */
-#ifndef H_660aabb0543c047f551da3f514074cd4_H
-#define H_660aabb0543c047f551da3f514074cd4_H
+#ifndef H_bd6703c087f26dea38460672d40526f6_H
+#define H_bd6703c087f26dea38460672d40526f6_H
 
 
 
@@ -28,7 +28,7 @@
 
 
 /**
-
+Connect with test modbus network emulator via Modbus over TCP/IP connection.
 */
 namespace oldportal 
 {
@@ -39,18 +39,16 @@ namespace network
 namespace modbus 
 {
 
-class ModbusNetworkController
+class ModbusTCPIPNetworkController
 :  public virtual oldportal::fc::network::NetworkController
 {
 // constructors:
 public:
-ModbusNetworkController();
-public:
-ModbusNetworkController(std::shared_ptr< oldportal::fc::network::Network > network);
+ModbusTCPIPNetworkController(std::shared_ptr< oldportal::fc::network::Network > network);
 
 
 public:
-virtual ~ModbusNetworkController();
+virtual ~ModbusTCPIPNetworkController();
 
 // members:
 
@@ -67,7 +65,7 @@ std::shared_ptr< std::thread > _realtime_thread;
 public:
 oldportal::fc::network::modbus::ModbusNetworkSettings _network_settings;
 public:
-oldportal::fc::network::modbus::SerialPortSettings _port_settings;
+oldportal::fc::network::modbus::TCPIPAddressSettings _address_settings;
 
 
 //methods:
@@ -88,10 +86,6 @@ void closeModbusContext();
 public:
 modbus_t* getModbusContext();
 
-/**
-1. Init and open Modbus port.
-2. Start background realtime network thread.
-*/
 public:
 virtual void initHardware();
 
@@ -117,7 +111,7 @@ public:
 virtual void pushCommand(std::shared_ptr< oldportal::fc::network::DeviceCommand > command);
 
 private:
-static void realtime_run(oldportal::fc::network::modbus::ModbusNetworkController* controller);
+static void realtime_run(oldportal::fc::network::modbus::ModbusTCPIPNetworkController* controller);
 
 /**
 Update state.
@@ -157,11 +151,11 @@ void timeSynchronizationStep();
 //END_USER_SECTION_AFTER_CLASS_DECLARATION
 
 
-#endif // H_660aabb0543c047f551da3f514074cd4_H
+#endif // H_bd6703c087f26dea38460672d40526f6_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_660aabb0543c047f551da3f514074cd4_INLINES_H
-#define H_660aabb0543c047f551da3f514074cd4_INLINES_H
+#ifndef H_bd6703c087f26dea38460672d40526f6_INLINES_H
+#define H_bd6703c087f26dea38460672d40526f6_INLINES_H
 
-#endif // H_660aabb0543c047f551da3f514074cd4_INLINES_H
+#endif // H_bd6703c087f26dea38460672d40526f6_INLINES_H
 #endif //OBJECTS_BUILDER_PROJECT_INLINES

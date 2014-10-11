@@ -31,24 +31,20 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-oldportal::fc::network::modbus::ModbusNetworkSettings::ModbusNetworkSettings()
+oldportal::fc::network::modbus::TCPIPAddressSettings::TCPIPAddressSettings()
 
-{//BEGIN_31e83a27a778e7434be11dc010d2e8a0
-    // modbus general settings
-    _response_timeout_usec = 150000;
-    _byte_timeout_usec = 50000;
-
+{//BEGIN_a0953697ca38dfff140df681df9ee579
     // network options
-    _network_time_sync_interval_msec = 10000;
-    _device_update_state_interval_msec = 30000;
-}//END_31e83a27a778e7434be11dc010d2e8a0
+    _ip_address = oldportal::fc::system::util::utf8_to_utf16("127.0.0.1");
+    _port_number = 1502;
+}//END_a0953697ca38dfff140df681df9ee579
 
 
 
-oldportal::fc::network::modbus::ModbusNetworkSettings::~ModbusNetworkSettings()
-{//BEGIN_7da5f632f1178313548474e504d13d4f
+oldportal::fc::network::modbus::TCPIPAddressSettings::~TCPIPAddressSettings()
+{//BEGIN_9b8bb2cc943b1e368068d9916e82091f
 
-}//END_7da5f632f1178313548474e504d13d4f
+}//END_9b8bb2cc943b1e368068d9916e82091f
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
