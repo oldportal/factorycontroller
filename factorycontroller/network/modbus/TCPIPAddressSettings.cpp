@@ -35,16 +35,9 @@ oldportal::fc::network::modbus::TCPIPAddressSettings::TCPIPAddressSettings()
 
 {//BEGIN_a0953697ca38dfff140df681df9ee579
     // network options
-    _ip_address = oldportal::fc::system::util::utf8_to_utf16("127.0.0.1");
-    _port_number = 1502;
+    _network_address = oldportal::fc::system::util::utf8_to_utf16("localhost");
+    _service = oldportal::fc::system::util::utf8_to_utf16("1502");
 }//END_a0953697ca38dfff140df681df9ee579
-
-
-
-oldportal::fc::network::modbus::TCPIPAddressSettings::~TCPIPAddressSettings()
-{//BEGIN_9b8bb2cc943b1e368068d9916e82091f
-
-}//END_9b8bb2cc943b1e368068d9916e82091f
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
