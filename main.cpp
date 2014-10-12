@@ -56,8 +56,9 @@ int main(int argc, char *argv[])
     // init factory
     if (vm.count("config"))
     {
+        // file configuration loader
+        
         std::string config_filename = vm["config"].as<std::string>();
-        std::cout << "factorycontroller - Manufacturing Execution System" << std::endl;
         std::cout << "Initialize with configuration file: " << config_filename << std::endl;
 
         // init loader
@@ -71,6 +72,9 @@ int main(int argc, char *argv[])
     else
     {
         // pure program loader as default
+      
+        std::cout << "Initialize with default configuration" << std::endl;
+      
         // init loader
         auto loader = std::make_shared<oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader>();
         loader->init();
