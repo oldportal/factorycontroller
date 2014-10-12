@@ -82,7 +82,7 @@ virtual void close();
 Close and free _modbus_ctx context.
 Set _modbus_ctx to nullptr.
 */
-private:
+protected:
 void closeModbusContext();
 
 public:
@@ -96,6 +96,20 @@ public:
 virtual void initHardware() = 0;
 
 /**
+1. Init and open Modbus port.
+2. Start background realtime network thread.
+*/
+protected:
+virtual void initModbusSettings();
+
+/**
+1. Init and open Modbus port.
+2. Start background realtime network thread.
+*/
+protected:
+virtual void initRealtimeThread();
+
+/**
 Return true if serial port successfull opened and background realtime thread run.
 Otherwise return false.
 */
@@ -107,7 +121,7 @@ Ping devices, for which timeout passed.
 
 Maximum 1 device per step.
 */
-private:
+protected:
 void pingDevicesStep();
 
 protected:
@@ -129,7 +143,7 @@ virtual void step();
 /**
 Host time synchronization with devices, if timeout in settings passed.
 */
-private:
+protected:
 void timeSynchronizationStep();
 
 

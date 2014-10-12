@@ -61,54 +61,11 @@ oldportal::fc::network::modbus::SerialPortSettings _port_settings;
 //methods:
 
 /**
-Close realtime thread after queue empty.
-*/
-public:
-virtual void close();
-
-/**
-Close and free _modbus_ctx context.
-Set _modbus_ctx to nullptr.
-*/
-private:
-void closeModbusContext();
-
-/**
 1. Init and open Modbus port.
 2. Start background realtime network thread.
 */
 public:
 virtual void initHardware();
-
-/**
-Ping devices, for which timeout passed.
-
-Maximum 1 device per step.
-*/
-private:
-void pingDevicesStep();
-
-protected:
-virtual void processDeviceCommand(std::shared_ptr< oldportal::fc::network::DeviceCommand > command);
-
-public:
-virtual void pushCommand(std::shared_ptr< oldportal::fc::network::DeviceCommand > command);
-
-private:
-static void realtime_run(oldportal::fc::network::modbus::ModbusSerialRTUNetworkController* controller);
-
-/**
-Update state.
-Logic processes step.
-*/
-public:
-virtual void step();
-
-/**
-Host time synchronization with devices, if timeout in settings passed.
-*/
-private:
-void timeSynchronizationStep();
 
 
 

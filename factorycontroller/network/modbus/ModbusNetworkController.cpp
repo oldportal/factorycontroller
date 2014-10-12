@@ -90,6 +90,65 @@ modbus_t* oldportal::fc::network::modbus::ModbusNetworkController::getModbusCont
 }//END_da23bdb87d3f2a0a04861da4574a4bb7
 
 
+void oldportal::fc::network::modbus::ModbusNetworkController::initModbusSettings()
+{//BEGIN_7f08a49315a20577960dfb267297c8d7
+    assert(_modbus_ctx != nullptr && "initModbusSettings() needs opened _modbus_ctx");
+
+    struct timeval new_response_timeout;
+    new_response_timeout.tv_sec = 0;
+    new_response_timeout.tv_usec = _network_settings._response_timeout_usec;
+    modbus_set_response_timeout(_modbus_ctx, &new_response_timeout);
+
+    struct timeval new_byte_timeout;
+    new_byte_timeout.tv_sec = 0;
+    new_byte_timeout.tv_usec = _network_settings._byte_timeout_usec;
+    modbus_set_byte_timeout(_modbus_ctx, &new_byte_timeout);
+
+    // set destination address
+    if (modbus_set_slave(_modbus_ctx, MODBUS_BROADCAST_ADDRESS) != 0)
+    {
+        oldportal::fc::system::logger::error(u8"oldportal::fc::network::modbus::ModbusNetworkController::initModbusSettings() set BROADCAST device address error");
+        oldportal::fc::system::logger::error(modbus_strerror(errno));
+        closeModbusContext();
+        return;
+    }
+
+    oldportal::fc::system::logger::log(u8"oldportal::fc::network::modbus::ModbusNetworkController::initModbusSettings() modbus settings configured");
+}//END_7f08a49315a20577960dfb267297c8d7
+
+void oldportal::fc::network::modbus::ModbusNetworkController::initRealtimeThread()
+{//BEGIN_cbb33dc35f77218f9ec434b6759a6785
+    assert(!_realtime_thread);
+
+    // start soft realtime thread
+    _run_thread_cycle_flag = true;
+    _close_interrupted_flag = false;
+    _realtime_thread = std::make_shared<std::thread>(oldportal::fc::network::modbus::ModbusNetworkController::realtime_run, this);
+
+    // set realtime thread priority
+#ifdef WIN32
+    // WIN API
+    // HIGH_PRIORITY_CLASS->REALTIME_PRIORITY_CLASS
+    if (!SetPriorityClass(_realtime_thread->native_handle(), HIGH_PRIORITY_CLASS))
+    // THREAD_PRIORITY_NORMAL->THREAD_PRIORITY_HIGHEST->THREAD_PRIORITY_TIME_CRITICAL
+    if (!SetThreadPriority(_realtime_thread->native_handle(), THREAD_PRIORITY_TIME_CRITICAL))
+    {
+        DWORD dwError = GetLastError();
+        std::cout << "cannot set modbus thread priority, error: " << dwError;
+    }
+#else // POSIX thread
+    // pthread library
+    int policy;
+    struct sched_param param;
+
+    pthread_getschedparam(_realtime_thread->native_handle(), &policy, &param);
+    // you would use policies SCHED_FIFO, SCHED_RR where you can specify HIGH priority of thread
+    policy = SCHED_RR;
+    param.sched_priority = sched_get_priority_max(policy);
+    pthread_setschedparam(_realtime_thread->native_handle(), policy, &param);
+#endif
+}//END_cbb33dc35f77218f9ec434b6759a6785
+
 bool oldportal::fc::network::modbus::ModbusNetworkController::isOpened()
 {//BEGIN_be54a7540bed925c6d6f274a683353e8
     return _modbus_ctx != nullptr && _realtime_thread;
@@ -244,6 +303,7 @@ void oldportal::fc::network::modbus::ModbusNetworkController::realtime_run(oldpo
             oldportal::fc::system::logger::log(u8"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() thread stopping...");
             controller->_run_thread_cycle_flag = false;
             controller->closeModbusContext();
+            controller->_realtime_thread.reset();
             oldportal::fc::system::logger::log(u8"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() thread stopped");
             return;
         }
@@ -255,6 +315,8 @@ void oldportal::fc::network::modbus::ModbusNetworkController::realtime_run(oldpo
 
     // unexpected exit, the threas should exit with controller->_close_interrupted_flag = true
     controller->closeModbusContext();
+    controller->_realtime_thread.reset();
+
     oldportal::fc::system::logger::log(u8"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() thread stopped");
 }//END_92de8593a2dab2b10e17272d29b47493
 
