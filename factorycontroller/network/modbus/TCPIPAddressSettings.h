@@ -40,22 +40,32 @@ namespace modbus
 {
 
 class TCPIPAddressSettings
-:  public virtual oldportal::fc::network::modbus::ModbusNetworkSettings
 {
 // constructors:
 public:
 TCPIPAddressSettings();
 
 
-public:
-virtual ~TCPIPAddressSettings();
-
 // members:
 
+/**
+The _network_address variable specifies the host name or IP address of the host to connect to, eg. 192.168.0.5 , ::1 or server.com
+
+Default value: "localhost"
+
+Look function modbus_new_tcp_pi in libmodbus documentation for detailed description.
+*/
 public:
-std::u16string _ip_address;
+std::u16string _network_address;
+/**
+The _service variable is the service name/port number to connect to. To use the default Modbus port use the string "502". On many Unix systems, it’s convenient to use a port number greater than or equal to 1024 because it’s not necessary to have administrator priv
+
+Default value: "1502"
+
+Look function modbus_new_tcp_pi in libmodbus documentation for detailed description.
+*/
 public:
-uint16_t _port_number;
+std::u16string _service;
 
 
 //methods:

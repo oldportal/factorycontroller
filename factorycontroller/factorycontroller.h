@@ -236,10 +236,6 @@ class SerialPortSettings;
 class TCPIPAddressSettings;
 
 }// namespace modbus
-namespace test 
-{
-
-}// namespace test
 }// namespace network
 namespace scheduler 
 {

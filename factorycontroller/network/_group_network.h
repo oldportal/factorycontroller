@@ -60,7 +60,6 @@ namespace network
 
 #include "command/_group_command.h"
 #include "modbus/_group_modbus.h"
-#include "test/_group_test.h"
 
 
 
@@ -75,7 +74,6 @@ namespace network
 
 #include "command/_group_command.h"
 #include "modbus/_group_modbus.h"
-#include "test/_group_test.h"
 
 
 #endif // H_ced2254c79b19631a6b7833b41e92f52_INLINES_H
