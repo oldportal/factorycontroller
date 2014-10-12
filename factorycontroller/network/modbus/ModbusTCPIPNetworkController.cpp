@@ -50,7 +50,7 @@ oldportal::fc::network::modbus::ModbusTCPIPNetworkController::~ModbusTCPIPNetwor
 
 void oldportal::fc::network::modbus::ModbusTCPIPNetworkController::initHardware()
 {//BEGIN_f919d3d7379153553fbea5b0aa2a6cd5
-    assert(_modbus_ctx == nullptr && "TestNetworkController must be closed with close() before new initHardware() call");
+    assert(_modbus_ctx == nullptr && !_realtime_thread && "ModbusTCPIPNetworkController must be closed with close() before new initHardware() call");
 
     // init network time
     _network_time.init();
@@ -61,7 +61,7 @@ void oldportal::fc::network::modbus::ModbusTCPIPNetworkController::initHardware(
 
     if (_modbus_ctx == nullptr)
     {
-        oldportal::fc::system::logger::error(u8"oldportal::fc::network::test::TestNetworkController::initHardware() TCPIP port open error");
+        oldportal::fc::system::logger::error(u8"oldportal::fc::network::modbus::ModbusTCPIPNetworkController::initHardware() TCPIP port open error");
         oldportal::fc::system::logger::error(modbus_strerror(errno));
         closeModbusContext();
         return;
@@ -69,7 +69,7 @@ void oldportal::fc::network::modbus::ModbusTCPIPNetworkController::initHardware(
 
     if (modbus_connect(_modbus_ctx) != 0)
     {
-        oldportal::fc::system::logger::error(u8"oldportal::fc::network::test::TestNetworkController::initHardware() TCPIP connect error");
+        oldportal::fc::system::logger::error(u8"oldportal::fc::network::modbus::ModbusTCPIPNetworkController::initHardware() TCPIP connect error");
         oldportal::fc::system::logger::error(modbus_strerror(errno));
         closeModbusContext();
         return;
