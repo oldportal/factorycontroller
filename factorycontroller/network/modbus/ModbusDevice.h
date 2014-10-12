@@ -63,7 +63,7 @@ Update state.
 Logic processes step.
 */
 public:
-virtual void step();
+virtual void step() = 0;
 
 
 

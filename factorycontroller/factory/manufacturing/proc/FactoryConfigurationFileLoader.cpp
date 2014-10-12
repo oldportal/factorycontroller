@@ -130,7 +130,7 @@ void oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader
 
     std::shared_ptr< oldportal::fc::network::modbus::ModbusSerialRTUNetworkController > networkController = std::make_shared< oldportal::fc::network::modbus::ModbusSerialRTUNetworkController >();
 
-    std::shared_ptr< oldportal::fc::network::modbus::ModbusDevice > networkDevice = std::make_shared< oldportal::fc::network::modbus::ModbusDevice >();
+    std::shared_ptr< oldportal::fc::hardware::HardwareDevice > networkDevice = std::make_shared< oldportal::fc::hardware::HardwareDevice >();
 
     // task schedulers:
     _scheduler = std::make_shared< oldportal::fc::scheduler::Scheduler >();

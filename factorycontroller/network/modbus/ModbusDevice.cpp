@@ -45,12 +45,6 @@ oldportal::fc::network::modbus::ModbusDevice::~ModbusDevice()
 }//END_62bf9caba9919fd9879939f4cd773646
 
 
-void oldportal::fc::network::modbus::ModbusDevice::step()
-{//BEGIN_f4842d18262bc074c2ad78aa1cfdd113
-    //TODO: step()
-}//END_f4842d18262bc074c2ad78aa1cfdd113
-
-
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
 
 //END_USER_SECTION_AFTER_GENERATED_CODE
