@@ -40,7 +40,7 @@ oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::ModbusSerialRT
 oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::ModbusSerialRTUNetworkController(std::shared_ptr< oldportal::fc::network::Network > network)
     : oldportal::fc::network::modbus::ModbusNetworkController(network)
 {//BEGIN_17140ab021ca3f2bd11e039871242a38
-    assert(network && "ModbusNetworkController cannot be initialized with empty Network");
+    assert(network && "ModbusSerialRTUNetworkController cannot be initialized with empty Network");
 
     _network = network;
 
@@ -56,7 +56,7 @@ oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::~ModbusSerialR
 
 void oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::initHardware()
 {//BEGIN_803ad91ba2984c5f99212c75897a3c72
-    assert(_modbus_ctx == nullptr && "ModbusSerialRTUNetworkController must be closed with close() before new initHardware() call");
+    assert(_modbus_ctx == nullptr && !_realtime_thread && "ModbusSerialRTUNetworkController must be closed with close() before new initHardware() call");
 
     // init network time
     _network_time.init();
