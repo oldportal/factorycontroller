@@ -81,6 +81,7 @@ void oldportal::fc::network::modbus::ModbusNetworkController::closeModbusContext
         modbus_free(_modbus_ctx);
 
         _modbus_ctx = nullptr;
+        oldportal::fc::system::logger::log(u8"oldportal::fc::network::modbus::ModbusNetworkController::closeModbusContext() modbus context closed");
     }
 }//END_ed62e985906ed4e86994909533a6a0ae
 

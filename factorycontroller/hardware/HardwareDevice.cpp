@@ -34,7 +34,10 @@
 oldportal::fc::hardware::HardwareDevice::HardwareDevice()
 
 {//BEGIN_001b57e88de26f85c27fce08008e0dd8
-
+    _controllerTemperatureSupported = false;
+    _deviceTemperatureSupported = false;
+    _controllerTemperature = 20;
+    _deviceTemperature = 20;
 }//END_001b57e88de26f85c27fce08008e0dd8
 
 
@@ -47,7 +50,7 @@ oldportal::fc::hardware::HardwareDevice::~HardwareDevice()
 
 void oldportal::fc::hardware::HardwareDevice::step()
 {//BEGIN_d42686e1ac956e97373c774ee3cd2a15
-    //TODO: step()
+    // step() - empty virtual function
 }//END_d42686e1ac956e97373c774ee3cd2a15
 
 
