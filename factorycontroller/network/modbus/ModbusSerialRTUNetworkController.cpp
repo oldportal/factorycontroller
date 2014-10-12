@@ -34,11 +34,7 @@
 oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::ModbusSerialRTUNetworkController()
 
 {//BEGIN_1540738fb4e875afede8ad1c3eb3677c
-    _run_thread_cycle_flag = false;
-    _close_interrupted_flag = false;
 
-    _modbus_ctx = nullptr;
-    _last_time_synchronization = std::chrono::high_resolution_clock::time_point::min();
 }//END_1540738fb4e875afede8ad1c3eb3677c
 
 oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::ModbusSerialRTUNetworkController(std::shared_ptr< oldportal::fc::network::Network > network)
@@ -46,12 +42,8 @@ oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::ModbusSerialRT
 {//BEGIN_17140ab021ca3f2bd11e039871242a38
     assert(network && "ModbusNetworkController cannot be initialized with empty Network");
 
-    _run_thread_cycle_flag = false;
-    _close_interrupted_flag = false;
     _network = network;
 
-    _modbus_ctx = nullptr;
-    _last_time_synchronization = std::chrono::high_resolution_clock::time_point::min();
 }//END_17140ab021ca3f2bd11e039871242a38
 
 

@@ -34,14 +34,10 @@
 oldportal::fc::network::modbus::ModbusTCPIPNetworkController::ModbusTCPIPNetworkController(std::shared_ptr< oldportal::fc::network::Network > network)
     : oldportal::fc::network::modbus::ModbusNetworkController(network)
 {//BEGIN_da7390f47b64c6919e1ad8426b698765
-    assert(network && "ModbusNetworkController cannot be initialized with empty Network");
+    assert(network && "ModbusTCPIPNetworkController cannot be initialized with empty Network");
 
-    _run_thread_cycle_flag = false;
-    _close_interrupted_flag = false;
     _network = network;
 
-    _modbus_ctx = nullptr;
-    _last_time_synchronization = std::chrono::high_resolution_clock::time_point::min();
 }//END_da7390f47b64c6919e1ad8426b698765
 
 
