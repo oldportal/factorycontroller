@@ -42,7 +42,7 @@ oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::ModbusSerialRT
 }//END_1540738fb4e875afede8ad1c3eb3677c
 
 oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::ModbusSerialRTUNetworkController(std::shared_ptr< oldportal::fc::network::Network > network)
-    : oldportal::fc::network::NetworkController(network)
+    : oldportal::fc::network::modbus::ModbusNetworkController(network)
 {//BEGIN_17140ab021ca3f2bd11e039871242a38
     assert(network && "ModbusNetworkController cannot be initialized with empty Network");
 
@@ -84,11 +84,6 @@ void oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::closeModb
     }
 }//END_8cc827bd3b715fdc5ddd2337eb7bb9b7
 
-modbus_t* oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::getModbusContext()
-{//BEGIN_1a64478473d63071e22cd7199aff31ff
-    return _modbus_ctx;
-}//END_1a64478473d63071e22cd7199aff31ff
-
 void oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::initHardware()
 {//BEGIN_803ad91ba2984c5f99212c75897a3c72
     assert(_modbus_ctx == nullptr && "ModbusNetworkController must be closed with close() before new initHardware() call");
@@ -107,7 +102,7 @@ void oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::initHardw
     // set serial port name and settings
     _modbus_ctx = modbus_new_rtu(_port_settings._port_name.c_str(), _port_settings._baud_rate, _port_settings._parity, _port_settings._databits, _port_settings._stopbits);
 
-    if (_modbus_ctx == NULL)
+    if (_modbus_ctx == nullptr)
     {
         oldportal::fc::system::logger::error(u8"oldportal::fc::network::modbus::ModbusNetworkController::initHardware() serial port create context error");
     }
@@ -176,11 +171,6 @@ void oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::initHardw
     pthread_setschedparam(_realtime_thread->native_handle(), policy, &param);
 #endif
 }//END_803ad91ba2984c5f99212c75897a3c72
-
-bool oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::isOpened()
-{//BEGIN_ce9e0665a989f6bbf012e31384526717
-    return _modbus_ctx != nullptr && _realtime_thread;
-}//END_ce9e0665a989f6bbf012e31384526717
 
 void oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::pingDevicesStep()
 {//BEGIN_43113dc6f1f9435f6e36376d79451491

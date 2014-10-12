@@ -83,7 +83,7 @@ void oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::init
         network->_id = 1;
         network->_name = "default network";
         network->_serialPortPath = info.portName();
-        _network_controller = QSharedPointer< oldportal::fc::network::NetworkController >(new oldportal::fc::network::modbus::ModbusNetworkController(network));
+        _network_controller = QSharedPointer< oldportal::fc::network::NetworkController >(new oldportal::fc::network::modbus::ModbusSerialRTUNetworkController(network));
 
         QSharedPointer<oldportal::fc::network::modbus::ModbusDevice> networkDevice(new oldportal::fc::network::modbus::ModbusDevice());
         networkDevice->_id = 4;

@@ -32,7 +32,7 @@
 
 
 oldportal::fc::network::modbus::ModbusTCPIPNetworkController::ModbusTCPIPNetworkController(std::shared_ptr< oldportal::fc::network::Network > network)
-    : oldportal::fc::network::NetworkController(network)
+    : oldportal::fc::network::modbus::ModbusNetworkController(network)
 {//BEGIN_da7390f47b64c6919e1ad8426b698765
     assert(network && "ModbusNetworkController cannot be initialized with empty Network");
 
@@ -68,11 +68,6 @@ void oldportal::fc::network::modbus::ModbusTCPIPNetworkController::closeModbusCo
     }
 }//END_8c5d012dfd029193fb817d2a6854046b
 
-modbus_t* oldportal::fc::network::modbus::ModbusTCPIPNetworkController::getModbusContext()
-{//BEGIN_ebc414b8501cba844601b0eca4956fe9
-    return _modbus_ctx;
-}//END_ebc414b8501cba844601b0eca4956fe9
-
 void oldportal::fc::network::modbus::ModbusTCPIPNetworkController::initHardware()
 {//BEGIN_f919d3d7379153553fbea5b0aa2a6cd5
     assert(_modbus_ctx == nullptr && "TestNetworkController must be closed with close() before new initHardware() call");
@@ -84,9 +79,17 @@ void oldportal::fc::network::modbus::ModbusTCPIPNetworkController::initHardware(
 
     _modbus_ctx = modbus_new_tcp(address.c_str(), _address_settings._port_number);
 
-    if (modbus_connect(_modbus_ctx) != 0)
+    if (_modbus_ctx == nullptr)
     {
         oldportal::fc::system::logger::error(u8"oldportal::fc::network::test::TestNetworkController::initHardware() TCPIP port open error");
+        oldportal::fc::system::logger::error(modbus_strerror(errno));
+        closeModbusContext();
+        return;
+    }
+
+    if (modbus_connect(_modbus_ctx) != 0)
+    {
+        oldportal::fc::system::logger::error(u8"oldportal::fc::network::test::TestNetworkController::initHardware() TCPIP connect error");
         oldportal::fc::system::logger::error(modbus_strerror(errno));
         closeModbusContext();
         return;
@@ -132,11 +135,6 @@ void oldportal::fc::network::modbus::ModbusTCPIPNetworkController::initHardware(
     pthread_setschedparam(_realtime_thread->native_handle(), policy, &param);
 #endif
 }//END_f919d3d7379153553fbea5b0aa2a6cd5
-
-bool oldportal::fc::network::modbus::ModbusTCPIPNetworkController::isOpened()
-{//BEGIN_af2b8d86ad22c650b5a5b3c41889e28d
-    return _modbus_ctx != nullptr && _realtime_thread;
-}//END_af2b8d86ad22c650b5a5b3c41889e28d
 
 void oldportal::fc::network::modbus::ModbusTCPIPNetworkController::pingDevicesStep()
 {//BEGIN_a146e249b08301984a9e69b7b3b29d0a
