@@ -128,7 +128,7 @@ void oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader
     // network controllers:
     std::shared_ptr< oldportal::fc::network::Network > network = std::make_shared< oldportal::fc::network::Network >();
 
-    std::shared_ptr< oldportal::fc::network::modbus::ModbusNetworkController > networkController = std::make_shared< oldportal::fc::network::modbus::ModbusNetworkController >();
+    std::shared_ptr< oldportal::fc::network::modbus::ModbusSerialRTUNetworkController > networkController = std::make_shared< oldportal::fc::network::modbus::ModbusSerialRTUNetworkController >();
 
     std::shared_ptr< oldportal::fc::network::modbus::ModbusDevice > networkDevice = std::make_shared< oldportal::fc::network::modbus::ModbusDevice >();
 

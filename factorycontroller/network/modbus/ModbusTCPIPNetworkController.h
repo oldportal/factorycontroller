@@ -40,7 +40,7 @@ namespace modbus
 {
 
 class ModbusTCPIPNetworkController
-:  public virtual oldportal::fc::network::NetworkController
+:  public virtual oldportal::fc::network::modbus::ModbusNetworkController
 {
 // constructors:
 public:
@@ -52,18 +52,6 @@ virtual ~ModbusTCPIPNetworkController();
 
 // members:
 
-private:
-modbus_t* _modbus_ctx;
-private:
-mutable bool _close_interrupted_flag;
-private:
-mutable bool _run_thread_cycle_flag;
-protected:
-std::chrono::high_resolution_clock::time_point _last_time_synchronization;
-protected:
-std::shared_ptr< std::thread > _realtime_thread;
-public:
-oldportal::fc::network::modbus::ModbusNetworkSettings _network_settings;
 public:
 oldportal::fc::network::modbus::TCPIPAddressSettings _address_settings;
 
@@ -84,17 +72,7 @@ private:
 void closeModbusContext();
 
 public:
-modbus_t* getModbusContext();
-
-public:
 virtual void initHardware();
-
-/**
-Return true if serial port successfull opened and background realtime thread run.
-Otherwise return false.
-*/
-public:
-bool isOpened();
 
 /**
 Ping devices, for which timeout passed.

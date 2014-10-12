@@ -54,11 +54,11 @@ virtual ~ModbusNetworkController();
 
 // members:
 
-private:
+protected:
 modbus_t* _modbus_ctx;
-private:
+protected:
 mutable bool _close_interrupted_flag;
-private:
+protected:
 mutable bool _run_thread_cycle_flag;
 protected:
 std::chrono::high_resolution_clock::time_point _last_time_synchronization;
@@ -93,7 +93,7 @@ modbus_t* getModbusContext();
 2. Start background realtime network thread.
 */
 public:
-virtual void initHardware();
+virtual void initHardware() = 0;
 
 /**
 Return true if serial port successfull opened and background realtime thread run.
