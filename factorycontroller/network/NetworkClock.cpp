@@ -38,6 +38,15 @@ oldportal::fc::network::NetworkClock::NetworkClock()
 }//END_e78e68ce2c9012b95739d0ad514a76fb
 
 
+NETWORK_TIME oldportal::fc::network::NetworkClock::getCurrentNetworkTime() const
+{//BEGIN_900028361f6190d91a17f049b385701e
+    std::chrono::high_resolution_clock::time_point current_time =
+        std::chrono::high_resolution_clock::now();
+    std::chrono::milliseconds time_span = std::chrono::duration_cast<std::chrono::milliseconds>(current_time - _network_start_time);
+    NETWORK_TIME difference = time_span.count();
+    return difference;
+}//END_900028361f6190d91a17f049b385701e
+
 std::chrono::high_resolution_clock::time_point oldportal::fc::network::NetworkClock::getStartTime()
 {//BEGIN_0ddc1cba7d9f96ed91788bbdb91cefb9
     return _network_start_time;
@@ -49,13 +58,11 @@ void oldportal::fc::network::NetworkClock::init()
 }//END_9655658420dce1e6a0cd63336b820bdb
 
 NETWORK_TIME oldportal::fc::network::NetworkClock::toNetworkTime(std::chrono::high_resolution_clock::time_point system_time) const
-{//BEGIN_cdcb1145f93e4fc57113862d59c118f3
-    std::chrono::high_resolution_clock::time_point current_time =
-        std::chrono::high_resolution_clock::now();
-    std::chrono::milliseconds time_span = std::chrono::duration_cast<std::chrono::milliseconds>(current_time - _network_start_time);
+{//BEGIN_6d4b3732f1bf4d75d39e536217883d27
+    std::chrono::milliseconds time_span = std::chrono::duration_cast<std::chrono::milliseconds>(system_time - _network_start_time);
     NETWORK_TIME difference = time_span.count();
     return difference;
-}//END_cdcb1145f93e4fc57113862d59c118f3
+}//END_6d4b3732f1bf4d75d39e536217883d27
 
 std::chrono::high_resolution_clock::time_point oldportal::fc::network::NetworkClock::toSystemTime(NETWORK_TIME network_time) const
 {//BEGIN_08ceb6411a138ef839fc72ebdd751592

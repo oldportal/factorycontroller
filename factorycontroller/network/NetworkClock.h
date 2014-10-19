@@ -55,6 +55,9 @@ std::chrono::high_resolution_clock::time_point _network_start_time;
 
 //methods:
 
+public:
+NETWORK_TIME getCurrentNetworkTime() const;
+
 /**
 Start time in system time,
 */
