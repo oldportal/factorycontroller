@@ -71,7 +71,7 @@ OldPortal Factory Controller project.
 
 
 //BEGIN_TYPE_DECLARATION_10e882b2ea715e905fcda554861a73bf NETWORK_TIME
-typedef uint64_t NETWORK_TIME;
+typedef uint64_t NETWORK_TIME;// time interval in milliseconds
 //END_TYPE_DECLARATION_10e882b2ea715e905fcda554861a73bf NETWORK_TIME
 //BEGIN_TYPE_DECLARATION_72767107e7694a839e6e9825d968b14f modbus_t
 /* libmodbus context */
