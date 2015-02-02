@@ -49,6 +49,16 @@ virtual ~DeviceCommand();
 
 // members:
 
+/**
+System time in milliseconds.
+*/
+public:
+std::chrono::high_resolution_clock::time_point _created;
+/**
+System time in milliseconds.
+*/
+public:
+std::chrono::high_resolution_clock::time_point _last_processed;
 public:
 std::shared_ptr< oldportal::fc::hardware::HardwareDevice > _device;
 public:
