@@ -42,6 +42,8 @@ namespace mechatronics
 class MotorSettings
 {
 // constructors:
+public:
+MotorSettings();
 
 
 // members:

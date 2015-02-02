@@ -42,6 +42,8 @@ namespace mechatronics
 struct MotorProperties
 {
 // constructors:
+public:
+MotorProperties();
 
 
 // members:
