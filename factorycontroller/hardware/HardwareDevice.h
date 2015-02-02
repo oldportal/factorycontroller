@@ -64,6 +64,8 @@ Device temperature in Celsius.
 */
 public:
 float _deviceTemperature;
+public:
+std::shared_ptr< oldportal::fc::network::modbus::ModbusDeviceCommand > _current_device_command;
 
 
 //methods:
