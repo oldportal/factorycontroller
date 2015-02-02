@@ -68,6 +68,8 @@ public:
 oldportal::fc::hardware::mechatronics::MotorProperties _properties;
 public:
 oldportal::fc::hardware::mechatronics::MotorSettings _settings;
+public:
+std::shared_ptr< oldportal::fc::network::modbus::ModbusDeviceCommand > _current_device_command;
 
 
 //methods:

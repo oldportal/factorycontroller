@@ -31,6 +31,13 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+oldportal::fc::hardware::mechatronics::MotorProperties::MotorProperties()
+
+{//BEGIN_4363407ae7a3c68ce3c84821ccd8a0f3
+
+}//END_4363407ae7a3c68ce3c84821ccd8a0f3
+
+
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
 
 //END_USER_SECTION_AFTER_GENERATED_CODE
