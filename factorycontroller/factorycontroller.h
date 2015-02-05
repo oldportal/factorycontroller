@@ -160,6 +160,7 @@ class StoragePalletPlace;
 namespace hardware 
 {
 class HardwareDevice;
+class HardwareDeviceProcess;
 
 namespace edm 
 {
@@ -324,6 +325,7 @@ class StepCounter;
 #include "network/NetworkDevice.h"
 #include "network/modbus/ModbusDevice.h"
 #include "hardware/HardwareDevice.h"
+#include "hardware/HardwareDeviceProcess.h"
 #include "hardware/edm/EDMWorkMode.h"
 #include "hardware/edm/EDMPowerSource.h"
 #include "hardware/mechatronics/MotorSettings.h"
@@ -436,6 +438,7 @@ namespace fc
 #include "network/NetworkDevice.h"
 #include "network/modbus/ModbusDevice.h"
 #include "hardware/HardwareDevice.h"
+#include "hardware/HardwareDeviceProcess.h"
 #include "hardware/edm/EDMWorkMode.h"
 #include "hardware/edm/EDMPowerSource.h"
 #include "hardware/mechatronics/MotorSettings.h"

@@ -17,8 +17,8 @@
 *    
 *    Copyright (C) Dmitry Ognyannikov, 2012-2014
 */
-#ifndef H_35419d95bb002f341d69cb131c3ac997_H
-#define H_35419d95bb002f341d69cb131c3ac997_H
+#ifndef H_d767bf182dff08c9ac2ec9a10b9c3297_H
+#define H_d767bf182dff08c9ac2ec9a10b9c3297_H
 
 
 
@@ -28,47 +28,50 @@
 
 
 /**
+Specific hardware mode & process controller class.
 
+For example: Linear motion for motor, motion with acceleration, break process, heating or constant temperature for heater, etc.
+
+Could exist different modes with different process controller for each hardware device.
 */
 namespace oldportal 
 {
 namespace fc 
 {
-namespace network 
-{
-namespace modbus 
+namespace hardware 
 {
 
-class TCPIPAddressSettings
+class HardwareDeviceProcess
 {
 // constructors:
 public:
-TCPIPAddressSettings();
+HardwareDeviceProcess();
 
+
+public:
+virtual ~HardwareDeviceProcess();
 
 // members:
 
-/**
-The _network_address variable specifies the host name or IP address of the host to connect to, eg. 192.168.0.5 , ::1 or server.com
-
-Default value: "localhost"
-
-Look function modbus_new_tcp_pi in libmodbus documentation for detailed description.
-*/
-public:
-std::u16string _network_address;
-/**
-The _service variable is the service name/port number to connect to. To use the default Modbus port use the string "502". On many Unix systems, it’s convenient to use a port number greater than or equal to 1024 because it’s not necessary to have ad
-
-Default value: "1502"
-
-Look function modbus_new_tcp_pi in libmodbus documentation for detailed description.
-*/
-public:
-std::u16string _service;
+protected:
+bool _attached;
 
 
 //methods:
+
+public:
+virtual void detach();
+
+public:
+bool isAttached();
+
+/**
+Update state.
+Logic processes step.
+*/
+public:
+virtual void step() = 0;
+
 
 
 //child groups:
@@ -85,8 +88,7 @@ std::u16string _service;
 };
 }// namespace oldportal
 }// namespace fc
-}// namespace network
-}// namespace modbus
+}// namespace hardware
 
 
 //BEGIN_USER_SECTION_AFTER_CLASS_DECLARATION
@@ -94,11 +96,11 @@ std::u16string _service;
 //END_USER_SECTION_AFTER_CLASS_DECLARATION
 
 
-#endif // H_35419d95bb002f341d69cb131c3ac997_H
+#endif // H_d767bf182dff08c9ac2ec9a10b9c3297_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_35419d95bb002f341d69cb131c3ac997_INLINES_H
-#define H_35419d95bb002f341d69cb131c3ac997_INLINES_H
+#ifndef H_d767bf182dff08c9ac2ec9a10b9c3297_INLINES_H
+#define H_d767bf182dff08c9ac2ec9a10b9c3297_INLINES_H
 
-#endif // H_35419d95bb002f341d69cb131c3ac997_INLINES_H
+#endif // H_d767bf182dff08c9ac2ec9a10b9c3297_INLINES_H
 #endif //OBJECTS_BUILDER_PROJECT_INLINES
