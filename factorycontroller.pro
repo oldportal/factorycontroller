@@ -125,7 +125,8 @@ SOURCES += main.cpp \
     factorycontroller/factory/manufacturing/proc/DefaultTagHandler.cpp \
     factorycontroller/network/modbus/ModbusSerialRTUNetworkController.cpp \
     factorycontroller/network/modbus/ModbusTCPIPNetworkController.cpp \
-    factorycontroller/network/modbus/TCPIPAddressSettings.cpp
+    factorycontroller/network/modbus/TCPIPAddressSettings.cpp \
+    factorycontroller/hardware/HardwareDeviceProcess.cpp
 
 HEADERS += factorycontroller/factorycontroller.h 
 
