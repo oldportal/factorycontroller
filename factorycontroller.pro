@@ -126,7 +126,11 @@ SOURCES += main.cpp \
     factorycontroller/network/modbus/ModbusSerialRTUNetworkController.cpp \
     factorycontroller/network/modbus/ModbusTCPIPNetworkController.cpp \
     factorycontroller/network/modbus/TCPIPAddressSettings.cpp \
-    factorycontroller/hardware/HardwareDeviceProcess.cpp
+    factorycontroller/hardware/HardwareDeviceProcess.cpp \
+    factorycontroller/network/command/scheduled/_group_scheduled.cpp \
+    factorycontroller/network/command/scheduled/ScheduledCommandRequest.cpp \
+    factorycontroller/network/command/scheduled/ScheduledCommandResult.cpp \
+    factorycontroller/network/command/scheduled/ScheduledDeviceCommandQueue.cpp
 
 HEADERS += factorycontroller/factorycontroller.h 
 

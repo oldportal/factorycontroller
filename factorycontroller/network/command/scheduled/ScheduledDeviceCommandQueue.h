@@ -17,8 +17,8 @@
 *    
 *    Copyright (C) Dmitry Ognyannikov, 2012-2014
 */
-#ifndef H_6ce6d74f4936484fb21dcbc9f2b2d596_H
-#define H_6ce6d74f4936484fb21dcbc9f2b2d596_H
+#ifndef H_91eff933bf59c49ac938446fe62e985c_H
+#define H_91eff933bf59c49ac938446fe62e985c_H
 
 
 
@@ -28,58 +28,28 @@
 
 
 /**
-
+Queue of async commands for execution.
 */
 namespace oldportal 
 {
 namespace fc 
 {
-namespace hardware 
+namespace network 
+{
+namespace command 
+{
+namespace scheduled 
 {
 
-class HardwareDevice
-:  public oldportal::fc::network::modbus::ModbusDevice
+class ScheduledDeviceCommandQueue
 {
 // constructors:
-public:
-HardwareDevice();
 
-
-public:
-virtual ~HardwareDevice();
 
 // members:
 
-public:
-bool _controllerTemperatureSupported;
-public:
-bool _deviceTemperatureSupported;
-/**
-Controller temperature in Celsius.
-*/
-public:
-float _controllerTemperature;
-/**
-Device temperature in Celsius.
-*/
-public:
-float _deviceTemperature;
-/**
-Current device mode and logic controller.
-*/
-public:
-std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > _currentProcess;
-
 
 //methods:
-
-/**
-Update state.
-Logic processes step.
-*/
-public:
-virtual void step();
-
 
 
 //child groups:
@@ -96,7 +66,9 @@ virtual void step();
 };
 }// namespace oldportal
 }// namespace fc
-}// namespace hardware
+}// namespace network
+}// namespace command
+}// namespace scheduled
 
 
 //BEGIN_USER_SECTION_AFTER_CLASS_DECLARATION
@@ -104,11 +76,11 @@ virtual void step();
 //END_USER_SECTION_AFTER_CLASS_DECLARATION
 
 
-#endif // H_6ce6d74f4936484fb21dcbc9f2b2d596_H
+#endif // H_91eff933bf59c49ac938446fe62e985c_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_6ce6d74f4936484fb21dcbc9f2b2d596_INLINES_H
-#define H_6ce6d74f4936484fb21dcbc9f2b2d596_INLINES_H
+#ifndef H_91eff933bf59c49ac938446fe62e985c_INLINES_H
+#define H_91eff933bf59c49ac938446fe62e985c_INLINES_H
 
-#endif // H_6ce6d74f4936484fb21dcbc9f2b2d596_INLINES_H
+#endif // H_91eff933bf59c49ac938446fe62e985c_INLINES_H
 #endif //OBJECTS_BUILDER_PROJECT_INLINES

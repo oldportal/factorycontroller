@@ -64,6 +64,7 @@ namespace command
 }// namespace oldportal
 
 
+#include "scheduled/_group_scheduled.h"
 
 
 
@@ -75,6 +76,8 @@ namespace command
 //BEGIN_USER_SECTION_1
 
 //END_USER_SECTION_1
+
+#include "scheduled/_group_scheduled.h"
 
 
 #endif // H_793f99d921944006edd4d8f4fac879cd_INLINES_H
