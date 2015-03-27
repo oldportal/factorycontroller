@@ -17,8 +17,8 @@
 *    
 *    Copyright (C) Dmitry Ognyannikov, 2012-2014
 */
-#ifndef H_6ce6d74f4936484fb21dcbc9f2b2d596_H
-#define H_6ce6d74f4936484fb21dcbc9f2b2d596_H
+#ifndef H_33610b6c887c80c83aa6558df7436997_H
+#define H_33610b6c887c80c83aa6558df7436997_H
 
 
 
@@ -28,58 +28,52 @@
 
 
 /**
-
+Result of command execution.
 */
 namespace oldportal 
 {
 namespace fc 
 {
-namespace hardware 
+namespace network 
+{
+namespace command 
+{
+namespace scheduled 
 {
 
-class HardwareDevice
-:  public oldportal::fc::network::modbus::ModbusDevice
+class ScheduledCommandResult
 {
 // constructors:
-public:
-HardwareDevice();
 
-
-public:
-virtual ~HardwareDevice();
 
 // members:
 
 public:
-bool _controllerTemperatureSupported;
+NETWORK_TIME _start_network_time;
 public:
-bool _deviceTemperatureSupported;
+uint32_t _id;
+public:
+uint32_t _previous_command_id;
 /**
-Controller temperature in Celsius.
+queue number (individual for modbus device)
 */
 public:
-float _controllerTemperature;
+uint32_t _queue_number;
 /**
-Device temperature in Celsius.
+esult execution time in milliseconds
 */
 public:
-float _deviceTemperature;
+uint32_t _result_execution_time;
 /**
-Current device mode and logic controller.
+command custom result data
 */
 public:
-std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > _currentProcess;
+uint8_t _result_data[CTRL_COMMAND_RESULT_MAX_CUSTOM_DATA_LENGTH];
+public:
+uint8_t _type;
 
 
 //methods:
-
-/**
-Update state.
-Logic processes step.
-*/
-public:
-virtual void step();
-
 
 
 //child groups:
@@ -96,7 +90,9 @@ virtual void step();
 };
 }// namespace oldportal
 }// namespace fc
-}// namespace hardware
+}// namespace network
+}// namespace command
+}// namespace scheduled
 
 
 //BEGIN_USER_SECTION_AFTER_CLASS_DECLARATION
@@ -104,11 +100,11 @@ virtual void step();
 //END_USER_SECTION_AFTER_CLASS_DECLARATION
 
 
-#endif // H_6ce6d74f4936484fb21dcbc9f2b2d596_H
+#endif // H_33610b6c887c80c83aa6558df7436997_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_6ce6d74f4936484fb21dcbc9f2b2d596_INLINES_H
-#define H_6ce6d74f4936484fb21dcbc9f2b2d596_INLINES_H
+#ifndef H_33610b6c887c80c83aa6558df7436997_INLINES_H
+#define H_33610b6c887c80c83aa6558df7436997_INLINES_H
 
-#endif // H_6ce6d74f4936484fb21dcbc9f2b2d596_INLINES_H
+#endif // H_33610b6c887c80c83aa6558df7436997_INLINES_H
 #endif //OBJECTS_BUILDER_PROJECT_INLINES

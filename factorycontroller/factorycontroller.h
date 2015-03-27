@@ -183,6 +183,16 @@ class LinearMotion;
 class StepMotion;
 
 }// namespace command
+namespace proc 
+{
+class AccelerationMotion;
+class ConstantSpeedMotion;
+class CurveMotion;
+class LinearMotion;
+class Motion;
+class StepMotion;
+
+}// namespace proc
 }// namespace mechatronics
 namespace metallurgy 
 {
@@ -222,6 +232,13 @@ namespace command
 class DeviceStateReport;
 class NetworkTimeSynchronization;
 
+namespace scheduled 
+{
+class ScheduledCommandRequest;
+class ScheduledCommandResult;
+class ScheduledDeviceCommandQueue;
+
+}// namespace scheduled
 }// namespace command
 namespace modbus 
 {
@@ -338,6 +355,12 @@ class StepCounter;
 #include "hardware/mechatronics/command/CurveMotion.h"
 #include "hardware/mechatronics/command/LinearMotion.h"
 #include "hardware/mechatronics/command/StepMotion.h"
+#include "hardware/mechatronics/proc/Motion.h"
+#include "hardware/mechatronics/proc/AccelerationMotion.h"
+#include "hardware/mechatronics/proc/ConstantSpeedMotion.h"
+#include "hardware/mechatronics/proc/CurveMotion.h"
+#include "hardware/mechatronics/proc/LinearMotion.h"
+#include "hardware/mechatronics/proc/StepMotion.h"
 #include "hardware/metallurgy/InductionHeaterSettings.h"
 #include "hardware/metallurgy/InductionHeater.h"
 #include "hardware/power/EnergyAccumulator.h"
@@ -354,6 +377,9 @@ class StepCounter;
 #include "network/NetworkController.h"
 #include "network/command/DeviceStateReport.h"
 #include "network/command/NetworkTimeSynchronization.h"
+#include "network/command/scheduled/ScheduledCommandRequest.h"
+#include "network/command/scheduled/ScheduledCommandResult.h"
+#include "network/command/scheduled/ScheduledDeviceCommandQueue.h"
 #include "network/modbus/ModbusMessagePair.h"
 #include "network/modbus/ModbusMessageWrapper.h"
 #include "network/modbus/SerialPortSettings.h"
@@ -451,6 +477,12 @@ namespace fc
 #include "hardware/mechatronics/command/CurveMotion.h"
 #include "hardware/mechatronics/command/LinearMotion.h"
 #include "hardware/mechatronics/command/StepMotion.h"
+#include "hardware/mechatronics/proc/Motion.h"
+#include "hardware/mechatronics/proc/AccelerationMotion.h"
+#include "hardware/mechatronics/proc/ConstantSpeedMotion.h"
+#include "hardware/mechatronics/proc/CurveMotion.h"
+#include "hardware/mechatronics/proc/LinearMotion.h"
+#include "hardware/mechatronics/proc/StepMotion.h"
 #include "hardware/metallurgy/InductionHeaterSettings.h"
 #include "hardware/metallurgy/InductionHeater.h"
 #include "hardware/power/EnergyAccumulator.h"
@@ -467,6 +499,9 @@ namespace fc
 #include "network/NetworkController.h"
 #include "network/command/DeviceStateReport.h"
 #include "network/command/NetworkTimeSynchronization.h"
+#include "network/command/scheduled/ScheduledCommandRequest.h"
+#include "network/command/scheduled/ScheduledCommandResult.h"
+#include "network/command/scheduled/ScheduledDeviceCommandQueue.h"
 #include "network/modbus/ModbusMessagePair.h"
 #include "network/modbus/ModbusMessageWrapper.h"
 #include "network/modbus/SerialPortSettings.h"

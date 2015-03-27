@@ -17,69 +17,71 @@
 *    
 *    Copyright (C) Dmitry Ognyannikov, 2012-2014
 */
-#ifndef H_6ce6d74f4936484fb21dcbc9f2b2d596_H
-#define H_6ce6d74f4936484fb21dcbc9f2b2d596_H
+#ifndef H_93eb4d2f06717e63c57eb5f94d7eda36_H
+#define H_93eb4d2f06717e63c57eb5f94d7eda36_H
 
 
 
 //BEGIN_USER_SECTION_BEFORE_CLASS_DECLARATION
+#define CTRL_COMMANDFLOW_QUEUE_LENGTH 4
+#define CTRL_COMMAND_MAX_CUSTOM_DATA_LENGTH 24
+#define CTRL_COMMANDFLOW_RESULT_QUEUE_LENGTH 8
+#define CTRL_COMMAND_RESULT_MAX_CUSTOM_DATA_LENGTH 16
 
+typedef enum
+{
+	CTRL_COMMAND_RESULT_SUCCESS = 0
+} ctrlCommandResultCode;
 //END_USER_SECTION_BEFORE_CLASS_DECLARATION
 
 
 /**
-
+Command for real time scheduled execution in command flow.
 */
 namespace oldportal 
 {
 namespace fc 
 {
-namespace hardware 
+namespace network 
+{
+namespace command 
+{
+namespace scheduled 
 {
 
-class HardwareDevice
-:  public oldportal::fc::network::modbus::ModbusDevice
+class ScheduledCommandRequest
 {
 // constructors:
-public:
-HardwareDevice();
 
-
-public:
-virtual ~HardwareDevice();
 
 // members:
 
 public:
-bool _controllerTemperatureSupported;
+NETWORK_TIME _start_network_time;
 public:
-bool _deviceTemperatureSupported;
+uint32_t _id;
 /**
-Controller temperature in Celsius.
+planned execution time in milliseconds
 */
 public:
-float _controllerTemperature;
+uint32_t _planned_execution_time;
+public:
+uint32_t _previous_command_id;
 /**
-Device temperature in Celsius.
+queue number (individual for modbus device)
 */
 public:
-float _deviceTemperature;
+uint32_t _queue_number;
 /**
-Current device mode and logic controller.
+command custom data
 */
 public:
-std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > _currentProcess;
+uint8_t _custom_data[CTRL_COMMAND_MAX_CUSTOM_DATA_LENGTH];
+public:
+uint8_t _type;
 
 
 //methods:
-
-/**
-Update state.
-Logic processes step.
-*/
-public:
-virtual void step();
-
 
 
 //child groups:
@@ -96,7 +98,9 @@ virtual void step();
 };
 }// namespace oldportal
 }// namespace fc
-}// namespace hardware
+}// namespace network
+}// namespace command
+}// namespace scheduled
 
 
 //BEGIN_USER_SECTION_AFTER_CLASS_DECLARATION
@@ -104,11 +108,11 @@ virtual void step();
 //END_USER_SECTION_AFTER_CLASS_DECLARATION
 
 
-#endif // H_6ce6d74f4936484fb21dcbc9f2b2d596_H
+#endif // H_93eb4d2f06717e63c57eb5f94d7eda36_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_6ce6d74f4936484fb21dcbc9f2b2d596_INLINES_H
-#define H_6ce6d74f4936484fb21dcbc9f2b2d596_INLINES_H
+#ifndef H_93eb4d2f06717e63c57eb5f94d7eda36_INLINES_H
+#define H_93eb4d2f06717e63c57eb5f94d7eda36_INLINES_H
 
-#endif // H_6ce6d74f4936484fb21dcbc9f2b2d596_INLINES_H
+#endif // H_93eb4d2f06717e63c57eb5f94d7eda36_INLINES_H
 #endif //OBJECTS_BUILDER_PROJECT_INLINES

@@ -17,8 +17,8 @@
 *    
 *    Copyright (C) Dmitry Ognyannikov, 2012-2014
 */
-#ifndef H_933b32e8e418ec1bc3a6c755315ea12d_H
-#define H_933b32e8e418ec1bc3a6c755315ea12d_H
+#ifndef H_1ab7ac1deb38f0235fc949a1b650af86_H
+#define H_1ab7ac1deb38f0235fc949a1b650af86_H
 
 
 
@@ -38,13 +38,16 @@ namespace oldportal
 {
 namespace fc 
 {
-namespace hardware 
+namespace network 
 {
-namespace mechatronics 
+namespace command 
+{
+namespace scheduled 
 {
 // global variables declaration
-}// namespace mechatronics
-}// namespace hardware
+}// namespace scheduled
+}// namespace command
+}// namespace network
 }// namespace fc
 }// namespace oldportal
 
@@ -53,35 +56,33 @@ namespace oldportal
 {
 namespace fc 
 {
-namespace hardware 
+namespace network 
 {
-namespace mechatronics 
+namespace command 
+{
+namespace scheduled 
 {
 // global methods declaration
-}// namespace mechatronics
-}// namespace hardware
+}// namespace scheduled
+}// namespace command
+}// namespace network
 }// namespace fc
 }// namespace oldportal
 
 
-#include "command/_group_command.h"
-#include "proc/_group_proc.h"
 
 
 
-#endif // H_933b32e8e418ec1bc3a6c755315ea12d_H
+#endif // H_1ab7ac1deb38f0235fc949a1b650af86_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_933b32e8e418ec1bc3a6c755315ea12d_INLINES_H
-#define H_933b32e8e418ec1bc3a6c755315ea12d_INLINES_H
+#ifndef H_1ab7ac1deb38f0235fc949a1b650af86_INLINES_H
+#define H_1ab7ac1deb38f0235fc949a1b650af86_INLINES_H
 //BEGIN_USER_SECTION_1
 
 //END_USER_SECTION_1
 
-#include "command/_group_command.h"
-#include "proc/_group_proc.h"
 
-
-#endif // H_933b32e8e418ec1bc3a6c755315ea12d_INLINES_H
+#endif // H_1ab7ac1deb38f0235fc949a1b650af86_INLINES_H
 
 #endif //OBJECTS_BUILDER_PROJECT_INLINES
