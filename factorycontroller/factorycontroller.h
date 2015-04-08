@@ -67,6 +67,8 @@ OldPortal Factory Controller project.
 #include <modbus/modbus.h>
 #include <modbus/modbus-rtu.h>
 
+#include <log4cxx/logger.h>
+
 //END_USER_SECTION_0
 
 
