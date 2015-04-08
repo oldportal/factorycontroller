@@ -38,6 +38,8 @@ oldportal::fc::network::modbus::ModbusTCPIPNetworkController::ModbusTCPIPNetwork
 
     _network = network;
 
+    log4cxx::LoggerPtr logger(log4cxx::Logger::getLogger("ModbusTCPIPNetworkController"));
+    LOG4CXX_INFO(logger, "ModbusTCPIPNetworkController() initialised");
 }//END_da7390f47b64c6919e1ad8426b698765
 
 

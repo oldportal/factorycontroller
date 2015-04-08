@@ -4,6 +4,17 @@
 #include <boost/program_options.hpp>
 #include <boost/program_options/cmdline.hpp>
 
+#include <log4cxx/logstring.h>
+#include <log4cxx/basicconfigurator.h>
+#include <log4cxx/helpers/exception.h>
+#include <log4cxx/consoleappender.h>
+#include <log4cxx/simplelayout.h>
+#include <log4cxx/logmanager.h>
+#include <log4cxx/ndc.h>
+
+using namespace log4cxx;
+using namespace log4cxx::helpers;
+
 using namespace std;
 
 int main(int argc, char *argv[])
@@ -36,8 +47,13 @@ int main(int argc, char *argv[])
     boost::program_options::notify(vm);
 
 
+    // init log
+    BasicConfigurator::configure();
+    LoggerPtr rootLogger = Logger::getRootLogger();
+
     // print general program description
-    std::cout << "factorycontroller - Manufacturing Execution System" << std::endl;
+    LOG4CXX_INFO(rootLogger, "factorycontroller - Manufacturing Execution System");
+    //std::cout << "factorycontroller - Manufacturing Execution System" << std::endl;
 
     if (vm.count("help"))
     {

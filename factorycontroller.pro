@@ -14,12 +14,11 @@ CONFIG   -= app_bundle
 CONFIG   += boost
 CONFIG   += thread
 
-LIBS	+= -lboost_system -lpthread -lmodbus -lboost_program_options
+LIBS	+= -lboost_system -lpthread -lmodbus -lboost_program_options -llog4cxx 
 
 TEMPLATE = app
 
-QMAKE_CXXFLAGS += -std=c++0x
-#QMAKE_CXXFLAGS += -std=c++11
+QMAKE_CXXFLAGS += -std=c++11
 
 PRECOMPILED_HEADER = factorycontroller/factorycontroller.h 
 
