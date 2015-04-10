@@ -17,8 +17,8 @@
 *    
 *    Copyright (C) Dmitry Ognyannikov, 2012-2014
 */
-#ifndef H_8da73644b7a2f25d63b322db774ac672_H
-#define H_8da73644b7a2f25d63b322db774ac672_H
+#ifndef H_d0e31870218bc4c3cae0288675ed1f2f_H
+#define H_d0e31870218bc4c3cae0288675ed1f2f_H
 
 
 
@@ -38,14 +38,16 @@ namespace oldportal
 {
 namespace fc 
 {
-namespace system 
+namespace hardware 
 {
-namespace logger 
+namespace mechatronics 
+{
+namespace proc 
 {
 // global variables declaration
-extern log4cxx::LoggerPtr root_logger;
-}// namespace logger
-}// namespace system
+}// namespace proc
+}// namespace mechatronics
+}// namespace hardware
 }// namespace fc
 }// namespace oldportal
 
@@ -54,37 +56,16 @@ namespace oldportal
 {
 namespace fc 
 {
-namespace system 
+namespace hardware 
 {
-namespace logger 
+namespace mechatronics 
+{
+namespace proc 
 {
 // global methods declaration
-void error(std::string message);
-
-void error(std::u16string message);
-
-void error(std::string topic, std::string message);
-
-void error(std::u16string topic, std::u16string message);
-
-void error_hardware(std::string topic, std::string message);
-
-void error_hardware(std::u16string topic, std::u16string message);
-
-void log(std::string message);
-
-void log(std::u16string message);
-
-void log(std::string topic, std::string message);
-
-void log(std::u16string topic, std::u16string message);
-
-void log_hardware(std::string topic, std::string message);
-
-void log_hardware(std::u16string topic, std::u16string message);
-
-}// namespace logger
-}// namespace system
+}// namespace proc
+}// namespace mechatronics
+}// namespace hardware
 }// namespace fc
 }// namespace oldportal
 
@@ -92,16 +73,16 @@ void log_hardware(std::u16string topic, std::u16string message);
 
 
 
-#endif // H_8da73644b7a2f25d63b322db774ac672_H
+#endif // H_d0e31870218bc4c3cae0288675ed1f2f_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_8da73644b7a2f25d63b322db774ac672_INLINES_H
-#define H_8da73644b7a2f25d63b322db774ac672_INLINES_H
+#ifndef H_d0e31870218bc4c3cae0288675ed1f2f_INLINES_H
+#define H_d0e31870218bc4c3cae0288675ed1f2f_INLINES_H
 //BEGIN_USER_SECTION_1
 
 //END_USER_SECTION_1
 
 
-#endif // H_8da73644b7a2f25d63b322db774ac672_INLINES_H
+#endif // H_d0e31870218bc4c3cae0288675ed1f2f_INLINES_H
 
 #endif //OBJECTS_BUILDER_PROJECT_INLINES

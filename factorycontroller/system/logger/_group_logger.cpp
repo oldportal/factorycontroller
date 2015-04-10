@@ -31,6 +31,7 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+log4cxx::LoggerPtr oldportal::fc::system::logger::root_logger;
 
 
 void oldportal::fc::system::logger::error(std::string message)

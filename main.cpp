@@ -6,6 +6,7 @@
 
 #include <log4cxx/logstring.h>
 #include <log4cxx/basicconfigurator.h>
+#include <log4cxx/propertyconfigurator.h>
 #include <log4cxx/helpers/exception.h>
 #include <log4cxx/consoleappender.h>
 #include <log4cxx/simplelayout.h>
@@ -16,6 +17,20 @@ using namespace log4cxx;
 using namespace log4cxx::helpers;
 
 using namespace std;
+
+void init_logging()
+{
+    // BasicConfigurator replaced with PropertyConfigurator.
+    //PropertyConfigurator::configure("log4cxx.properties");
+
+    BasicConfigurator::configure();
+    oldportal::fc::system::logger::root_logger = Logger::getRootLogger();
+}
+
+// static log example:
+namespace oldportal {
+log4cxx::LoggerPtr logger(log4cxx::Logger::getLogger("oldportal.fc.network.modbus.ModbusSerialRTUNetworkController"));
+}
 
 int main(int argc, char *argv[])
 {
@@ -48,11 +63,10 @@ int main(int argc, char *argv[])
 
 
     // init log
-    BasicConfigurator::configure();
-    LoggerPtr rootLogger = Logger::getRootLogger();
+    init_logging();
 
     // print general program description
-    LOG4CXX_INFO(rootLogger, "factorycontroller - Manufacturing Execution System");
+    LOG4CXX_INFO(oldportal::fc::system::logger::root_logger, "factorycontroller - Manufacturing Execution System");
     //std::cout << "factorycontroller - Manufacturing Execution System" << std::endl;
 
     if (vm.count("help"))
