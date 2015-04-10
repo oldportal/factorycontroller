@@ -17,8 +17,8 @@
 *    
 *    Copyright (C) Dmitry Ognyannikov, 2012-2014
 */
-#ifndef H_35419d95bb002f341d69cb131c3ac997_H
-#define H_35419d95bb002f341d69cb131c3ac997_H
+#ifndef H_85a49ec1f7675ba40199e45619bf5b15_H
+#define H_85a49ec1f7675ba40199e45619bf5b15_H
 
 
 
@@ -34,41 +34,33 @@ namespace oldportal
 {
 namespace fc 
 {
-namespace network 
+namespace hardware 
 {
-namespace modbus 
+namespace mechatronics 
+{
+namespace proc 
 {
 
-class TCPIPAddressSettings
+class ConstantSpeedMotion
+:  public virtual oldportal::fc::hardware::mechatronics::proc::Motion
 {
 // constructors:
 public:
-TCPIPAddressSettings();
+ConstantSpeedMotion();
 
 
 // members:
 
-/**
-The _network_address variable specifies the host name or IP address of the host to connect to, eg. 192.168.0.5 , ::1 or server.com
-
-Default value: "localhost"
-
-Look function modbus_new_tcp_pi in libmodbus documentation for detailed description.
-*/
-public:
-std::u16string _network_address;
-/**
-The _service variable is the service name/port number to connect to. To use the default Modbus port use the string "502". On many Unix systems, it’s convenient to use a port number greater than or equal to 1024 because it’s not necessary to hav
-
-Default value: "1502"
-
-Look function modbus_new_tcp_pi in libmodbus documentation for detailed description.
-*/
-public:
-std::u16string _service;
-
 
 //methods:
+
+/**
+Update state.
+Logic processes step.
+*/
+public:
+void step();
+
 
 
 //child groups:
@@ -85,8 +77,9 @@ std::u16string _service;
 };
 }// namespace oldportal
 }// namespace fc
-}// namespace network
-}// namespace modbus
+}// namespace hardware
+}// namespace mechatronics
+}// namespace proc
 
 
 //BEGIN_USER_SECTION_AFTER_CLASS_DECLARATION
@@ -94,11 +87,11 @@ std::u16string _service;
 //END_USER_SECTION_AFTER_CLASS_DECLARATION
 
 
-#endif // H_35419d95bb002f341d69cb131c3ac997_H
+#endif // H_85a49ec1f7675ba40199e45619bf5b15_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_35419d95bb002f341d69cb131c3ac997_INLINES_H
-#define H_35419d95bb002f341d69cb131c3ac997_INLINES_H
+#ifndef H_85a49ec1f7675ba40199e45619bf5b15_INLINES_H
+#define H_85a49ec1f7675ba40199e45619bf5b15_INLINES_H
 
-#endif // H_35419d95bb002f341d69cb131c3ac997_INLINES_H
+#endif // H_85a49ec1f7675ba40199e45619bf5b15_INLINES_H
 #endif //OBJECTS_BUILDER_PROJECT_INLINES

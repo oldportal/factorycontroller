@@ -44,6 +44,7 @@ oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::ModbusSerialRT
 
     _network = network;
 
+    //oldportal::fc::system::logger::error(u8"oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::ModbusSerialRTUNetworkController() initialization with network: " + network->_name);
 }//END_17140ab021ca3f2bd11e039871242a38
 
 
@@ -57,6 +58,8 @@ oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::~ModbusSerialR
 void oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::initHardware()
 {//BEGIN_803ad91ba2984c5f99212c75897a3c72
     assert(_modbus_ctx == nullptr && !_realtime_thread && "ModbusSerialRTUNetworkController must be closed with close() before new initHardware() call");
+
+    oldportal::fc::system::logger::error(u8"oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::initHardware() call");
 
     // init network time
     _network_time.init();
