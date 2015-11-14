@@ -65,17 +65,17 @@ void oldportal::fc::factory::manufacturing::proc::DefaultTagHandler::processElem
 
     if (tag_name == u8"network.Network")
     {
-        fc::system::logger::log(FC_LOGGER_TAG_SERIALIZATION, u8"tag network.Network");
+        fc::system::log::log(FC_LOGGER_TAG_SERIALIZATION, u8"tag network.Network");
         processNetwork(tag_name, root_ptree, element_ptree, loader, parentModelObject);
     }
     else if (tag_name == u8"network.modbus.ModbusNetworkController")
     {
-        fc::system::logger::log(FC_LOGGER_TAG_SERIALIZATION, u8"tag network.modbus.ModbusNetworkController");
+        fc::system::log::log(FC_LOGGER_TAG_SERIALIZATION, u8"tag network.modbus.ModbusNetworkController");
         processNetworkController(tag_name, root_ptree, element_ptree, loader, parentModelObject);
     }
     else if (tag_name == u8"network.modbus.ModbusDevice")
     {
-        fc::system::logger::log(FC_LOGGER_TAG_SERIALIZATION, u8"tag network.modbus.ModbusDevice");
+        fc::system::log::log(FC_LOGGER_TAG_SERIALIZATION, u8"tag network.modbus.ModbusDevice");
         processModbusDevice(tag_name, root_ptree, element_ptree, loader, parentModelObject);
     }
 }//END_ff9d319bd3032866013c5741e7cf82a5
@@ -86,7 +86,7 @@ void oldportal::fc::factory::manufacturing::proc::DefaultTagHandler::processModb
     assert(parentModelObject);
     assert (tag_name == u8"network.modbus.ModbusDevice");
 
-    fc::system::logger::log(FC_LOGGER_TAG_SERIALIZATION, u8"processModbusDevice() call");
+    fc::system::log::log(FC_LOGGER_TAG_SERIALIZATION, u8"processModbusDevice() call");
 
     //TODO: processElement()
 }//END_a171779b4305c997f5c6ee56b5d4a742
@@ -97,7 +97,7 @@ void oldportal::fc::factory::manufacturing::proc::DefaultTagHandler::processNetw
     assert(parentModelObject);
     assert (tag_name == u8"tag network.Network");
 
-    fc::system::logger::log(FC_LOGGER_TAG_SERIALIZATION, u8"processNetwork() call");
+    fc::system::log::log(FC_LOGGER_TAG_SERIALIZATION, u8"processNetwork() call");
 
     //TODO: processElement()
 }//END_8628844f5d70f80ab3c49b37d2049b09
@@ -108,7 +108,7 @@ void oldportal::fc::factory::manufacturing::proc::DefaultTagHandler::processNetw
     assert(parentModelObject);
     assert (tag_name == u8"network.modbus.ModbusNetworkController");
 
-    fc::system::logger::log(FC_LOGGER_TAG_SERIALIZATION, u8"processNetworkController() call");
+    fc::system::log::log(FC_LOGGER_TAG_SERIALIZATION, u8"processNetworkController() call");
 
     //TODO: processElement()
 }//END_bdd3fa5da99ee98f06d1b53906a4f6b6

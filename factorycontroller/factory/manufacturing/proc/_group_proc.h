@@ -45,6 +45,7 @@ namespace manufacturing
 namespace proc 
 {
 // global variables declaration
+extern log4cxx::LoggerPtr logger;
 }// namespace proc
 }// namespace manufacturing
 }// namespace factory

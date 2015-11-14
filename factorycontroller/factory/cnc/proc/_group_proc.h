@@ -45,6 +45,7 @@ namespace cnc
 namespace proc 
 {
 // global variables declaration
+extern log4cxx::LoggerPtr logger;
 }// namespace proc
 }// namespace cnc
 }// namespace factory

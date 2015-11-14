@@ -45,6 +45,7 @@ namespace cnc
 namespace wood 
 {
 // global variables declaration
+extern log4cxx::LoggerPtr logger;
 }// namespace wood
 }// namespace cnc
 }// namespace factory

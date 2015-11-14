@@ -45,6 +45,7 @@ namespace command
 namespace scheduled 
 {
 // global variables declaration
+extern log4cxx::LoggerPtr logger;
 }// namespace scheduled
 }// namespace command
 }// namespace network

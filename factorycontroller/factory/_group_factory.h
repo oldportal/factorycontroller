@@ -41,6 +41,7 @@ namespace fc
 namespace factory 
 {
 // global variables declaration
+extern log4cxx::LoggerPtr logger;
 }// namespace factory
 }// namespace fc
 }// namespace oldportal

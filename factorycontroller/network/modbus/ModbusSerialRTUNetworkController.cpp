@@ -44,7 +44,7 @@ oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::ModbusSerialRT
 
     _network = network;
 
-    //oldportal::fc::system::logger::error(u8"oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::ModbusSerialRTUNetworkController() initialization with network: " + network->_name);
+    //oldportal::fc::system::log::error(u8"oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::ModbusSerialRTUNetworkController() initialization with network: " + network->_name);
 }//END_17140ab021ca3f2bd11e039871242a38
 
 
@@ -59,7 +59,7 @@ void oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::initHardw
 {//BEGIN_803ad91ba2984c5f99212c75897a3c72
     assert(_modbus_ctx == nullptr && !_realtime_thread && "ModbusSerialRTUNetworkController must be closed with close() before new initHardware() call");
 
-    oldportal::fc::system::logger::error(u8"oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::initHardware() call");
+    oldportal::fc::system::log::error(u8"oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::initHardware() call");
 
     // init network time
     _network_time.init();
@@ -77,7 +77,7 @@ void oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::initHardw
 
     if (_modbus_ctx == nullptr)
     {
-        oldportal::fc::system::logger::error(u8"oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::initHardware() serial port create context error");
+        oldportal::fc::system::log::error(u8"oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::initHardware() serial port create context error");
     }
 
     //Enable debugging for tests
@@ -89,13 +89,13 @@ void oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::initHardw
 
     if (modbus_connect(_modbus_ctx) != 0)
     {
-        oldportal::fc::system::logger::error(u8"oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::initHardware() serial port open error");
-        oldportal::fc::system::logger::error(modbus_strerror(errno));
+        oldportal::fc::system::log::error(u8"oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::initHardware() serial port open error");
+        oldportal::fc::system::log::error(modbus_strerror(errno));
         closeModbusContext();
         return;
     }
 
-    oldportal::fc::system::logger::log(u8"oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::initHardware() serial port opened");
+    oldportal::fc::system::log::log(u8"oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::initHardware() serial port opened");
 
     initModbusSettings();
 

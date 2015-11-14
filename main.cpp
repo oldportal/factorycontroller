@@ -1,3 +1,23 @@
+/*
+*    This file is part of factorycontroller.
+*    
+*    factorycontroller is free software; you can redistribute it and/or modify
+*    it under the terms of the GNU Lesser General Public License as published by
+*    the Free Software Foundation; either version 2 of the License, or
+*    (at your option) any later version.
+*    
+*    factorycontroller is distributed in the hope that it will be useful,
+*    but WITHOUT ANY WARRANTY; without even the implied warranty of
+*    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*    GNU Lesser General Public License for more details.
+*    
+*    You should have received a copy of the GNU Lesser General Public License
+*    along with factorycontroller; if not, write to the Free Software
+*    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+*    
+*    Copyright (C) Dmitry Ognyannikov, 2012-2015
+*/
+
 #include "factorycontroller/factorycontroller.h"
 
 // command line argument parser
@@ -13,9 +33,6 @@
 #include <log4cxx/logmanager.h>
 #include <log4cxx/ndc.h>
 
-using namespace log4cxx;
-using namespace log4cxx::helpers;
-
 using namespace std;
 
 void init_logging()
@@ -23,13 +40,8 @@ void init_logging()
     // BasicConfigurator replaced with PropertyConfigurator.
     //PropertyConfigurator::configure("log4cxx.properties");
 
-    BasicConfigurator::configure();
-    oldportal::fc::system::logger::root_logger = Logger::getRootLogger();
-}
-
-// static log example:
-namespace oldportal {
-log4cxx::LoggerPtr logger(log4cxx::Logger::getLogger("oldportal.fc.network.modbus.ModbusSerialRTUNetworkController"));
+    log4cxx::BasicConfigurator::configure();
+    //log4cxx::LoggerPtr logger = log4cxx::Logger::getRootLogger();
 }
 
 int main(int argc, char *argv[])
@@ -66,8 +78,8 @@ int main(int argc, char *argv[])
     init_logging();
 
     // print general program description
-    LOG4CXX_INFO(oldportal::fc::system::logger::root_logger, "factorycontroller - Manufacturing Execution System");
-    //std::cout << "factorycontroller - Manufacturing Execution System" << std::endl;
+    LOG4CXX_INFO(log4cxx::Logger::getRootLogger(), "factorycontroller - Manufacturing Execution System");
+    LOG4CXX_INFO(log4cxx::Logger::getRootLogger(), "Copyright (C) Dmitry Ognyannikov, 2012-2015");
 
     if (vm.count("help"))
     {
@@ -143,3 +155,4 @@ int main(int argc, char *argv[])
 
     return 0;
 }
+

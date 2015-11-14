@@ -273,10 +273,10 @@ class TaskTemplate;
 namespace system 
 {
 
-namespace logger 
+namespace log 
 {
 
-}// namespace logger
+}// namespace log
 namespace serialization 
 {
 class Archive;
@@ -408,6 +408,7 @@ namespace oldportal
 namespace fc 
 {
 // global variables declaration
+extern log4cxx::LoggerPtr logger;
 }// namespace fc
 }// namespace oldportal
 

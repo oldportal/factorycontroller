@@ -40,11 +40,11 @@ namespace fc
 {
 namespace system 
 {
-namespace logger 
+namespace log 
 {
 // global variables declaration
-extern log4cxx::LoggerPtr root_logger;
-}// namespace logger
+extern log4cxx::LoggerPtr logger;
+}// namespace log
 }// namespace system
 }// namespace fc
 }// namespace oldportal
@@ -56,7 +56,7 @@ namespace fc
 {
 namespace system 
 {
-namespace logger 
+namespace log 
 {
 // global methods declaration
 void error(std::string message);
@@ -83,7 +83,7 @@ void log_hardware(std::string topic, std::string message);
 
 void log_hardware(std::u16string topic, std::u16string message);
 
-}// namespace logger
+}// namespace log
 }// namespace system
 }// namespace fc
 }// namespace oldportal

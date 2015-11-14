@@ -31,6 +31,7 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+log4cxx::LoggerPtr oldportal::fc::factory::printer3d::logger = log4cxx::Logger::getLogger("oldportal.fc.factory.printer3d");
 
 
 

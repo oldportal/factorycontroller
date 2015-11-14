@@ -43,6 +43,7 @@ namespace network
 namespace modbus 
 {
 // global variables declaration
+extern log4cxx::LoggerPtr logger;
 }// namespace modbus
 }// namespace network
 }// namespace fc

@@ -43,6 +43,7 @@ namespace system
 namespace serialization 
 {
 // global variables declaration
+extern log4cxx::LoggerPtr logger;
 }// namespace serialization
 }// namespace system
 }// namespace fc

@@ -41,6 +41,7 @@ namespace fc
 namespace system 
 {
 // global variables declaration
+extern log4cxx::LoggerPtr logger;
 }// namespace system
 }// namespace fc
 }// namespace oldportal
@@ -58,7 +59,7 @@ namespace system
 }// namespace oldportal
 
 
-#include "logger/_group_logger.h"
+#include "log/_group_log.h"
 #include "serialization/_group_serialization.h"
 #include "storage/_group_storage.h"
 #include "util/_group_util.h"
@@ -74,7 +75,7 @@ namespace system
 
 //END_USER_SECTION_1
 
-#include "logger/_group_logger.h"
+#include "log/_group_log.h"
 #include "serialization/_group_serialization.h"
 #include "storage/_group_storage.h"
 #include "util/_group_util.h"

@@ -41,6 +41,7 @@ namespace fc
 namespace hardware 
 {
 // global variables declaration
+extern log4cxx::LoggerPtr logger;
 }// namespace hardware
 }// namespace fc
 }// namespace oldportal

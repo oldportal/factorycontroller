@@ -43,6 +43,7 @@ namespace factory
 namespace warehouse 
 {
 // global variables declaration
+extern log4cxx::LoggerPtr logger;
 }// namespace warehouse
 }// namespace factory
 }// namespace fc

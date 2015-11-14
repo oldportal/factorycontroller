@@ -43,6 +43,7 @@ namespace factory
 namespace handlerobot 
 {
 // global variables declaration
+extern log4cxx::LoggerPtr logger;
 }// namespace handlerobot
 }// namespace factory
 }// namespace fc

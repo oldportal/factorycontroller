@@ -13,6 +13,7 @@ CONFIG   += console
 CONFIG   -= app_bundle
 CONFIG   += boost
 CONFIG   += thread
+CONFIG   +=object_parallel_to_source
 
 LIBS	+= -lboost_system -lpthread -lmodbus -lboost_program_options -llog4cxx 
 
@@ -112,7 +113,6 @@ SOURCES += main.cpp \
     factorycontroller/network/modbus/ModbusNetworkController.cpp \
     factorycontroller/scheduler/TaskLogMessage.cpp \
     factorycontroller/network/NetworkErrorStatistics.cpp \
-    factorycontroller/system/logger/_group_logger.cpp \
     factorycontroller/network/modbus/ModbusMessageWrapper.cpp \
     factorycontroller/network/modbus/ModbusDeviceCommand.cpp \
     factorycontroller/system/util/StepCounter.cpp \
@@ -129,7 +129,8 @@ SOURCES += main.cpp \
     factorycontroller/network/command/scheduled/_group_scheduled.cpp \
     factorycontroller/network/command/scheduled/ScheduledCommandRequest.cpp \
     factorycontroller/network/command/scheduled/ScheduledCommandResult.cpp \
-    factorycontroller/network/command/scheduled/ScheduledDeviceCommandQueue.cpp
+    factorycontroller/network/command/scheduled/ScheduledDeviceCommandQueue.cpp \
+    factorycontroller/system/log/_group_log.cpp
 
 HEADERS += factorycontroller/factorycontroller.h 
 

@@ -43,6 +43,7 @@ namespace hardware
 namespace welding 
 {
 // global variables declaration
+extern log4cxx::LoggerPtr logger;
 }// namespace welding
 }// namespace hardware
 }// namespace fc
