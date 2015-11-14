@@ -45,6 +45,7 @@ namespace mechatronics
 namespace proc 
 {
 // global variables declaration
+extern log4cxx::LoggerPtr logger;
 }// namespace proc
 }// namespace mechatronics
 }// namespace hardware

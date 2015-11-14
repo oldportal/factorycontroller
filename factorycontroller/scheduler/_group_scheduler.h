@@ -41,6 +41,7 @@ namespace fc
 namespace scheduler 
 {
 // global variables declaration
+extern log4cxx::LoggerPtr logger;
 }// namespace scheduler
 }// namespace fc
 }// namespace oldportal

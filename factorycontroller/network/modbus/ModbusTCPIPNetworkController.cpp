@@ -64,21 +64,21 @@ void oldportal::fc::network::modbus::ModbusTCPIPNetworkController::initHardware(
 
     if (_modbus_ctx == nullptr)
     {
-        oldportal::fc::system::logger::error(u8"oldportal::fc::network::modbus::ModbusTCPIPNetworkController::initHardware() TCPIP port open error");
-        oldportal::fc::system::logger::error(modbus_strerror(errno));
+        oldportal::fc::system::log::error(u8"oldportal::fc::network::modbus::ModbusTCPIPNetworkController::initHardware() TCPIP port open error");
+        oldportal::fc::system::log::error(modbus_strerror(errno));
         closeModbusContext();
         return;
     }
 
     if (modbus_connect(_modbus_ctx) != 0)
     {
-        oldportal::fc::system::logger::error(u8"oldportal::fc::network::modbus::ModbusTCPIPNetworkController::initHardware() TCPIP connect error");
-        oldportal::fc::system::logger::error(modbus_strerror(errno));
+        oldportal::fc::system::log::error(u8"oldportal::fc::network::modbus::ModbusTCPIPNetworkController::initHardware() TCPIP connect error");
+        oldportal::fc::system::log::error(modbus_strerror(errno));
         closeModbusContext();
         return;
     }
 
-    oldportal::fc::system::logger::log(u8"oldportal::fc::network::modbus::ModbusTCPIPNetworkController::initHardware() connection opened");
+    oldportal::fc::system::log::log(u8"oldportal::fc::network::modbus::ModbusTCPIPNetworkController::initHardware() connection opened");
 
     initModbusSettings();
 

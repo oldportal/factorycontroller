@@ -43,6 +43,7 @@ namespace hardware
 namespace metallurgy 
 {
 // global variables declaration
+extern log4cxx::LoggerPtr logger;
 }// namespace metallurgy
 }// namespace hardware
 }// namespace fc

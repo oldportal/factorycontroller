@@ -41,6 +41,7 @@ namespace fc
 namespace network 
 {
 // global variables declaration
+extern log4cxx::LoggerPtr logger;
 }// namespace network
 }// namespace fc
 }// namespace oldportal

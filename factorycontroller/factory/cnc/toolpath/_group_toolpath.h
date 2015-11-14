@@ -45,6 +45,7 @@ namespace cnc
 namespace toolpath 
 {
 // global variables declaration
+extern log4cxx::LoggerPtr logger;
 }// namespace toolpath
 }// namespace cnc
 }// namespace factory

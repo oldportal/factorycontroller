@@ -43,6 +43,7 @@ namespace factory
 namespace printer3d 
 {
 // global variables declaration
+extern log4cxx::LoggerPtr logger;
 }// namespace printer3d
 }// namespace factory
 }// namespace fc

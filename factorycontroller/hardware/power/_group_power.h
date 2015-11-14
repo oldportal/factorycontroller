@@ -43,6 +43,7 @@ namespace hardware
 namespace power 
 {
 // global variables declaration
+extern log4cxx::LoggerPtr logger;
 }// namespace power
 }// namespace hardware
 }// namespace fc

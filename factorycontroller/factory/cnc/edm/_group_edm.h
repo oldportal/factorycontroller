@@ -45,6 +45,7 @@ namespace cnc
 namespace edm 
 {
 // global variables declaration
+extern log4cxx::LoggerPtr logger;
 }// namespace edm
 }// namespace cnc
 }// namespace factory

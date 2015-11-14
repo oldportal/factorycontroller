@@ -43,6 +43,7 @@ namespace system
 namespace util 
 {
 // global variables declaration
+extern log4cxx::LoggerPtr logger;
 }// namespace util
 }// namespace system
 }// namespace fc

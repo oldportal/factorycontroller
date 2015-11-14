@@ -43,6 +43,7 @@ namespace hardware
 namespace mechatronics 
 {
 // global variables declaration
+extern log4cxx::LoggerPtr logger;
 }// namespace mechatronics
 }// namespace hardware
 }// namespace fc

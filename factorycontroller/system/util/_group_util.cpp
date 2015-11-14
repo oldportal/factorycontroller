@@ -62,6 +62,7 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+log4cxx::LoggerPtr oldportal::fc::system::util::logger = log4cxx::Logger::getLogger("oldportal.fc.system.util");
 
 
 std::string oldportal::fc::system::util::utf16_to_utf8(std::u16string str)

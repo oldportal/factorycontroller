@@ -41,6 +41,7 @@ namespace fc
 namespace erpconnector 
 {
 // global variables declaration
+extern log4cxx::LoggerPtr logger;
 }// namespace erpconnector
 }// namespace fc
 }// namespace oldportal
