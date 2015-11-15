@@ -36,6 +36,8 @@
 oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader::FactoryConfigurationFileLoader(const std::string& configuration_filename)
     :   oldportal::fc::factory::manufacturing::FactoryLoader()
 {//BEGIN_c037b730f87c52811d3fd00dd6c2693f
+    _name = u"FactoryConfigurationFileLoader";
+    
     _configuration_filename = configuration_filename;
 
     // add DefaultTagHandler

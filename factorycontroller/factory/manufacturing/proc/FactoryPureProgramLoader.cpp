@@ -27,14 +27,14 @@
 #include "../../../factorycontroller.h"
 
 //BEGIN_USER_SECTION_AFTER_MASTER_INCLUDE
-
+using namespace std;
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
 oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::FactoryPureProgramLoader()
     :   oldportal::fc::factory::manufacturing::FactoryLoader()
 {//BEGIN_e0a5d0495f08716c756e3e993ca14893
-
+    _name = u"FactoryPureProgramLoader";
 }//END_e0a5d0495f08716c756e3e993ca14893
 
 
@@ -94,12 +94,36 @@ void oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::init
         // start controller thread
         _network_controller->thread()->start(QThread::TimeCriticalPriority);
     }
-    else */
+    else 
     {
         //TODO: report error
         //_network_controllers = std::make_shared< oldportal::fc::network::NetworkController >();
-    }
-
+    }*/
+    
+    // network:
+    auto network = std::make_shared< oldportal::fc::network::Network >();
+    network->_id = 1;
+    network->_name = u"default network";
+    network->_serialPortPath = u8"localhost:1502";
+    _networks.push_back(network);
+    
+    // test device:
+    auto networkDevice = std::make_shared< oldportal::fc::hardware::mechatronics::Motor >();
+    networkDevice->_id = boost::uuids::random_generator()();
+    networkDevice->_description = u"test device";
+    networkDevice->_modbus_address = 18;
+    //TODO: motor properties
+    
+    network->_devices.push_back(networkDevice);
+    
+    
+    // Modbus over TCP network:
+    auto network_controller = std::make_shared< oldportal::fc::network::modbus::ModbusTCPIPNetworkController >(network);
+    //network_controller->initHardware();
+    //TODO: where call initHardware ?
+    _network_controllers.push_back(network_controller);
+    
+    // init members:
     _scheduler = std::make_shared< oldportal::fc::scheduler::Scheduler >();
     _storage_manager = std::make_shared< oldportal::fc::factory::warehouse::StorageManager >();
 }//END_5b0594ae28e0d5ff4cbae77b275fda91
