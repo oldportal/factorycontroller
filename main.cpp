@@ -115,7 +115,7 @@ int main(int argc, char *argv[])
     {
         // pure program loader as default
       
-        std::cout << "Initialize with default configuration" << std::endl;
+        std::cout << "Initialize with default configuration (pure program loader)" << std::endl;
       
         // init loader
         auto loader = std::make_shared<oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader>();
