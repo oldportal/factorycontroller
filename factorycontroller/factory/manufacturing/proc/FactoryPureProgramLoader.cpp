@@ -119,8 +119,7 @@ void oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::init
     
     // Modbus over TCP network:
     auto network_controller = std::make_shared< oldportal::fc::network::modbus::ModbusTCPIPNetworkController >(network);
-    //network_controller->initHardware();
-    //TODO: where call initHardware ?
+    network_controller->initHardware();
     _network_controllers.push_back(network_controller);
     
     // init members:
