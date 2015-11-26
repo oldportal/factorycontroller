@@ -127,6 +127,7 @@ void oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::init
     // init members:
     _scheduler = std::make_shared< oldportal::fc::scheduler::Scheduler >();
     _storage_manager = std::make_shared< oldportal::fc::factory::warehouse::StorageManager >();
+    //TODO: executor
 }//END_5b0594ae28e0d5ff4cbae77b275fda91
 
 
