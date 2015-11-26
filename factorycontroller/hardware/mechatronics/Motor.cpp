@@ -34,7 +34,9 @@
 oldportal::fc::hardware::mechatronics::Motor::Motor()
 
 {//BEGIN_eab62535ba9e31490cb17c7de0762a52
-
+    _acceleration = 0.0;
+    _speed = 0.0;
+    _torque = 0.0;
 }//END_eab62535ba9e31490cb17c7de0762a52
 
 

@@ -34,7 +34,16 @@
 oldportal::fc::hardware::mechatronics::MotorSettings::MotorSettings()
 
 {//BEGIN_01c72e9c13555c9de393367230ce2a23
-
+    _max_peak_current = 1.0;
+    _max_peak_current_enabled = false;
+    _max_speed = true;
+    _max_speed_enabled = false;
+    _max_temperature = 1.0;
+    _max_temperature_enabled = false;
+    _max_torque = 1.0;
+    _max_torque_enabled = false;
+    _min_temperature = 1.0;
+    _min_temperature_enabled = false;
 }//END_01c72e9c13555c9de393367230ce2a23
 
 

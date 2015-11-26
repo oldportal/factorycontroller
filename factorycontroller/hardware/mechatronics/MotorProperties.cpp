@@ -34,7 +34,8 @@
 oldportal::fc::hardware::mechatronics::MotorProperties::MotorProperties()
 
 {//BEGIN_4363407ae7a3c68ce3c84821ccd8a0f3
-
+    _average_system_inertion = 1.0;
+    _rotor_inertion = 1.0;
 }//END_4363407ae7a3c68ce3c84821ccd8a0f3
 
 
