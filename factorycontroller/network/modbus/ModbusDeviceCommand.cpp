@@ -33,6 +33,12 @@
 
 oldportal::fc::network::modbus::ModbusDeviceCommand::ModbusDeviceCommand()
 
+{//BEGIN_5a51e40c38c53eade4f9750574d15715
+    _modbus_ctx = nullptr;
+}//END_5a51e40c38c53eade4f9750574d15715
+
+oldportal::fc::network::modbus::ModbusDeviceCommand::ModbusDeviceCommand(modbus_t* modbus_ctx)
+
 {//BEGIN_f9f11e3926f4b2cc2d7a8949e4efe11e
     _modbus_ctx = nullptr;
 }//END_f9f11e3926f4b2cc2d7a8949e4efe11e

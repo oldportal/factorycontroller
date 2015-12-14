@@ -38,8 +38,21 @@ oldportal::fc::hardware::mechatronics::proc::CurveMotion::CurveMotion()
 }//END_182294aeb9f2778d6b09b2ff9c7576c2
 
 
+void oldportal::fc::hardware::mechatronics::proc::CurveMotion::onProcessed()
+{//BEGIN_dce4295ab48a1df8db85cf8fd1191374
+    // empty
+}//END_dce4295ab48a1df8db85cf8fd1191374
+
+void oldportal::fc::hardware::mechatronics::proc::CurveMotion::start()
+{//BEGIN_3a38be042fe7ee827916d7f7300734a8
+    oldportal::fc::hardware::mechatronics::proc::Motion::start();
+}//END_3a38be042fe7ee827916d7f7300734a8
+
 void oldportal::fc::hardware::mechatronics::proc::CurveMotion::step()
 {//BEGIN_dd62f42a8a9b0b0096af2cc7d4b0bdf9
+    // test device pointers
+    for (int i=0; i<_hardware_devices.size(); i++) { assert(!_hardware_devices[i].expired()); }
+
     //TODO: step()
 }//END_dd62f42a8a9b0b0096af2cc7d4b0bdf9
 

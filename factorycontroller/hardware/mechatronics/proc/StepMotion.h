@@ -55,11 +55,23 @@ StepMotion();
 //methods:
 
 /**
+Called after task processed. For handle device parking, switch to sleep mode, etc.
+*/
+protected:
+virtual void onProcessed();
+
+/**
+Start process. Initialize hardware and set start parameters.
+*/
+public:
+virtual void start();
+
+/**
 Update state.
 Logic processes step.
 */
 public:
-void step();
+virtual void step();
 
 
 

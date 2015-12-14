@@ -86,6 +86,9 @@ virtual std::shared_ptr< oldportal::fc::factory::warehouse::StorageManager > get
 public:
 virtual void init();
 
+public:
+virtual void start_test_processes();
+
 
 
 //child groups:

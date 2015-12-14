@@ -62,7 +62,7 @@ std::vector< std::shared_ptr<Project> > _activeProjects;
 public:
 std::vector< std::shared_ptr<Resource> > _resources;
 public:
-std::vector< std::shared_ptr<Task> > _tasksQueue;
+std::vector< std::shared_ptr<Task> > _activeTasks;
 
 
 //methods:

@@ -37,6 +37,11 @@ oldportal::fc::hardware::mechatronics::command::AccelerationMotion::~Acceleratio
 }//END_1556f3b4bc618a35a8010806093d10fb
 
 
+void oldportal::fc::hardware::mechatronics::command::AccelerationMotion::onProcessed()
+{//BEGIN_3c65a1ca33d640743741bee56673b454
+    // empty
+}//END_3c65a1ca33d640743741bee56673b454
+
 void oldportal::fc::hardware::mechatronics::command::AccelerationMotion::process()
 {//BEGIN_3cf4c714d2918c3ad2d6767fdb99c855
     assert(_modbus_ctx);

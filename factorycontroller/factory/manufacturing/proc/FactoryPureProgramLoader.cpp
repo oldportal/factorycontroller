@@ -73,32 +73,6 @@ std::shared_ptr< oldportal::fc::factory::warehouse::StorageManager > oldportal::
 void oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::init()
 {//BEGIN_5b0594ae28e0d5ff4cbae77b275fda91
     // init members:
-
-    // find port:
-    /*QList<QSerialPortInfo> ports = QSerialPortInfo::availablePorts();
-    if (ports.size() > 0)
-    {
-        QSerialPortInfo info = ports.at(0);
-        QSharedPointer< oldportal::fc::network::Network > network(new oldportal::fc::network::Network());
-        network->_id = 1;
-        network->_name = "default network";
-        network->_serialPortPath = info.portName();
-        _network_controller = QSharedPointer< oldportal::fc::network::NetworkController >(new oldportal::fc::network::modbus::ModbusSerialRTUNetworkController(network));
-
-        QSharedPointer<oldportal::fc::network::modbus::ModbusDevice> networkDevice(new oldportal::fc::network::modbus::ModbusDevice());
-        networkDevice->_id = 4;
-        networkDevice->_description = "test device";
-        networkDevice->_address = 119;
-        network->_devices.append(networkDevice);
-
-        // start controller thread
-        _network_controller->thread()->start(QThread::TimeCriticalPriority);
-    }
-    else 
-    {
-        //TODO: report error
-        //_network_controllers = std::make_shared< oldportal::fc::network::NetworkController >();
-    }*/
     
     // network:
     auto network = std::make_shared< oldportal::fc::network::Network >();
@@ -106,7 +80,14 @@ void oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::init
     network->_name = u"default network";
     network->_serialPortPath = u8"localhost:1502";
     _networks.push_back(network);
-    
+
+    // Modbus over TCP network:
+    auto network_controller = std::make_shared< oldportal::fc::network::modbus::ModbusTCPIPNetworkController >(network);
+    network_controller->_address_settings._network_address = u"localhost";
+    network_controller->_address_settings._service = u"1502";
+    network_controller->initHardware();
+    _network_controllers.push_back(network_controller);
+
     // test device:
     auto networkDevice = std::make_shared< oldportal::fc::hardware::mechatronics::Motor >();
     networkDevice->_id = boost::uuids::random_generator()();
@@ -116,19 +97,37 @@ void oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::init
     
     network->_devices.push_back(networkDevice);
     
-    
-    // Modbus over TCP network:
-    auto network_controller = std::make_shared< oldportal::fc::network::modbus::ModbusTCPIPNetworkController >(network);
-    network_controller->_address_settings._network_address = u"localhost";
-    network_controller->_address_settings._service = u"1502";
-    network_controller->initHardware();
-    _network_controllers.push_back(network_controller);
-    
-    // init members:
+    // test process
+    auto deviceProcess = std::make_shared< oldportal::fc::hardware::mechatronics::proc::LinearMotion >();
+    deviceProcess->attach_device(networkDevice);
+
+    // init scheduler and task
     _scheduler = std::make_shared< oldportal::fc::scheduler::Scheduler >();
+
+    auto task = std::make_shared< oldportal::fc::scheduler::Task >();
+    task->_device_processes.push_back(deviceProcess);
+    _scheduler->_activeTasks.push_back(task);
+
+    auto project = std::make_shared< oldportal::fc::scheduler::Project >();
+    project->_tasks.push_back(task);
+    _scheduler->_activeProjects.push_back(project);
+
     _storage_manager = std::make_shared< oldportal::fc::factory::warehouse::StorageManager >();
+
     //TODO: executor
 }//END_5b0594ae28e0d5ff4cbae77b275fda91
+
+void oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::start_test_processes()
+{//BEGIN_822b02fe5d6f7b643cecff4d05b43ec2
+    for (int i=0; i<_scheduler->_activeTasks.size(); i++)
+    {
+        auto processes = _scheduler->_activeTasks[i]->_device_processes;
+        for (int i2=0; i2<processes.size(); i2++)
+        {
+            processes[i2]->start();
+        }
+    }
+}//END_822b02fe5d6f7b643cecff4d05b43ec2
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE

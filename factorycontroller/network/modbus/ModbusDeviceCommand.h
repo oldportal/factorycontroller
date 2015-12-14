@@ -28,7 +28,9 @@
 
 
 /**
-General planned (TO DO) command to network device. Could keep real-time stamp for execution start.
+The general planned (TODO) command for the network device. Could keep real-time stamp for execution start.
+
+Modbus-specific implementation. Could process one (by default) or more Modbus network request-response pairs.
 */
 namespace oldportal 
 {
@@ -45,6 +47,8 @@ class ModbusDeviceCommand
 // constructors:
 public:
 ModbusDeviceCommand();
+public:
+ModbusDeviceCommand(modbus_t* modbus_ctx);
 
 
 public:

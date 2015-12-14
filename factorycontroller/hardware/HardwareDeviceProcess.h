@@ -54,16 +54,51 @@ virtual ~HardwareDeviceProcess();
 // members:
 
 protected:
-bool _attached;
+bool _hardware_initialized_to_task;
+protected:
+std::vector< std::weak_ptr< oldportal::fc::hardware::HardwareDevice > > _hardware_devices;
+protected:
+std::weak_ptr< oldportal::fc::hardware::HardwareDevice > _hardware_device;
 
 
 //methods:
 
+/**
+Attach process to hardware device.
+
+The device can be attached only once.
+*/
 public:
-virtual void detach();
+virtual void attach_device(std::weak_ptr< oldportal::fc::hardware::HardwareDevice > hardware_device);
+
+/**
+Attach process to hardware devices.
+
+Devices can be attached only once.
+*/
+public:
+virtual void attach_devices(std::vector< std::weak_ptr< oldportal::fc::hardware::HardwareDevice > > hardware_devices);
 
 public:
-bool isAttached();
+virtual void detach_devices();
+
+public:
+std::vector< std::weak_ptr< oldportal::fc::hardware::HardwareDevice > > get_hardware_devices();
+
+public:
+bool is_hardware_initialized_to_task();
+
+/**
+Called after task processed. For handle device parking, switch to sleep mode, etc.
+*/
+protected:
+virtual void onProcessed();
+
+/**
+Start process. Initialize hardware and set start parameters.
+*/
+public:
+virtual void start();
 
 /**
 Update state.

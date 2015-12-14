@@ -37,6 +37,11 @@ oldportal::fc::hardware::mechatronics::command::ConstantSpeedMotion::~ConstantSp
 }//END_fa62beef2df6510eed0a4cff81e94d23
 
 
+void oldportal::fc::hardware::mechatronics::command::ConstantSpeedMotion::onProcessed()
+{//BEGIN_17128dbebbc9abb12f32aa27066139b3
+    // empty
+}//END_17128dbebbc9abb12f32aa27066139b3
+
 void oldportal::fc::hardware::mechatronics::command::ConstantSpeedMotion::process()
 {//BEGIN_6ba632926a4f56dbcfbb09ec0b514ef0
     assert(_modbus_ctx);

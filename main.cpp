@@ -122,6 +122,8 @@ int main(int argc, char *argv[])
         loader->init();
         factory = std::make_shared<oldportal::fc::factory::manufacturing::Factory>
                 (std::static_pointer_cast<oldportal::fc::factory::manufacturing::FactoryLoader>(loader));
+        loader->start_test_processes();
+
         // free loader
         loader.reset();
     }
