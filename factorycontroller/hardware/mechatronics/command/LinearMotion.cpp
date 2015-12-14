@@ -37,9 +37,16 @@ oldportal::fc::hardware::mechatronics::command::LinearMotion::~LinearMotion()
 }//END_3ae7cbc70058cbc03bebf6e27865f011
 
 
+void oldportal::fc::hardware::mechatronics::command::LinearMotion::onProcessed()
+{//BEGIN_25255f50ef0019f639443262727c6347
+    // empty
+}//END_25255f50ef0019f639443262727c6347
+
 void oldportal::fc::hardware::mechatronics::command::LinearMotion::process()
 {//BEGIN_5a4ca282f77a69d1fdd39facedaec3a6
     assert(_modbus_ctx);
+    assert(_device);
+    assert(_device_process);
 }//END_5a4ca282f77a69d1fdd39facedaec3a6
 
 

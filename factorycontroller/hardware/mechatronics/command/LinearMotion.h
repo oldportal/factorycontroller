@@ -56,6 +56,13 @@ virtual ~LinearMotion();
 //methods:
 
 /**
+Handler.
+Called after command processed. Called in main step thread.
+*/
+protected:
+virtual void onProcessed();
+
+/**
 Process command to device in realtime background thread.
 This handler must know about used protocol.
 

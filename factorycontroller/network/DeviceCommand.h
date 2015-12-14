@@ -28,7 +28,7 @@
 
 
 /**
-General planned (TO DO) command to network device. Could keep real-time stamp for execution start.
+The general planned (TODO) command for the network device. Could keep real-time stamp for execution start.
 */
 namespace oldportal 
 {
@@ -61,6 +61,8 @@ public:
 std::chrono::high_resolution_clock::time_point _last_processed;
 public:
 std::shared_ptr< oldportal::fc::hardware::HardwareDevice > _device;
+public:
+std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > _device_process;
 public:
 std::shared_ptr< oldportal::fc::network::NetworkController > _controller;
 public:

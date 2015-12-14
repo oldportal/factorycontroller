@@ -37,6 +37,11 @@ oldportal::fc::hardware::mechatronics::command::CurveMotion::~CurveMotion()
 }//END_ef2eb2a4a709629721d79b69aab3d7f9
 
 
+void oldportal::fc::hardware::mechatronics::command::CurveMotion::onProcessed()
+{//BEGIN_02604cd6a72fde0de5aa4ca4380fa438
+    // empty
+}//END_02604cd6a72fde0de5aa4ca4380fa438
+
 void oldportal::fc::hardware::mechatronics::command::CurveMotion::process()
 {//BEGIN_640ed55747407171dde65949e41b13d1
     assert(_modbus_ctx);

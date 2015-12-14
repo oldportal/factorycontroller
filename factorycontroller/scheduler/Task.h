@@ -50,19 +50,21 @@ virtual ~Task();
 // members:
 
 public:
-boost::posix_time::ptime _assigned;
-public:
-boost::posix_time::ptime _created;
-public:
-boost::posix_time::ptime _finished;
-public:
-boost::posix_time::ptime _started;
-public:
 boost::uuids::uuid _id;
 public:
 boost::uuids::uuid _templateId;
 public:
+std::chrono::high_resolution_clock::time_point _assigned;
+public:
+std::chrono::high_resolution_clock::time_point _created;
+public:
+std::chrono::high_resolution_clock::time_point _finished;
+public:
+std::chrono::high_resolution_clock::time_point _started;
+public:
 std::u16string _name;
+public:
+std::vector< std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > > _device_processes;
 public:
 std::vector< std::shared_ptr<Task> > _subtasks;
 

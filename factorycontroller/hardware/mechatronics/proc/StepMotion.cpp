@@ -38,9 +38,26 @@ oldportal::fc::hardware::mechatronics::proc::StepMotion::StepMotion()
 }//END_516f588b66c7ce108bd6c69cdda7ca73
 
 
+void oldportal::fc::hardware::mechatronics::proc::StepMotion::onProcessed()
+{//BEGIN_71164158692f3964e4a3f6198b967191
+    // empty
+}//END_71164158692f3964e4a3f6198b967191
+
+void oldportal::fc::hardware::mechatronics::proc::StepMotion::start()
+{//BEGIN_c4c9496a37517a7ce742c67a058eaefd
+    oldportal::fc::hardware::mechatronics::proc::Motion::start();
+}//END_c4c9496a37517a7ce742c67a058eaefd
+
 void oldportal::fc::hardware::mechatronics::proc::StepMotion::step()
 {//BEGIN_736dec86a6c5d20723840f0be52c4cf3
-    //TODO: step()
+    // test device pointers
+    for (int i=0; i<_hardware_devices.size(); i++) { assert(!_hardware_devices[i].expired()); }
+
+    //TODO: is hardware initialized?
+    //TODO: is hardware switched to command mode?
+    //TODO: estimate next hardware check
+    //TODO: check and correct harware
+    //TODO: process process (task) end
 }//END_736dec86a6c5d20723840f0be52c4cf3
 
 

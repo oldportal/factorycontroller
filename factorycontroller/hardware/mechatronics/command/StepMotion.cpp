@@ -37,6 +37,11 @@ oldportal::fc::hardware::mechatronics::command::StepMotion::~StepMotion()
 }//END_ac02cdcf28c219da19e50d05ba0e28ae
 
 
+void oldportal::fc::hardware::mechatronics::command::StepMotion::onProcessed()
+{//BEGIN_2820fe92dee8fa9179a0f3326e6d0fc7
+    // empty
+}//END_2820fe92dee8fa9179a0f3326e6d0fc7
+
 void oldportal::fc::hardware::mechatronics::command::StepMotion::process()
 {//BEGIN_4e3507a92ef4831d96535832e77d1c87
     assert(_modbus_ctx);

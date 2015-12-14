@@ -130,7 +130,15 @@ SOURCES += main.cpp \
     factorycontroller/network/command/scheduled/ScheduledCommandRequest.cpp \
     factorycontroller/network/command/scheduled/ScheduledCommandResult.cpp \
     factorycontroller/network/command/scheduled/ScheduledDeviceCommandQueue.cpp \
-    factorycontroller/system/log/_group_log.cpp
+    factorycontroller/system/log/_group_log.cpp \
+    factorycontroller/hardware/mechatronics/proc/_group_proc.cpp \
+    factorycontroller/hardware/mechatronics/proc/StepMotion.cpp \
+    factorycontroller/hardware/mechatronics/proc/Motion.cpp \
+    factorycontroller/hardware/mechatronics/proc/LinearMotion.cpp \
+    factorycontroller/hardware/mechatronics/proc/CurveMotion.cpp \
+    factorycontroller/hardware/mechatronics/proc/ConstantSpeedMotion.cpp \
+    factorycontroller/hardware/mechatronics/proc/AccelerationMotion.cpp
 
-HEADERS += factorycontroller/factorycontroller.h 
+HEADERS += factorycontroller/factorycontroller.h \ 
+    factorycontroller/hardware/mechatronics/proc/_group_proc.h
 
