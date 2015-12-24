@@ -50,8 +50,7 @@ void oldportal::fc::hardware::mechatronics::proc::CurveMotion::start()
 
 void oldportal::fc::hardware::mechatronics::proc::CurveMotion::step()
 {//BEGIN_dd62f42a8a9b0b0096af2cc7d4b0bdf9
-    // test device pointers
-    for (int i=0; i<_hardware_devices.size(); i++) { assert(!_hardware_devices[i].expired()); }
+    oldportal::fc::hardware::HardwareDeviceProcess::step();
 
     //TODO: step()
 }//END_dd62f42a8a9b0b0096af2cc7d4b0bdf9

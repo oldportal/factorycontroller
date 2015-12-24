@@ -54,11 +54,17 @@ virtual ~HardwareDeviceProcess();
 // members:
 
 protected:
-bool _hardware_initialized_to_task;
+bool _hardware_initialized;
 protected:
 std::vector< std::weak_ptr< oldportal::fc::hardware::HardwareDevice > > _hardware_devices;
-protected:
-std::weak_ptr< oldportal::fc::hardware::HardwareDevice > _hardware_device;
+/**
+Parent scheduler Task.
+
+Empty if the process is not associated with a scheduler task
+(manual control, for example).
+*/
+public:
+std::weak_ptr< oldportal::fc::scheduler::Task > _parent_task;
 
 
 //methods:
@@ -86,7 +92,7 @@ public:
 std::vector< std::weak_ptr< oldportal::fc::hardware::HardwareDevice > > get_hardware_devices();
 
 public:
-bool is_hardware_initialized_to_task();
+bool is_hardware_initialized();
 
 /**
 Called after task processed. For handle device parking, switch to sleep mode, etc.
@@ -105,7 +111,7 @@ Update state.
 Logic processes step.
 */
 public:
-virtual void step() = 0;
+virtual void step();
 
 
 
@@ -116,7 +122,18 @@ virtual void step() = 0;
 
 
 //BEGIN_USER_SECTION_INSIDE_CLASS_DECLARATION
+public:
+enum HARDWARE_STATE {
+    START,
+    INITIALIZATION,
+    INITIALIZED,
+    PROCESS,
+    PROCESSED,
+    CANCELED,
+    FAILURED
+};
 
+HARDWARE_STATE _hardware_state;
 //END_USER_SECTION_INSIDE_CLASS_DECLARATION
 
 

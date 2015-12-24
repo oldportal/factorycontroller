@@ -34,7 +34,8 @@
 oldportal::fc::hardware::HardwareDeviceProcess::HardwareDeviceProcess()
 
 {//BEGIN_1a1b39c98ef1e25edf61bdde8f3f5ab1
-    _hardware_initialized_to_task = false;
+    _hardware_state = HARDWARE_STATE::START;
+    _hardware_initialized = false;
 }//END_1a1b39c98ef1e25edf61bdde8f3f5ab1
 
 
@@ -49,13 +50,23 @@ void oldportal::fc::hardware::HardwareDeviceProcess::attach_device(std::weak_ptr
 {//BEGIN_5d0aaab22eaf18469624ac005f003c01
     assert(!hardware_device.expired());
 
+    // check for existing device
+    for (int i=0; i<_hardware_devices.size(); i++)
+    {
+        assert(!_hardware_devices[i].expired());
+        if (_hardware_devices[i].lock() ==  hardware_device.lock())
+        {
+            LOG4CXX_WARN(logger, std::string("Attach second instance of hardware_device"));
+            return;
+        }
+    }
+
+    // add device
     _hardware_devices.push_back(hardware_device);
 }//END_5d0aaab22eaf18469624ac005f003c01
 
 void oldportal::fc::hardware::HardwareDeviceProcess::attach_devices(std::vector< std::weak_ptr< oldportal::fc::hardware::HardwareDevice > > hardware_devices)
 {//BEGIN_a5d31c69a17f8a6416538865683d21fb
-    assert(!_hardware_device.expired());
-
     for (int i=0; i<hardware_devices.size(); i++)
     {
         assert(!hardware_devices[i].expired());
@@ -65,8 +76,8 @@ void oldportal::fc::hardware::HardwareDeviceProcess::attach_devices(std::vector<
 
 void oldportal::fc::hardware::HardwareDeviceProcess::detach_devices()
 {//BEGIN_3040b7242dcdfa439c3538de2c0e23d9
-    _hardware_device.reset();
-    _hardware_initialized_to_task = false;
+    _hardware_devices.clear();
+    _hardware_initialized = false;
 }//END_3040b7242dcdfa439c3538de2c0e23d9
 
 std::vector< std::weak_ptr< oldportal::fc::hardware::HardwareDevice > > oldportal::fc::hardware::HardwareDeviceProcess::get_hardware_devices()
@@ -74,9 +85,9 @@ std::vector< std::weak_ptr< oldportal::fc::hardware::HardwareDevice > > oldporta
     return _hardware_devices;
 }//END_9adf7ce9fd924a3ef85250510dadd0c8
 
-bool oldportal::fc::hardware::HardwareDeviceProcess::is_hardware_initialized_to_task()
+bool oldportal::fc::hardware::HardwareDeviceProcess::is_hardware_initialized()
 {//BEGIN_13229bafc3d4d020224cb19339d5996f
-    return _hardware_initialized_to_task;
+    return _hardware_initialized;
 }//END_13229bafc3d4d020224cb19339d5996f
 
 void oldportal::fc::hardware::HardwareDeviceProcess::onProcessed()
@@ -89,6 +100,12 @@ void oldportal::fc::hardware::HardwareDeviceProcess::start()
     // test device pointers
     for (int i=0; i<_hardware_devices.size(); i++) { assert(!_hardware_devices[i].expired()); }
 }//END_f2153248dc9ac12d3f4a5acb137689d1
+
+void oldportal::fc::hardware::HardwareDeviceProcess::step()
+{//BEGIN_2a4d38af823396497afce24a0a88f964
+    // test device pointers
+    for (int i=0; i<_hardware_devices.size(); i++) { assert(!_hardware_devices[i].expired()); }
+}//END_2a4d38af823396497afce24a0a88f964
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE

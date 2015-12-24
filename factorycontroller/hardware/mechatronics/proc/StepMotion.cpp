@@ -50,8 +50,7 @@ void oldportal::fc::hardware::mechatronics::proc::StepMotion::start()
 
 void oldportal::fc::hardware::mechatronics::proc::StepMotion::step()
 {//BEGIN_736dec86a6c5d20723840f0be52c4cf3
-    // test device pointers
-    for (int i=0; i<_hardware_devices.size(); i++) { assert(!_hardware_devices[i].expired()); }
+    oldportal::fc::hardware::HardwareDeviceProcess::step();
 
     //TODO: is hardware initialized?
     //TODO: is hardware switched to command mode?
