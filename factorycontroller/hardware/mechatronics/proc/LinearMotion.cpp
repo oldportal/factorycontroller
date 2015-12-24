@@ -50,10 +50,35 @@ void oldportal::fc::hardware::mechatronics::proc::LinearMotion::start()
 
 void oldportal::fc::hardware::mechatronics::proc::LinearMotion::step()
 {//BEGIN_9f3fb12afa693ca925a2a5dab2ad5102
-    // test device pointers
-    for (int i=0; i<_hardware_devices.size(); i++) { assert(!_hardware_devices[i].expired()); }
+    oldportal::fc::hardware::HardwareDeviceProcess::step();
 
-    //TODO: is hardware initialized?
+    // is hardware initialized?
+    if (!is_hardware_initialized())
+    {
+        //TODO: initialize hardware
+    }
+
+    switch (_hardware_state)
+    {
+        case HARDWARE_STATE::START:
+            break;
+        case HARDWARE_STATE::INITIALIZATION:
+            break;
+        case HARDWARE_STATE::INITIALIZED:
+            break;
+        case HARDWARE_STATE::PROCESS:
+            break;
+        case HARDWARE_STATE::PROCESSED:
+            break;
+        case HARDWARE_STATE::CANCELED:
+            break;
+        case HARDWARE_STATE::FAILURED:
+            break;
+        default:
+        ;
+    }
+
+
     //TODO: is hardware switched to command mode?
     //TODO: estimate next hardware check
     //TODO: check and correct harware
