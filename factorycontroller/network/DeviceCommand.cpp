@@ -48,7 +48,7 @@ oldportal::fc::network::DeviceCommand::~DeviceCommand()
 
 void oldportal::fc::network::DeviceCommand::clear()
 {//BEGIN_713376dd3b1f502c6abb2eb2d96053e2
-    _controller.reset();
+    // empty pointers
     _device.reset();
     _executor.reset();
     // set minimum priority

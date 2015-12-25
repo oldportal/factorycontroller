@@ -42,9 +42,11 @@ void oldportal::fc::hardware::mechatronics::command::ConstantSpeedMotion::onProc
     // empty
 }//END_17128dbebbc9abb12f32aa27066139b3
 
-void oldportal::fc::hardware::mechatronics::command::ConstantSpeedMotion::process()
+void oldportal::fc::hardware::mechatronics::command::ConstantSpeedMotion::process(const oldportal::fc::network::modbus::ModbusNetworkController* controller)
 {//BEGIN_6ba632926a4f56dbcfbb09ec0b514ef0
-    assert(_controller);
+    assert(controller);
+    assert(_device);
+    assert(_device_process);
     //TODO:
 }//END_6ba632926a4f56dbcfbb09ec0b514ef0
 

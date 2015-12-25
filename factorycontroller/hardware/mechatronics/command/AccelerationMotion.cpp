@@ -42,7 +42,7 @@ void oldportal::fc::hardware::mechatronics::command::AccelerationMotion::onProce
     // empty
 }//END_3c65a1ca33d640743741bee56673b454
 
-void oldportal::fc::hardware::mechatronics::command::AccelerationMotion::process()
+void oldportal::fc::hardware::mechatronics::command::AccelerationMotion::process(const oldportal::fc::network::modbus::ModbusNetworkController* controller)
 {//BEGIN_3cf4c714d2918c3ad2d6767fdb99c855
     //TODO:
 }//END_3cf4c714d2918c3ad2d6767fdb99c855
