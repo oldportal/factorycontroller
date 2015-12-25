@@ -44,7 +44,7 @@ void oldportal::fc::hardware::mechatronics::command::AccelerationMotion::onProce
 
 void oldportal::fc::hardware::mechatronics::command::AccelerationMotion::process()
 {//BEGIN_3cf4c714d2918c3ad2d6767fdb99c855
-    assert(_modbus_ctx);
+    //TODO:
 }//END_3cf4c714d2918c3ad2d6767fdb99c855
 
 

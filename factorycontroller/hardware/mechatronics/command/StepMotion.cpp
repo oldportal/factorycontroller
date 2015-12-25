@@ -44,7 +44,7 @@ void oldportal::fc::hardware::mechatronics::command::StepMotion::onProcessed()
 
 void oldportal::fc::hardware::mechatronics::command::StepMotion::process()
 {//BEGIN_4e3507a92ef4831d96535832e77d1c87
-    assert(_modbus_ctx);
+    assert(_controller);
 }//END_4e3507a92ef4831d96535832e77d1c87
 
 

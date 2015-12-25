@@ -199,8 +199,6 @@ void oldportal::fc::network::modbus::ModbusNetworkController::processDeviceComma
         return;
     }
 
-    modbus_command->_modbus_ctx = getModbusContext();
-
     try
     {
         // process request->response
@@ -217,9 +215,6 @@ void oldportal::fc::network::modbus::ModbusNetworkController::processDeviceComma
         oldportal::fc::system::log::error_hardware("MODBUS command process exception", ex.what());
         // add error to statistics
     }
-
-    // clear command context
-    modbus_command->_modbus_ctx = nullptr;
 }//END_cb8fd5b980bc7603de060be0feb37eed
 
 void oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(std::shared_ptr< oldportal::fc::network::DeviceCommand > command)

@@ -34,13 +34,14 @@
 oldportal::fc::network::modbus::ModbusDeviceCommand::ModbusDeviceCommand()
 
 {//BEGIN_5a51e40c38c53eade4f9750574d15715
-    _modbus_ctx = nullptr;
+
 }//END_5a51e40c38c53eade4f9750574d15715
 
-oldportal::fc::network::modbus::ModbusDeviceCommand::ModbusDeviceCommand(modbus_t* modbus_ctx)
+oldportal::fc::network::modbus::ModbusDeviceCommand::ModbusDeviceCommand(std::shared_ptr< oldportal::fc::network::modbus::ModbusNetworkController > controller)
 
 {//BEGIN_f9f11e3926f4b2cc2d7a8949e4efe11e
-    _modbus_ctx = nullptr;
+    assert(controller);
+    _controller = controller;
 }//END_f9f11e3926f4b2cc2d7a8949e4efe11e
 
 

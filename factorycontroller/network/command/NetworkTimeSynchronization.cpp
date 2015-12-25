@@ -47,7 +47,7 @@ oldportal::fc::network::command::NetworkTimeSynchronization::~NetworkTimeSynchro
 
 void oldportal::fc::network::command::NetworkTimeSynchronization::process()
 {//BEGIN_ba5a8c22a6c4cc0d2dfa663125379790
-    assert(_modbus_ctx);
+    assert(_controller);
 
     //TODO: synchronize network time command
 }//END_ba5a8c22a6c4cc0d2dfa663125379790

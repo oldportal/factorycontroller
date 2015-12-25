@@ -44,7 +44,7 @@ void oldportal::fc::hardware::mechatronics::command::LinearMotion::onProcessed()
 
 void oldportal::fc::hardware::mechatronics::command::LinearMotion::process()
 {//BEGIN_5a4ca282f77a69d1fdd39facedaec3a6
-    assert(_modbus_ctx);
+    assert(_controller);
     assert(_device);
     assert(_device_process);
 }//END_5a4ca282f77a69d1fdd39facedaec3a6
