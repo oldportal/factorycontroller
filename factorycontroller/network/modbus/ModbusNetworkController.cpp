@@ -191,6 +191,8 @@ void oldportal::fc::network::modbus::ModbusNetworkController::processDeviceComma
     // runtime check for modbus command
     std::shared_ptr<oldportal::fc::network::modbus::ModbusDeviceCommand> modbus_command = std::dynamic_pointer_cast<oldportal::fc::network::modbus::ModbusDeviceCommand>(command);
     assert(modbus_command);
+    assert(modbus_command->_controller);
+    assert(modbus_command->_controller.get() == this && "Command should be linked to this controller");
 
     if (!modbus_command)
     {
@@ -337,6 +339,8 @@ void oldportal::fc::network::modbus::ModbusNetworkController::timeSynchronizatio
 
         // insert synchronization command
         auto command = std::make_shared<oldportal::fc::network::command::NetworkTimeSynchronization>();
+        command->_controller = std::dynamic_pointer_cast<oldportal::fc::network::modbus::ModbusNetworkController>(_network->_controller.lock());
+        assert(command->_controller.get() == this);
         pushCommand(command);
     }
 }//END_982c99b2d25d29e138dc4a91edb623c5
