@@ -85,6 +85,7 @@ void oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::init
     auto network_controller = std::make_shared< oldportal::fc::network::modbus::ModbusTCPIPNetworkController >(network);
     network_controller->_address_settings._network_address = u"localhost";
     network_controller->_address_settings._service = u"1502";
+    network->_controller = network_controller;
     network_controller->initHardware();
     _network_controllers.push_back(network_controller);
 

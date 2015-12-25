@@ -46,17 +46,21 @@ void oldportal::fc::hardware::mechatronics::proc::LinearMotion::onProcessed()
 void oldportal::fc::hardware::mechatronics::proc::LinearMotion::start()
 {//BEGIN_84d3ab554b9e52aefa0b7f598c73162f
     oldportal::fc::hardware::mechatronics::proc::Motion::start();
+
+    _hardware_state = HARDWARE_STATE::START;
+
+    for (uint32_t i=0; i<_hardware_devices.size(); i++)
+    {
+        assert(!_hardware_devices[i].expired());
+        auto device = _hardware_devices[i].lock();
+        auto pingCommand = std::make_shared<oldportal::fc::network::command::DeviceStateReport>(device);
+        device->_network.lock()->_controller.lock()->pushCommand(pingCommand);
+    }
 }//END_84d3ab554b9e52aefa0b7f598c73162f
 
 void oldportal::fc::hardware::mechatronics::proc::LinearMotion::step()
 {//BEGIN_9f3fb12afa693ca925a2a5dab2ad5102
     oldportal::fc::hardware::HardwareDeviceProcess::step();
-
-    // is hardware initialized?
-    if (!is_hardware_initialized())
-    {
-        //TODO: initialize hardware
-    }
 
     switch (_hardware_state)
     {
@@ -78,6 +82,11 @@ void oldportal::fc::hardware::mechatronics::proc::LinearMotion::step()
         ;
     }
 
+    // is hardware initialized?
+    if (!is_hardware_initialized())
+    {
+        //TODO: initialize hardware
+    }
 
     //TODO: is hardware switched to command mode?
     //TODO: estimate next hardware check

@@ -44,7 +44,8 @@ void oldportal::fc::hardware::mechatronics::command::ConstantSpeedMotion::onProc
 
 void oldportal::fc::hardware::mechatronics::command::ConstantSpeedMotion::process()
 {//BEGIN_6ba632926a4f56dbcfbb09ec0b514ef0
-    assert(_modbus_ctx);
+    assert(_controller);
+    //TODO:
 }//END_6ba632926a4f56dbcfbb09ec0b514ef0
 
 

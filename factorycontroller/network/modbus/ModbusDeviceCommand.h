@@ -48,7 +48,7 @@ class ModbusDeviceCommand
 public:
 ModbusDeviceCommand();
 public:
-ModbusDeviceCommand(modbus_t* modbus_ctx);
+ModbusDeviceCommand(std::shared_ptr< oldportal::fc::network::modbus::ModbusNetworkController > controller);
 
 
 public:
@@ -57,7 +57,7 @@ virtual ~ModbusDeviceCommand();
 // members:
 
 protected:
-modbus_t* _modbus_ctx;
+std::shared_ptr< oldportal::fc::network::modbus::ModbusNetworkController > _controller;
 
 
 //methods:

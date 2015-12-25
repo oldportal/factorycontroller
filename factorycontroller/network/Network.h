@@ -52,6 +52,8 @@ public:
 std::u16string _name;
 public:
 std::vector< std::shared_ptr<NetworkDevice> > _devices;
+public:
+std::weak_ptr< oldportal::fc::network::NetworkController > _controller;
 
 
 //methods:

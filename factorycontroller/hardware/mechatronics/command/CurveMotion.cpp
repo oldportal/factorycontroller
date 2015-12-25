@@ -44,7 +44,7 @@ void oldportal::fc::hardware::mechatronics::command::CurveMotion::onProcessed()
 
 void oldportal::fc::hardware::mechatronics::command::CurveMotion::process()
 {//BEGIN_640ed55747407171dde65949e41b13d1
-    assert(_modbus_ctx);
+   assert(_controller);
 }//END_640ed55747407171dde65949e41b13d1
 
 
