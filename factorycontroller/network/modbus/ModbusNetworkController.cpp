@@ -191,8 +191,10 @@ void oldportal::fc::network::modbus::ModbusNetworkController::processDeviceComma
     // runtime check for modbus command
     std::shared_ptr<oldportal::fc::network::modbus::ModbusDeviceCommand> modbus_command = std::dynamic_pointer_cast<oldportal::fc::network::modbus::ModbusDeviceCommand>(command);
     assert(modbus_command);
-    //assert(modbus_command->_controller);
-    //assert(modbus_command->_controller.get() == this && "Command should be linked to this controller");
+    std::shared_ptr<oldportal::fc::network::modbus::ModbusNetworkController> modbus_controller_check =
+            std::dynamic_pointer_cast<oldportal::fc::network::modbus::ModbusNetworkController>(command->_device->_network.lock()->_controller.lock());
+    assert(modbus_controller_check);
+    assert(modbus_controller_check.get() == this && "Command should be linked to this controller");
 
     if (!modbus_command)
     {
@@ -221,8 +223,9 @@ void oldportal::fc::network::modbus::ModbusNetworkController::processDeviceComma
 
 void oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(std::shared_ptr< oldportal::fc::network::DeviceCommand > command)
 {//BEGIN_3663c08fced66ad2a61a9dbc07f868ae
-    // runtime check for modbus command
     std::shared_ptr<oldportal::fc::network::modbus::ModbusDeviceCommand> modbus_command = std::dynamic_pointer_cast<oldportal::fc::network::modbus::ModbusDeviceCommand>(command);
+
+    // runtime check for modbus command    
     assert(modbus_command && "pushCommand() - must be oldportal::fc::network::modbus::ModbusDeviceCommand instance");
     if (!modbus_command)
     {
@@ -232,9 +235,11 @@ void oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(std::s
     }
 
     // check pointer to this controller
-    /*if (modbus_command->_controller)
+    if (modbus_command->_device)
     {
-        std::shared_ptr<oldportal::fc::network::modbus::ModbusNetworkController> modbus_controller = std::dynamic_pointer_cast<oldportal::fc::network::modbus::ModbusNetworkController>(modbus_command->_controller);
+        std::shared_ptr<oldportal::fc::network::modbus::ModbusNetworkController> modbus_controller =
+                std::dynamic_pointer_cast<oldportal::fc::network::modbus::ModbusNetworkController>(modbus_command->_device->_network.lock()->_controller.lock());
+
         assert(modbus_controller && "command->_controller must inherit ModbusNetworkController");
         if (!modbus_controller)
         {
@@ -244,13 +249,14 @@ void oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(std::s
         }
 
         assert(modbus_controller.get() == this && "pushCommand(command) - command->_controller not set to this ModbusNetworkController");
+
         if (modbus_controller.get() != this)
         {
             oldportal::fc::system::log::error(u8"oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(command) - command->_controller not set to this ModbusNetworkController");
             // dynamic error process
             throw std::invalid_argument("pushCommand(command) - command->_controller not set to this ModbusNetworkController");
         }
-    }*/
+    }
 
     // parent class function call
     oldportal::fc::network::NetworkController::pushCommand(command);
