@@ -42,9 +42,12 @@ void oldportal::fc::hardware::mechatronics::command::StepMotion::onProcessed()
     // empty
 }//END_2820fe92dee8fa9179a0f3326e6d0fc7
 
-void oldportal::fc::hardware::mechatronics::command::StepMotion::process()
+void oldportal::fc::hardware::mechatronics::command::StepMotion::process(const oldportal::fc::network::modbus::ModbusNetworkController* controller)
 {//BEGIN_4e3507a92ef4831d96535832e77d1c87
-    assert(_controller);
+    assert(controller);
+    assert(_device);
+    assert(_device_process);
+    //TODO:
 }//END_4e3507a92ef4831d96535832e77d1c87
 
 

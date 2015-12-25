@@ -47,17 +47,12 @@ class ModbusDeviceCommand
 // constructors:
 public:
 ModbusDeviceCommand();
-public:
-ModbusDeviceCommand(std::shared_ptr< oldportal::fc::network::modbus::ModbusNetworkController > controller);
 
 
 public:
 virtual ~ModbusDeviceCommand();
 
 // members:
-
-protected:
-std::shared_ptr< oldportal::fc::network::modbus::ModbusNetworkController > _controller;
 
 
 //methods:
@@ -76,7 +71,7 @@ This handler must know about used protocol.
 With Modbus this handler shold process request and response with libmodbus modbus_t context stored in  _modbus_ctx
 */
 protected:
-virtual void process() = 0;
+virtual void process(const oldportal::fc::network::modbus::ModbusNetworkController* controller) = 0;
 
 
 

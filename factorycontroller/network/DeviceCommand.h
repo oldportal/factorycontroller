@@ -64,8 +64,6 @@ std::shared_ptr< oldportal::fc::hardware::HardwareDevice > _device;
 public:
 std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > _device_process;
 public:
-std::shared_ptr< oldportal::fc::network::NetworkController > _controller;
-public:
 std::shared_ptr< oldportal::fc::scheduler::ExecutorInterface > _executor;
 public:
 uint8_t _priority;
@@ -82,13 +80,6 @@ Called after command processed. Called in main step thread.
 */
 protected:
 virtual void onProcessed();
-
-/**
-Process command to device in realtime background thread.
-This handler must know about used protocol.
-*/
-protected:
-virtual void process() = 0;
 
 
 

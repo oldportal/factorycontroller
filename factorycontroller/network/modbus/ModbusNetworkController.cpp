@@ -191,8 +191,8 @@ void oldportal::fc::network::modbus::ModbusNetworkController::processDeviceComma
     // runtime check for modbus command
     std::shared_ptr<oldportal::fc::network::modbus::ModbusDeviceCommand> modbus_command = std::dynamic_pointer_cast<oldportal::fc::network::modbus::ModbusDeviceCommand>(command);
     assert(modbus_command);
-    assert(modbus_command->_controller);
-    assert(modbus_command->_controller.get() == this && "Command should be linked to this controller");
+    //assert(modbus_command->_controller);
+    //assert(modbus_command->_controller.get() == this && "Command should be linked to this controller");
 
     if (!modbus_command)
     {
@@ -204,7 +204,7 @@ void oldportal::fc::network::modbus::ModbusNetworkController::processDeviceComma
     try
     {
         // process request->response
-        modbus_command->process();
+        modbus_command->process(this);
 
         // update device last response time
         if (modbus_command->_device)
@@ -215,7 +215,7 @@ void oldportal::fc::network::modbus::ModbusNetworkController::processDeviceComma
     catch (std::exception& ex)
     {
         oldportal::fc::system::log::error_hardware("MODBUS command process exception", ex.what());
-        // add error to statistics
+        //TODO: add error to statistics
     }
 }//END_cb8fd5b980bc7603de060be0feb37eed
 
@@ -232,7 +232,7 @@ void oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(std::s
     }
 
     // check pointer to this controller
-    if (modbus_command->_controller)
+    /*if (modbus_command->_controller)
     {
         std::shared_ptr<oldportal::fc::network::modbus::ModbusNetworkController> modbus_controller = std::dynamic_pointer_cast<oldportal::fc::network::modbus::ModbusNetworkController>(modbus_command->_controller);
         assert(modbus_controller && "command->_controller must inherit ModbusNetworkController");
@@ -250,7 +250,7 @@ void oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(std::s
             // dynamic error process
             throw std::invalid_argument("pushCommand(command) - command->_controller not set to this ModbusNetworkController");
         }
-    }
+    }*/
 
     // parent class function call
     oldportal::fc::network::NetworkController::pushCommand(command);
@@ -259,11 +259,14 @@ void oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(std::s
 void oldportal::fc::network::modbus::ModbusNetworkController::realtime_run(oldportal::fc::network::modbus::ModbusNetworkController* controller)
 {//BEGIN_92de8593a2dab2b10e17272d29b47493
     assert(controller);
+    assert(controller->_modbus_ctx);
 
     if (controller->_modbus_ctx == nullptr)
     {
         //TODO: report error as error status
         oldportal::fc::system::log::error(u8"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() ERROR - serial port is not opened, thread stopping...");
+
+        //TODO: add error to statistics
 
         return;
     }
@@ -339,8 +342,6 @@ void oldportal::fc::network::modbus::ModbusNetworkController::timeSynchronizatio
 
         // insert synchronization command
         auto command = std::make_shared<oldportal::fc::network::command::NetworkTimeSynchronization>();
-        command->_controller = std::dynamic_pointer_cast<oldportal::fc::network::modbus::ModbusNetworkController>(_network->_controller.lock());
-        assert(command->_controller.get() == this);
         pushCommand(command);
     }
 }//END_982c99b2d25d29e138dc4a91edb623c5

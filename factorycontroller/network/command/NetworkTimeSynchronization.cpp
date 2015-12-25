@@ -45,9 +45,9 @@ oldportal::fc::network::command::NetworkTimeSynchronization::~NetworkTimeSynchro
 }//END_e5b984236a7706eb620d3a695b5e018f
 
 
-void oldportal::fc::network::command::NetworkTimeSynchronization::process()
+void oldportal::fc::network::command::NetworkTimeSynchronization::process(const oldportal::fc::network::modbus::ModbusNetworkController* controller)
 {//BEGIN_ba5a8c22a6c4cc0d2dfa663125379790
-    assert(_controller);
+    assert(controller);
 
     //TODO: synchronize network time command
 }//END_ba5a8c22a6c4cc0d2dfa663125379790

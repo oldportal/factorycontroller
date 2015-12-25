@@ -36,7 +36,6 @@ oldportal::fc::network::command::DeviceStateReport::DeviceStateReport(std::share
 {//BEGIN_7beba502117e9095cf401c036398cc43
     assert(device);
     _device = device;
-    _controller = std::dynamic_pointer_cast<oldportal::fc::network::modbus::ModbusNetworkController>(device->_network.lock()->_controller.lock());
 }//END_7beba502117e9095cf401c036398cc43
 
 
@@ -47,9 +46,9 @@ oldportal::fc::network::command::DeviceStateReport::~DeviceStateReport()
 }//END_d1555c3373090cf5a5b01ddf233ffacc
 
 
-void oldportal::fc::network::command::DeviceStateReport::process()
+void oldportal::fc::network::command::DeviceStateReport::process(const oldportal::fc::network::modbus::ModbusNetworkController* controller)
 {//BEGIN_b9522da80d4b05e42e2b9d9a702ae52d
-    assert(_controller);
+    assert(controller);
 
     //TODO: ping device
 }//END_b9522da80d4b05e42e2b9d9a702ae52d

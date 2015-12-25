@@ -42,9 +42,12 @@ void oldportal::fc::hardware::mechatronics::command::CurveMotion::onProcessed()
     // empty
 }//END_02604cd6a72fde0de5aa4ca4380fa438
 
-void oldportal::fc::hardware::mechatronics::command::CurveMotion::process()
+void oldportal::fc::hardware::mechatronics::command::CurveMotion::process(const oldportal::fc::network::modbus::ModbusNetworkController* controller)
 {//BEGIN_640ed55747407171dde65949e41b13d1
-   assert(_controller);
+    assert(controller);
+    assert(_device);
+    assert(_device_process);
+    //TODO:
 }//END_640ed55747407171dde65949e41b13d1
 
 
