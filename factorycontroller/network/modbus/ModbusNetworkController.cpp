@@ -85,7 +85,7 @@ void oldportal::fc::network::modbus::ModbusNetworkController::closeModbusContext
     }
 }//END_ed62e985906ed4e86994909533a6a0ae
 
-modbus_t* oldportal::fc::network::modbus::ModbusNetworkController::getModbusContext()
+modbus_t* oldportal::fc::network::modbus::ModbusNetworkController::getModbusContext() const
 {//BEGIN_da23bdb87d3f2a0a04861da4574a4bb7
     return _modbus_ctx;
 }//END_da23bdb87d3f2a0a04861da4574a4bb7
@@ -113,6 +113,8 @@ void oldportal::fc::network::modbus::ModbusNetworkController::initModbusSettings
         closeModbusContext();
         return;
     }
+
+    modbus_set_debug(_modbus_ctx, TRUE);
 
     oldportal::fc::system::log::log(u8"oldportal::fc::network::modbus::ModbusNetworkController::initModbusSettings() modbus settings configured");
 }//END_7f08a49315a20577960dfb267297c8d7

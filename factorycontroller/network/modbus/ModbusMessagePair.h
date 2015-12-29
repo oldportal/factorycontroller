@@ -58,9 +58,9 @@ bool _is_response_dynamic_size;
 public:
 bool _is_sent_ok;
 public:
-std::array< uint8_t, 256 > _received_buf;
+std::array< uint8_t, MODBUS_MAX_PDU_LENGTH > _received_buf;
 public:
-std::array< uint8_t, 256 > _send_buf;
+std::array< uint8_t, MODBUS_MAX_PDU_LENGTH > _send_buf;
 
 
 //methods:

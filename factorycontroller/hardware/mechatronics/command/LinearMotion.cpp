@@ -42,7 +42,7 @@ void oldportal::fc::hardware::mechatronics::command::LinearMotion::onProcessed()
     // empty
 }//END_25255f50ef0019f639443262727c6347
 
-void oldportal::fc::hardware::mechatronics::command::LinearMotion::process(const oldportal::fc::network::modbus::ModbusNetworkController* controller)
+void oldportal::fc::hardware::mechatronics::command::LinearMotion::process(oldportal::fc::network::modbus::ModbusNetworkController* const  controller)
 {//BEGIN_5a4ca282f77a69d1fdd39facedaec3a6
     assert(controller);
     assert(_device);

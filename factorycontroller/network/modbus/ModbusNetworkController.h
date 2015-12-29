@@ -86,7 +86,7 @@ protected:
 void closeModbusContext();
 
 public:
-modbus_t* getModbusContext();
+modbus_t* getModbusContext() const;
 
 /**
 1. Init and open Modbus port.
