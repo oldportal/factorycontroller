@@ -46,11 +46,22 @@ oldportal::fc::network::command::DeviceStateReport::~DeviceStateReport()
 }//END_d1555c3373090cf5a5b01ddf233ffacc
 
 
-void oldportal::fc::network::command::DeviceStateReport::process(const oldportal::fc::network::modbus::ModbusNetworkController* controller)
+void oldportal::fc::network::command::DeviceStateReport::process(oldportal::fc::network::modbus::ModbusNetworkController* const  controller)
 {//BEGIN_b9522da80d4b05e42e2b9d9a702ae52d
     assert(controller);
 
+    if (modbus_set_slave(controller->getModbusContext(), _device->_modbus_address) != 0)
+    {
+        oldportal::fc::system::log::error(u8"oldportal::fc::network::command::DeviceStateReport::process() set device address error");
+        oldportal::fc::system::log::error(modbus_strerror(errno));
+        //TODO: increment errors count
+        return;
+    }
+
     //TODO: ping device
+
+    _device->updateLastPing();
+    _device->getLastResponse();
 }//END_b9522da80d4b05e42e2b9d9a702ae52d
 
 

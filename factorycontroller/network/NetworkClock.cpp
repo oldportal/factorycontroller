@@ -47,7 +47,7 @@ NETWORK_TIME oldportal::fc::network::NetworkClock::getCurrentNetworkTime() const
     return difference;
 }//END_900028361f6190d91a17f049b385701e
 
-std::chrono::high_resolution_clock::time_point oldportal::fc::network::NetworkClock::getStartTime()
+std::chrono::high_resolution_clock::time_point oldportal::fc::network::NetworkClock::getStartTime() const
 {//BEGIN_0ddc1cba7d9f96ed91788bbdb91cefb9
     return _network_start_time;
 }//END_0ddc1cba7d9f96ed91788bbdb91cefb9

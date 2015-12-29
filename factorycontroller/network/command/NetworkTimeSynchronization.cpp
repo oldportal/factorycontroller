@@ -45,11 +45,38 @@ oldportal::fc::network::command::NetworkTimeSynchronization::~NetworkTimeSynchro
 }//END_e5b984236a7706eb620d3a695b5e018f
 
 
-void oldportal::fc::network::command::NetworkTimeSynchronization::process(const oldportal::fc::network::modbus::ModbusNetworkController* controller)
+void oldportal::fc::network::command::NetworkTimeSynchronization::process(oldportal::fc::network::modbus::ModbusNetworkController* const  controller)
 {//BEGIN_ba5a8c22a6c4cc0d2dfa663125379790
     assert(controller);
 
-    //TODO: synchronize network time command
+    if (modbus_set_slave(controller->getModbusContext(), MODBUS_BROADCAST_ADDRESS) != 0)
+    {
+        oldportal::fc::system::log::error(u8"oldportal::fc::network::command::NetworkTimeSynchronization::process() set BROADCAST device address error");
+        oldportal::fc::system::log::error(modbus_strerror(errno));
+        //TODO: increment errors count
+        return;
+    }
+
+    // set network time for devices
+    NETWORK_TIME network_time = controller->_network_time.getCurrentNetworkTime();
+
+    uint16_t timer_buf[sizeof(network_time)/2];
+    // network time register address
+    uint16_t addr = 4000;
+
+    // convert network_time to uint16_t Modbus registers
+    MODBUS_SET_INT64_TO_INT16(timer_buf, 0, network_time);
+
+    if (modbus_write_registers(controller->getModbusContext(), addr, 4, timer_buf) != 4)
+    {
+        oldportal::fc::system::log::error(u8"oldportal::fc::network::command::NetworkTimeSynchronization::process() modbus_write_registers() error");
+        oldportal::fc::system::log::error(modbus_strerror(errno));
+        //TODO: increment errors count
+    }
+
+    modbus_flush(controller->getModbusContext());
+
+    // no response for MODBUS_BROADCAST_ADDRESS, return
 }//END_ba5a8c22a6c4cc0d2dfa663125379790
 
 

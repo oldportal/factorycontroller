@@ -62,7 +62,7 @@ NETWORK_TIME getCurrentNetworkTime() const;
 Start time in system time,
 */
 public:
-std::chrono::high_resolution_clock::time_point getStartTime();
+std::chrono::high_resolution_clock::time_point getStartTime() const;
 
 public:
 void init();

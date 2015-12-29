@@ -52,8 +52,6 @@ virtual ~NetworkController();
 // members:
 
 protected:
-oldportal::fc::network::NetworkClock _network_time;
-protected:
 std::queue< std::shared_ptr<oldportal::fc::network::DeviceCommand> > _command_back_queue;
 protected:
 std::queue< std::shared_ptr<oldportal::fc::network::DeviceCommand> > _command_queue;
@@ -62,6 +60,8 @@ Mutex for both command front (to execution) and back queues.
 */
 protected:
 std::recursive_mutex _command_queue_lock;
+public:
+oldportal::fc::network::NetworkClock _network_time;
 public:
 oldportal::fc::network::NetworkErrorStatistics _error_statistics;
 public:

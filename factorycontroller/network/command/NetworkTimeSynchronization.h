@@ -64,7 +64,7 @@ This handler must know about used protocol.
 With Modbus this handler shold process request and response with libmodbus modbus_t context stored in  _modbus_ctx
 */
 public:
-virtual void process(const oldportal::fc::network::modbus::ModbusNetworkController* controller);
+virtual void process(oldportal::fc::network::modbus::ModbusNetworkController* const  controller);
 
 
 
