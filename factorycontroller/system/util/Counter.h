@@ -17,8 +17,8 @@
 *    
 *    Copyright (C) Dmitry Ognyannikov, 2012-2014
 */
-#ifndef H_3dc81caf81b40301be705b80b84db0c2_H
-#define H_3dc81caf81b40301be705b80b84db0c2_H
+#ifndef H_cc4b7da06db87f0cbb6610643f91e08f_H
+#define H_cc4b7da06db87f0cbb6610643f91e08f_H
 
 
 
@@ -34,29 +34,40 @@ namespace oldportal
 {
 namespace fc 
 {
-namespace network 
+namespace system 
+{
+namespace util 
 {
 
-class NetworkErrorStatistics
+class Counter
 {
 // constructors:
 public:
-NetworkErrorStatistics();
+Counter();
 
 
 // members:
 
 private:
-mutable uint64_t _total_error_count;
+std::atomic_uint_fast64_t _counter;
 
 
 //methods:
 
 /**
-Clear counter.
+Reset counter to 0.
 */
 public:
 void clear();
+
+/**
+Get counter value.
+*/
+public:
+uint64_t get() const;
+
+public:
+void increment();
 
 
 
@@ -74,7 +85,8 @@ void clear();
 };
 }// namespace oldportal
 }// namespace fc
-}// namespace network
+}// namespace system
+}// namespace util
 
 
 //BEGIN_USER_SECTION_AFTER_CLASS_DECLARATION
@@ -82,11 +94,11 @@ void clear();
 //END_USER_SECTION_AFTER_CLASS_DECLARATION
 
 
-#endif // H_3dc81caf81b40301be705b80b84db0c2_H
+#endif // H_cc4b7da06db87f0cbb6610643f91e08f_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_3dc81caf81b40301be705b80b84db0c2_INLINES_H
-#define H_3dc81caf81b40301be705b80b84db0c2_INLINES_H
+#ifndef H_cc4b7da06db87f0cbb6610643f91e08f_INLINES_H
+#define H_cc4b7da06db87f0cbb6610643f91e08f_INLINES_H
 
-#endif // H_3dc81caf81b40301be705b80b84db0c2_INLINES_H
+#endif // H_cc4b7da06db87f0cbb6610643f91e08f_INLINES_H
 #endif //OBJECTS_BUILDER_PROJECT_INLINES

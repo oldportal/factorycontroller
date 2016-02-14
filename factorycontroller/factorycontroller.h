@@ -284,7 +284,6 @@ class Network;
 struct NetworkClock;
 class NetworkController;
 class NetworkDevice;
-class NetworkErrorStatistics;
 
 namespace command 
 {
@@ -348,6 +347,7 @@ class LocalStorage;
 }// namespace storage
 namespace util 
 {
+class Counter;
 class StepCounter;
 
 }// namespace util
@@ -385,6 +385,7 @@ class StepCounter;
 #include "factory/cnc/wood/UnfixPartOperation.h"
 #include "factory/handlerobot/HandleRobotExecutor.h"
 #include "factory/handlerobot/MovePartOperation.h"
+#include "system/util/Counter.h"
 #include "system/util/StepCounter.h"
 #include "factory/manufacturing/Factory.h"
 #include "factory/manufacturing/FactoryLoader.h"
@@ -397,7 +398,6 @@ class StepCounter;
 #include "factory/warehouse/StorageManager.h"
 #include "factory/warehouse/StoragePallet.h"
 #include "factory/warehouse/StoragePalletPlace.h"
-#include "network/NetworkErrorStatistics.h"
 #include "network/NetworkDevice.h"
 #include "network/modbus/ModbusDevice.h"
 #include "hardware/HardwareDevice.h"
@@ -508,6 +508,7 @@ namespace fc
 #include "factory/cnc/wood/UnfixPartOperation.h"
 #include "factory/handlerobot/HandleRobotExecutor.h"
 #include "factory/handlerobot/MovePartOperation.h"
+#include "system/util/Counter.h"
 #include "system/util/StepCounter.h"
 #include "factory/manufacturing/Factory.h"
 #include "factory/manufacturing/FactoryLoader.h"
@@ -520,7 +521,6 @@ namespace fc
 #include "factory/warehouse/StorageManager.h"
 #include "factory/warehouse/StoragePallet.h"
 #include "factory/warehouse/StoragePalletPlace.h"
-#include "network/NetworkErrorStatistics.h"
 #include "network/NetworkDevice.h"
 #include "network/modbus/ModbusDevice.h"
 #include "hardware/HardwareDevice.h"

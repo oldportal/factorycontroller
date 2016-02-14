@@ -54,11 +54,23 @@ void oldportal::fc::network::command::DeviceStateReport::process(oldportal::fc::
     {
         oldportal::fc::system::log::error(u8"oldportal::fc::network::command::DeviceStateReport::process() set device address error");
         oldportal::fc::system::log::error(modbus_strerror(errno));
-        //TODO: increment errors count
+
+        // increment error counters
+        controller->_error_statistics.increment();
+        _device->_error_statistics.increment();
+
         return;
     }
 
     //TODO: ping device
+    std::shared_ptr<oldportal::fc::network::modbus::ModbusMessagePair> modbusMessagePair = std::make_shared<oldportal::fc::network::modbus::ModbusMessagePair>();
+    modbusMessagePair->setRequestAddress(_device->_modbus_address);
+    modbusMessagePair->setRequestFunctionCode(FC_MODBUS_FUNC_REPORT_SLAVE_ID);
+    //modbusMessagePair->setRequestLength();
+    //modbusMessagePair->setCRC();
+
+    //TODO: send modbusMessagePair
+    //TODO: receive response
 
     _device->updateLastPing();
     _device->getLastResponse();

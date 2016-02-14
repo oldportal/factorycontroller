@@ -63,7 +63,7 @@ std::recursive_mutex _command_queue_lock;
 public:
 oldportal::fc::network::NetworkClock _network_time;
 public:
-oldportal::fc::network::NetworkErrorStatistics _error_statistics;
+oldportal::fc::system::util::Counter _error_statistics;
 public:
 oldportal::fc::system::util::StepCounter _step_counter;
 public:

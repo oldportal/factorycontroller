@@ -40,6 +40,7 @@ namespace util
 {
 
 class StepCounter
+:  public virtual oldportal::fc::system::util::Counter
 {
 // constructors:
 public:
@@ -47,9 +48,6 @@ StepCounter();
 
 
 // members:
-
-private:
-std::atomic_uint_fast64_t _counter;
 
 
 //methods:
@@ -65,21 +63,6 @@ check counter % divider == add;
 */
 public:
 bool checkDivider(const uint32_t divider, const uint32_t add) const;
-
-/**
-Reset counter to 0.
-*/
-public:
-void clear();
-
-/**
-Get counter value.
-*/
-public:
-uint64_t get() const;
-
-public:
-void increment();
 
 
 

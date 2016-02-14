@@ -85,7 +85,7 @@ std::chrono::high_resolution_clock::time_point _last_response;
 public:
 boost::uuids::uuid _id;
 public:
-oldportal::fc::network::NetworkErrorStatistics _error_statistics;
+oldportal::fc::system::util::Counter _error_statistics;
 public:
 std::u16string _description;
 public:
