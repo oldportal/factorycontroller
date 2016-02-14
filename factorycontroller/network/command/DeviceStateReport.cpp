@@ -63,7 +63,7 @@ void oldportal::fc::network::command::DeviceStateReport::process(oldportal::fc::
     }
 
     //TODO: ping device
-    std::shared_ptr<oldportal::fc::network::modbus::ModbusMessagePair> modbusMessagePair = std::make_shared<oldportal::fc::network::modbus::ModbusMessagePair>();
+    auto modbusMessagePair = std::make_shared<oldportal::fc::network::modbus::ModbusMessagePair>();
     modbusMessagePair->setRequestAddress(_device->_modbus_address);
     modbusMessagePair->setRequestFunctionCode(FC_MODBUS_FUNC_REPORT_SLAVE_ID);
     //modbusMessagePair->setRequestLength();

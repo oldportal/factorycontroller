@@ -48,6 +48,14 @@ ModbusMessagePair();
 
 // members:
 
+protected:
+uint8_t _predicted_response_message_length;
+protected:
+uint8_t _request_message_length;
+protected:
+uint8_t _response_message_length;
+public:
+bool _is_broadcast_message;
 public:
 bool _is_received_ok;
 /**
@@ -58,12 +66,20 @@ bool _is_response_dynamic_size;
 public:
 bool _is_sent_ok;
 public:
-std::array< uint8_t, MODBUS_MAX_PDU_LENGTH > _received_buf;
+std::array< uint8_t, MODBUS_MAX_PDU_LENGTH+1 > _received_buf;
 public:
-std::array< uint8_t, MODBUS_MAX_PDU_LENGTH > _send_buf;
+std::array< uint8_t, MODBUS_MAX_PDU_LENGTH+1 > _send_buf;
 
 
 //methods:
+
+/**
+Calculate CRC ans set it at the end of the message.
+
+message_length - Length of the frame from device address (buffer zero), but without CRC checksum.
+*/
+public:
+void calculate_and_set_CRC(uint8_t message_length);
 
 public:
 bool checkResponseCRC();
@@ -72,14 +88,20 @@ public:
 uint8_t getResponseMessageLength();
 
 public:
-void setCRC(uint8_t message_length);
+void setHardResponseMessageLength(uint8_t message_length);
 
 public:
 void setRequestAddress(uint16_t modbus_address);
 
 public:
-void setRequestFunctionCode(uint8_t function_number);
+void setRequestFunctionCode(uint8_t function_code_number);
 
+public:
+void setRequestFunctionSubcode(uint8_t function_subcode_number);
+
+/**
+Set length of the frame from device address (buffer zero), but without CRC checksum.
+*/
 public:
 void setRequestLength(uint8_t message_length);
 
