@@ -77,8 +77,7 @@ bool oldportal::fc::network::modbus::ModbusMessagePair::checkResponseCRC()
 
 uint8_t oldportal::fc::network::modbus::ModbusMessagePair::getResponseMessageLength()
 {//BEGIN_a3112b12fff85643440f7919f0706a64
-    //TODO: getResponseMessageLength()
-    return _received_buf[1];//temp, check!
+    return _response_message_length;
 }//END_a3112b12fff85643440f7919f0706a64
 
 void oldportal::fc::network::modbus::ModbusMessagePair::setHardResponseMessageLength(uint8_t message_length)
