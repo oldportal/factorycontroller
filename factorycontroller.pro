@@ -112,7 +112,6 @@ SOURCES += main.cpp \
     factorycontroller/network/Network.cpp \
     factorycontroller/network/modbus/ModbusNetworkController.cpp \
     factorycontroller/scheduler/TaskLogMessage.cpp \
-    factorycontroller/network/NetworkErrorStatistics.cpp \
     factorycontroller/network/modbus/ModbusMessageWrapper.cpp \
     factorycontroller/network/modbus/ModbusDeviceCommand.cpp \
     factorycontroller/system/util/StepCounter.cpp \
@@ -137,8 +136,8 @@ SOURCES += main.cpp \
     factorycontroller/hardware/mechatronics/proc/LinearMotion.cpp \
     factorycontroller/hardware/mechatronics/proc/CurveMotion.cpp \
     factorycontroller/hardware/mechatronics/proc/ConstantSpeedMotion.cpp \
-    factorycontroller/hardware/mechatronics/proc/AccelerationMotion.cpp
+    factorycontroller/hardware/mechatronics/proc/AccelerationMotion.cpp \
+    factorycontroller/system/util/Counter.cpp
 
-HEADERS += factorycontroller/factorycontroller.h \ 
-    factorycontroller/hardware/mechatronics/proc/_group_proc.h
+HEADERS += factorycontroller/factorycontroller.h  
 
