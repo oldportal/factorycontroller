@@ -17,8 +17,8 @@
 *    
 *    Copyright (C) Dmitry Ognyannikov, 2012-2014
 */
-#ifndef H_3c4c38701267fd476049629f313437fa_H
-#define H_3c4c38701267fd476049629f313437fa_H
+#ifndef H_a3987fab79caf96c664ca98d3ced20a8_H
+#define H_a3987fab79caf96c664ca98d3ced20a8_H
 
 
 
@@ -28,7 +28,13 @@
 
 
 /**
-The general planned (TODO) command for the network device. Could keep real-time stamp for execution start.
+Network device ID report.
+
+Uses MODBUS_FUNC_REPORT_SLAVE_ID 0x11.
+
+Purposes:
+- Ping device.
+- Read device ID.
 */
 namespace oldportal 
 {
@@ -36,60 +42,33 @@ namespace fc
 {
 namespace network 
 {
+namespace command 
+{
 
-class DeviceCommand
+class DeviceIDReport
+:  public virtual oldportal::fc::network::modbus::ModbusDeviceCommand
 {
 // constructors:
 public:
-DeviceCommand();
+DeviceIDReport(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device);
 
 
 public:
-virtual ~DeviceCommand();
+virtual ~DeviceIDReport();
 
 // members:
-
-protected:
-bool _command_completed;
-protected:
-bool _result_success;
-/**
-System time in milliseconds.
-*/
-public:
-std::chrono::high_resolution_clock::time_point _created;
-/**
-System time in milliseconds.
-*/
-public:
-std::chrono::high_resolution_clock::time_point _last_processed;
-public:
-std::shared_ptr< oldportal::fc::hardware::HardwareDevice > _device;
-public:
-std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > _device_process;
-public:
-std::shared_ptr< oldportal::fc::scheduler::ExecutorInterface > _executor;
-public:
-uint8_t _priority;
 
 
 //methods:
 
-public:
-virtual void clear();
-
-public:
-bool is_command_completed() const;
-
-public:
-bool is_result_success() const;
-
 /**
-Handler.
-Called after command processed. Called in main step thread.
+Process command to device in realtime background thread.
+This handler must know about used protocol.
+
+With Modbus this handler shold process request and response with libmodbus modbus_t context stored in  _modbus_ctx
 */
-protected:
-virtual void onProcessed();
+public:
+virtual void process(oldportal::fc::network::modbus::ModbusNetworkController* const  controller);
 
 
 
@@ -100,7 +79,7 @@ virtual void onProcessed();
 
 
 //BEGIN_USER_SECTION_INSIDE_CLASS_DECLARATION
-friend class oldportal::fc::network::NetworkController;
+
 //END_USER_SECTION_INSIDE_CLASS_DECLARATION
 
 
@@ -108,6 +87,7 @@ friend class oldportal::fc::network::NetworkController;
 }// namespace oldportal
 }// namespace fc
 }// namespace network
+}// namespace command
 
 
 //BEGIN_USER_SECTION_AFTER_CLASS_DECLARATION
@@ -115,11 +95,11 @@ friend class oldportal::fc::network::NetworkController;
 //END_USER_SECTION_AFTER_CLASS_DECLARATION
 
 
-#endif // H_3c4c38701267fd476049629f313437fa_H
+#endif // H_a3987fab79caf96c664ca98d3ced20a8_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_3c4c38701267fd476049629f313437fa_INLINES_H
-#define H_3c4c38701267fd476049629f313437fa_INLINES_H
+#ifndef H_a3987fab79caf96c664ca98d3ced20a8_INLINES_H
+#define H_a3987fab79caf96c664ca98d3ced20a8_INLINES_H
 
-#endif // H_3c4c38701267fd476049629f313437fa_INLINES_H
+#endif // H_a3987fab79caf96c664ca98d3ced20a8_INLINES_H
 #endif //OBJECTS_BUILDER_PROJECT_INLINES

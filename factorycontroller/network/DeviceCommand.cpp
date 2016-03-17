@@ -36,6 +36,9 @@ oldportal::fc::network::DeviceCommand::DeviceCommand()
 {//BEGIN_9a4ba54f2d4c69e1e269ae077d234d34
     // set minimum priority
     _priority = 0;
+    // clear flags
+    _result_success = false;
+    _command_completed = false;
 }//END_9a4ba54f2d4c69e1e269ae077d234d34
 
 
@@ -53,7 +56,20 @@ void oldportal::fc::network::DeviceCommand::clear()
     _executor.reset();
     // set minimum priority
     _priority = 0;
+    // clear flags
+    _result_success = false;
+    _command_completed = false;
 }//END_713376dd3b1f502c6abb2eb2d96053e2
+
+bool oldportal::fc::network::DeviceCommand::is_command_completed() const
+{//BEGIN_4a6cfa8712f3c38808bec8c518e0f74c
+    return _command_completed;
+}//END_4a6cfa8712f3c38808bec8c518e0f74c
+
+bool oldportal::fc::network::DeviceCommand::is_result_success() const
+{//BEGIN_1034bd5939d51ef5c8494ff2b5fffd4e
+    return _result_success;
+}//END_1034bd5939d51ef5c8494ff2b5fffd4e
 
 void oldportal::fc::network::DeviceCommand::onProcessed()
 {//BEGIN_e7f23ec91fe8f785294c8480ad24677c

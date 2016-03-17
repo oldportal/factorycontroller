@@ -137,7 +137,8 @@ SOURCES += main.cpp \
     factorycontroller/hardware/mechatronics/proc/CurveMotion.cpp \
     factorycontroller/hardware/mechatronics/proc/ConstantSpeedMotion.cpp \
     factorycontroller/hardware/mechatronics/proc/AccelerationMotion.cpp \
-    factorycontroller/system/util/Counter.cpp
+    factorycontroller/system/util/Counter.cpp \
+    factorycontroller/network/command/DeviceIDReport.cpp
 
 HEADERS += factorycontroller/factorycontroller.h  
 
