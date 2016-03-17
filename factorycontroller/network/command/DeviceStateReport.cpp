@@ -62,18 +62,30 @@ void oldportal::fc::network::command::DeviceStateReport::process(oldportal::fc::
         return;
     }
 
-    //TODO: ping device
-    auto modbusMessagePair = std::make_shared<oldportal::fc::network::modbus::ModbusMessagePair>();
-    modbusMessagePair->setRequestAddress(_device->_modbus_address);
-    modbusMessagePair->setRequestFunctionCode(FC_MODBUS_FUNC_REPORT_SLAVE_ID);
-    //modbusMessagePair->setRequestLength();
-    //modbusMessagePair->setCRC();
+    // read controller_data (0-8 registers)
+    uint16_t tab_reg[64];
+    // modbus read registers
+    if (modbus_read_registers(controller->getModbusContext(), 0, 8, tab_reg) < 0)
+    {
+        oldportal::fc::system::log::error(u8"oldportal::fc::network::command::DeviceStateReport::process() modbus_read_registers error");
+        oldportal::fc::system::log::error(modbus_strerror(errno));
 
-    //TODO: send modbusMessagePair
-    //TODO: receive response
+        // increment error counters
+        controller->_error_statistics.increment();
+        _device->_error_statistics.increment();
 
+        return;
+    }
+
+    //TODO: read device state structure registers
+    //TODO: parse device state structure registers
+
+    // update device state
     _device->updateLastPing();
-    _device->getLastResponse();
+    _device->updateLastResponse();
+
+    _result_success = true;
+    _command_completed = true;
 }//END_b9522da80d4b05e42e2b9d9a702ae52d
 
 

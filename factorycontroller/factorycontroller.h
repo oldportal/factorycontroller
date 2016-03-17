@@ -287,6 +287,7 @@ class NetworkDevice;
 
 namespace command 
 {
+class DeviceIDReport;
 class DeviceStateReport;
 class NetworkTimeSynchronization;
 
@@ -434,6 +435,7 @@ class StepCounter;
 #include "network/Network.h"
 #include "network/NetworkClock.h"
 #include "network/NetworkController.h"
+#include "network/command/DeviceIDReport.h"
 #include "network/command/DeviceStateReport.h"
 #include "network/command/NetworkTimeSynchronization.h"
 #include "network/command/scheduled/ScheduledCommandRequest.h"
@@ -557,6 +559,7 @@ namespace fc
 #include "network/Network.h"
 #include "network/NetworkClock.h"
 #include "network/NetworkController.h"
+#include "network/command/DeviceIDReport.h"
 #include "network/command/DeviceStateReport.h"
 #include "network/command/NetworkTimeSynchronization.h"
 #include "network/command/scheduled/ScheduledCommandRequest.h"
