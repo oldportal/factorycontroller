@@ -1,0 +1,21 @@
+FactoryController
+
+Floor-level factory/shop automatization control software.
+
+MODBUS realtime network & devices controller. 
+Hi-level task-centric parallel execution scenaries. 
+MRP/ERP integration.
+
+Features
+
+*    MODBUS network controller (default)
+*    Plugable interface for other industrial networks
+*    Set of default devices (reference design)
+*    Task execution scenaries
+*    Workcell-centric parallel task execution
+*    Realime (with preemptive OS kernel)
+
+License
+GNU Library or Lesser General Public License version 3.0 (LGPLv3)
+
+Copyright (C) Dmitry Ognyannikov, 2012-2016
