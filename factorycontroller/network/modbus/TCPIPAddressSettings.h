@@ -1,10 +1,10 @@
 /*
-*    This file is part of factorycontroller.
+*    This file is part of FactoryController project.
 *    
 *    factorycontroller is free software; you can redistribute it and/or modify
 *    it under the terms of the GNU Lesser General Public License as published by
 *    the Free Software Foundation; either version 2 of the License, or
-*    (at your option) any later version.
+*    (at your option) version 3.
 *    
 *    factorycontroller is distributed in the hope that it will be useful,
 *    but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -15,7 +15,8 @@
 *    along with factorycontroller; if not, write to the Free Software
 *    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 *    
-*    Copyright (C) Dmitry Ognyannikov, 2012-2014
+*    Copyright (C) Dmitry Ognyannikov, 2012-2016
+*    dmogn@mail.ru
 */
 #ifndef H_35419d95bb002f341d69cb131c3ac997_H
 #define H_35419d95bb002f341d69cb131c3ac997_H
@@ -58,7 +59,7 @@ Look function modbus_new_tcp_pi in libmodbus documentation for detailed descript
 public:
 std::u16string _network_address;
 /**
-The _service variable is the service name/port number to connect to. To use the default Modbus port use the string "502". On many Unix systems, it’s convenient to use
+The _service variable is the service name/port number to connect to. To use the default Modbus port use the string "502". On many Unix systems, it’s convenient to u
 
 Default value: "1502"
 
