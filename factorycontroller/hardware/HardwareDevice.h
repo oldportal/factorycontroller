@@ -24,12 +24,67 @@
 
 
 //BEGIN_USER_SECTION_BEFORE_CLASS_DECLARATION
+// Controller related constants
 
+#define CONTROLLER_LOG_SIZE 10
+
+#define CONTROLLER_TERMPERATURE_CONTROL_ENABLED
+#define DEFAULT_MAXIMUM_RADIATOR_TEMPERATURE 100
+#define DEFAULT_RADIATOR_TEMPERATURE 0
+
+
+// motor type
+//#define ENABLE_AC_INDUCTION_SERVO
+#define ENABLE_AC_INDUCTION_SIMPLE
+//#define ENABLE_AC_SYNCHRONOUS_SERVO
+//#define ENABLE_STEP_SERVO
+
+//#define STEP_MOTOR_MODE - obsolete
+//#define SERVO_MOTOR_MODE - obsolete
+
+// Common motor settings
+
+// Current in milliamperes per ADC unit of measurement
+#define MOTOR_PHASE_CURRENT_PER_ADC_UNIT 50
+
+#define ENABLE_CONTROLLER_TERMOSENSOR
+#define ENABLE_MOTOR_TERMOSENSOR
+
+/** Maximum allowed motor temperature (in Celsius) */
+#define DEFAULT_MAXIMUM_ALLOWED_MOTOR_TEMPERATURE 80
+/** Maximum allowed motor total current in milliamperes */
+#define DEFAULT_MAXIMUM_ALLOWED_MOTOR_CURRENT 500
+/** Maximum allowed rotor angle speed in steps per second */
+#define DEFAULT_MAXIMUM_ALLOWED_ANGLE_SPEED 5000
+
+#define DEFAULT_MOTOR_TEMPERATURE 0
+
+// Induction motor related settings
+
+#define INDUCTION_MOTOR_PHASE_COUNT 1
+
+// Step motor related settings
+
+// default work phase current in milliamperes
+#define STEP_MOTOR_DEFAULT_PHASE_CURRENT 2000
+
+// keep position phase current in milliamperes
+#define STEP_MOTOR_KEEP_POSITION_PHASE_CURRENT 500
+
+// PWM frequency settings, 8 = 25 KHz
+#define STEP_MOTOR_PWM_PRESCALER 8
+
+#define STEP_MOTOR_DEFAULT_FULL_LOAD_PWM_DURATION 2
+
+#define STEP_MOTOR_DEFAULT_KEEP_POSITION_PWM_DURATION 1
+
+// overload time while full step start in system ticks
+#define STEP_MOTOR_MAX_STEP_ACCELERATION_OVERLOAD_TIME 8
 //END_USER_SECTION_BEFORE_CLASS_DECLARATION
 
 
 /**
-
+ Maximum allowed motor temperature (in Celsius) 
 */
 namespace oldportal 
 {
