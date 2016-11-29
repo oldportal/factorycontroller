@@ -1,22 +1,21 @@
 /*
-*    This file is part of FactoryController project.
-*
+*    This file is part of factorycontroller.
+*    
 *    factorycontroller is free software; you can redistribute it and/or modify
 *    it under the terms of the GNU Lesser General Public License as published by
 *    the Free Software Foundation; either version 2 of the License, or
 *    (at your option) any later version.
-*
+*    
 *    factorycontroller is distributed in the hope that it will be useful,
 *    but WITHOUT ANY WARRANTY; without even the implied warranty of
 *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 *    GNU Lesser General Public License for more details.
-*
+*    
 *    You should have received a copy of the GNU Lesser General Public License
 *    along with factorycontroller; if not, write to the Free Software
 *    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-*
-*    Copyright (C) Dmitry Ognyannikov, 2012-2016
-*    dmogn@mail.ru
+*    
+*    Copyright (C) Dmitry Ognyannikov, 2012-2015
 */
 
 #include "factorycontroller/factorycontroller.h"
@@ -24,6 +23,8 @@
 // command line argument parser
 #include <boost/program_options.hpp>
 #include <boost/program_options/cmdline.hpp>
+
+#include <stdlib.h>
 
 #include <log4cxx/logstring.h>
 #include <log4cxx/basicconfigurator.h>
@@ -43,6 +44,18 @@ void init_logging()
 
     log4cxx::BasicConfigurator::configure();
     //log4cxx::LoggerPtr logger = log4cxx::Logger::getRootLogger();
+}
+
+void factorycontroller_exit_handler(void) {
+    LOG4CXX_INFO(log4cxx::Logger::getRootLogger(), "normal program exit");
+}
+
+void factorycontroller_terminate_handler(void) {
+    LOG4CXX_INFO(log4cxx::Logger::getRootLogger(), "terminate event");
+}
+
+void factorycontroller_unexpected_exception_handler(void) {
+    LOG4CXX_ERROR(log4cxx::Logger::getRootLogger(), "unexpected exception");
 }
 
 int main(int argc, char *argv[])
@@ -74,13 +87,17 @@ int main(int argc, char *argv[])
               options(desc).positional(p).run(), vm);
     boost::program_options::notify(vm);
 
-
     // init log
     init_logging();
 
+    // event handlers
+    atexit(factorycontroller_exit_handler);
+    set_terminate(factorycontroller_terminate_handler);
+    set_unexpected(factorycontroller_unexpected_exception_handler);
+
     // print general program description
     LOG4CXX_INFO(log4cxx::Logger::getRootLogger(), "factorycontroller - Manufacturing Execution System");
-    LOG4CXX_INFO(log4cxx::Logger::getRootLogger(), "Copyright (C) Dmitry Ognyannikov, 2012-2015");
+    LOG4CXX_INFO(log4cxx::Logger::getRootLogger(), "Copyright (C) Dmitry Ognyannikov, 2012-2016");
 
     if (vm.count("help"))
     {

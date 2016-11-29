@@ -67,6 +67,7 @@ namespace mechatronics
 
 
 #include "command/_group_command.h"
+#include "data/_group_data.h"
 #include "proc/_group_proc.h"
 
 
@@ -81,6 +82,7 @@ namespace mechatronics
 //END_USER_SECTION_1
 
 #include "command/_group_command.h"
+#include "data/_group_data.h"
 #include "proc/_group_proc.h"
 
 
