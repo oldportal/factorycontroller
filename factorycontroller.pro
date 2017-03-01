@@ -138,7 +138,35 @@ SOURCES += main.cpp \
     factorycontroller/hardware/mechatronics/proc/ConstantSpeedMotion.cpp \
     factorycontroller/hardware/mechatronics/proc/AccelerationMotion.cpp \
     factorycontroller/system/util/Counter.cpp \
-    factorycontroller/network/command/DeviceIDReport.cpp
+    factory-hardware-emulator/EmulatorApplication.cpp \
+    factory-hardware-emulator/_group_factory-hardware-emulator.cpp \
+    factory-hardware-emulator/device/_group_device.cpp \
+    factory-hardware-emulator/device/Device.cpp \
+    factory-hardware-emulator/hardware/_group_hardware.cpp \
+    factory-hardware-emulator/hardware/HardwareDevice.cpp \
+    factory-hardware-emulator/hardware/mechatronics/_group_mechatronics.cpp \
+    factory-hardware-emulator/hardware/mechatronics/Motor.cpp \
+    factory-hardware-emulator/hardware/mechatronics/MotorModbus.cpp \
+    factory-hardware-emulator/hardware/mechatronics/MotorSettings.cpp \
+    factory-hardware-emulator/hardware/mechatronics/StepMotor.cpp \
+    factory-hardware-emulator/network/_group_network.cpp \
+    factory-hardware-emulator/network/ModbusNetworkController.cpp \
+    factory-hardware-emulator/network/NetworkClock.cpp \
+    factory-hardware-emulator/network/scheduled/_group_scheduled.cpp \
+    factory-hardware-emulator/network/scheduled/ScheduledCommandRequest.cpp \
+    factory-hardware-emulator/network/scheduled/ScheduledCommandResult.cpp \
+    factory-hardware-emulator/network/scheduled/ScheduledDeviceCommandQueue.cpp \
+    factory-hardware-emulator/system/_group_system.cpp \
+    factorycontroller/network/modbus/data/_group_data.cpp \
+    factorycontroller/network/modbus/data/ControllerData.cpp \
+    factorycontroller/network/modbus/data/InterfaceSettings.cpp \
+    factorycontroller/network/modbus/data/ModbusRegistersMapping.cpp \
+    factorycontroller/network/modbus/data/SystemLogReport.cpp \
+    factorycontroller/hardware/mechatronics/data/_group_data.cpp \
+    factorycontroller/hardware/mechatronics/data/StepMotorDriverCalculationConstants.cpp \
+    factorycontroller/hardware/mechatronics/data/StepMotorDriverData.cpp \
+    factorycontroller/hardware/mechatronics/data/StepMotorDriverDataInput.cpp
 
-HEADERS += factorycontroller/factorycontroller.h  
+HEADERS += factorycontroller/factorycontroller.h \ 
+    factory-hardware-emulator/factory-hardware-emulator.h
 

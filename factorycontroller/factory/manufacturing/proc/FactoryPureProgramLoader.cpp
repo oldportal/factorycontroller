@@ -95,6 +95,7 @@ void oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::init
     networkDevice->_id = boost::uuids::random_generator()();
     networkDevice->_description = u"test device";
     networkDevice->_modbus_address = 18;
+    networkDevice->_network = network;
     //TODO: motor properties
     
     network->_devices.push_back(networkDevice);

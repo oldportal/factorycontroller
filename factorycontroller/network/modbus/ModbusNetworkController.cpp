@@ -265,7 +265,7 @@ void oldportal::fc::network::modbus::ModbusNetworkController::pushCommand(std::s
     oldportal::fc::network::NetworkController::pushCommand(command);
 }//END_3663c08fced66ad2a61a9dbc07f868ae
 
-void oldportal::fc::network::modbus::ModbusNetworkController::realtime_run(oldportal::fc::network::modbus::ModbusNetworkController* controller)
+void oldportal::fc::network::modbus::ModbusNetworkController::realtime_run(oldportal::fc::network::modbus::ModbusNetworkController* const  controller)
 {//BEGIN_92de8593a2dab2b10e17272d29b47493
     assert(controller);
     assert(controller->_modbus_ctx);

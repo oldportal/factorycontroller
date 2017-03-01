@@ -32,12 +32,15 @@ OldPortal Factory Controller project.
 
 
 //BEGIN_USER_SECTION_0
+#define FACTORYCONTROLLER_HEADER
+
 // C Standard Libraries
 #include <cstdint>
 
 // diagnostics
 #include <cassert>
 #include <cerrno>
+#include <exception>
 #include <stdexcept>
 
 // C++ Standard Libraries
@@ -133,6 +136,9 @@ OldPortal Factory Controller project.
 //BEGIN_TYPE_DECLARATION_10e882b2ea715e905fcda554861a73bf NETWORK_TIME
 typedef uint64_t NETWORK_TIME;// time interval in milliseconds
 //END_TYPE_DECLARATION_10e882b2ea715e905fcda554861a73bf NETWORK_TIME
+//BEGIN_TYPE_DECLARATION_98eb91d563cc52091f39b953078892a3 modbus_mapping_t
+/* libmodbus mapping */
+//END_TYPE_DECLARATION_98eb91d563cc52091f39b953078892a3 modbus_mapping_t
 //BEGIN_TYPE_DECLARATION_72767107e7694a839e6e9825d968b14f modbus_t
 /* libmodbus context */
 //END_TYPE_DECLARATION_72767107e7694a839e6e9825d968b14f modbus_t
@@ -243,6 +249,13 @@ class LinearMotion;
 class StepMotion;
 
 }// namespace command
+namespace data 
+{
+struct StepMotorDriverCalculationConstants;
+struct StepMotorDriverData;
+struct StepMotorDriverDataInput;
+
+}// namespace data
 namespace proc 
 {
 class AccelerationMotion;
@@ -313,6 +326,14 @@ class ModbusTCPIPNetworkController;
 class SerialPortSettings;
 class TCPIPAddressSettings;
 
+namespace data 
+{
+struct ControllerData;
+class InterfaceSettings;
+class ModbusRegistersMapping;
+class SystemLogReport;
+
+}// namespace data
 }// namespace modbus
 }// namespace network
 namespace scheduler 
@@ -416,6 +437,10 @@ class StepCounter;
 #include "hardware/mechatronics/command/CurveMotion.h"
 #include "hardware/mechatronics/command/LinearMotion.h"
 #include "hardware/mechatronics/command/StepMotion.h"
+#include "network/modbus/data/ModbusRegistersMapping.h"
+#include "hardware/mechatronics/data/StepMotorDriverCalculationConstants.h"
+#include "hardware/mechatronics/data/StepMotorDriverData.h"
+#include "hardware/mechatronics/data/StepMotorDriverDataInput.h"
 #include "hardware/mechatronics/proc/Motion.h"
 #include "hardware/mechatronics/proc/AccelerationMotion.h"
 #include "hardware/mechatronics/proc/ConstantSpeedMotion.h"
@@ -450,6 +475,9 @@ class StepCounter;
 #include "network/modbus/ModbusSerialRTUNetworkController.h"
 #include "network/modbus/TCPIPAddressSettings.h"
 #include "network/modbus/ModbusTCPIPNetworkController.h"
+#include "network/modbus/data/ControllerData.h"
+#include "network/modbus/data/InterfaceSettings.h"
+#include "network/modbus/data/SystemLogReport.h"
 #include "scheduler/LocalConfiguration.h"
 #include "scheduler/Project.h"
 #include "scheduler/ProjectTemplate.h"
@@ -540,6 +568,10 @@ namespace fc
 #include "hardware/mechatronics/command/CurveMotion.h"
 #include "hardware/mechatronics/command/LinearMotion.h"
 #include "hardware/mechatronics/command/StepMotion.h"
+#include "network/modbus/data/ModbusRegistersMapping.h"
+#include "hardware/mechatronics/data/StepMotorDriverCalculationConstants.h"
+#include "hardware/mechatronics/data/StepMotorDriverData.h"
+#include "hardware/mechatronics/data/StepMotorDriverDataInput.h"
 #include "hardware/mechatronics/proc/Motion.h"
 #include "hardware/mechatronics/proc/AccelerationMotion.h"
 #include "hardware/mechatronics/proc/ConstantSpeedMotion.h"
@@ -574,6 +606,9 @@ namespace fc
 #include "network/modbus/ModbusSerialRTUNetworkController.h"
 #include "network/modbus/TCPIPAddressSettings.h"
 #include "network/modbus/ModbusTCPIPNetworkController.h"
+#include "network/modbus/data/ControllerData.h"
+#include "network/modbus/data/InterfaceSettings.h"
+#include "network/modbus/data/SystemLogReport.h"
 #include "scheduler/LocalConfiguration.h"
 #include "scheduler/Project.h"
 #include "scheduler/ProjectTemplate.h"
@@ -589,7 +624,9 @@ namespace fc
 
 
 //BEGIN_USER_SECTION_1
-
+#ifndef FACTORY_HARDWARE_EMULATOR_HEADER
+#include "../factory-hardware-emulator/factory-hardware-emulator.h"
+#endif
 //END_USER_SECTION_1
 
 #endif // H_4908f413ff81a4c0be5d32ee281f9ae6_H

@@ -132,7 +132,7 @@ public:
 virtual void pushCommand(std::shared_ptr< oldportal::fc::network::DeviceCommand > command);
 
 private:
-static void realtime_run(oldportal::fc::network::modbus::ModbusNetworkController* controller);
+static void realtime_run(oldportal::fc::network::modbus::ModbusNetworkController* const  controller);
 
 /**
 Update state.
