@@ -1,5 +1,5 @@
 /*
-*    This file is part of factorycontroller.
+*    This file is part of FactoryController project.
 *    
 *    factorycontroller is free software; you can redistribute it and/or modify
 *    it under the terms of the GNU Lesser General Public License as published by
@@ -15,7 +15,8 @@
 *    along with factorycontroller; if not, write to the Free Software
 *    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 *    
-*    Copyright (C) Dmitry Ognyannikov, 2012-2015
+*    Copyright (C) Dmitry Ognyannikov, 2012-2017
+*    dmogn@mail.ru
 */
 
 #include "factorycontroller/factorycontroller.h"
