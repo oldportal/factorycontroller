@@ -111,7 +111,7 @@ void oldportal::fhe::network::ModbusNetworkController::run(oldportal::fhe::netwo
     assert(controller->_socket != -1);
     assert(!controller->_run_thread_cycle_flag);
 
-    oldportal::fc::system::log::log(u8"oldportal::fhe::network::ModbusNetworkController::run() thread started");
+    LOG4CXX_INFO(logger, "ModbusNetworkController::run() thread started");
 
     if (modbus_tcp_pi_accept(controller->_modbus_ctx, &controller->_socket) == -1)
     {
