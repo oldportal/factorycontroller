@@ -49,6 +49,9 @@ void oldportal::fc::hardware::mechatronics::proc::LinearMotion::start()
     oldportal::fc::hardware::mechatronics::proc::Motion::start();
 
     _hardware_state = HARDWARE_STATE::START;
+    // nothing
+
+    _hardware_state = HARDWARE_STATE::INITIALIZATION;
 
     for (uint32_t i=0; i<_hardware_devices.size(); i++)
     {
@@ -57,6 +60,8 @@ void oldportal::fc::hardware::mechatronics::proc::LinearMotion::start()
         auto pingCommand = std::make_shared<oldportal::fc::network::command::DeviceStateReport>(device);
         device->_network.lock()->_controller.lock()->pushCommand(pingCommand);
     }
+    _hardware_state = HARDWARE_STATE::INITIALIZED;
+    _hardware_initialized = true;
 }//END_84d3ab554b9e52aefa0b7f598c73162f
 
 void oldportal::fc::hardware::mechatronics::proc::LinearMotion::step()
