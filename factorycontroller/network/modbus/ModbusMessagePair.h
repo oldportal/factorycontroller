@@ -186,7 +186,7 @@ processing is completed.
 */
 #define FC_MODBUS_EXCEPTION_CODE_ACKNOWLEDGE 5
 /**
-The slave is engaged in processing a long–dura
+The slave is engaged in processing a long–du
 command. The master should retransmit the message later when the
 slave is free.
 */

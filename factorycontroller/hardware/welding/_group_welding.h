@@ -66,6 +66,9 @@ namespace welding
 }// namespace oldportal
 
 
+#include "command/_group_command.h"
+#include "data/_group_data.h"
+#include "proc/_group_proc.h"
 
 
 
@@ -77,6 +80,10 @@ namespace welding
 //BEGIN_USER_SECTION_1
 
 //END_USER_SECTION_1
+
+#include "command/_group_command.h"
+#include "data/_group_data.h"
+#include "proc/_group_proc.h"
 
 
 #endif // H_7dedced9b748d5f5e2f30b4983657787_INLINES_H

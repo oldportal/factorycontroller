@@ -165,7 +165,20 @@ SOURCES += main.cpp \
     factorycontroller/hardware/mechatronics/data/_group_data.cpp \
     factorycontroller/hardware/mechatronics/data/StepMotorDriverCalculationConstants.cpp \
     factorycontroller/hardware/mechatronics/data/StepMotorDriverData.cpp \
-    factorycontroller/hardware/mechatronics/data/StepMotorDriverDataInput.cpp
+    factorycontroller/hardware/mechatronics/data/StepMotorDriverDataInput.cpp \
+    factorycontroller/hardware/edm/command/_group_command.cpp \
+    factorycontroller/hardware/edm/data/_group_data.cpp \
+    factorycontroller/hardware/edm/proc/_group_proc.cpp \
+    factorycontroller/hardware/metallurgy/command/_group_command.cpp \
+    factorycontroller/hardware/metallurgy/data/_group_data.cpp \
+    factorycontroller/hardware/metallurgy/proc/_group_proc.cpp \
+    factorycontroller/hardware/power/command/_group_command.cpp \
+    factorycontroller/hardware/power/data/_group_data.cpp \
+    factorycontroller/hardware/power/proc/_group_proc.cpp \
+    factorycontroller/hardware/welding/command/_group_command.cpp \
+    factorycontroller/hardware/welding/data/_group_data.cpp \
+    factorycontroller/hardware/welding/proc/_group_proc.cpp
+    
 
 HEADERS += factorycontroller/factorycontroller.h \ 
     factory-hardware-emulator/factory-hardware-emulator.h

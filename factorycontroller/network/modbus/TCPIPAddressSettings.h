@@ -59,7 +59,7 @@ Look function modbus_new_tcp_pi in libmodbus documentation for detailed descript
 public:
 std::u16string _network_address;
 /**
-The _service variable is the service name/port number to connect to. To use the default Modbus port use the string "502". On many Unix systems, it’s conve
+The _service variable is the service name/port number to connect to. To use the default Modbus port use the string "502". On many Unix systems, it’s con
 
 Default value: "1502"
 
