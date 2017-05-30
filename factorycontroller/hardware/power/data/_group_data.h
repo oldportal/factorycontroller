@@ -18,8 +18,8 @@
 *    Copyright (C) Dmitry Ognyannikov, 2012-2016
 *    dmogn@mail.ru
 */
-#ifndef H_4faa8533b7d8b302d36ddf7a9389ec8b_H
-#define H_4faa8533b7d8b302d36ddf7a9389ec8b_H
+#ifndef H_2871a19550ec3a0b28be69ab97fb9cd8_H
+#define H_2871a19550ec3a0b28be69ab97fb9cd8_H
 
 
 
@@ -41,11 +41,14 @@ namespace fc
 {
 namespace hardware 
 {
-namespace edm 
+namespace power 
+{
+namespace data 
 {
 // global variables declaration
 extern log4cxx::LoggerPtr logger;
-}// namespace edm
+}// namespace data
+}// namespace power
 }// namespace hardware
 }// namespace fc
 }// namespace oldportal
@@ -57,35 +60,31 @@ namespace fc
 {
 namespace hardware 
 {
-namespace edm 
+namespace power 
+{
+namespace data 
 {
 // global methods declaration
-}// namespace edm
+}// namespace data
+}// namespace power
 }// namespace hardware
 }// namespace fc
 }// namespace oldportal
 
 
-#include "command/_group_command.h"
-#include "data/_group_data.h"
-#include "proc/_group_proc.h"
 
 
 
-#endif // H_4faa8533b7d8b302d36ddf7a9389ec8b_H
+#endif // H_2871a19550ec3a0b28be69ab97fb9cd8_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_4faa8533b7d8b302d36ddf7a9389ec8b_INLINES_H
-#define H_4faa8533b7d8b302d36ddf7a9389ec8b_INLINES_H
+#ifndef H_2871a19550ec3a0b28be69ab97fb9cd8_INLINES_H
+#define H_2871a19550ec3a0b28be69ab97fb9cd8_INLINES_H
 //BEGIN_USER_SECTION_1
 
 //END_USER_SECTION_1
 
-#include "command/_group_command.h"
-#include "data/_group_data.h"
-#include "proc/_group_proc.h"
 
-
-#endif // H_4faa8533b7d8b302d36ddf7a9389ec8b_INLINES_H
+#endif // H_2871a19550ec3a0b28be69ab97fb9cd8_INLINES_H
 
 #endif //OBJECTS_BUILDER_PROJECT_INLINES

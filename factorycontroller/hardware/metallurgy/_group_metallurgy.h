@@ -66,6 +66,9 @@ namespace metallurgy
 }// namespace oldportal
 
 
+#include "command/_group_command.h"
+#include "data/_group_data.h"
+#include "proc/_group_proc.h"
 
 
 
@@ -77,6 +80,10 @@ namespace metallurgy
 //BEGIN_USER_SECTION_1
 
 //END_USER_SECTION_1
+
+#include "command/_group_command.h"
+#include "data/_group_data.h"
+#include "proc/_group_proc.h"
 
 
 #endif // H_17962d66601e4c5bf03209bf84ba2766_INLINES_H

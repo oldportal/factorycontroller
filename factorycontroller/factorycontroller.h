@@ -233,6 +233,18 @@ namespace edm
 class EDMPowerSource;
 class EDMWorkMode;
 
+namespace command 
+{
+
+}// namespace command
+namespace data 
+{
+
+}// namespace data
+namespace proc 
+{
+
+}// namespace proc
 }// namespace edm
 namespace mechatronics 
 {
@@ -272,6 +284,18 @@ namespace metallurgy
 class InductionHeater;
 class InductionHeaterSettings;
 
+namespace command 
+{
+
+}// namespace command
+namespace data 
+{
+
+}// namespace data
+namespace proc 
+{
+
+}// namespace proc
 }// namespace metallurgy
 namespace power 
 {
@@ -281,6 +305,18 @@ class EnergySource;
 class EnergySourceInterface;
 class PowerBus;
 
+namespace command 
+{
+
+}// namespace command
+namespace data 
+{
+
+}// namespace data
+namespace proc 
+{
+
+}// namespace proc
 }// namespace power
 namespace welding 
 {
@@ -288,6 +324,18 @@ class WeldingPowerSource;
 class WeldingPowerSourceMode;
 class WeldingPowerSourceSettings;
 
+namespace command 
+{
+
+}// namespace command
+namespace data 
+{
+
+}// namespace data
+namespace proc 
+{
+
+}// namespace proc
 }// namespace welding
 }// namespace hardware
 namespace network 

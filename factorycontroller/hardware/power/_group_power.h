@@ -66,6 +66,9 @@ namespace power
 }// namespace oldportal
 
 
+#include "command/_group_command.h"
+#include "data/_group_data.h"
+#include "proc/_group_proc.h"
 
 
 
@@ -77,6 +80,10 @@ namespace power
 //BEGIN_USER_SECTION_1
 
 //END_USER_SECTION_1
+
+#include "command/_group_command.h"
+#include "data/_group_data.h"
+#include "proc/_group_proc.h"
 
 
 #endif // H_d0e59e11d08cc76e9b5f9de163322189_INLINES_H

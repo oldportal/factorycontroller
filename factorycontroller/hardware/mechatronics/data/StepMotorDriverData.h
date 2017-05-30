@@ -51,7 +51,7 @@ typedef enum
 
 
 /**
- Plan angle speed overspeed maximum motor speed
+ Plan angle speed overspeed maximum motor speed 
 */
 namespace oldportal 
 {
