@@ -48,10 +48,10 @@ void oldportal::fc::hardware::mechatronics::proc::LinearMotion::start()
 {//BEGIN_84d3ab554b9e52aefa0b7f598c73162f
     oldportal::fc::hardware::mechatronics::proc::Motion::start();
 
-    _hardware_state = HARDWARE_STATE::START;
+    _process_state = PROCESS_STATE::START;
     // nothing
 
-    _hardware_state = HARDWARE_STATE::INITIALIZATION;
+    _process_state = PROCESS_STATE::INITIALIZATION;
 
     for (uint32_t i=0; i<_hardware_devices.size(); i++)
     {
@@ -60,7 +60,8 @@ void oldportal::fc::hardware::mechatronics::proc::LinearMotion::start()
         auto pingCommand = std::make_shared<oldportal::fc::network::command::DeviceStateReport>(device);
         device->_network.lock()->_controller.lock()->pushCommand(pingCommand);
     }
-    _hardware_state = HARDWARE_STATE::INITIALIZED;
+    _process_state = PROCESS_STATE::INITIALIZED;
+
     _hardware_initialized = true;
 }//END_84d3ab554b9e52aefa0b7f598c73162f
 
@@ -68,34 +69,37 @@ void oldportal::fc::hardware::mechatronics::proc::LinearMotion::step()
 {//BEGIN_9f3fb12afa693ca925a2a5dab2ad5102
     oldportal::fc::hardware::HardwareDeviceProcess::step();
 
-    switch (_hardware_state)
+    switch (_process_state)
     {
-        case HARDWARE_STATE::START:
+        case PROCESS_STATE::START:
             break;
-        case HARDWARE_STATE::INITIALIZATION:
+        case PROCESS_STATE::INITIALIZATION:
             break;
-        case HARDWARE_STATE::INITIALIZED:
+        case PROCESS_STATE::INITIALIZED:
             break;
-        case HARDWARE_STATE::PROCESS:
+        case PROCESS_STATE::PROCESS:
             break;
-        case HARDWARE_STATE::PROCESSED:
+        case PROCESS_STATE::PROCESSED:
             break;
-        case HARDWARE_STATE::CANCELED:
+        case PROCESS_STATE::CANCELED:
             break;
-        case HARDWARE_STATE::FAILURED:
+        case PROCESS_STATE::FAILURED:
             break;
         default:
-        ;
+        LOG4CXX_ERROR(logger, "unknown process state");
     }
 
     // is hardware initialized?
     if (!is_hardware_initialized())
     {
-        //TODO: initialize hardware
+        // error: hardware should be initialized with start() call first.
+        LOG4CXX_ERROR(logger, "hardware should be initialized with start() call first");
     }
 
     //TODO: is hardware switched to command mode?
     //TODO: estimate next hardware check
+    //NETWORK_TIME next_time_check = 0;
+
     //TODO: check and correct harware
     //TODO: process process (task) end
 }//END_9f3fb12afa693ca925a2a5dab2ad5102

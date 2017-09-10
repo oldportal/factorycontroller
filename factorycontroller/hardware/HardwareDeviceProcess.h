@@ -124,7 +124,13 @@ virtual void step();
 
 //BEGIN_USER_SECTION_INSIDE_CLASS_DECLARATION
 public:
-enum HARDWARE_STATE {
+
+/**
+ * @brief The PROCESS_STATE enum
+ *
+ * Phase of the process execution (state machine).
+ */
+enum PROCESS_STATE {
     START,
     INITIALIZATION,
     INITIALIZED,
@@ -134,7 +140,14 @@ enum HARDWARE_STATE {
     FAILURED
 };
 
-HARDWARE_STATE _hardware_state;
+/**
+ * @brief _process_state
+ *
+ * Track process state in hardware or software.
+ * If process execution is driven by hardware controller - then this field value should be received from hardware state.
+ * If process execution is driven by software - then this field value should be updated by software.
+ */
+PROCESS_STATE _process_state;
 //END_USER_SECTION_INSIDE_CLASS_DECLARATION
 
 
