@@ -35,7 +35,7 @@
 oldportal::fc::hardware::HardwareDeviceProcess::HardwareDeviceProcess()
 
 {//BEGIN_1a1b39c98ef1e25edf61bdde8f3f5ab1
-    _hardware_state = HARDWARE_STATE::START;
+    _process_state = PROCESS_STATE::START;
     _hardware_initialized = false;
 }//END_1a1b39c98ef1e25edf61bdde8f3f5ab1
 
