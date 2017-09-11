@@ -65,6 +65,8 @@ System time in milliseconds.
 public:
 std::chrono::high_resolution_clock::time_point _last_processed;
 public:
+std::function< void(oldportal::fc::network::DeviceCommand * const, oldportal::fc::network::NetworkController * const) > _on_command_completed;
+public:
 std::shared_ptr< oldportal::fc::hardware::HardwareDevice > _device;
 public:
 std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > _device_process;

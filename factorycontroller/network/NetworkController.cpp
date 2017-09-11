@@ -77,8 +77,14 @@ void oldportal::fc::network::NetworkController::step()
             _command_back_queue.pop();
         }
 
+        LOG4CXX_DEBUG(logger, "post-process hardware command " << command.get());
+
         // after-process command step
         command->onProcessed();
+
+        command->_command_completed = true;
+        if (command->_on_command_completed)
+            command->_on_command_completed(command.get(), this);
 
         // clear command for avoid memory leaks:
         command->clear();
