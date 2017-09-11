@@ -55,7 +55,7 @@ void oldportal::fc::hardware::mechatronics::proc::LinearMotion::start()
 
     for (uint32_t i=0; i<_hardware_devices.size(); i++)
     {
-        assert(!_hardware_devices[i].expired());
+        assert(!_hardware_devices[i].expired() && "unvalid pointer to device");
         auto device = _hardware_devices[i].lock();
         auto pingCommand = std::make_shared<oldportal::fc::network::command::DeviceStateReport>(device);
         device->_network.lock()->_controller.lock()->pushCommand(pingCommand);
@@ -69,6 +69,7 @@ void oldportal::fc::hardware::mechatronics::proc::LinearMotion::step()
 {//BEGIN_9f3fb12afa693ca925a2a5dab2ad5102
     oldportal::fc::hardware::HardwareDeviceProcess::step();
 
+    // state-machine phase actions:
     switch (_process_state)
     {
         case PROCESS_STATE::START:
@@ -97,11 +98,19 @@ void oldportal::fc::hardware::mechatronics::proc::LinearMotion::step()
     }
 
     //TODO: is hardware switched to command mode?
-    //TODO: estimate next hardware check
-    //NETWORK_TIME next_time_check = 0;
 
+    //TODO: estimate next hardware check
     //TODO: check and correct harware
-    //TODO: process process (task) end
+    for (uint32_t i=0; i<_hardware_devices.size(); i++)
+    {
+        assert(!_hardware_devices[i].expired() && "unvalid pointer to device");
+        auto device = _hardware_devices[i].lock();
+        //auto pingCommand = std::make_shared<oldportal::fc::network::command::DeviceStateReport>(device);
+        //device->_network.lock()->_controller.lock()->pushCommand(pingCommand);
+    }
+
+    //TODO: detect & process process end
+    //TODO: callback task for detect & process task end
 }//END_9f3fb12afa693ca925a2a5dab2ad5102
 
 
