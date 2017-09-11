@@ -210,6 +210,7 @@ void oldportal::fc::network::modbus::ModbusNetworkController::processDeviceComma
     {
         // process request->response
         modbus_command->process(this);
+        modbus_command->_last_processed = std::chrono::high_resolution_clock::now();
 
         // update device last response time
         if (modbus_command->_device)
@@ -272,10 +273,12 @@ void oldportal::fc::network::modbus::ModbusNetworkController::realtime_run(oldpo
 
     if (controller->_modbus_ctx == nullptr)
     {
-        //TODO: report error as error status
-        oldportal::fc::system::log::error(u8"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() ERROR - serial port is not opened, thread stopping...");
+        // report error as error status
+        LOG4CXX_ERROR(logger, "realtime_run() ERROR - Modbus context error: " << modbus_strerror(errno));
+        LOG4CXX_ERROR(logger, "realtime_run() ERROR - Modbus context is not opened, thread stopping...");
 
-        //TODO: add error to statistics
+        // add error to statistics
+        controller->_error_statistics.increment();
 
         return;
     }
@@ -310,11 +313,11 @@ void oldportal::fc::network::modbus::ModbusNetworkController::realtime_run(oldpo
         if (controller->_close_interrupted_flag)
         {
             // default thread exit
-            oldportal::fc::system::log::log(u8"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() thread stopping...");
+            LOG4CXX_INFO(logger, "realtime_run() thread stopping...");
             controller->_run_thread_cycle_flag = false;
             controller->closeModbusContext();
             controller->_realtime_thread.reset();
-            oldportal::fc::system::log::log(u8"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() thread stopped");
+            LOG4CXX_INFO(logger, "realtime_run() thread stopped");
             return;
         }
 
@@ -324,10 +327,11 @@ void oldportal::fc::network::modbus::ModbusNetworkController::realtime_run(oldpo
     }
 
     // unexpected exit, the threas should exit with controller->_close_interrupted_flag = true
+    LOG4CXX_ERROR(logger, "realtime_run() thread unexpected exit, the threas should exit with controller->_close_interrupted_flag = true");
     controller->closeModbusContext();
     controller->_realtime_thread.reset();
 
-    oldportal::fc::system::log::log(u8"oldportal::fc::network::modbus::ModbusNetworkController::realtime_run() thread stopped");
+    LOG4CXX_INFO(logger, "realtime_run() thread stopped");
 }//END_92de8593a2dab2b10e17272d29b47493
 
 void oldportal::fc::network::modbus::ModbusNetworkController::step()

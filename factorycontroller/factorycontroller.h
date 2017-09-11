@@ -56,6 +56,7 @@ OldPortal Factory Controller project.
 #include <chrono>
 #include <limits>
 #include <typeinfo>
+#include <functional>
 
 // Boost
 #include <boost/date_time/posix_time/posix_time.hpp>
@@ -66,6 +67,8 @@ OldPortal Factory Controller project.
 
 #include <boost/uuid/uuid.hpp>
 #include <boost/uuid/uuid_generators.hpp>
+
+#include <boost/format.hpp>
 
 // Third party libraries
 #include <modbus/modbus.h>
