@@ -33,23 +33,27 @@
 
 
 oldportal::fc::hardware::mechatronics::command::StepMotion::~StepMotion()
-{//BEGIN_ac02cdcf28c219da19e50d05ba0e28ae
+{//BEGIN_14479bc6cabf11039aad4199e79fc4f3
 
-}//END_ac02cdcf28c219da19e50d05ba0e28ae
+}//END_14479bc6cabf11039aad4199e79fc4f3
 
 
 void oldportal::fc::hardware::mechatronics::command::StepMotion::onProcessed()
-{//BEGIN_2820fe92dee8fa9179a0f3326e6d0fc7
+{//BEGIN_672e70a7205f5de2d78edda67ad10174
     // empty
-}//END_2820fe92dee8fa9179a0f3326e6d0fc7
+}//END_672e70a7205f5de2d78edda67ad10174
 
 void oldportal::fc::hardware::mechatronics::command::StepMotion::process(oldportal::fc::network::modbus::ModbusNetworkController* const  controller)
-{//BEGIN_4e3507a92ef4831d96535832e77d1c87
+{//BEGIN_ce66d4c0b634215137cdb5fe36caf9ce
     assert(controller);
     assert(_device);
     assert(_device_process);
+
+    auto motorDevice = std::dynamic_pointer_cast<oldportal::fc::hardware::mechatronics::Motor>(_device);
+    assert (motorDevice);
+
     //TODO:
-}//END_4e3507a92ef4831d96535832e77d1c87
+}//END_ce66d4c0b634215137cdb5fe36caf9ce
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE

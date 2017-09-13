@@ -45,6 +45,13 @@ void oldportal::fc::hardware::mechatronics::command::AccelerationMotion::onProce
 
 void oldportal::fc::hardware::mechatronics::command::AccelerationMotion::process(oldportal::fc::network::modbus::ModbusNetworkController* const  controller)
 {//BEGIN_3cf4c714d2918c3ad2d6767fdb99c855
+    assert(controller);
+    assert(_device);
+    assert(_device_process);
+
+    auto motorDevice = std::dynamic_pointer_cast<oldportal::fc::hardware::mechatronics::Motor>(_device);
+    assert (motorDevice);
+
     //TODO:
 }//END_3cf4c714d2918c3ad2d6767fdb99c855
 
