@@ -52,6 +52,9 @@ LinearMotion();
 
 // members:
 
+private:
+float _speed;
+
 
 //methods:
 

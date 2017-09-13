@@ -46,12 +46,17 @@ class LinearMotion
 :  public virtual oldportal::fc::network::modbus::ModbusDeviceCommand
 {
 // constructors:
+public:
+LinearMotion(std::shared_ptr< oldportal::fc::network::NetworkDevice > device, float speed);
 
 
 public:
 virtual ~LinearMotion();
 
 // members:
+
+private:
+float _speed;
 
 
 //methods:

@@ -52,6 +52,9 @@ ConstantSpeedMotion();
 
 // members:
 
+private:
+float _speed;
+
 
 //methods:
 

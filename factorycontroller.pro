@@ -177,7 +177,9 @@ SOURCES += main.cpp \
     factorycontroller/hardware/power/proc/_group_proc.cpp \
     factorycontroller/hardware/welding/command/_group_command.cpp \
     factorycontroller/hardware/welding/data/_group_data.cpp \
-    factorycontroller/hardware/welding/proc/_group_proc.cpp
+    factorycontroller/hardware/welding/proc/_group_proc.cpp \
+    factorycontroller/hardware/mechatronics/command/GetMotionState.cpp \
+    factorycontroller/hardware/mechatronics/command/StopMotion.cpp
     
 
 HEADERS += factorycontroller/factorycontroller.h \ 

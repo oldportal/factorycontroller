@@ -48,6 +48,10 @@ void oldportal::fc::hardware::mechatronics::command::ConstantSpeedMotion::proces
     assert(controller);
     assert(_device);
     assert(_device_process);
+
+    auto motorDevice = std::dynamic_pointer_cast<oldportal::fc::hardware::mechatronics::Motor>(_device);
+    assert (motorDevice);
+
     //TODO:
 }//END_6ba632926a4f56dbcfbb09ec0b514ef0
 

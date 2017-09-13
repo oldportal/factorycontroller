@@ -57,10 +57,24 @@ void oldportal::fc::hardware::mechatronics::proc::LinearMotion::start()
     {
         assert(!_hardware_devices[i].expired() && "unvalid pointer to device");
         auto device = _hardware_devices[i].lock();
+        // check - is device active?
+        auto lastResponse = device->getLastResponse();
+        // TODO: check interval for timeout
+
+        // update device state
         auto pingCommand = std::make_shared<oldportal::fc::network::command::DeviceStateReport>(device);
         device->_network.lock()->_controller.lock()->pushCommand(pingCommand);
     }
     _process_state = PROCESS_STATE::INITIALIZED;
+
+    for (uint32_t i=0; i<_hardware_devices.size(); i++)
+    {
+        assert(!_hardware_devices[i].expired() && "unvalid pointer to device");
+        auto device = _hardware_devices[i].lock();
+        // init device
+        auto command = std::make_shared<oldportal::fc::hardware::mechatronics::command::LinearMotion>(device, _speed);
+        device->_network.lock()->_controller.lock()->pushCommand(command);
+    }
 
     _hardware_initialized = true;
 }//END_84d3ab554b9e52aefa0b7f598c73162f

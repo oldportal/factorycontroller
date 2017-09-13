@@ -260,8 +260,10 @@ namespace command
 class AccelerationMotion;
 class ConstantSpeedMotion;
 class CurveMotion;
+class GetMotionState;
 class LinearMotion;
 class StepMotion;
+class StopMotion;
 
 }// namespace command
 namespace data 
@@ -486,8 +488,10 @@ class StepCounter;
 #include "hardware/mechatronics/command/AccelerationMotion.h"
 #include "hardware/mechatronics/command/ConstantSpeedMotion.h"
 #include "hardware/mechatronics/command/CurveMotion.h"
+#include "hardware/mechatronics/command/GetMotionState.h"
 #include "hardware/mechatronics/command/LinearMotion.h"
 #include "hardware/mechatronics/command/StepMotion.h"
+#include "hardware/mechatronics/command/StopMotion.h"
 #include "network/modbus/data/ModbusRegistersMapping.h"
 #include "hardware/mechatronics/data/StepMotorDriverCalculationConstants.h"
 #include "hardware/mechatronics/data/StepMotorDriverData.h"
@@ -617,8 +621,10 @@ namespace fc
 #include "hardware/mechatronics/command/AccelerationMotion.h"
 #include "hardware/mechatronics/command/ConstantSpeedMotion.h"
 #include "hardware/mechatronics/command/CurveMotion.h"
+#include "hardware/mechatronics/command/GetMotionState.h"
 #include "hardware/mechatronics/command/LinearMotion.h"
 #include "hardware/mechatronics/command/StepMotion.h"
+#include "hardware/mechatronics/command/StopMotion.h"
 #include "network/modbus/data/ModbusRegistersMapping.h"
 #include "hardware/mechatronics/data/StepMotorDriverCalculationConstants.h"
 #include "hardware/mechatronics/data/StepMotorDriverData.h"

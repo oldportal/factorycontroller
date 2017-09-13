@@ -18,8 +18,8 @@
 *    Copyright (C) Dmitry Ognyannikov, 2012-2016
 *    dmogn@mail.ru
 */
-#ifndef H_f5f32a6d6e4aa04d51bdb9d16897eb00_H
-#define H_f5f32a6d6e4aa04d51bdb9d16897eb00_H
+#ifndef H_4f30cd8c5f3bd8e696944eb6d2bbd467_H
+#define H_4f30cd8c5f3bd8e696944eb6d2bbd467_H
 
 
 
@@ -98,11 +98,11 @@ virtual void process(oldportal::fc::network::modbus::ModbusNetworkController* co
 //END_USER_SECTION_AFTER_CLASS_DECLARATION
 
 
-#endif // H_f5f32a6d6e4aa04d51bdb9d16897eb00_H
+#endif // H_4f30cd8c5f3bd8e696944eb6d2bbd467_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_f5f32a6d6e4aa04d51bdb9d16897eb00_INLINES_H
-#define H_f5f32a6d6e4aa04d51bdb9d16897eb00_INLINES_H
+#ifndef H_4f30cd8c5f3bd8e696944eb6d2bbd467_INLINES_H
+#define H_4f30cd8c5f3bd8e696944eb6d2bbd467_INLINES_H
 
-#endif // H_f5f32a6d6e4aa04d51bdb9d16897eb00_INLINES_H
+#endif // H_4f30cd8c5f3bd8e696944eb6d2bbd467_INLINES_H
 #endif //OBJECTS_BUILDER_PROJECT_INLINES
