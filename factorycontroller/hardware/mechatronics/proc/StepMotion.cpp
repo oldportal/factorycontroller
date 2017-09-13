@@ -47,6 +47,8 @@ void oldportal::fc::hardware::mechatronics::proc::StepMotion::onProcessed()
 void oldportal::fc::hardware::mechatronics::proc::StepMotion::start()
 {//BEGIN_c4c9496a37517a7ce742c67a058eaefd
     oldportal::fc::hardware::mechatronics::proc::Motion::start();
+
+    LOG4CXX_DEBUG(logger, "Process StepMotion start() call");
 }//END_c4c9496a37517a7ce742c67a058eaefd
 
 void oldportal::fc::hardware::mechatronics::proc::StepMotion::step()

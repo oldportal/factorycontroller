@@ -47,6 +47,8 @@ void oldportal::fc::hardware::mechatronics::proc::ConstantSpeedMotion::onProcess
 void oldportal::fc::hardware::mechatronics::proc::ConstantSpeedMotion::start()
 {//BEGIN_17a13889d94b63d574b39913db6e8be9
     oldportal::fc::hardware::mechatronics::proc::Motion::start();
+
+    LOG4CXX_DEBUG(logger, "Process ConstantSpeedMotion start() call");
 }//END_17a13889d94b63d574b39913db6e8be9
 
 void oldportal::fc::hardware::mechatronics::proc::ConstantSpeedMotion::step()

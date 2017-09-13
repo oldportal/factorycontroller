@@ -47,6 +47,8 @@ void oldportal::fc::hardware::mechatronics::proc::AccelerationMotion::onProcesse
 void oldportal::fc::hardware::mechatronics::proc::AccelerationMotion::start()
 {//BEGIN_aa1a6c3e08aa519f6eb7ea62ec98ee7b
     oldportal::fc::hardware::mechatronics::proc::Motion::start();
+
+    LOG4CXX_DEBUG(logger, "Process AccelerationMotion start() call");
 }//END_aa1a6c3e08aa519f6eb7ea62ec98ee7b
 
 void oldportal::fc::hardware::mechatronics::proc::AccelerationMotion::step()
