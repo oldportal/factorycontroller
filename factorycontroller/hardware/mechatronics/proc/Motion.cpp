@@ -54,6 +54,8 @@ void oldportal::fc::hardware::mechatronics::proc::Motion::onProcessed()
 void oldportal::fc::hardware::mechatronics::proc::Motion::start()
 {//BEGIN_93a5e4b99ae59243f42dd56ed406a586
     oldportal::fc::hardware::HardwareDeviceProcess::start();
+
+    LOG4CXX_DEBUG(logger, "Process Motion start() call");
 }//END_93a5e4b99ae59243f42dd56ed406a586
 
 

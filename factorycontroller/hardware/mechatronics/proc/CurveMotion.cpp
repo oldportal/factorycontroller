@@ -47,6 +47,8 @@ void oldportal::fc::hardware::mechatronics::proc::CurveMotion::onProcessed()
 void oldportal::fc::hardware::mechatronics::proc::CurveMotion::start()
 {//BEGIN_3a38be042fe7ee827916d7f7300734a8
     oldportal::fc::hardware::mechatronics::proc::Motion::start();
+
+    LOG4CXX_DEBUG(logger, "Process CurveMotion start() call");
 }//END_3a38be042fe7ee827916d7f7300734a8
 
 void oldportal::fc::hardware::mechatronics::proc::CurveMotion::step()

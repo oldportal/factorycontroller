@@ -48,6 +48,8 @@ void oldportal::fc::hardware::mechatronics::proc::LinearMotion::start()
 {//BEGIN_84d3ab554b9e52aefa0b7f598c73162f
     oldportal::fc::hardware::mechatronics::proc::Motion::start();
 
+    LOG4CXX_DEBUG(logger, "Process LinearMotion start() call, speed: " << _speed);
+
     _process_state = PROCESS_STATE::START;
     // nothing
 
