@@ -32,6 +32,12 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+std::string oldportal::fc::network::Network::toString()
+{//BEGIN_69de8a8b22ede8fa53fd6d91702f6849
+    return (boost::format("Network [ id: %i, _name: %s ]") % _id % oldportal::fc::system::util::utf16_to_utf8(_name)).str();
+}//END_69de8a8b22ede8fa53fd6d91702f6849
+
+
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
 
 //END_USER_SECTION_AFTER_GENERATED_CODE

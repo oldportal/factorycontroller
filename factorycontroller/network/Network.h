@@ -59,6 +59,10 @@ std::weak_ptr< oldportal::fc::network::NetworkController > _controller;
 
 //methods:
 
+public:
+virtual std::string toString();
+
+
 
 //child groups:
 

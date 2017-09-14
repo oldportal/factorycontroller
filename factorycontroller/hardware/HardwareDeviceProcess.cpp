@@ -55,9 +55,10 @@ void oldportal::fc::hardware::HardwareDeviceProcess::attach_device(std::weak_ptr
     for (int i=0; i<_hardware_devices.size(); i++)
     {
         assert(!_hardware_devices[i].expired());
-        if (_hardware_devices[i].lock() ==  hardware_device.lock())
+        auto device = _hardware_devices[i].lock();
+        if (device ==  hardware_device.lock())
         {
-            LOG4CXX_WARN(logger, std::string("Attach second instance of hardware_device"));
+            LOG4CXX_WARN(logger, "Attach second instance of hardware_device: " << device->toString());
             return;
         }
     }
@@ -80,6 +81,7 @@ void oldportal::fc::hardware::HardwareDeviceProcess::detach_devices()
     _hardware_devices.clear();
     _hardware_initialized = false;
 }//END_3040b7242dcdfa439c3538de2c0e23d9
+
 
 std::vector< std::weak_ptr< oldportal::fc::hardware::HardwareDevice > > oldportal::fc::hardware::HardwareDeviceProcess::get_hardware_devices()
 {//BEGIN_9adf7ce9fd924a3ef85250510dadd0c8
@@ -107,6 +109,11 @@ void oldportal::fc::hardware::HardwareDeviceProcess::step()
     // test device pointers
     for (int i=0; i<_hardware_devices.size(); i++) { assert(!_hardware_devices[i].expired()); }
 }//END_2a4d38af823396497afce24a0a88f964
+
+std::string oldportal::fc::hardware::HardwareDeviceProcess::toString()
+{//BEGIN_d6b3bb9dc86a5256a42cb3dc363e899f
+    return (boost::format("HardwareDeviceProcess [ devices count: %i, state: %s ]") % _hardware_devices.size() % _process_state).str();
+}//END_d6b3bb9dc86a5256a42cb3dc363e899f
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
