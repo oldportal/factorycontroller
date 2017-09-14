@@ -89,6 +89,12 @@ virtual void attach_devices(std::vector< std::weak_ptr< oldportal::fc::hardware:
 public:
 virtual void detach_devices();
 
+/**
+Emergency/safety stop process execution on the hardware,
+*/
+public:
+virtual void forceStop() = 0;
+
 public:
 std::vector< std::weak_ptr< oldportal::fc::hardware::HardwareDevice > > get_hardware_devices();
 
@@ -113,6 +119,9 @@ Logic processes step.
 */
 public:
 virtual void step();
+
+public:
+virtual std::string toString();
 
 
 

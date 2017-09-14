@@ -82,6 +82,9 @@ public:
 virtual void step() = 0;
 
 public:
+virtual std::string toString();
+
+public:
 void updateLastPing();
 
 public:

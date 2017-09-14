@@ -121,8 +121,8 @@ void oldportal::fc::hardware::mechatronics::proc::LinearMotion::step()
     {
         assert(!_hardware_devices[i].expired() && "unvalid pointer to device");
         auto device = _hardware_devices[i].lock();
-        //auto pingCommand = std::make_shared<oldportal::fc::network::command::DeviceStateReport>(device);
-        //device->_network.lock()->_controller.lock()->pushCommand(pingCommand);
+        //auto getMotionCommand = std::make_shared<oldportal::fc::hardware::mechatronics::command::GetMotionState>(device);
+        //device->_network.lock()->_controller.lock()->pushCommand(getMotionCommand);
     }
 
     //TODO: detect & process process end

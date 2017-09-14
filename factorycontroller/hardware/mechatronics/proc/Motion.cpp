@@ -46,6 +46,11 @@ oldportal::fc::hardware::mechatronics::proc::Motion::~Motion()
 }//END_986c1c1c2cba4b6e55600094ee0e76f5
 
 
+void oldportal::fc::hardware::mechatronics::proc::Motion::forceStop()
+{//BEGIN_37593e8ee68671d0b80f833a9a360e98
+    //TODO: forceStop()
+}//END_37593e8ee68671d0b80f833a9a360e98
+
 void oldportal::fc::hardware::mechatronics::proc::Motion::onProcessed()
 {//BEGIN_830a5b07fab3e79d3bc11703e3ec23b8
     // empty

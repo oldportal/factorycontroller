@@ -59,6 +59,12 @@ virtual ~Motion();
 //methods:
 
 /**
+Emergency/safety stop process execution on the hardware,
+*/
+public:
+virtual void forceStop();
+
+/**
 Called after task processed. For handle device parking, switch to sleep mode, etc.
 */
 protected:
