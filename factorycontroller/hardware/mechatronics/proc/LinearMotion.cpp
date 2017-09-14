@@ -89,6 +89,7 @@ void oldportal::fc::hardware::mechatronics::proc::LinearMotion::step()
     switch (_process_state)
     {
         case PROCESS_STATE::START:
+            // nothing
             break;
         case PROCESS_STATE::INITIALIZATION:
             break;
@@ -97,10 +98,16 @@ void oldportal::fc::hardware::mechatronics::proc::LinearMotion::step()
         case PROCESS_STATE::PROCESS:
             break;
         case PROCESS_STATE::PROCESSED:
+            // nothing
+            return;
             break;
         case PROCESS_STATE::CANCELED:
+            // nothing
+            return;
             break;
         case PROCESS_STATE::FAILURED:
+            // nothing
+            return;
             break;
         default:
         LOG4CXX_ERROR(logger, "unknown process state");
