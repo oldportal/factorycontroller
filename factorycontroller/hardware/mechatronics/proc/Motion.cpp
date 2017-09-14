@@ -48,7 +48,17 @@ oldportal::fc::hardware::mechatronics::proc::Motion::~Motion()
 
 void oldportal::fc::hardware::mechatronics::proc::Motion::forceStop()
 {//BEGIN_37593e8ee68671d0b80f833a9a360e98
-    //TODO: forceStop()
+    // stop any mechanical motion on devices
+    for (uint32_t i=0; i<_hardware_devices.size(); i++)
+    {
+        assert(!_hardware_devices[i].expired() && "unvalid pointer to device");
+        auto device = _hardware_devices[i].lock();
+        // stop device
+        auto command = std::make_shared<oldportal::fc::hardware::mechatronics::command::StopMotion>(device);
+        device->_network.lock()->_controller.lock()->pushCommand(command);
+    }
+    // the process is canceled by software call
+    _process_state = PROCESS_STATE::CANCELED;
 }//END_37593e8ee68671d0b80f833a9a360e98
 
 void oldportal::fc::hardware::mechatronics::proc::Motion::onProcessed()
