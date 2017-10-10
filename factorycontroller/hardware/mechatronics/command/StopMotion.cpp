@@ -35,7 +35,7 @@
 oldportal::fc::hardware::mechatronics::command::StopMotion::StopMotion(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > device_process)
 
 {//BEGIN_2245b2ed26b5b0155692968613af50ce
-    oldportal::fc::network::DeviceCommand::DeviceCommand(device, device_process);
+    oldportal::fc::network::DeviceCommand(device, device_process);
 }//END_2245b2ed26b5b0155692968613af50ce
 
 

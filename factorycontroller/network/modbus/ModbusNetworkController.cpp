@@ -196,7 +196,8 @@ void oldportal::fc::network::modbus::ModbusNetworkController::processDeviceComma
     std::shared_ptr<oldportal::fc::network::modbus::ModbusNetworkController> modbus_controller_check =
             std::dynamic_pointer_cast<oldportal::fc::network::modbus::ModbusNetworkController>(command->_device->_network.lock()->_controller.lock());
     assert(modbus_controller_check);
-    assert(modbus_controller_check.get() == this && "Command should be linked to this controller");
+    auto this_controller = std::dynamic_pointer_cast<oldportal::fc::network::modbus::ModbusNetworkController>(shared_from_this());
+    assert(modbus_controller_check == this_controller && "Command should be linked to this controller");
 
     if (!modbus_command)
     {
