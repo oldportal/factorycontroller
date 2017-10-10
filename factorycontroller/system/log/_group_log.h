@@ -60,25 +60,9 @@ namespace system
 namespace log 
 {
 // global methods declaration
-void error(std::string message);
-
-void error(std::u16string message);
-
-void error(std::string topic, std::string message);
-
-void error(std::u16string topic, std::u16string message);
-
 void error_hardware(std::string topic, std::string message);
 
 void error_hardware(std::u16string topic, std::u16string message);
-
-void log(std::string message);
-
-void log(std::u16string message);
-
-void log(std::string topic, std::string message);
-
-void log(std::u16string topic, std::u16string message);
 
 void log_hardware(std::string topic, std::string message);
 

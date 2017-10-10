@@ -68,7 +68,7 @@ void oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader
     // add TagHandler
     _tag_handlers.push_back(tag_handler);
 
-    oldportal::fc::system::log::log(FC_LOGGER_TAG_SERIALIZATION, std::string(u8"added new TagHandler: ") + typeid(*tag_handler.get()).name());
+    LOG4CXX_TRACE(logger, "added new TagHandler: "<< typeid(*tag_handler.get()).name());
 }//END_489331ee736bf8b1a2f4e78e3e5959a0
 
 std::vector< std::shared_ptr<oldportal::fc::scheduler::ExecutorInterface> > oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader::getExecutors()
@@ -98,7 +98,7 @@ std::shared_ptr< oldportal::fc::factory::warehouse::StorageManager > oldportal::
 
 void oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader::init()
 {//BEGIN_5110e6763784e4dbb95a3c8e4ca572d3
-    oldportal::fc::system::log::log(FC_LOGGER_TAG_SERIALIZATION, std::string(u8"FactoryConfigurationFileLoader init() with filename: ") + _configuration_filename);
+    LOG4CXX_INFO(logger, "FactoryConfigurationFileLoader init() with filename: " << _configuration_filename);
 
     // open configuration file and load property_tree
     // load _configuration_filename
@@ -108,7 +108,7 @@ void oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader
     //TODO: JSON and INFO support
     read_xml(_configuration_filename, pt);
 
-    oldportal::fc::system::log::log(FC_LOGGER_TAG_SERIALIZATION, std::string(u8"FactoryConfigurationFileLoader init() property_tree loaded for parsing"));
+    LOG4CXX_INFO(logger, "FactoryConfigurationFileLoader init() property_tree loaded for parsing");
 
     // load name
     std::string factory_name = pt.get<std::string>("name");

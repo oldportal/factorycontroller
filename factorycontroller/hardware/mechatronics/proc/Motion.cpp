@@ -54,7 +54,8 @@ void oldportal::fc::hardware::mechatronics::proc::Motion::forceStop()
         assert(!_hardware_devices[i].expired() && "unvalid pointer to device");
         auto device = _hardware_devices[i].lock();
         // stop device
-        auto command = std::make_shared<oldportal::fc::hardware::mechatronics::command::StopMotion>(device);
+        std::shared_ptr<oldportal::fc::hardware::HardwareDeviceProcess> process = shared_from_this();
+        auto command = std::make_shared<oldportal::fc::hardware::mechatronics::command::StopMotion>(device, process);
         device->_network.lock()->_controller.lock()->pushCommand(command);
     }
     // the process is canceled by software call

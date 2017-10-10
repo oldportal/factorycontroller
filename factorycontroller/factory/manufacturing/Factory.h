@@ -41,6 +41,7 @@ namespace manufacturing
 {
 
 class Factory
+:  public std::enable_shared_from_this< oldportal::fc::factory::manufacturing::Factory >
 {
 // constructors:
 public:

@@ -52,8 +52,7 @@ void oldportal::fc::network::command::NetworkTimeSynchronization::process(oldpor
 
     if (modbus_set_slave(controller->getModbusContext(), MODBUS_BROADCAST_ADDRESS) != 0)
     {
-        oldportal::fc::system::log::error(u8"oldportal::fc::network::command::NetworkTimeSynchronization::process() set BROADCAST device address error");
-        oldportal::fc::system::log::error(modbus_strerror(errno));
+        LOG4CXX_ERROR(logger, "oldportal::fc::network::command::NetworkTimeSynchronization::process() set BROADCAST device address error: " << modbus_strerror(errno));
         //TODO: increment errors count
         return;
     }
@@ -70,8 +69,7 @@ void oldportal::fc::network::command::NetworkTimeSynchronization::process(oldpor
 
     if (modbus_write_registers(controller->getModbusContext(), addr, 4, timer_buf) != 4)
     {
-        oldportal::fc::system::log::error(u8"oldportal::fc::network::command::NetworkTimeSynchronization::process() modbus_write_registers() error");
-        oldportal::fc::system::log::error(modbus_strerror(errno));
+        LOG4CXX_ERROR(logger, "oldportal::fc::network::command::NetworkTimeSynchronization::process() modbus_write_registers() error: " << modbus_strerror(errno));
         //TODO: increment errors count
     }
 

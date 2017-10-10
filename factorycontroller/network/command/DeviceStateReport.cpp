@@ -53,8 +53,7 @@ void oldportal::fc::network::command::DeviceStateReport::process(oldportal::fc::
 
     if (modbus_set_slave(controller->getModbusContext(), _device->_modbus_address) != 0)
     {
-        oldportal::fc::system::log::error(u8"oldportal::fc::network::command::DeviceStateReport::process() set device address error");
-        oldportal::fc::system::log::error(modbus_strerror(errno));
+        LOG4CXX_ERROR(logger, "oldportal::fc::network::command::DeviceStateReport::process() set device address error" << modbus_strerror(errno));
 
         // increment error counters
         controller->_error_statistics.increment();
@@ -68,8 +67,7 @@ void oldportal::fc::network::command::DeviceStateReport::process(oldportal::fc::
     // modbus read registers
     if (modbus_read_registers(controller->getModbusContext(), 0, 8, tab_reg) < 0)
     {
-        oldportal::fc::system::log::error(u8"oldportal::fc::network::command::DeviceStateReport::process() modbus_read_registers error");
-        oldportal::fc::system::log::error(modbus_strerror(errno));
+        LOG4CXX_ERROR(logger, "oldportal::fc::network::command::DeviceStateReport::process() modbus_read_registers error" << modbus_strerror(errno));
 
         // increment error counters
         controller->_error_statistics.increment();

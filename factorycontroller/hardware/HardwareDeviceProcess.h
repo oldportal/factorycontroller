@@ -43,6 +43,7 @@ namespace hardware
 {
 
 class HardwareDeviceProcess
+:  public std::enable_shared_from_this< oldportal::fc::hardware::HardwareDeviceProcess >
 {
 // constructors:
 public:

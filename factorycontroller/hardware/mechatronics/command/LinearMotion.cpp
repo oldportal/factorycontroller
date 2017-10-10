@@ -32,10 +32,11 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-oldportal::fc::hardware::mechatronics::command::LinearMotion::LinearMotion(std::shared_ptr< oldportal::fc::network::NetworkDevice > device, float speed)
+oldportal::fc::hardware::mechatronics::command::LinearMotion::LinearMotion(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > device_process, float speed)
 
 {//BEGIN_f1e42a2902ff79a631b19822cf0c87bb
-    //oldportal::fc::network::modbus::ModbusDeviceCommand(device);
+    oldportal::fc::network::DeviceCommand::DeviceCommand(device, device_process);
+
     _speed = speed;
 }//END_f1e42a2902ff79a631b19822cf0c87bb
 

@@ -87,7 +87,7 @@ std::shared_ptr< oldportal::fc::factory::warehouse::StorageManager > oldportal::
 void oldportal::fc::factory::manufacturing::Factory::run(oldportal::fc::factory::manufacturing::Factory* factory)
 {//BEGIN_a4ad6d027289a8b7eff52dd5cd9626b6
     assert(factory);
-    oldportal::fc::system::log::log(u8"oldportal::fc::factory::manufacturing::Factory::run() main cycle started");
+    LOG4CXX_INFO(logger, "oldportal::fc::factory::manufacturing::Factory::run() main cycle started");
     while(factory->_run_thread_cycle_flag)
     {
         factory->step();

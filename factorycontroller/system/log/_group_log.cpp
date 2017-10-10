@@ -35,30 +35,6 @@
 log4cxx::LoggerPtr oldportal::fc::system::log::logger = log4cxx::Logger::getLogger("oldportal.fc.system.log");
 
 
-void oldportal::fc::system::log::error(std::string message)
-{//BEGIN_b314fa6ad66678d1424326ea1ecea514
-    std::cerr << message << std::endl;
-}//END_b314fa6ad66678d1424326ea1ecea514
-
-void oldportal::fc::system::log::error(std::u16string message)
-{//BEGIN_718a5be680c5cd3f2877db828f4b003d
-    // convert to UTF-8
-    std::cerr << oldportal::fc::system::util::utf16_to_utf8(message) << std::endl;
-}//END_718a5be680c5cd3f2877db828f4b003d
-
-void oldportal::fc::system::log::error(std::string topic, std::string message)
-{//BEGIN_b39db29869dd05f377b890a63044aad8
-    std::cerr << topic << " : " << message << std::endl;
-}//END_b39db29869dd05f377b890a63044aad8
-
-void oldportal::fc::system::log::error(std::u16string topic, std::u16string message)
-{//BEGIN_63f0235b80b0fd3d27380d6b38c2d947
-    //std::wcerr << topic << L" : " << message << std::endl; - for widestring, obsolete
-
-    // convert to UTF-8
-    std::cerr << "hardware log : " << oldportal::fc::system::util::utf16_to_utf8(topic) << " : " << oldportal::fc::system::util::utf16_to_utf8(message) << std::endl;
-}//END_63f0235b80b0fd3d27380d6b38c2d947
-
 void oldportal::fc::system::log::error_hardware(std::string topic, std::string message)
 {//BEGIN_7cc7907f2991739748563fc61fffed48
     std::cerr << "hardware error : " << topic << " : " << message << std::endl;
@@ -69,28 +45,6 @@ void oldportal::fc::system::log::error_hardware(std::u16string topic, std::u16st
     // convert to UTF-8
     std::cerr << "hardware error : " << oldportal::fc::system::util::utf16_to_utf8(topic) << " : " << oldportal::fc::system::util::utf16_to_utf8(message) << std::endl;
 }//END_2ff0cbbe3cf50e0d8392b7e58d227636
-
-void oldportal::fc::system::log::log(std::string message)
-{//BEGIN_b034dc6cf51407f73a74b6854e70a466
-    std::cout << message << std::endl;
-}//END_b034dc6cf51407f73a74b6854e70a466
-
-void oldportal::fc::system::log::log(std::u16string message)
-{//BEGIN_52112f037e01c585c2baffcb7ba90875
-    // convert to UTF-8
-    std::cout << oldportal::fc::system::util::utf16_to_utf8(message) << std::endl;
-}//END_52112f037e01c585c2baffcb7ba90875
-
-void oldportal::fc::system::log::log(std::string topic, std::string message)
-{//BEGIN_5b2146e1131feb320ab73025d505782c
-    std::cout << topic << " : " << message << std::endl;
-}//END_5b2146e1131feb320ab73025d505782c
-
-void oldportal::fc::system::log::log(std::u16string topic, std::u16string message)
-{//BEGIN_4750c431f3e654aef752e5133ab34789
-    // convert to UTF-8
-    std::cout << oldportal::fc::system::util::utf16_to_utf8(topic) << " : " << oldportal::fc::system::util::utf16_to_utf8(message) << std::endl;
-}//END_4750c431f3e654aef752e5133ab34789
 
 void oldportal::fc::system::log::log_hardware(std::string topic, std::string message)
 {//BEGIN_ee21dc1c4d309ca38ea32370452ebc7f
