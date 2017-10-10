@@ -42,6 +42,24 @@ oldportal::fc::network::DeviceCommand::DeviceCommand()
     _command_completed = false;
 }//END_9a4ba54f2d4c69e1e269ae077d234d34
 
+oldportal::fc::network::DeviceCommand::DeviceCommand(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device)
+
+{//BEGIN_e7cb70fbbe48cf2ffaeb6c07649c6601
+    assert(device);
+
+    _device = device;
+}//END_e7cb70fbbe48cf2ffaeb6c07649c6601
+
+oldportal::fc::network::DeviceCommand::DeviceCommand(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > device_process)
+
+{//BEGIN_f9f9249947b243e312ec5b79da2f001a
+    assert(device);
+    assert(device_process);
+
+    _device = device;
+    _device_process = device_process;
+}//END_f9f9249947b243e312ec5b79da2f001a
+
 
 
 oldportal::fc::network::DeviceCommand::~DeviceCommand()

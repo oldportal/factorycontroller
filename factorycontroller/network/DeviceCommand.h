@@ -39,10 +39,15 @@ namespace network
 {
 
 class DeviceCommand
+:  public std::enable_shared_from_this< oldportal::fc::network::DeviceCommand >
 {
 // constructors:
 public:
 DeviceCommand();
+public:
+DeviceCommand(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device);
+public:
+DeviceCommand(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > device_process);
 
 
 public:

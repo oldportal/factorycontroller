@@ -39,6 +39,7 @@ namespace network
 {
 
 class NetworkDevice
+:  public std::enable_shared_from_this< oldportal::fc::network::NetworkDevice >
 {
 // constructors:
 public:

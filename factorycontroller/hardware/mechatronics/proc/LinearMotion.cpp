@@ -74,7 +74,8 @@ void oldportal::fc::hardware::mechatronics::proc::LinearMotion::start()
         assert(!_hardware_devices[i].expired() && "unvalid pointer to device");
         auto device = _hardware_devices[i].lock();
         // init device
-        auto command = std::make_shared<oldportal::fc::hardware::mechatronics::command::LinearMotion>(device, _speed);
+        std::shared_ptr<oldportal::fc::hardware::HardwareDeviceProcess> process = shared_from_this();
+        auto command = std::make_shared<oldportal::fc::hardware::mechatronics::command::LinearMotion>(device, process, _speed);
         device->_network.lock()->_controller.lock()->pushCommand(command);
     }
 
