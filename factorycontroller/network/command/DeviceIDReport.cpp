@@ -35,8 +35,7 @@
 oldportal::fc::network::command::DeviceIDReport::DeviceIDReport(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device)
 
 {//BEGIN_eb79c57be27cdbf036036cddfd9a12a7
-    assert(device);
-    _device = device;
+    oldportal::fc::network::DeviceCommand(device);
 }//END_eb79c57be27cdbf036036cddfd9a12a7
 
 
@@ -53,8 +52,7 @@ void oldportal::fc::network::command::DeviceIDReport::process(oldportal::fc::net
 
     if (modbus_set_slave(controller->getModbusContext(), _device->_modbus_address) != 0)
     {
-        oldportal::fc::system::log::error(u8"oldportal::fc::network::command::DeviceStateReport::process() set device address error");
-        oldportal::fc::system::log::error(modbus_strerror(errno));
+        LOG4CXX_ERROR(logger, "oldportal::fc::network::command::DeviceStateReport::process() set device address error: " << modbus_strerror(errno));
 
         // increment error counters
         controller->_error_statistics.increment();
@@ -75,8 +73,7 @@ void oldportal::fc::network::command::DeviceIDReport::process(oldportal::fc::net
     //TODO: modbusMessagePair->getRequestLength() - is true length?
     if (modbus_send_raw_request(controller->getModbusContext(), modbusMessagePair->_send_buf, modbusMessagePair->getRequestLength()) != 0)
     {
-        oldportal::fc::system::log::error(u8"oldportal::fc::network::command::DeviceStateReport::process() modbus_send_raw_request error");
-        oldportal::fc::system::log::error(modbus_strerror(errno));
+        LOG4CXX_ERROR(logger, "oldportal::fc::network::command::DeviceStateReport::process() modbus_send_raw_request error: " << modbus_strerror(errno));
 
         // increment error counters
         controller->_error_statistics.increment();
@@ -89,8 +86,7 @@ void oldportal::fc::network::command::DeviceIDReport::process(oldportal::fc::net
     int response_length;
     if ((response_length = modbus_receive_confirmation(controller->getModbusContext(), modbusMessagePair->_received_buf)) < 0)
     {
-        oldportal::fc::system::log::error(u8"oldportal::fc::network::command::DeviceStateReport::process() modbus_receive_confirmation error");
-        oldportal::fc::system::log::error(modbus_strerror(errno));
+        LOG4CXX_ERROR(logger, "oldportal::fc::network::command::DeviceStateReport::process() modbus_receive_confirmation error: " << modbus_strerror(errno));
 
         // increment error counters
         controller->_error_statistics.increment();
@@ -106,8 +102,7 @@ void oldportal::fc::network::command::DeviceIDReport::process(oldportal::fc::net
     assert(response_size < 256);
     if (response_size < 0)
     {
-        oldportal::fc::system::log::error(u8"oldportal::fc::network::command::DeviceStateReport::process() modbus_report_slave_id error");
-        oldportal::fc::system::log::error(modbus_strerror(errno));
+        LOG4CXX_ERROR(logger, "oldportal::fc::network::command::DeviceStateReport::process() modbus_report_slave_id error: " << modbus_strerror(errno));
 
         // increment error counters
         controller->_error_statistics.increment();
@@ -118,7 +113,7 @@ void oldportal::fc::network::command::DeviceIDReport::process(oldportal::fc::net
 
     // process response
     std::string device_id = (char*)(tab_bytes+3);
-    oldportal::fc::system::log::log(u8"device response: " + device_id);
+    LOG4CXX_INFO(logger, "device response: " << device_id);
 
     _device->updateLastPing();
     _device->updateLastResponse();

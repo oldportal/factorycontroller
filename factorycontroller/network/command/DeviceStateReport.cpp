@@ -35,8 +35,7 @@
 oldportal::fc::network::command::DeviceStateReport::DeviceStateReport(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device)
 
 {//BEGIN_7beba502117e9095cf401c036398cc43
-    assert(device);
-    _device = device;
+    oldportal::fc::network::DeviceCommand(device);
 }//END_7beba502117e9095cf401c036398cc43
 
 
@@ -53,7 +52,7 @@ void oldportal::fc::network::command::DeviceStateReport::process(oldportal::fc::
 
     if (modbus_set_slave(controller->getModbusContext(), _device->_modbus_address) != 0)
     {
-        LOG4CXX_ERROR(logger, "oldportal::fc::network::command::DeviceStateReport::process() set device address error" << modbus_strerror(errno));
+        LOG4CXX_ERROR(logger, "oldportal::fc::network::command::DeviceStateReport::process() set device address error: " << modbus_strerror(errno));
 
         // increment error counters
         controller->_error_statistics.increment();
@@ -67,7 +66,7 @@ void oldportal::fc::network::command::DeviceStateReport::process(oldportal::fc::
     // modbus read registers
     if (modbus_read_registers(controller->getModbusContext(), 0, 8, tab_reg) < 0)
     {
-        LOG4CXX_ERROR(logger, "oldportal::fc::network::command::DeviceStateReport::process() modbus_read_registers error" << modbus_strerror(errno));
+        LOG4CXX_ERROR(logger, "oldportal::fc::network::command::DeviceStateReport::process() modbus_read_registers error: " << modbus_strerror(errno));
 
         // increment error counters
         controller->_error_statistics.increment();
