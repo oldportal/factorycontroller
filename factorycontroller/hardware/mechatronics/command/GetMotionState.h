@@ -46,6 +46,8 @@ class GetMotionState
 :  public virtual oldportal::fc::network::modbus::ModbusDeviceCommand
 {
 // constructors:
+public:
+GetMotionState(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > device_process);
 
 
 public:

@@ -33,9 +33,9 @@
 
 
 oldportal::fc::network::command::DeviceIDReport::DeviceIDReport(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device)
-
+    : oldportal::fc::network::DeviceCommand(device)
 {//BEGIN_eb79c57be27cdbf036036cddfd9a12a7
-    oldportal::fc::network::DeviceCommand(device);
+
 }//END_eb79c57be27cdbf036036cddfd9a12a7
 
 

@@ -33,10 +33,8 @@
 
 
 oldportal::fc::hardware::mechatronics::command::LinearMotion::LinearMotion(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > device_process, float speed)
-
+    : oldportal::fc::network::DeviceCommand(device, device_process)
 {//BEGIN_f1e42a2902ff79a631b19822cf0c87bb
-    oldportal::fc::network::DeviceCommand(device, device_process);
-
     _speed = speed;
 }//END_f1e42a2902ff79a631b19822cf0c87bb
 

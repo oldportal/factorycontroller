@@ -32,6 +32,14 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+oldportal::fc::hardware::mechatronics::command::AccelerationMotion::AccelerationMotion(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > device_process)
+    : oldportal::fc::network::DeviceCommand(device, device_process)
+{//BEGIN_016062428c634fa59a004f10eb887bfc
+
+}//END_016062428c634fa59a004f10eb887bfc
+
+
+
 oldportal::fc::hardware::mechatronics::command::AccelerationMotion::~AccelerationMotion()
 {//BEGIN_1556f3b4bc618a35a8010806093d10fb
 

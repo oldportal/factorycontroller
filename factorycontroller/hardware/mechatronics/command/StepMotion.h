@@ -46,6 +46,8 @@ class StepMotion
 :  public virtual oldportal::fc::network::modbus::ModbusDeviceCommand
 {
 // constructors:
+public:
+StepMotion(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > device_process);
 
 
 public:
