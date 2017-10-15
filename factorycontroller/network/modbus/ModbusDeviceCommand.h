@@ -58,6 +58,9 @@ virtual ~ModbusDeviceCommand();
 
 //methods:
 
+protected:
+bool modbus_set_slave();
+
 /**
 Handler.
 Called after command processed. Called in main step thread.
