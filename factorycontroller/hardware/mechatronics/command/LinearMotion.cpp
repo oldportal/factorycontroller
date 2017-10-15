@@ -60,6 +60,10 @@ void oldportal::fc::hardware::mechatronics::command::LinearMotion::process(oldpo
     auto motorDevice = std::dynamic_pointer_cast<oldportal::fc::hardware::mechatronics::Motor>(_device);
     assert (motorDevice);
 
+    if (!modbus_set_slave())
+        return;// hardware error
+
+
     //TODO: controller operations
 }//END_5a4ca282f77a69d1fdd39facedaec3a6
 

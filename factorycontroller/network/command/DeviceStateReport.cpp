@@ -50,16 +50,8 @@ void oldportal::fc::network::command::DeviceStateReport::process(oldportal::fc::
 {//BEGIN_b9522da80d4b05e42e2b9d9a702ae52d
     assert(controller);
 
-    if (modbus_set_slave(controller->getModbusContext(), _device->_modbus_address) != 0)
-    {
-        LOG4CXX_ERROR(logger, "oldportal::fc::network::command::DeviceStateReport::process() set device address error: " << modbus_strerror(errno));
-
-        // increment error counters
-        controller->_error_statistics.increment();
-        _device->_error_statistics.increment();
-
-        return;
-    }
+    if (!modbus_set_slave())
+        return;// hardware error
 
     // read controller_data (0-8 registers)
     uint16_t tab_reg[64];
