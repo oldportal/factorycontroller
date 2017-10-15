@@ -50,16 +50,8 @@ void oldportal::fc::network::command::DeviceIDReport::process(oldportal::fc::net
 {//BEGIN_47f4dda8d40402b9319a9f212d5100cd
     assert(controller);
 
-    if (modbus_set_slave(controller->getModbusContext(), _device->_modbus_address) != 0)
-    {
-        LOG4CXX_ERROR(logger, "oldportal::fc::network::command::DeviceStateReport::process() set device address error: " << modbus_strerror(errno));
-
-        // increment error counters
-        controller->_error_statistics.increment();
-        _device->_error_statistics.increment();
-
-        return;
-    }
+    if (!modbus_set_slave(controller))
+        return;// hardware error
 
     /*
     //TODO: ping device

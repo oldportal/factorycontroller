@@ -60,7 +60,7 @@ void oldportal::fc::hardware::mechatronics::command::StepMotion::process(oldport
     auto motorDevice = std::dynamic_pointer_cast<oldportal::fc::hardware::mechatronics::Motor>(_device);
     assert (motorDevice);
 
-    if (!modbus_set_slave())
+    if (!modbus_set_slave(controller))
         return;// hardware error
 
     //TODO:

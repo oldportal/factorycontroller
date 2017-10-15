@@ -46,11 +46,11 @@ oldportal::fc::network::modbus::ModbusDeviceCommand::~ModbusDeviceCommand()
 }//END_e06e6ffe43623a9d85f2171b34d077af
 
 
-bool oldportal::fc::network::modbus::ModbusDeviceCommand::modbus_set_slave()
+bool oldportal::fc::network::modbus::ModbusDeviceCommand::modbus_set_slave(oldportal::fc::network::modbus::ModbusNetworkController* const  controller)
 {//BEGIN_5dc32b0285567e559f7f9eefbd3e9b70
     assert(controller);
 
-    if (modbus_set_slave(controller->getModbusContext(), _device->_modbus_address) != 0)
+    if (::modbus_set_slave(controller->getModbusContext(), _device->_modbus_address) != 0)
     {
         LOG4CXX_ERROR(logger, "oldportal::fc::network::command::DeviceStateReport::process() set device address error: " << modbus_strerror(errno));
 

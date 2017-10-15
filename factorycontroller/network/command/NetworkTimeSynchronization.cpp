@@ -50,7 +50,7 @@ void oldportal::fc::network::command::NetworkTimeSynchronization::process(oldpor
 {//BEGIN_ba5a8c22a6c4cc0d2dfa663125379790
     assert(controller);
 
-    if (modbus_set_slave(controller->getModbusContext(), MODBUS_BROADCAST_ADDRESS) != 0)
+    if (::modbus_set_slave(controller->getModbusContext(), MODBUS_BROADCAST_ADDRESS) != 0)
     {
         LOG4CXX_ERROR(logger, "oldportal::fc::network::command::NetworkTimeSynchronization::process() set BROADCAST device address error: " << modbus_strerror(errno));
         //TODO: increment errors count
