@@ -32,6 +32,14 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+oldportal::fc::hardware::mechatronics::command::StepMotion::StepMotion(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > device_process)
+    : oldportal::fc::network::DeviceCommand(device, device_process)
+{//BEGIN_ac3725385c54bbe125b8c2a5b1b020fb
+
+}//END_ac3725385c54bbe125b8c2a5b1b020fb
+
+
+
 oldportal::fc::hardware::mechatronics::command::StepMotion::~StepMotion()
 {//BEGIN_14479bc6cabf11039aad4199e79fc4f3
 

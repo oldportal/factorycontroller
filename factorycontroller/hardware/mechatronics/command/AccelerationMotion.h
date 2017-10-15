@@ -46,6 +46,8 @@ class AccelerationMotion
 :  public virtual oldportal::fc::network::modbus::ModbusDeviceCommand
 {
 // constructors:
+public:
+AccelerationMotion(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > device_process);
 
 
 public:

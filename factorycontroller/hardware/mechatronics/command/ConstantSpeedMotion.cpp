@@ -32,6 +32,14 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+oldportal::fc::hardware::mechatronics::command::ConstantSpeedMotion::ConstantSpeedMotion(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > device_process, float speed)
+    : oldportal::fc::network::DeviceCommand(device, device_process)
+{//BEGIN_e1393b704f46e159fc1bc9f2d46e7b3d
+    _speed = speed;
+}//END_e1393b704f46e159fc1bc9f2d46e7b3d
+
+
+
 oldportal::fc::hardware::mechatronics::command::ConstantSpeedMotion::~ConstantSpeedMotion()
 {//BEGIN_fa62beef2df6510eed0a4cff81e94d23
 

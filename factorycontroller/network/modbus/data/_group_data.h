@@ -28,7 +28,7 @@
 /**
 Modbus shared registre structures for communication with devices.
 
-Can be used in any side (controller/simulator/device*/
+Can be used in any side (controller/simulator/de*/
 //END_GROUP_COMMENT
 
 

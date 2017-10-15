@@ -32,6 +32,14 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+oldportal::fc::hardware::mechatronics::command::GetMotionState::GetMotionState(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > device_process)
+    : oldportal::fc::network::DeviceCommand(device, device_process)
+{//BEGIN_a84b36fc8e1ee05d4c84cfce11a1c814
+
+}//END_a84b36fc8e1ee05d4c84cfce11a1c814
+
+
+
 oldportal::fc::hardware::mechatronics::command::GetMotionState::~GetMotionState()
 {//BEGIN_ac02cdcf28c219da19e50d05ba0e28ae
 
