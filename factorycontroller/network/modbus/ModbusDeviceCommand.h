@@ -59,7 +59,7 @@ virtual ~ModbusDeviceCommand();
 //methods:
 
 protected:
-bool modbus_set_slave();
+bool modbus_set_slave(oldportal::fc::network::modbus::ModbusNetworkController* const  controller);
 
 /**
 Handler.
