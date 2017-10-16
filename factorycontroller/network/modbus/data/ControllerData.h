@@ -52,6 +52,16 @@ typedef enum
         CTRLR_SOFTWARE_ILLEGAL_PIN_PORT_NUMER,
         MODBUS_INTERFACE_FRAME_PROCESSING_ERROR
 } cntrHardwareErrorType;
+
+/* Register offsets in MODBUS registers count (2 bytes) */
+#define CTRLR_REGISTER_OFFSET_1_mode 0
+#define CTRLR_REGISTER_OFFSET_2_error_code 1
+#define CTRLR_REGISTER_OFFSET_3_device_time 2
+#define CTRLR_REGISTER_OFFSET_4_network_time_shift 4
+#define CTRLR_REGISTER_OFFSET_5_maximum_system_step_timeout 6
+#define CTRLR_REGISTER_OFFSET_6_radiator_temperature 7
+#define CTRLR_REGISTER_OFFSET_7_maximum_radiator_temperature 8
+
 //END_USER_SECTION_BEFORE_CLASS_DECLARATION
 
 

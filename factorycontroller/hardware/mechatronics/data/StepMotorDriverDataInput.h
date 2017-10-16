@@ -25,6 +25,14 @@
 
 //BEGIN_USER_SECTION_BEFORE_CLASS_DECLARATION
 
+/* Register offsets in MODBUS registers count (2 bytes) */
+#define STEPMRDRV_DATA_INPUT_REGISTER_OFFSET_1_rotor_angle_speed 0
+#define STEPMRDRV_DATA_INPUT_REGISTER_OFFSET_2_rotor_angle_acceleration 1
+#define STEPMRDRV_DATA_INPUT_REGISTER_OFFSET_3_rotor_absolute_angle_position 2
+#define STEPMRDRV_DATA_INPUT_REGISTER_OFFSET_4_rotor_planned_angle_speed 4
+#define STEPMRDRV_DATA_INPUT_REGISTER_OFFSET_5_rotor_planned_angle_torque 5
+#define STEPMRDRV_DATA_INPUT_REGISTER_OFFSET_6_motor_temperature 6
+
 //END_USER_SECTION_BEFORE_CLASS_DECLARATION
 
 

@@ -47,6 +47,22 @@ typedef enum
 	DRIVER_SOFRWARE_COMMAND_ANGLE_OVERSPEED,
 	DRIVER_SOFRWARE_COMMAND_ANGLE_ACCELERATION_OPPOSITE_TO_ENDSPEED
 } driverHardwareErrorType;
+
+/* Register offsets in MODBUS registers count (2 bytes) */
+#define STEPMRDRV_DATA_REGISTER_OFFSET_1_mode 0
+#define STEPMRDRV_DATA_REGISTER_OFFSET_2_hardware_error_code 1
+#define STEPMRDRV_DATA_REGISTER_OFFSET_3_flags 2
+#define STEPMRDRV_DATA_REGISTER_OFFSET_4_rotor_angle_start_speed 3
+#define STEPMRDRV_DATA_REGISTER_OFFSET_5_rotor_angle_start_speed_time 4
+#define STEPMRDRV_DATA_REGISTER_OFFSET_6_rotor_angle_acceleration_speed 6
+#define STEPMRDRV_DATA_REGISTER_OFFSET_7_rotor_angle_end_continuous_speed 7
+#define STEPMRDRV_DATA_REGISTER_OFFSET_8_rotor_angle_stop_position 8
+#define STEPMRDRV_DATA_REGISTER_OFFSET_9_rotor_angle_force 10
+#define STEPMRDRV_DATA_REGISTER_OFFSET_10_rotor_angle_direct_step 11
+#define STEPMRDRV_DATA_REGISTER_OFFSET_11_motor_maximum_allowed_temperature 12
+#define STEPMRDRV_DATA_REGISTER_OFFSET_12_motor_maximum_allowed_current 13
+#define STEPMRDRV_DATA_REGISTER_OFFSET_13_motor_maximum_allowed_angle_speed 14
+
 //END_USER_SECTION_BEFORE_CLASS_DECLARATION
 
 
