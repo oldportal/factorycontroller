@@ -18,8 +18,8 @@
 *    Copyright (C) Dmitry Ognyannikov, 2012-2016
 *    dmogn@mail.ru
 */
-#ifndef H_fa8474f085070a36501df7153a2c1795_H
-#define H_fa8474f085070a36501df7153a2c1795_H
+#ifndef H_ba0a2667edf60c6757785687f5801a3f_H
+#define H_ba0a2667edf60c6757785687f5801a3f_H
 
 
 
@@ -45,16 +45,16 @@ namespace network
 namespace command 
 {
 
-class DeviceStateReport
+class ReadAndClearLog
 :  public virtual oldportal::fc::network::modbus::ModbusDeviceCommand
 {
 // constructors:
 public:
-DeviceStateReport(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device);
+ReadAndClearLog(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, oldportal::fc::network::modbus::data::SystemLogReport* log_records, uint16_t log_record_count = CONTROLLER_LOG_SIZE);
 
 
 public:
-virtual ~DeviceStateReport();
+virtual ~ReadAndClearLog();
 
 // members:
 
@@ -95,11 +95,11 @@ virtual void process(oldportal::fc::network::modbus::ModbusNetworkController* co
 //END_USER_SECTION_AFTER_CLASS_DECLARATION
 
 
-#endif // H_fa8474f085070a36501df7153a2c1795_H
+#endif // H_ba0a2667edf60c6757785687f5801a3f_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_fa8474f085070a36501df7153a2c1795_INLINES_H
-#define H_fa8474f085070a36501df7153a2c1795_INLINES_H
+#ifndef H_ba0a2667edf60c6757785687f5801a3f_INLINES_H
+#define H_ba0a2667edf60c6757785687f5801a3f_INLINES_H
 
-#endif // H_fa8474f085070a36501df7153a2c1795_INLINES_H
+#endif // H_ba0a2667edf60c6757785687f5801a3f_INLINES_H
 #endif //OBJECTS_BUILDER_PROJECT_INLINES
