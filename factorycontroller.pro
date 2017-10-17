@@ -146,7 +146,6 @@ SOURCES += main.cpp \
     factory-hardware-emulator/hardware/HardwareDevice.cpp \
     factory-hardware-emulator/hardware/mechatronics/_group_mechatronics.cpp \
     factory-hardware-emulator/hardware/mechatronics/Motor.cpp \
-    factory-hardware-emulator/hardware/mechatronics/MotorModbus.cpp \
     factory-hardware-emulator/hardware/mechatronics/MotorSettings.cpp \
     factory-hardware-emulator/hardware/mechatronics/StepMotor.cpp \
     factory-hardware-emulator/network/_group_network.cpp \
