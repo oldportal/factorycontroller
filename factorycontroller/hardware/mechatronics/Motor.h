@@ -69,6 +69,11 @@ public:
 oldportal::fc::hardware::mechatronics::MotorProperties _properties;
 public:
 oldportal::fc::hardware::mechatronics::MotorSettings _settings;
+/**
+Modbus data (registers) structures.
+*/
+public:
+oldportal::fc::hardware::mechatronics::data::StepMotorDriverCalculationConstants _modbus_data;
 
 
 //methods:

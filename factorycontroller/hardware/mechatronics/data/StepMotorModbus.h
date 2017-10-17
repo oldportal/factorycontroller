@@ -18,19 +18,13 @@
 *    Copyright (C) Dmitry Ognyannikov, 2012-2016
 *    dmogn@mail.ru
 */
-#ifndef H_dc8d7d7e00b9f36edf63b59071944e26_H
-#define H_dc8d7d7e00b9f36edf63b59071944e26_H
+#ifndef H_30b8da23869e945e780ea2582e86bdfa_H
+#define H_30b8da23869e945e780ea2582e86bdfa_H
 
 
 
 //BEGIN_USER_SECTION_BEFORE_CLASS_DECLARATION
-
-/* Register offsets in MODBUS registers count (2 bytes) */
-#define STEPMRDRV_CALC_CONSTANTS_REGISTER_OFFSET_1_steps_per_revolution 0
-#define STEPMRDRV_CALC_CONSTANTS_REGISTER_OFFSET_2_rotor_intertia 1
-#define STEPMRDRV_CALC_CONSTANTS_REGISTER_OFFSET_3_moment_elasticity 2
-#define STEPMRDRV_CALC_CONSTANTS_REGISTER_OFFSET_4_default_s_in_angle_steps 3
-
+#define ZERO_ERROR_LOG_PARAMETER (0)
 //END_USER_SECTION_BEFORE_CLASS_DECLARATION
 
 
@@ -48,39 +42,43 @@ namespace mechatronics
 namespace data 
 {
 
-struct StepMotorDriverCalculationConstants
+struct StepMotorModbus
 :  public virtual oldportal::fc::network::modbus::data::ModbusRegistersMapping
 {
 // constructors:
 public:
-StepMotorDriverCalculationConstants();
+StepMotorModbus();
 
 
 // members:
 
-/**
-Step is calculation unit of angle measure
-*/
 public:
-uint16_t _1_steps_per_revolution;
-/**
-Rotor Inertia in rotor speed change (in steps per seconds) per torque unit
-*/
+oldportal::fc::hardware::mechatronics::data::StepMotorDriverCalculationConstants _driverCalculationConstants;
 public:
-uint16_t _2_rotor_intertia;
-/**
-Moment elasticity - speed acceleration for angle error fix, in 0.1 % of speed error.
-*/
+oldportal::fc::hardware::mechatronics::data::StepMotorDriverData _driverData;
 public:
-uint16_t _3_moment_elasticity;
-/**
-skolzenie (ENABLE_AC_INDUCTION_SIMPLE)
-*/
+oldportal::fc::hardware::mechatronics::data::StepMotorDriverDataInput _driverDataInput;
 public:
-uint16_t _4_default_s_in_angle_steps;
+oldportal::fc::network::modbus::data::ControllerData _controllerData;
+public:
+oldportal::fc::network::modbus::data::InterfaceSettings _1_interface;
+public:
+oldportal::fc::network::modbus::data::SystemLogReport _systemLog[CONTROLLER_LOG_SIZE];
 
 
 //methods:
+
+/**
+check modbus parameters for correct structure
+*/
+public:
+void CheckDriverModbusParameters();
+
+public:
+void ctrlReportError(uint16_t error_code);
+
+public:
+void ctrlReportErrorWithParameter(uint16_t error_code, uint16_t parameter);
 
 public:
 virtual void loadFromRegisterArray(const modbus_mapping_t* modbus_mapping);
@@ -114,11 +112,11 @@ virtual void saveToRegisterArray(const modbus_mapping_t* modbus_mapping);
 //END_USER_SECTION_AFTER_CLASS_DECLARATION
 
 
-#endif // H_dc8d7d7e00b9f36edf63b59071944e26_H
+#endif // H_30b8da23869e945e780ea2582e86bdfa_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_dc8d7d7e00b9f36edf63b59071944e26_INLINES_H
-#define H_dc8d7d7e00b9f36edf63b59071944e26_INLINES_H
+#ifndef H_30b8da23869e945e780ea2582e86bdfa_INLINES_H
+#define H_30b8da23869e945e780ea2582e86bdfa_INLINES_H
 
-#endif // H_dc8d7d7e00b9f36edf63b59071944e26_INLINES_H
+#endif // H_30b8da23869e945e780ea2582e86bdfa_INLINES_H
 #endif //OBJECTS_BUILDER_PROJECT_INLINES
