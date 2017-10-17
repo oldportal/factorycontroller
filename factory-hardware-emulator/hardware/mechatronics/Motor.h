@@ -58,7 +58,7 @@ std::chrono::high_resolution_clock::time_point _currentStepStartTime;
 public:
 long _current_position;
 public:
-oldportal::fhe::hardware::mechatronics::MotorModbus _modbus;
+oldportal::fc::hardware::mechatronics::data::StepMotorModbus _modbus;
 public:
 oldportal::fhe::hardware::mechatronics::MotorSettings _settings;
 

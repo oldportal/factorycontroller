@@ -269,10 +269,10 @@ class StopMotion;
 }// namespace command
 namespace data 
 {
-struct StepMotorModbus;
 struct StepMotorDriverCalculationConstants;
 struct StepMotorDriverData;
 struct StepMotorDriverDataInput;
+struct StepMotorModbus;
 
 }// namespace data
 namespace proc 
@@ -358,8 +358,8 @@ namespace command
 {
 class DeviceIDReport;
 class DeviceStateReport;
-class ReadAndClearLog;
 class NetworkTimeSynchronization;
+class ReadAndClearLog;
 
 namespace scheduled 
 {
@@ -484,7 +484,13 @@ class StepCounter;
 #include "hardware/edm/EDMWorkMode.h"
 #include "hardware/edm/EDMPowerSource.h"
 #include "network/modbus/data/ModbusRegistersMapping.h"
+#include "network/modbus/data/ControllerData.h"
+#include "network/modbus/data/InterfaceSettings.h"
+#include "network/modbus/data/SystemLogReport.h"
+#include "hardware/mechatronics/data/StepMotorDriverDataInput.h"
+#include "hardware/mechatronics/data/StepMotorDriverData.h"
 #include "hardware/mechatronics/data/StepMotorDriverCalculationConstants.h"
+#include "hardware/mechatronics/data/StepMotorModbus.h"
 #include "hardware/mechatronics/MotorSettings.h"
 #include "hardware/mechatronics/MotorProperties.h"
 #include "hardware/mechatronics/Motor.h"
@@ -497,12 +503,6 @@ class StepCounter;
 #include "hardware/mechatronics/command/LinearMotion.h"
 #include "hardware/mechatronics/command/StepMotion.h"
 #include "hardware/mechatronics/command/StopMotion.h"
-#include "hardware/mechatronics/data/StepMotorDriverData.h"
-#include "hardware/mechatronics/data/StepMotorDriverDataInput.h"
-#include "network/modbus/data/SystemLogReport.h"
-#include "network/modbus/data/InterfaceSettings.h"
-#include "network/modbus/data/ControllerData.h"
-#include "hardware/mechatronics/data/StepMotorModbus.h"
 #include "hardware/mechatronics/proc/Motion.h"
 #include "hardware/mechatronics/proc/AccelerationMotion.h"
 #include "hardware/mechatronics/proc/ConstantSpeedMotion.h"
@@ -619,7 +619,13 @@ namespace fc
 #include "hardware/edm/EDMWorkMode.h"
 #include "hardware/edm/EDMPowerSource.h"
 #include "network/modbus/data/ModbusRegistersMapping.h"
+#include "network/modbus/data/ControllerData.h"
+#include "network/modbus/data/InterfaceSettings.h"
+#include "network/modbus/data/SystemLogReport.h"
+#include "hardware/mechatronics/data/StepMotorDriverDataInput.h"
+#include "hardware/mechatronics/data/StepMotorDriverData.h"
 #include "hardware/mechatronics/data/StepMotorDriverCalculationConstants.h"
+#include "hardware/mechatronics/data/StepMotorModbus.h"
 #include "hardware/mechatronics/MotorSettings.h"
 #include "hardware/mechatronics/MotorProperties.h"
 #include "hardware/mechatronics/Motor.h"
@@ -632,12 +638,6 @@ namespace fc
 #include "hardware/mechatronics/command/LinearMotion.h"
 #include "hardware/mechatronics/command/StepMotion.h"
 #include "hardware/mechatronics/command/StopMotion.h"
-#include "hardware/mechatronics/data/StepMotorDriverData.h"
-#include "hardware/mechatronics/data/StepMotorDriverDataInput.h"
-#include "network/modbus/data/SystemLogReport.h"
-#include "network/modbus/data/InterfaceSettings.h"
-#include "network/modbus/data/ControllerData.h"
-#include "hardware/mechatronics/data/StepMotorModbus.h"
 #include "hardware/mechatronics/proc/Motion.h"
 #include "hardware/mechatronics/proc/AccelerationMotion.h"
 #include "hardware/mechatronics/proc/ConstantSpeedMotion.h"

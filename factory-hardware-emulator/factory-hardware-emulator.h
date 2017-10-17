@@ -132,7 +132,6 @@ class HardwareDevice;
 namespace mechatronics 
 {
 class Motor;
-struct MotorModbus;
 class MotorSettings;
 class StepMotor;
 
@@ -174,7 +173,6 @@ namespace system
 #include "device/Device.h"
 #include "hardware/HardwareDevice.h"
 #include "hardware/mechatronics/MotorSettings.h"
-#include "hardware/mechatronics/MotorModbus.h"
 #include "hardware/mechatronics/Motor.h"
 #include "hardware/mechatronics/StepMotor.h"
 #include "network/ModbusNetworkController.h"
@@ -218,7 +216,6 @@ namespace fhe
 #include "device/Device.h"
 #include "hardware/HardwareDevice.h"
 #include "hardware/mechatronics/MotorSettings.h"
-#include "hardware/mechatronics/MotorModbus.h"
 #include "hardware/mechatronics/Motor.h"
 #include "hardware/mechatronics/StepMotor.h"
 #include "network/ModbusNetworkController.h"
