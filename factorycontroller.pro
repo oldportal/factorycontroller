@@ -181,7 +181,8 @@ SOURCES += main.cpp \
     factorycontroller/hardware/mechatronics/command/GetMotionState.cpp \
     factorycontroller/hardware/mechatronics/command/StopMotion.cpp \
     factorycontroller/network/command/DeviceIDReport.cpp \
-    factorycontroller/hardware/mechatronics/data/StepMotorModbus.cpp
+    factorycontroller/hardware/mechatronics/data/StepMotorModbus.cpp \
+    factorycontroller/network/command/ReadAndClearLog.cpp
     
 
 HEADERS += factorycontroller/factorycontroller.h \ 

@@ -32,31 +32,31 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-oldportal::fc::network::command::DeviceStateReport::DeviceStateReport(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device)
+oldportal::fc::network::command::ReadAndClearLog::ReadAndClearLog(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, oldportal::fc::network::modbus::data::SystemLogReport* log_records, uint16_t log_record_count/* = CONTROLLER_LOG_SIZE */)
     : oldportal::fc::network::DeviceCommand(device)
-{//BEGIN_3b726bc629d0e6d64f72af0cc0a3d8f0
+{//BEGIN_7beba502117e9095cf401c036398cc43
 
-}//END_3b726bc629d0e6d64f72af0cc0a3d8f0
-
-
-
-oldportal::fc::network::command::DeviceStateReport::~DeviceStateReport()
-{//BEGIN_7535365cc308587e939128fcf5916110
-
-}//END_7535365cc308587e939128fcf5916110
+}//END_7beba502117e9095cf401c036398cc43
 
 
-void oldportal::fc::network::command::DeviceStateReport::process(oldportal::fc::network::modbus::ModbusNetworkController* const  controller)
-{//BEGIN_13a74cb896493fe0f59c379b7ca4d5d2
+
+oldportal::fc::network::command::ReadAndClearLog::~ReadAndClearLog()
+{//BEGIN_d1555c3373090cf5a5b01ddf233ffacc
+
+}//END_d1555c3373090cf5a5b01ddf233ffacc
+
+
+void oldportal::fc::network::command::ReadAndClearLog::process(oldportal::fc::network::modbus::ModbusNetworkController* const  controller)
+{//BEGIN_b9522da80d4b05e42e2b9d9a702ae52d
     assert(controller);
 
     if (!modbus_set_slave(controller))
         return;// hardware error
 
     // read controller_data (0-8 registers)
-    uint16_t tab_reg[64];
+    //uint16_t tab_reg[64];
     // modbus read registers
-    if (modbus_read_registers(controller->getModbusContext(), 0, 8, tab_reg) < 0)
+    /*if (modbus_read_registers(controller->getModbusContext(), 0, 8, tab_reg) < 0)
     {
         LOG4CXX_ERROR(logger, "oldportal::fc::network::command::DeviceStateReport::process() modbus_read_registers error: " << modbus_strerror(errno));
 
@@ -65,7 +65,7 @@ void oldportal::fc::network::command::DeviceStateReport::process(oldportal::fc::
         _device->_error_statistics.increment();
 
         return;
-    }
+    }*/
 
     //TODO: read device state structure registers
     //TODO: parse device state structure registers
@@ -76,7 +76,7 @@ void oldportal::fc::network::command::DeviceStateReport::process(oldportal::fc::
 
     _result_success = true;
     _command_completed = true;
-}//END_13a74cb896493fe0f59c379b7ca4d5d2
+}//END_b9522da80d4b05e42e2b9d9a702ae52d
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE

@@ -358,6 +358,7 @@ namespace command
 {
 class DeviceIDReport;
 class DeviceStateReport;
+class ReadAndClearLog;
 class NetworkTimeSynchronization;
 
 namespace scheduled 
@@ -525,6 +526,7 @@ class StepCounter;
 #include "network/command/DeviceIDReport.h"
 #include "network/command/DeviceStateReport.h"
 #include "network/command/NetworkTimeSynchronization.h"
+#include "network/command/ReadAndClearLog.h"
 #include "network/command/scheduled/ScheduledCommandRequest.h"
 #include "network/command/scheduled/ScheduledCommandResult.h"
 #include "network/command/scheduled/ScheduledDeviceCommandQueue.h"
@@ -659,6 +661,7 @@ namespace fc
 #include "network/command/DeviceIDReport.h"
 #include "network/command/DeviceStateReport.h"
 #include "network/command/NetworkTimeSynchronization.h"
+#include "network/command/ReadAndClearLog.h"
 #include "network/command/scheduled/ScheduledCommandRequest.h"
 #include "network/command/scheduled/ScheduledCommandResult.h"
 #include "network/command/scheduled/ScheduledDeviceCommandQueue.h"
