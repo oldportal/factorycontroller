@@ -35,7 +35,9 @@
 oldportal::fc::hardware::mechatronics::command::StepMotion::StepMotion(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > device_process, int16_t direct_step)
     : oldportal::fc::network::DeviceCommand(device, device_process)
 {//BEGIN_ac3725385c54bbe125b8c2a5b1b020fb
+    assert(direct_step == 0 || direct_step == 1 || direct_step == -1);
 
+    _direct_step = direct_step;
 }//END_ac3725385c54bbe125b8c2a5b1b020fb
 
 

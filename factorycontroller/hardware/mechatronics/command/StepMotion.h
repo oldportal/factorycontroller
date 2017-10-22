@@ -63,7 +63,7 @@ virtual ~StepMotion();
 /**
 _direct_step can has +1, -1 or O value.
 */
-public:
+private:
 int16_t _direct_step;
 
 
