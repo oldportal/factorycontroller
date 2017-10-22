@@ -63,7 +63,26 @@ void oldportal::fc::hardware::mechatronics::command::StopMotion::process(oldport
     std::shared_ptr<oldportal::fc::hardware::mechatronics::Motor> motor_device = std::dynamic_pointer_cast<oldportal::fc::hardware::mechatronics::Motor>(_device);
     assert (motor_device);
 
-    //TODO:
+    motor_device->_modbus_data._driverData._1_mode = DRIVER_SERVO_KEEP_POSITION;
+    uint16_t start_address = motor_device->_modbus_data._driverData._modbus_registers_start_index + STEPMRDRV_DATA_REGISTER_OFFSET_1_mode;
+
+    if (modbus_write_registers(controller->getModbusContext(), start_address, 1, &(motor_device->_modbus_data._driverData._1_mode)) < 0)
+    {
+        LOG4CXX_ERROR(logger, "oldportal::fc::network::command::StopMotion::process() modbus_write_registers error: " << modbus_strerror(errno));
+
+        // increment error counters
+        controller->_error_statistics.increment();
+        _device->_error_statistics.increment();
+
+        return;
+    }
+
+    // update device state
+    _device->updateLastPing();
+    _device->updateLastResponse();
+
+    _result_success = true;
+    _command_completed = true;
 }//END_24b28aceb4ccdcd30267159a4f322962
 
 
