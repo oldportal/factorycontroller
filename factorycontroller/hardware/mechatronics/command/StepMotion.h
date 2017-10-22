@@ -46,14 +46,25 @@ class StepMotion
 :  public virtual oldportal::fc::network::modbus::ModbusDeviceCommand
 {
 // constructors:
+/**
+Init DirectStep command.
+
+direct_step can has +1, -1 or O value.
+*/
 public:
-StepMotion(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > device_process);
+StepMotion(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > device_process, int16_t direct_step);
 
 
 public:
 virtual ~StepMotion();
 
 // members:
+
+/**
+_direct_step can has +1, -1 or O value.
+*/
+public:
+int16_t _direct_step;
 
 
 //methods:
