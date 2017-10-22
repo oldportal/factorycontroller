@@ -67,6 +67,9 @@ void oldportal::fc::hardware::mechatronics::command::StepMotion::process(oldport
 
     // init structure state
     motor_device->_modbus_data._driverData._1_mode = DRIVER_STEP_DIRECT;
+    motor_device->_modbus_data._driverData._6_rotor_angle_acceleration_speed = 0;
+    motor_device->_modbus_data._driverData._4_rotor_angle_start_speed = 0;
+    motor_device->_modbus_data._driverData._7_rotor_angle_end_continuous_speed = 0;
     motor_device->_modbus_data._driverData._10_rotor_angle_direct_step = _direct_step;
 
     // write to modbus
@@ -76,7 +79,7 @@ void oldportal::fc::hardware::mechatronics::command::StepMotion::process(oldport
 
     if (modbus_write_registers(controller->getModbusContext(),
                                motor_device->_modbus_data._driverData._modbus_registers_start_index,
-                               motor_device->_modbus_data._driverData.getModbusRegistersSizeof(),
+                               STEPMRDRV_DATA_REGISTER_OFFSET_11_motor_maximum_allowed_temperature, // size = register index after last changed value
                                registers) < 0)
     {
         LOG4CXX_ERROR(logger, "oldportal::fc::network::command::StepMotion::process() modbus_write_registers error: " << modbus_strerror(errno));
