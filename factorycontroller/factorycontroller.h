@@ -258,6 +258,7 @@ class MotorSettings;
 
 namespace command 
 {
+class ToEndPositionMotion;
 class AccelerationMotion;
 class CurveMotion;
 class GetMotionState;
@@ -501,6 +502,7 @@ class StepCounter;
 #include "hardware/mechatronics/command/LinearMotion.h"
 #include "hardware/mechatronics/command/StepMotion.h"
 #include "hardware/mechatronics/command/StopMotion.h"
+#include "hardware/mechatronics/command/ToEndPositionMotion.h"
 #include "hardware/mechatronics/proc/Motion.h"
 #include "hardware/mechatronics/proc/AccelerationMotion.h"
 #include "hardware/mechatronics/proc/ConstantSpeedMotion.h"
@@ -635,6 +637,7 @@ namespace fc
 #include "hardware/mechatronics/command/LinearMotion.h"
 #include "hardware/mechatronics/command/StepMotion.h"
 #include "hardware/mechatronics/command/StopMotion.h"
+#include "hardware/mechatronics/command/ToEndPositionMotion.h"
 #include "hardware/mechatronics/proc/Motion.h"
 #include "hardware/mechatronics/proc/AccelerationMotion.h"
 #include "hardware/mechatronics/proc/ConstantSpeedMotion.h"
