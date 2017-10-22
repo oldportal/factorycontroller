@@ -63,7 +63,32 @@ void oldportal::fc::hardware::mechatronics::command::GetMotionState::process(old
     std::shared_ptr<oldportal::fc::hardware::mechatronics::Motor> motor_device = std::dynamic_pointer_cast<oldportal::fc::hardware::mechatronics::Motor>(_device);
     assert (motor_device);
 
-    //TODO:
+    // write to modbus
+    uint16_t registers[motor_device->_modbus_data._driverData.getModbusRegistersSizeof()];
+
+    // modbus read registers
+    if (modbus_read_registers(controller->getModbusContext(),
+                              motor_device->_modbus_data._driverData._modbus_registers_start_index,
+                              motor_device->_modbus_data._driverData.getModbusRegistersSizeof(),
+                              registers) < 0)
+    {
+        LOG4CXX_ERROR(logger, "oldportal::fc::hardware::mechatronics::command::GetMotionState::process() modbus_read_registers error: " << modbus_strerror(errno));
+
+        // increment error counters
+        controller->_error_statistics.increment();
+        _device->_error_statistics.increment();
+
+        return;
+    }
+
+    motor_device->_modbus_data._driverData.loadFromRegisterArray(registers);
+
+    // update device state
+    _device->updateLastPing();
+    _device->updateLastResponse();
+
+    _result_success = true;
+    _command_completed = true;
 }//END_4e3507a92ef4831d96535832e77d1c87
 
 
