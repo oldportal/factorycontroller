@@ -180,7 +180,8 @@ SOURCES += main.cpp \
     factorycontroller/hardware/mechatronics/command/StopMotion.cpp \
     factorycontroller/network/command/DeviceIDReport.cpp \
     factorycontroller/hardware/mechatronics/data/StepMotorModbus.cpp \
-    factorycontroller/network/command/ReadAndClearLog.cpp
+    factorycontroller/network/command/ReadAndClearLog.cpp \
+    factorycontroller/hardware/mechatronics/command/ToEndPositionMotion.cpp
     
 
 HEADERS += factorycontroller/factorycontroller.h \ 

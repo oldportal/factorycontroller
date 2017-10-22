@@ -32,29 +32,28 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-oldportal::fc::hardware::mechatronics::command::StepMotion::StepMotion(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > device_process, int16_t direct_step)
+oldportal::fc::hardware::mechatronics::command::ToEndPositionMotion::ToEndPositionMotion(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > device_process, float acceleration, float end_position)
     : oldportal::fc::network::DeviceCommand(device, device_process)
-{//BEGIN_ac3725385c54bbe125b8c2a5b1b020fb
-    assert(direct_step == 0 || direct_step == 1 || direct_step == -1);
-
-    _direct_step = direct_step;
-}//END_ac3725385c54bbe125b8c2a5b1b020fb
-
+{//BEGIN_a67ddc7c05dd441e90da575a7c945599
+    _acceleration = acceleration;
+    _end_position = end_position;
+}//END_a67ddc7c05dd441e90da575a7c945599
 
 
-oldportal::fc::hardware::mechatronics::command::StepMotion::~StepMotion()
-{//BEGIN_14479bc6cabf11039aad4199e79fc4f3
 
-}//END_14479bc6cabf11039aad4199e79fc4f3
+oldportal::fc::hardware::mechatronics::command::ToEndPositionMotion::~ToEndPositionMotion()
+{//BEGIN_1d4498ad6f3b46ed07c5bc7868abde7b
+
+}//END_1d4498ad6f3b46ed07c5bc7868abde7b
 
 
-void oldportal::fc::hardware::mechatronics::command::StepMotion::onProcessed()
-{//BEGIN_672e70a7205f5de2d78edda67ad10174
+void oldportal::fc::hardware::mechatronics::command::ToEndPositionMotion::onProcessed()
+{//BEGIN_9a9167eae02c584f7282410cb7a522d3
     // empty
-}//END_672e70a7205f5de2d78edda67ad10174
+}//END_9a9167eae02c584f7282410cb7a522d3
 
-void oldportal::fc::hardware::mechatronics::command::StepMotion::process(oldportal::fc::network::modbus::ModbusNetworkController* const  controller)
-{//BEGIN_ce66d4c0b634215137cdb5fe36caf9ce
+void oldportal::fc::hardware::mechatronics::command::ToEndPositionMotion::process(oldportal::fc::network::modbus::ModbusNetworkController* const  controller)
+{//BEGIN_cc8328a08aa7f7854165e8a127bca2d3
     assert(controller);
     assert(_device);
     assert(_device_process);
@@ -65,12 +64,23 @@ void oldportal::fc::hardware::mechatronics::command::StepMotion::process(oldport
     std::shared_ptr<oldportal::fc::hardware::mechatronics::Motor> motor_device = std::dynamic_pointer_cast<oldportal::fc::hardware::mechatronics::Motor>(_device);
     assert (motor_device);
 
+    // read current speed from the device
+    //TODO:
+
+    assert (_acceleration < INT16_MAX && _acceleration > INT16_MIN);
+    /*
+    assert (_end_speed < INT16_MAX && _end_speed > INT16_MIN);
+    assert (abs(_end_speed) <= motor_device->_modbus_data._driverData._13_motor_maximum_allowed_angle_speed);
+
     // init structure state
-    motor_device->_modbus_data._driverData._1_mode = DRIVER_STEP_DIRECT;
-    motor_device->_modbus_data._driverData._6_rotor_angle_acceleration_speed = 0;
-    motor_device->_modbus_data._driverData._4_rotor_angle_start_speed = 0;
-    motor_device->_modbus_data._driverData._7_rotor_angle_end_continuous_speed = 0;
-    motor_device->_modbus_data._driverData._10_rotor_angle_direct_step = _direct_step;
+    motor_device->_modbus_data._driverData._1_mode = DRIVER_SERVO_SPEED_AND_ACCELERATION_TO_END_SPEED;
+    motor_device->_modbus_data._driverData._6_rotor_angle_acceleration_speed = (int16_t)_acceleration;
+
+    int16_t end_speed = (int16_t)_end_speed;
+    //TODO: start_speed
+    //motor_device->_modbus_data._driverData._4_rotor_angle_start_speed = speed;
+    motor_device->_modbus_data._driverData._7_rotor_angle_end_continuous_speed = end_speed;
+    */
 
     // write to modbus
     uint16_t start_address = motor_device->_modbus_data._driverData._modbus_registers_start_index;
@@ -79,10 +89,10 @@ void oldportal::fc::hardware::mechatronics::command::StepMotion::process(oldport
 
     if (modbus_write_registers(controller->getModbusContext(),
                                motor_device->_modbus_data._driverData._modbus_registers_start_index,
-                               STEPMRDRV_DATA_REGISTER_OFFSET_11_motor_maximum_allowed_temperature, // size = register index after last changed value
+                               STEPMRDRV_DATA_REGISTER_OFFSET_8_rotor_angle_stop_position, // size = register index after last changed value
                                registers) < 0)
     {
-        LOG4CXX_ERROR(logger, "oldportal::fc::hardware::mechatronics::command::StepMotion::process() modbus_write_registers error: " << modbus_strerror(errno));
+        LOG4CXX_ERROR(logger, "oldportal::fc::hardware::mechatronics::command::ToEndPositionMotion::process() modbus_write_registers error: " << modbus_strerror(errno));
 
         // increment error counters
         controller->_error_statistics.increment();
@@ -97,7 +107,7 @@ void oldportal::fc::hardware::mechatronics::command::StepMotion::process(oldport
 
     _result_success = true;
     _command_completed = true;
-}//END_ce66d4c0b634215137cdb5fe36caf9ce
+}//END_cc8328a08aa7f7854165e8a127bca2d3
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
