@@ -67,7 +67,14 @@ void oldportal::fc::hardware::mechatronics::data::StepMotorDriverData::loadFromR
     uint16_t *registers = modbus_mapping->tab_registers;
     registers += _modbus_registers_start_index;
 
-    int16_t *registers_i16 = (int16_t *)modbus_mapping->tab_registers;
+    loadFromRegisterArray(registers);
+}//END_0013680b70d615bd9baefe892282ecc8
+
+void oldportal::fc::hardware::mechatronics::data::StepMotorDriverData::loadFromRegisterArray(const uint16_t* registers)
+{//BEGIN_27e4e31bcfc47687cb5d2dda8818bf44
+    assert(registers);
+
+    int16_t *registers_i16 = (int16_t *)registers;
 
     // variables
     _1_mode = registers[0];
@@ -89,7 +96,7 @@ void oldportal::fc::hardware::mechatronics::data::StepMotorDriverData::loadFromR
     _11_motor_maximum_allowed_temperature = registers_i16[12];
     _12_motor_maximum_allowed_current = registers_i16[13];
     _13_motor_maximum_allowed_angle_speed = registers_i16[14];
-}//END_0013680b70d615bd9baefe892282ecc8
+}//END_27e4e31bcfc47687cb5d2dda8818bf44
 
 void oldportal::fc::hardware::mechatronics::data::StepMotorDriverData::saveToRegisterArray(const modbus_mapping_t* modbus_mapping)
 {//BEGIN_09d9c46ccee7665b42224733ad68a470
@@ -100,7 +107,14 @@ void oldportal::fc::hardware::mechatronics::data::StepMotorDriverData::saveToReg
     uint16_t *registers = modbus_mapping->tab_registers;
     registers += _modbus_registers_start_index;
 
-    int16_t *registers_i16 = (int16_t *)modbus_mapping->tab_registers;
+    saveToRegisterArray(registers);
+}//END_09d9c46ccee7665b42224733ad68a470
+
+void oldportal::fc::hardware::mechatronics::data::StepMotorDriverData::saveToRegisterArray(uint16_t* registers)
+{//BEGIN_0181dfe1529c3e950d36a42336b2e2ed
+    assert(registers);
+
+    int16_t *registers_i16 = (int16_t *)registers;
 
     // variables
     registers[0] = _1_mode;
@@ -122,7 +136,7 @@ void oldportal::fc::hardware::mechatronics::data::StepMotorDriverData::saveToReg
     registers_i16[12] = _11_motor_maximum_allowed_temperature;
     registers_i16[13] = _12_motor_maximum_allowed_current;
     registers_i16[14] = _13_motor_maximum_allowed_angle_speed;
-}//END_09d9c46ccee7665b42224733ad68a470
+}//END_0181dfe1529c3e950d36a42336b2e2ed
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE

@@ -146,6 +146,13 @@ void oldportal::fc::hardware::mechatronics::data::StepMotorModbus::loadFromRegis
     }
 }//END_bcacd04f7bb2ffba40b3f730f454783a
 
+void oldportal::fc::hardware::mechatronics::data::StepMotorModbus::loadFromRegisterArray(const uint16_t* registers)
+{//BEGIN_c530bda55373de96b6014767cb294482
+    assert(registers);
+
+    LOG4CXX_ERROR(logger, "function StepMotorModbus::loadFromRegisterArray(const uint16_t* registers) is not supported");
+}//END_c530bda55373de96b6014767cb294482
+
 void oldportal::fc::hardware::mechatronics::data::StepMotorModbus::saveToRegisterArray(const modbus_mapping_t* modbus_mapping)
 {//BEGIN_1b090a13c101b30e043d6f2354064dcf
     // check index range with modbus_mapping->nb_registers:
@@ -161,6 +168,13 @@ void oldportal::fc::hardware::mechatronics::data::StepMotorModbus::saveToRegiste
         _systemLog[index].saveToRegisterArray(modbus_mapping);
     }
 }//END_1b090a13c101b30e043d6f2354064dcf
+
+void oldportal::fc::hardware::mechatronics::data::StepMotorModbus::saveToRegisterArray(uint16_t* registers)
+{//BEGIN_4423a6e2185ad532ee83b10cc8527ab7
+    assert(registers);
+
+    LOG4CXX_ERROR(logger, "function StepMotorModbus::saveToRegisterArray(uint16_t* registers) is not supported");
+}//END_4423a6e2185ad532ee83b10cc8527ab7
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE

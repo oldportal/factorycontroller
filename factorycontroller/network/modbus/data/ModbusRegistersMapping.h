@@ -65,11 +65,33 @@ uint16_t _modbus_registers_start_index;
 public:
 uint8_t getModbusRegistersSizeof();
 
+/**
+Load structure's data from modbus registers array.
+*/
 public:
 virtual void loadFromRegisterArray(const modbus_mapping_t* modbus_mapping) = 0;
 
+/**
+Load structure's data from modbus registers array.
+
+The structure's data starts from zero offset. Pointer registers represents the first register of the structure.
+*/
+public:
+virtual void loadFromRegisterArray(const uint16_t* registers) = 0;
+
+/**
+Save structure's data from modbus registers array.
+*/
 public:
 virtual void saveToRegisterArray(const modbus_mapping_t* modbus_mapping) = 0;
+
+/**
+Save structure's data from modbus registers array.
+
+The structure's data starts from zero offset. Pointer registers represents the first register of the structure.
+*/
+public:
+virtual void saveToRegisterArray(uint16_t* registers) = 0;
 
 
 

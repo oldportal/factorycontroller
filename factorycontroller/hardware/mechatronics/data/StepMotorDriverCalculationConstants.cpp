@@ -55,12 +55,19 @@ void oldportal::fc::hardware::mechatronics::data::StepMotorDriverCalculationCons
     uint16_t *registers = modbus_mapping->tab_registers;
     registers += _modbus_registers_start_index;
 
+    loadFromRegisterArray(registers);
+}//END_ec7a03b29e424da0f3fc780a4c3776b1
+
+void oldportal::fc::hardware::mechatronics::data::StepMotorDriverCalculationConstants::loadFromRegisterArray(const uint16_t* registers)
+{//BEGIN_8b125a9f1b97c6c5938c2488fc354246
+    assert(registers);
+
     // variables
     _1_steps_per_revolution = registers[0];
     _2_rotor_intertia = registers[1];
     _3_moment_elasticity = registers[2];
     _4_default_s_in_angle_steps = registers[3];
-}//END_ec7a03b29e424da0f3fc780a4c3776b1
+}//END_8b125a9f1b97c6c5938c2488fc354246
 
 void oldportal::fc::hardware::mechatronics::data::StepMotorDriverCalculationConstants::saveToRegisterArray(const modbus_mapping_t* modbus_mapping)
 {//BEGIN_1fc4d20ac5a07623d4227d6ca5b45c3c
@@ -71,12 +78,19 @@ void oldportal::fc::hardware::mechatronics::data::StepMotorDriverCalculationCons
     uint16_t *registers = modbus_mapping->tab_registers;
     registers += _modbus_registers_start_index;
 
+    saveToRegisterArray(registers);
+}//END_1fc4d20ac5a07623d4227d6ca5b45c3c
+
+void oldportal::fc::hardware::mechatronics::data::StepMotorDriverCalculationConstants::saveToRegisterArray(uint16_t* registers)
+{//BEGIN_c74461846d9e7bf3679377c467b23ff4
+    assert(registers);
+
     // variables
     registers[0] = _1_steps_per_revolution;
     registers[1] = _2_rotor_intertia;
     registers[2] = _3_moment_elasticity;
     registers[3] = _4_default_s_in_angle_steps;
-}//END_1fc4d20ac5a07623d4227d6ca5b45c3c
+}//END_c74461846d9e7bf3679377c467b23ff4
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE

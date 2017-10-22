@@ -57,7 +57,14 @@ void oldportal::fc::hardware::mechatronics::data::StepMotorDriverDataInput::load
     uint16_t *registers = modbus_mapping->tab_registers;
     registers += _modbus_registers_start_index;
 
-    int16_t *registers_i16 = (int16_t *)modbus_mapping->tab_registers;
+    loadFromRegisterArray(registers);
+}//END_96943c7718d9be57e33ccbd0b6b7001c
+
+void oldportal::fc::hardware::mechatronics::data::StepMotorDriverDataInput::loadFromRegisterArray(const uint16_t* registers)
+{//BEGIN_3f26b34d93a7af0a9583d073d71bd52c
+    assert(registers);
+
+    int16_t *registers_i16 = (int16_t *)registers;
 
     // variables
     _1_rotor_angle_speed = registers_i16[0];
@@ -69,7 +76,7 @@ void oldportal::fc::hardware::mechatronics::data::StepMotorDriverDataInput::load
     _4_rotor_planned_angle_speed = registers_i16[4];
     _5_rotor_planned_angle_torque = registers_i16[5];
     _6_motor_temperature = registers_i16[6];
-}//END_96943c7718d9be57e33ccbd0b6b7001c
+}//END_3f26b34d93a7af0a9583d073d71bd52c
 
 void oldportal::fc::hardware::mechatronics::data::StepMotorDriverDataInput::saveToRegisterArray(const modbus_mapping_t* modbus_mapping)
 {//BEGIN_dd2f46375fb7721632411d03e07536cd
@@ -80,7 +87,14 @@ void oldportal::fc::hardware::mechatronics::data::StepMotorDriverDataInput::save
     uint16_t *registers = modbus_mapping->tab_registers;
     registers += _modbus_registers_start_index;
 
-    int16_t *registers_i16 = (int16_t *)modbus_mapping->tab_registers;
+    saveToRegisterArray(registers);
+}//END_dd2f46375fb7721632411d03e07536cd
+
+void oldportal::fc::hardware::mechatronics::data::StepMotorDriverDataInput::saveToRegisterArray(uint16_t* registers)
+{//BEGIN_f6cfcfd835a2ab2c7074bf040bf093b3
+    assert(registers);
+
+    int16_t *registers_i16 = (int16_t *)registers;
 
     // variables
     registers_i16[0] = _1_rotor_angle_speed;
@@ -92,7 +106,7 @@ void oldportal::fc::hardware::mechatronics::data::StepMotorDriverDataInput::save
     registers_i16[4] = _4_rotor_planned_angle_speed;
     registers_i16[5] = _5_rotor_planned_angle_torque;
     registers_i16[6] = _6_motor_temperature;
-}//END_dd2f46375fb7721632411d03e07536cd
+}//END_f6cfcfd835a2ab2c7074bf040bf093b3
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
