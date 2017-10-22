@@ -71,7 +71,7 @@ void oldportal::fc::hardware::mechatronics::command::StopMotion::process(oldport
 
     if (modbus_write_registers(controller->getModbusContext(), start_address, 1, &(motor_device->_modbus_data._driverData._1_mode)) < 0)
     {
-        LOG4CXX_ERROR(logger, "oldportal::fc::network::command::StopMotion::process() modbus_write_registers error: " << modbus_strerror(errno));
+        LOG4CXX_ERROR(logger, "oldportal::fc::hardware::mechatronics::command::StopMotion::process() modbus_write_registers error: " << modbus_strerror(errno));
 
         // increment error counters
         controller->_error_statistics.increment();
