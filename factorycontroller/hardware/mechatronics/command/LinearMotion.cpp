@@ -63,12 +63,12 @@ void oldportal::fc::hardware::mechatronics::command::LinearMotion::process(oldpo
     std::shared_ptr<oldportal::fc::hardware::mechatronics::Motor> motor_device = std::dynamic_pointer_cast<oldportal::fc::hardware::mechatronics::Motor>(_device);
     assert (motor_device);
 
+    assert (_speed < INT16_MAX && _speed > INT16_MIN);
+    assert (abs(_speed) <= motor_device->_modbus_data._driverData._13_motor_maximum_allowed_angle_speed);
+
     // init structure state
     motor_device->_modbus_data._driverData._1_mode = DRIVER_SERVO_CONTINUOUS_SPEED;
     motor_device->_modbus_data._driverData._6_rotor_angle_acceleration_speed = 0;
-
-    assert (_speed < INT16_MAX && _speed > INT16_MIN);
-    assert (abs(_speed) <= motor_device->_modbus_data._driverData._13_motor_maximum_allowed_angle_speed);
 
     int16_t speed = (int16_t)_speed;
     motor_device->_modbus_data._driverData._4_rotor_angle_start_speed = speed;
@@ -84,7 +84,7 @@ void oldportal::fc::hardware::mechatronics::command::LinearMotion::process(oldpo
                                STEPMRDRV_DATA_REGISTER_OFFSET_8_rotor_angle_stop_position, // size = register index after last changed value
                                registers) < 0)
     {
-        LOG4CXX_ERROR(logger, "oldportal::fc::network::command::LinearMotion::process() modbus_write_registers error: " << modbus_strerror(errno));
+        LOG4CXX_ERROR(logger, "oldportal::fc::hardware::mechatronics::command::LinearMotion::process() modbus_write_registers error: " << modbus_strerror(errno));
 
         // increment error counters
         controller->_error_statistics.increment();

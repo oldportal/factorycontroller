@@ -67,7 +67,6 @@ SOURCES += main.cpp \
     factorycontroller/hardware/mechatronics/MotorSettings.cpp \
     factorycontroller/hardware/mechatronics/command/LinearMotion.cpp \
     factorycontroller/hardware/mechatronics/command/CurveMotion.cpp \
-    factorycontroller/hardware/mechatronics/command/ConstantSpeedMotion.cpp \
     factorycontroller/hardware/mechatronics/command/_group_command.cpp \
     factorycontroller/hardware/mechatronics/command/AccelerationMotion.cpp \
     factorycontroller/hardware/mechatronics/command/StepMotion.cpp \

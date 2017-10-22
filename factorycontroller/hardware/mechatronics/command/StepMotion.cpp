@@ -82,7 +82,7 @@ void oldportal::fc::hardware::mechatronics::command::StepMotion::process(oldport
                                STEPMRDRV_DATA_REGISTER_OFFSET_11_motor_maximum_allowed_temperature, // size = register index after last changed value
                                registers) < 0)
     {
-        LOG4CXX_ERROR(logger, "oldportal::fc::network::command::StepMotion::process() modbus_write_registers error: " << modbus_strerror(errno));
+        LOG4CXX_ERROR(logger, "oldportal::fc::hardware::mechatronics::command::StepMotion::process() modbus_write_registers error: " << modbus_strerror(errno));
 
         // increment error counters
         controller->_error_statistics.increment();

@@ -259,7 +259,6 @@ class MotorSettings;
 namespace command 
 {
 class AccelerationMotion;
-class ConstantSpeedMotion;
 class CurveMotion;
 class GetMotionState;
 class LinearMotion;
@@ -497,7 +496,6 @@ class StepCounter;
 #include "network/DeviceCommand.h"
 #include "network/modbus/ModbusDeviceCommand.h"
 #include "hardware/mechatronics/command/AccelerationMotion.h"
-#include "hardware/mechatronics/command/ConstantSpeedMotion.h"
 #include "hardware/mechatronics/command/CurveMotion.h"
 #include "hardware/mechatronics/command/GetMotionState.h"
 #include "hardware/mechatronics/command/LinearMotion.h"
@@ -632,7 +630,6 @@ namespace fc
 #include "network/DeviceCommand.h"
 #include "network/modbus/ModbusDeviceCommand.h"
 #include "hardware/mechatronics/command/AccelerationMotion.h"
-#include "hardware/mechatronics/command/ConstantSpeedMotion.h"
 #include "hardware/mechatronics/command/CurveMotion.h"
 #include "hardware/mechatronics/command/GetMotionState.h"
 #include "hardware/mechatronics/command/LinearMotion.h"
