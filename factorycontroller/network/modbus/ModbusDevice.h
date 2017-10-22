@@ -54,8 +54,6 @@ virtual ~ModbusDevice();
 // members:
 
 public:
-std::shared_ptr< oldportal::fc::network::modbus::ModbusDeviceCommand > _current_device_command;
-public:
 uint8_t _modbus_address;
 
 
