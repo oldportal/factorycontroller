@@ -57,8 +57,11 @@ void oldportal::fc::hardware::mechatronics::command::AccelerationMotion::process
     assert(_device);
     assert(_device_process);
 
-    auto motorDevice = std::dynamic_pointer_cast<oldportal::fc::hardware::mechatronics::Motor>(_device);
-    assert (motorDevice);
+    if (!modbus_set_slave(controller))
+        return;// hardware error
+
+    std::shared_ptr<oldportal::fc::hardware::mechatronics::Motor> motor_device = std::dynamic_pointer_cast<oldportal::fc::hardware::mechatronics::Motor>(_device);
+    assert (motor_device);
 
     //TODO:
 }//END_3cf4c714d2918c3ad2d6767fdb99c855

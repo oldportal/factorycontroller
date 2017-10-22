@@ -80,11 +80,32 @@ void ctrlReportError(uint16_t error_code);
 public:
 void ctrlReportErrorWithParameter(uint16_t error_code, uint16_t parameter);
 
+/**
+Load structure's data from modbus registers array.
+*/
 public:
 virtual void loadFromRegisterArray(const modbus_mapping_t* modbus_mapping);
 
+/**
+Load structure's data from modbus registers array.
+The structure's data starts from zero offset. Pointer registers represents the first register of the structure.
+*/
+public:
+virtual void loadFromRegisterArray(const uint16_t* registers);
+
+/**
+Save structure's data from modbus registers array.
+*/
 public:
 virtual void saveToRegisterArray(const modbus_mapping_t* modbus_mapping);
+
+/**
+Save structure's data from modbus registers array.
+
+The structure's data starts from zero offset. Pointer registers represents the first register of the structure.
+*/
+public:
+virtual void saveToRegisterArray(uint16_t* registers);
 
 
 

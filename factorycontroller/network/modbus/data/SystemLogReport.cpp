@@ -55,6 +55,13 @@ void oldportal::fc::network::modbus::data::SystemLogReport::loadFromRegisterArra
     uint16_t *registers = modbus_mapping->tab_registers;
     registers += _modbus_registers_start_index;
 
+    loadFromRegisterArray(registers);
+}//END_008e2d3da8906929567066bce5aa1804
+
+void oldportal::fc::network::modbus::data::SystemLogReport::loadFromRegisterArray(const uint16_t* registers)
+{//BEGIN_94ec75d88746423e953a6508a375dac0
+    assert(registers);
+
     // variables
     _1_error_code = registers[0];
     _2_count = registers[1];
@@ -62,7 +69,7 @@ void oldportal::fc::network::modbus::data::SystemLogReport::loadFromRegisterArra
     uint32_t *time_register = (uint32_t *)(registers+2);
     _3_last_time = *time_register;
     _4_last_parameter = registers[4];
-}//END_008e2d3da8906929567066bce5aa1804
+}//END_94ec75d88746423e953a6508a375dac0
 
 void oldportal::fc::network::modbus::data::SystemLogReport::saveToRegisterArray(const modbus_mapping_t* modbus_mapping)
 {//BEGIN_2036dbc9a7533c45765fbe038c60cfe4
@@ -73,13 +80,20 @@ void oldportal::fc::network::modbus::data::SystemLogReport::saveToRegisterArray(
     uint16_t *registers = modbus_mapping->tab_registers;
     registers += _modbus_registers_start_index;
 
+    saveToRegisterArray(registers);
+}//END_2036dbc9a7533c45765fbe038c60cfe4
+
+void oldportal::fc::network::modbus::data::SystemLogReport::saveToRegisterArray(uint16_t* registers)
+{//BEGIN_8feee1a88e8c240c8fc12789afb0b803
+    assert(registers);
+
     // variables
     registers[0] = _1_error_code;
     registers[1] = _2_count;
     uint32_t *time_register = (uint32_t *)(registers+2);
     *time_register = _3_last_time;
     registers[4] = _4_last_parameter;
-}//END_2036dbc9a7533c45765fbe038c60cfe4
+}//END_8feee1a88e8c240c8fc12789afb0b803
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE

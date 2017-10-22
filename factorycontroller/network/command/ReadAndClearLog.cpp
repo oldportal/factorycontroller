@@ -49,26 +49,53 @@ oldportal::fc::network::command::ReadAndClearLog::~ReadAndClearLog()
 void oldportal::fc::network::command::ReadAndClearLog::process(oldportal::fc::network::modbus::ModbusNetworkController* const  controller)
 {//BEGIN_b9522da80d4b05e42e2b9d9a702ae52d
     assert(controller);
+    assert(_device);
 
     if (!modbus_set_slave(controller))
         return;// hardware error
 
-    // read controller_data (0-8 registers)
-    //uint16_t tab_reg[64];
-    // modbus read registers
-    /*if (modbus_read_registers(controller->getModbusContext(), 0, 8, tab_reg) < 0)
+    std::shared_ptr<oldportal::fc::hardware::mechatronics::Motor> motor_device = std::dynamic_pointer_cast<oldportal::fc::hardware::mechatronics::Motor>(_device);
+    assert (motor_device);
+
+    // read controller LOG data
+
+    // init registers array
+    uint16_t start_address = motor_device->_modbus_data._systemLog[0]._modbus_registers_start_index;
+    uint16_t registers_count = CONTROLLER_LOG_SIZE * motor_device->_modbus_data._systemLog[0].getModbusRegistersSizeof();
+    size_t reg_size = CONTROLLER_LOG_SIZE * motor_device->_modbus_data._systemLog[0].getModbusRegistersSizeof();
+    uint16_t tab_reg[reg_size];
+
+    // modbus read log registers
+    if (modbus_read_registers(controller->getModbusContext(), start_address, registers_count, tab_reg) < 0)
     {
-        LOG4CXX_ERROR(logger, "oldportal::fc::network::command::DeviceStateReport::process() modbus_read_registers error: " << modbus_strerror(errno));
+        LOG4CXX_ERROR(logger, "oldportal::fc::network::command::ReadAndClearLog::process() modbus_read_registers error: " << modbus_strerror(errno));
 
         // increment error counters
         controller->_error_statistics.increment();
         _device->_error_statistics.increment();
 
         return;
-    }*/
+    }
 
-    //TODO: read device state structure registers
-    //TODO: parse device state structure registers
+    // parse device state structure registers
+    for (uint16_t i=0; i<CONTROLLER_LOG_SIZE; i++)
+    {
+        motor_device->_modbus_data._systemLog[i].loadFromRegisterArray(tab_reg + i*motor_device->_modbus_data._systemLog[i].getModbusRegistersSizeof());
+    }
+
+    // modbus clear log registers
+    memset(tab_reg, 0, reg_size*sizeof(uint16_t));
+
+    if (modbus_write_registers(controller->getModbusContext(), start_address, registers_count, tab_reg) < 0)
+    {
+        LOG4CXX_ERROR(logger, "oldportal::fc::network::command::ReadAndClearLog::process() modbus_write_registers error: " << modbus_strerror(errno));
+
+        // increment error counters
+        controller->_error_statistics.increment();
+        _device->_error_statistics.increment();
+
+        return;
+    }
 
     // update device state
     _device->updateLastPing();

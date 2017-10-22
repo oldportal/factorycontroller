@@ -58,7 +58,14 @@ void oldportal::fc::network::modbus::data::ControllerData::loadFromRegisterArray
     uint16_t *registers = modbus_mapping->tab_registers;
     registers += _modbus_registers_start_index;
 
-    int16_t *registers_i16 = (int16_t *)modbus_mapping->tab_registers;
+    loadFromRegisterArray(registers);
+}//END_27ffc6aa766f69683dac4b08ec8d76ae
+
+void oldportal::fc::network::modbus::data::ControllerData::loadFromRegisterArray(const uint16_t* registers)
+{//BEGIN_87e28eb3bb5eb405841b356230c2c888
+    assert(registers);
+
+    int16_t *registers_i16 = (int16_t *)registers;
 
     // variables
     _1_mode = registers[0];
@@ -73,7 +80,7 @@ void oldportal::fc::network::modbus::data::ControllerData::loadFromRegisterArray
     _5_maximum_system_step_timeout = registers[6];
     _6_radiator_temperature = registers_i16[7];
     _7_maximum_radiator_temperature = registers_i16[8];
-}//END_27ffc6aa766f69683dac4b08ec8d76ae
+}//END_87e28eb3bb5eb405841b356230c2c888
 
 void oldportal::fc::network::modbus::data::ControllerData::saveToRegisterArray(const modbus_mapping_t* modbus_mapping)
 {//BEGIN_efd2a04e01927b64d4db2d3236dc75aa
@@ -84,7 +91,14 @@ void oldportal::fc::network::modbus::data::ControllerData::saveToRegisterArray(c
     uint16_t *registers = modbus_mapping->tab_registers;
     registers += _modbus_registers_start_index;
 
-    int16_t *registers_i16 = (int16_t *)modbus_mapping->tab_registers;
+    saveToRegisterArray(registers);
+}//END_efd2a04e01927b64d4db2d3236dc75aa
+
+void oldportal::fc::network::modbus::data::ControllerData::saveToRegisterArray(uint16_t* registers)
+{//BEGIN_bb9c42d55d8ae770a32ec21fe55cd6a2
+    assert(registers);
+
+    int16_t *registers_i16 = (int16_t *)registers;
 
     // variables
     registers[0] = _1_mode;
@@ -99,7 +113,7 @@ void oldportal::fc::network::modbus::data::ControllerData::saveToRegisterArray(c
     registers[6] = _5_maximum_system_step_timeout;
     registers_i16[7] = _6_radiator_temperature;
     registers_i16[8] = _7_maximum_radiator_temperature;
-}//END_efd2a04e01927b64d4db2d3236dc75aa
+}//END_bb9c42d55d8ae770a32ec21fe55cd6a2
 
 
 //BEGIN_USER_SECTION_AFTER_GENERATED_CODE
