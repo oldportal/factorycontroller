@@ -63,7 +63,10 @@ void oldportal::fc::hardware::mechatronics::command::StopMotion::process(oldport
     std::shared_ptr<oldportal::fc::hardware::mechatronics::Motor> motor_device = std::dynamic_pointer_cast<oldportal::fc::hardware::mechatronics::Motor>(_device);
     assert (motor_device);
 
+    // init structure state
     motor_device->_modbus_data._driverData._1_mode = DRIVER_SERVO_KEEP_POSITION;
+
+    // write to modbus
     uint16_t start_address = motor_device->_modbus_data._driverData._modbus_registers_start_index + STEPMRDRV_DATA_REGISTER_OFFSET_1_mode;
 
     if (modbus_write_registers(controller->getModbusContext(), start_address, 1, &(motor_device->_modbus_data._driverData._1_mode)) < 0)

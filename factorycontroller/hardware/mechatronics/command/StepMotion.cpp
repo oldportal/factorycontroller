@@ -32,7 +32,7 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-oldportal::fc::hardware::mechatronics::command::StepMotion::StepMotion(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > device_process)
+oldportal::fc::hardware::mechatronics::command::StepMotion::StepMotion(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > device_process, int16_t direct_step)
     : oldportal::fc::network::DeviceCommand(device, device_process)
 {//BEGIN_ac3725385c54bbe125b8c2a5b1b020fb
 
@@ -63,7 +63,35 @@ void oldportal::fc::hardware::mechatronics::command::StepMotion::process(oldport
     std::shared_ptr<oldportal::fc::hardware::mechatronics::Motor> motor_device = std::dynamic_pointer_cast<oldportal::fc::hardware::mechatronics::Motor>(_device);
     assert (motor_device);
 
-    //TODO:
+    // init structure state
+    motor_device->_modbus_data._driverData._1_mode = DRIVER_STEP_DIRECT;
+    motor_device->_modbus_data._driverData._10_rotor_angle_direct_step = _direct_step;
+
+    // write to modbus
+    uint16_t start_address = motor_device->_modbus_data._driverData._modbus_registers_start_index;
+    uint16_t registers[motor_device->_modbus_data._driverData.getModbusRegistersSizeof()];
+    motor_device->_modbus_data._driverData.saveToRegisterArray(registers);
+
+    if (modbus_write_registers(controller->getModbusContext(),
+                               motor_device->_modbus_data._driverData._modbus_registers_start_index,
+                               motor_device->_modbus_data._driverData.getModbusRegistersSizeof(),
+                               registers) < 0)
+    {
+        LOG4CXX_ERROR(logger, "oldportal::fc::network::command::StepMotion::process() modbus_write_registers error: " << modbus_strerror(errno));
+
+        // increment error counters
+        controller->_error_statistics.increment();
+        _device->_error_statistics.increment();
+
+        return;
+    }
+
+    // update device state
+    _device->updateLastPing();
+    _device->updateLastResponse();
+
+    _result_success = true;
+    _command_completed = true;
 }//END_ce66d4c0b634215137cdb5fe36caf9ce
 
 
