@@ -35,7 +35,7 @@ using namespace std;
 oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::FactoryPureProgramLoader()
     :   oldportal::fc::factory::manufacturing::FactoryLoader()
 {//BEGIN_e0a5d0495f08716c756e3e993ca14893
-    _name = u"FactoryPureProgramLoader";
+    _name = u8"FactoryPureProgramLoader";
 }//END_e0a5d0495f08716c756e3e993ca14893
 
 
@@ -78,14 +78,14 @@ void oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::init
     // network:
     auto network = std::make_shared< oldportal::fc::network::Network >();
     network->_id = 1;
-    network->_name = u"default network";
+    network->_name = u8"default network";
     network->_serialPortPath = u8"localhost:1502";
     _networks.push_back(network);
 
     // Modbus over TCP network:
     auto network_controller = std::make_shared< oldportal::fc::network::modbus::ModbusTCPIPNetworkController >(network);
-    network_controller->_address_settings._network_address = u"localhost";
-    network_controller->_address_settings._service = u"1502";
+    network_controller->_address_settings._network_address = u8"localhost";
+    network_controller->_address_settings._service = u8"1502";
     network->_controller = network_controller;
     network_controller->initHardware();
     _network_controllers.push_back(network_controller);
@@ -93,7 +93,7 @@ void oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::init
     // test device:
     auto networkDevice = std::make_shared< oldportal::fc::hardware::mechatronics::Motor >();
     networkDevice->_id = boost::uuids::random_generator()();
-    networkDevice->_description = u"test device";
+    networkDevice->_description = u8"test device";
     networkDevice->_modbus_address = 18;
     networkDevice->_network = network;
     //TODO: motor properties

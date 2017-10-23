@@ -62,7 +62,7 @@ boost::uuids::uuid _id;
 public:
 oldportal::fc::system::util::Counter _error_statistics;
 public:
-std::u16string _description;
+std::string _description;
 public:
 std::weak_ptr< oldportal::fc::network::Network > _network;
 

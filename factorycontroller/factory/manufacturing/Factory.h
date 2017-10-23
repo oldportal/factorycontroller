@@ -70,7 +70,7 @@ std::vector< std::shared_ptr<oldportal::fc::scheduler::ExecutorInterface> > _exe
 public:
 oldportal::fc::system::util::StepCounter _step_counter;
 public:
-std::u16string _name;
+std::string _name;
 
 
 //methods:

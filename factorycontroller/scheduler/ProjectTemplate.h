@@ -57,9 +57,9 @@ boost::uuids::uuid _id;
 public:
 int32_t _version;
 public:
-std::u16string _description;
+std::string _description;
 public:
-std::u16string _name;
+std::string _name;
 public:
 std::vector< std::shared_ptr<TaskTemplate> > _subtasks;
 

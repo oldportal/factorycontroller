@@ -37,7 +37,7 @@
 oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader::FactoryConfigurationFileLoader(const std::string& configuration_filename)
     :   oldportal::fc::factory::manufacturing::FactoryLoader()
 {//BEGIN_c037b730f87c52811d3fd00dd6c2693f
-    _name = u"FactoryConfigurationFileLoader";
+    _name = u8"FactoryConfigurationFileLoader";
     
     _configuration_filename = configuration_filename;
 
@@ -111,8 +111,7 @@ void oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader
     LOG4CXX_INFO(logger, "FactoryConfigurationFileLoader init() property_tree loaded for parsing");
 
     // load name
-    std::string factory_name = pt.get<std::string>("name");
-    _name = oldportal::fc::system::util::utf8_to_utf16(factory_name);
+    _name = pt.get<std::string>("name");
 
     // load all child elements:
     for (boost::property_tree::ptree::iterator i = pt.begin(); i!=pt.end(); i++)

@@ -45,7 +45,7 @@ oldportal::fc::network::modbus::ModbusSerialRTUNetworkController::ModbusSerialRT
 
     _network = network;
 
-    LOG4CXX_INFO(logger, "ModbusSerialRTUNetworkController() initialised with network " << oldportal::fc::system::util::utf16_to_utf8(network->_name));
+    LOG4CXX_INFO(logger, "ModbusSerialRTUNetworkController() initialised with network " << network->_name);
 }//END_17140ab021ca3f2bd11e039871242a38
 
 

@@ -54,7 +54,7 @@ virtual ~FactoryLoader();
 // members:
 
 public:
-std::u16string _name;
+std::string _name;
 
 
 //methods:

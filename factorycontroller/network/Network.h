@@ -49,9 +49,9 @@ class Network
 public:
 int64_t _id;
 public:
-std::string _serialPortPath;
+std::string _name;
 public:
-std::u16string _name;
+std::string _serialPortPath;
 public:
 std::vector< std::shared_ptr<NetworkDevice> > _devices;
 public:
