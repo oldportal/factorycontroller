@@ -86,9 +86,9 @@ Second (short) impulse length in double impulse mode, in seconds.
 public:
 float _second_impulse_length;
 public:
-std::u16string _description;
+std::string _description;
 public:
-std::u16string _name;
+std::string _name;
 
 
 //methods:

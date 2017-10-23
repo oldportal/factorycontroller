@@ -39,7 +39,7 @@ oldportal::fc::network::modbus::ModbusTCPIPNetworkController::ModbusTCPIPNetwork
 
     _network = network;
 
-    LOG4CXX_INFO(logger, "ModbusTCPIPNetworkController() initialised with network " << oldportal::fc::system::util::utf16_to_utf8(network->_name));
+    LOG4CXX_INFO(logger, "ModbusTCPIPNetworkController() initialised with network " << network->_name);
 }//END_da7390f47b64c6919e1ad8426b698765
 
 
@@ -57,10 +57,7 @@ void oldportal::fc::network::modbus::ModbusTCPIPNetworkController::initHardware(
     // init network time
     _network_time.init();
 
-    std::string address = oldportal::fc::system::util::utf16_to_utf8(_address_settings._network_address);
-    std::string service = oldportal::fc::system::util::utf16_to_utf8(_address_settings._service);
-
-    _modbus_ctx = modbus_new_tcp_pi(address.c_str(), service.c_str());
+    _modbus_ctx = modbus_new_tcp_pi(_address_settings._network_address.c_str(), _address_settings._service.c_str());
 
     if (_modbus_ctx == nullptr)
     {

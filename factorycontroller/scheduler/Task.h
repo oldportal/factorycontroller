@@ -63,7 +63,7 @@ std::chrono::high_resolution_clock::time_point _finished;
 public:
 std::chrono::high_resolution_clock::time_point _started;
 public:
-std::u16string _name;
+std::string _name;
 public:
 std::vector< std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > > _device_processes;
 public:

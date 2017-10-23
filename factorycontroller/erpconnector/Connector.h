@@ -46,11 +46,11 @@ class Connector
 // members:
 
 public:
-std::u16string _address;
+std::string _address;
 public:
-std::u16string _login;
+std::string _login;
 public:
-std::u16string _password;
+std::string _password;
 public:
 uint16_t _port;
 

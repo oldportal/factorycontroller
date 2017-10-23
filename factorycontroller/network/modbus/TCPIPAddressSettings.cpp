@@ -36,8 +36,8 @@ oldportal::fc::network::modbus::TCPIPAddressSettings::TCPIPAddressSettings()
 
 {//BEGIN_a0953697ca38dfff140df681df9ee579
     // network options
-    _network_address = oldportal::fc::system::util::utf8_to_utf16("localhost");
-    _service = oldportal::fc::system::util::utf8_to_utf16("1502");
+    _network_address = u8"localhost";
+    _service = u8"1502";
 }//END_a0953697ca38dfff140df681df9ee579
 
 

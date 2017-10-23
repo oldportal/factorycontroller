@@ -57,9 +57,9 @@ boost::uuids::uuid _id;
 public:
 boost::uuids::uuid _lockedForTask;
 public:
-std::u16string _description;
+std::string _description;
 public:
-std::u16string _name;
+std::string _name;
 public:
 std::weak_ptr< oldportal::fc::scheduler::ExecutorInterface > _lockedBy;
 

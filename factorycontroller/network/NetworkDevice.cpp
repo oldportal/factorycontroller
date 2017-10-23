@@ -66,7 +66,7 @@ std::chrono::high_resolution_clock::time_point oldportal::fc::network::NetworkDe
 
 std::string oldportal::fc::network::NetworkDevice::toString()
 {//BEGIN_8811979f01fa1905caf4d72934ac86a2
-    return (boost::format("NetworkDevice [ id: %i, description: %s ]") % _id % oldportal::fc::system::util::utf16_to_utf8(_description)).str();
+    return (boost::format("NetworkDevice [ id: %i, description: %s ]") % _id % _description).str();
 }//END_8811979f01fa1905caf4d72934ac86a2
 
 void oldportal::fc::network::NetworkDevice::updateLastPing()

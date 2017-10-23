@@ -34,7 +34,7 @@
 
 std::string oldportal::fc::network::Network::toString()
 {//BEGIN_69de8a8b22ede8fa53fd6d91702f6849
-    return (boost::format("Network [ id: %i, _name: %s ]") % _id % oldportal::fc::system::util::utf16_to_utf8(_name)).str();
+    return (boost::format("Network [ id: %i, _name: %s ]") % _id % _name).str();
 }//END_69de8a8b22ede8fa53fd6d91702f6849
 
 
