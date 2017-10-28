@@ -181,7 +181,11 @@ SOURCES += main.cpp \
     factorycontroller/network/command/DeviceIDReport.cpp \
     factorycontroller/hardware/mechatronics/data/StepMotorModbus.cpp \
     factorycontroller/network/command/ReadAndClearLog.cpp \
-    factorycontroller/hardware/mechatronics/command/ToEndPositionMotion.cpp
+    factorycontroller/hardware/mechatronics/command/ToEndPositionMotion.cpp \
+    factorycontroller/hardware/welding/command/GetWeldingState.cpp \
+    factorycontroller/hardware/welding/command/StartWelding.cpp \
+    factorycontroller/hardware/welding/command/StopWelding.cpp \
+    factorycontroller/hardware/welding/proc/WeldingProcess.cpp
     
 
 HEADERS += factorycontroller/factorycontroller.h \ 

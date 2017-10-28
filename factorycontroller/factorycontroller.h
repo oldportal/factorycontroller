@@ -258,13 +258,13 @@ class MotorSettings;
 
 namespace command 
 {
-class ToEndPositionMotion;
 class AccelerationMotion;
 class CurveMotion;
 class GetMotionState;
 class LinearMotion;
 class StepMotion;
 class StopMotion;
+class ToEndPositionMotion;
 
 }// namespace command
 namespace data 
@@ -333,6 +333,9 @@ class WeldingPowerSourceSettings;
 
 namespace command 
 {
+class GetWeldingState;
+class StopWelding;
+class StartWelding;
 
 }// namespace command
 namespace data 
@@ -341,6 +344,7 @@ namespace data
 }// namespace data
 namespace proc 
 {
+class WeldingProcess;
 
 }// namespace proc
 }// namespace welding
@@ -519,6 +523,10 @@ class StepCounter;
 #include "hardware/welding/WeldingPowerSourceSettings.h"
 #include "hardware/welding/WeldingPowerSourceMode.h"
 #include "hardware/welding/WeldingPowerSource.h"
+#include "hardware/welding/command/GetWeldingState.h"
+#include "hardware/welding/command/StartWelding.h"
+#include "hardware/welding/command/StopWelding.h"
+#include "hardware/welding/proc/WeldingProcess.h"
 #include "network/ConfigurationLoader.h"
 #include "network/Network.h"
 #include "network/NetworkClock.h"
@@ -654,6 +662,10 @@ namespace fc
 #include "hardware/welding/WeldingPowerSourceSettings.h"
 #include "hardware/welding/WeldingPowerSourceMode.h"
 #include "hardware/welding/WeldingPowerSource.h"
+#include "hardware/welding/command/GetWeldingState.h"
+#include "hardware/welding/command/StartWelding.h"
+#include "hardware/welding/command/StopWelding.h"
+#include "hardware/welding/proc/WeldingProcess.h"
 #include "network/ConfigurationLoader.h"
 #include "network/Network.h"
 #include "network/NetworkClock.h"
