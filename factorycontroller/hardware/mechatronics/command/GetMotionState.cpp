@@ -63,10 +63,10 @@ void oldportal::fc::hardware::mechatronics::command::GetMotionState::process(old
     std::shared_ptr<oldportal::fc::hardware::mechatronics::Motor> motor_device = std::dynamic_pointer_cast<oldportal::fc::hardware::mechatronics::Motor>(_device);
     assert (motor_device);
 
-    // write to modbus
-    uint16_t registers[motor_device->_modbus_data._driverData.getModbusRegistersSizeof()];
-
     // modbus read registers
+    uint16_t registers[motor_device->_modbus_data._driverData.getModbusRegistersSizeof() + motor_device->_modbus_data._driverDataInput.getModbusRegistersSizeof()];
+
+    // read _driverData
     if (modbus_read_registers(controller->getModbusContext(),
                               motor_device->_modbus_data._driverData._modbus_registers_start_index,
                               motor_device->_modbus_data._driverData.getModbusRegistersSizeof(),
@@ -82,6 +82,23 @@ void oldportal::fc::hardware::mechatronics::command::GetMotionState::process(old
     }
 
     motor_device->_modbus_data._driverData.loadFromRegisterArray(registers);
+
+    // read _driverDataInput
+    if (modbus_read_registers(controller->getModbusContext(),
+                              motor_device->_modbus_data._driverDataInput._modbus_registers_start_index,
+                              motor_device->_modbus_data._driverDataInput.getModbusRegistersSizeof(),
+                              registers) < 0)
+    {
+        LOG4CXX_ERROR(logger, "oldportal::fc::hardware::mechatronics::command::GetMotionState::process() modbus_read_registers error: " << modbus_strerror(errno));
+
+        // increment error counters
+        controller->_error_statistics.increment();
+        _device->_error_statistics.increment();
+
+        return;
+    }
+
+    motor_device->_modbus_data._driverDataInput.loadFromRegisterArray(registers);
 
     // update device state
     _device->updateLastPing();
