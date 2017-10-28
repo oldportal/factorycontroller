@@ -46,10 +46,16 @@ class WeldingModbus
 :  public virtual oldportal::fc::network::modbus::data::ModbusRegistersMapping
 {
 // constructors:
+public:
+WeldingModbus();
 
 
 // members:
 
+public:
+oldportal::fc::hardware::welding::data::WeldingDriverData _driverData;
+public:
+oldportal::fc::hardware::welding::data::WeldingDriverDataInput _driverDataInput;
 public:
 oldportal::fc::network::modbus::data::ControllerData _controllerData;
 public:

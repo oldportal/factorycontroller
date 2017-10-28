@@ -32,20 +32,53 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+oldportal::fc::hardware::welding::data::WeldingModbus::WeldingModbus()
+
+{//BEGIN_2795534b4f8fb62c34087e6bd5501d65
+    // set structure sizeof
+    _modbus_registers_sizeof = _controllerData.getModbusRegistersSizeof() +
+            //_driverCalculationConstants.getModbusRegistersSizeof() +
+            _driverData.getModbusRegistersSizeof() +
+            _driverDataInput.getModbusRegistersSizeof() +
+            _systemLog[0].getModbusRegistersSizeof()*CONTROLLER_LOG_SIZE;
+
+    // set members structures sizeof
+/*    _controllerData._modbus_registers_start_index = 0;
+    _driverCalculationConstants._modbus_registers_start_index = _controllerData.getModbusRegistersSizeof();
+    _driverData._modbus_registers_start_index = _controllerData.getModbusRegistersSizeof() +
+            _driverCalculationConstants.getModbusRegistersSizeof();
+    _driverDataInput._modbus_registers_start_index = _controllerData.getModbusRegistersSizeof() +
+            _driverCalculationConstants.getModbusRegistersSizeof() +
+            _driverData.getModbusRegistersSizeof();
+
+    for (int index = 0; index < CONTROLLER_LOG_SIZE; index++)
+    {
+        _systemLog[index]._modbus_registers_start_index = _controllerData.getModbusRegistersSizeof() +
+                _driverCalculationConstants.getModbusRegistersSizeof() +
+                _driverData.getModbusRegistersSizeof() +
+                _driverDataInput.getModbusRegistersSizeof() +
+                _systemLog[0].getModbusRegistersSizeof()*index;
+    }*/
+
+    // first structure reserved for "other error" reports
+    _systemLog[0]._1_error_code = CTRLR_OTHER_ERROR;
+}//END_2795534b4f8fb62c34087e6bd5501d65
+
+
 void oldportal::fc::hardware::welding::data::WeldingModbus::loadFromRegisterArray(const modbus_mapping_t* modbus_mapping)
 {//BEGIN_9ac3741287d8f42320d6574970408361
     // check index range with modbus_mapping->nb_registers:
     assert(_modbus_registers_start_index < modbus_mapping->nb_registers);
     assert(_modbus_registers_start_index + getModbusRegistersSizeof() <= modbus_mapping->nb_registers);
 
-    /*_controllerData.loadFromRegisterArray(modbus_mapping);
-    _driverCalculationConstants.loadFromRegisterArray(modbus_mapping);
+    _controllerData.loadFromRegisterArray(modbus_mapping);
+    //_driverCalculationConstants.loadFromRegisterArray(modbus_mapping);
     _driverData.loadFromRegisterArray(modbus_mapping);
     _driverDataInput.loadFromRegisterArray(modbus_mapping);
     for (int index = 0; index < CONTROLLER_LOG_SIZE; index++)
     {
         _systemLog[index].loadFromRegisterArray(modbus_mapping);
-    }*/
+    }
 }//END_9ac3741287d8f42320d6574970408361
 
 void oldportal::fc::hardware::welding::data::WeldingModbus::loadFromRegisterArray(const uint16_t* registers)
@@ -61,14 +94,14 @@ void oldportal::fc::hardware::welding::data::WeldingModbus::saveToRegisterArray(
     assert(_modbus_registers_start_index < modbus_mapping->nb_registers);
     assert(_modbus_registers_start_index + getModbusRegistersSizeof() <= modbus_mapping->nb_registers);
 
-    /*_controllerData.saveToRegisterArray(modbus_mapping);
-    _driverCalculationConstants.saveToRegisterArray(modbus_mapping);
+    _controllerData.saveToRegisterArray(modbus_mapping);
+    //_driverCalculationConstants.saveToRegisterArray(modbus_mapping);
     _driverData.saveToRegisterArray(modbus_mapping);
     _driverDataInput.saveToRegisterArray(modbus_mapping);
     for (int index = 0; index < CONTROLLER_LOG_SIZE; index++)
     {
         _systemLog[index].saveToRegisterArray(modbus_mapping);
-    }*/
+    }
 }//END_c6cfbb960ba2cf7804d59f4766b4714e
 
 void oldportal::fc::hardware::welding::data::WeldingModbus::saveToRegisterArray(uint16_t* registers)
