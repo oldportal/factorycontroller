@@ -18,18 +18,28 @@
 *    Copyright (C) Dmitry Ognyannikov, 2012-2016
 *    dmogn@mail.ru
 */
-#ifndef H_30b8da23869e945e780ea2582e86bdfa_H
-#define H_30b8da23869e945e780ea2582e86bdfa_H
+#ifndef H_88c461731f514a421c144bd3c55dd39c_H
+#define H_88c461731f514a421c144bd3c55dd39c_H
 
 
 
 //BEGIN_USER_SECTION_BEFORE_CLASS_DECLARATION
-#define ZERO_ERROR_LOG_PARAMETER (0)
+typedef enum
+{
+        DRIVER_WELDING_IDLE = 0
+} driverWeldingMode;
+
+
+/* Register offsets in MODBUS registers count (2 bytes) */
+//TODO:
+
 //END_USER_SECTION_BEFORE_CLASS_DECLARATION
 
 
 /**
+Welding modbus data,
 
+This structure is readable/writeable from both host and driver sides.
 */
 namespace oldportal 
 {
@@ -37,48 +47,39 @@ namespace fc
 {
 namespace hardware 
 {
-namespace mechatronics 
+namespace welding 
 {
 namespace data 
 {
 
-struct StepMotorModbus
+struct WeldingDriverData
 :  public virtual oldportal::fc::network::modbus::data::ModbusRegistersMapping
 {
 // constructors:
 public:
-StepMotorModbus();
+WeldingDriverData();
 
 
 // members:
 
+/**
+Motor control driver mode
+*/
 public:
-oldportal::fc::hardware::mechatronics::data::StepMotorDriverCalculationConstants _driverCalculationConstants;
+uint16_t _1_mode;
+/**
+Hardware error code
+*/
 public:
-oldportal::fc::hardware::mechatronics::data::StepMotorDriverData _driverData;
+uint16_t _2_hardware_error_code;
+/**
+Binary flags, also called "coils"
+*/
 public:
-oldportal::fc::hardware::mechatronics::data::StepMotorDriverDataInput _driverDataInput;
-public:
-oldportal::fc::network::modbus::data::ControllerData _controllerData;
-public:
-oldportal::fc::network::modbus::data::InterfaceSettings _1_interface;
-public:
-oldportal::fc::network::modbus::data::SystemLogReport _systemLog[CONTROLLER_LOG_SIZE];
+uint16_t _3_flags;
 
 
 //methods:
-
-/**
-check modbus parameters for correct structure
-*/
-public:
-void checkDriverModbusParameters();
-
-public:
-void ctrlReportError(uint16_t error_code);
-
-public:
-void ctrlReportErrorWithParameter(uint16_t error_code, uint16_t parameter);
 
 /**
 Load structure's data from modbus registers array.
@@ -124,7 +125,7 @@ virtual void saveToRegisterArray(uint16_t* registers);
 }// namespace oldportal
 }// namespace fc
 }// namespace hardware
-}// namespace mechatronics
+}// namespace welding
 }// namespace data
 
 
@@ -133,11 +134,11 @@ virtual void saveToRegisterArray(uint16_t* registers);
 //END_USER_SECTION_AFTER_CLASS_DECLARATION
 
 
-#endif // H_30b8da23869e945e780ea2582e86bdfa_H
+#endif // H_88c461731f514a421c144bd3c55dd39c_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_30b8da23869e945e780ea2582e86bdfa_INLINES_H
-#define H_30b8da23869e945e780ea2582e86bdfa_INLINES_H
+#ifndef H_88c461731f514a421c144bd3c55dd39c_INLINES_H
+#define H_88c461731f514a421c144bd3c55dd39c_INLINES_H
 
-#endif // H_30b8da23869e945e780ea2582e86bdfa_INLINES_H
+#endif // H_88c461731f514a421c144bd3c55dd39c_INLINES_H
 #endif //OBJECTS_BUILDER_PROJECT_INLINES

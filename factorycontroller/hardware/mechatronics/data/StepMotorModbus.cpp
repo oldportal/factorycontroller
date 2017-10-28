@@ -65,7 +65,7 @@ oldportal::fc::hardware::mechatronics::data::StepMotorModbus::StepMotorModbus()
 }//END_40d4aec2b867efdf8c752d072f2067aa
 
 
-void oldportal::fc::hardware::mechatronics::data::StepMotorModbus::CheckDriverModbusParameters()
+void oldportal::fc::hardware::mechatronics::data::StepMotorModbus::checkDriverModbusParameters()
 {//BEGIN_bbd0a4f4144a9c56f556917fdf2e59f1
     if (_driverData._1_mode == DRIVER_SERVO_CONTINUOUS_SPEED)
     {
