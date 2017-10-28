@@ -41,8 +41,8 @@ oldportal::fc::hardware::mechatronics::data::StepMotorDriverData::StepMotorDrive
     // default values
     _1_mode = DRIVER_SERVO_IDLE;
     _2_hardware_error_code = DRIVER_HARDWARE_NO_ERRORS;
-
     _3_flags = 0;
+
     _4_rotor_angle_start_speed = 0;
     _5_rotor_angle_start_speed_time = 0;
     _6_rotor_angle_acceleration_speed = 0;

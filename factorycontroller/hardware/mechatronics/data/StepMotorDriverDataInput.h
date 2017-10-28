@@ -38,6 +38,8 @@
 
 /**
 Data for servo driver state monitoring throught Modbus input registers
+
+This structure is writeable from driver side and readable from host side.
 */
 namespace oldportal 
 {

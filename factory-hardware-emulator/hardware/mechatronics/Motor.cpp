@@ -273,7 +273,7 @@ void oldportal::fhe::hardware::mechatronics::Motor::step()
     //TODO: update _controllerData
 
 
-    _modbus.CheckDriverModbusParameters();
+    _modbus.checkDriverModbusParameters();
 
     // update motor state
     if (_modbus._driverData._1_mode != DRIVER_SERVO_IDLE)
@@ -337,7 +337,7 @@ void oldportal::fhe::hardware::mechatronics::Motor::step()
         }
     }
 
-    _modbus.CheckDriverModbusParameters();
+    _modbus.checkDriverModbusParameters();
 }//END_139a1c7a4966eeccad82b1856e6ad1e1
 
 void oldportal::fhe::hardware::mechatronics::Motor::stepMotorSetNextStep(int8_t direction)

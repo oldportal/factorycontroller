@@ -18,8 +18,8 @@
 *    Copyright (C) Dmitry Ognyannikov, 2012-2016
 *    dmogn@mail.ru
 */
-#ifndef H_9e49d1225081d1bc954af52c447b5eaf_H
-#define H_9e49d1225081d1bc954af52c447b5eaf_H
+#ifndef H_30bcb96af35ea509126721a3a43402f8_H
+#define H_30bcb96af35ea509126721a3a43402f8_H
 
 
 
@@ -29,7 +29,7 @@
 
 
 /**
-
+Modbus register mapping for welding device.
 */
 namespace oldportal 
 {
@@ -39,39 +39,53 @@ namespace hardware
 {
 namespace welding 
 {
+namespace data 
+{
 
-class WeldingPowerSource
-:  public virtual oldportal::fc::hardware::HardwareDevice
+class WeldingModbus
+:  public virtual oldportal::fc::network::modbus::data::ModbusRegistersMapping
 {
 // constructors:
-public:
-WeldingPowerSource();
 
-
-public:
-virtual ~WeldingPowerSource();
 
 // members:
 
 public:
-oldportal::fc::hardware::welding::WeldingPowerSourceMode _mode;
+oldportal::fc::network::modbus::data::ControllerData _controllerData;
 public:
-oldportal::fc::hardware::welding::WeldingPowerSourceSettings _settings;
-/**
-Modbus data (registers) structures.
-*/
+oldportal::fc::network::modbus::data::InterfaceSettings _1_interface;
 public:
-oldportal::fc::hardware::welding::data::WeldingModbus _modbus_data;
+oldportal::fc::network::modbus::data::SystemLogReport _systemLog[CONTROLLER_LOG_SIZE];
 
 
 //methods:
 
 /**
-Update state.
-Logic processes step.
+Load structure's data from modbus registers array.
 */
 public:
-virtual void step();
+virtual void loadFromRegisterArray(const modbus_mapping_t* modbus_mapping);
+
+/**
+Load structure's data from modbus registers array.
+The structure's data starts from zero offset. Pointer registers represents the first register of the structure.
+*/
+public:
+virtual void loadFromRegisterArray(const uint16_t* registers);
+
+/**
+Save structure's data from modbus registers array.
+*/
+public:
+virtual void saveToRegisterArray(const modbus_mapping_t* modbus_mapping);
+
+/**
+Save structure's data from modbus registers array.
+
+The structure's data starts from zero offset. Pointer registers represents the first register of the structure.
+*/
+public:
+virtual void saveToRegisterArray(uint16_t* registers);
 
 
 
@@ -91,6 +105,7 @@ virtual void step();
 }// namespace fc
 }// namespace hardware
 }// namespace welding
+}// namespace data
 
 
 //BEGIN_USER_SECTION_AFTER_CLASS_DECLARATION
@@ -98,11 +113,11 @@ virtual void step();
 //END_USER_SECTION_AFTER_CLASS_DECLARATION
 
 
-#endif // H_9e49d1225081d1bc954af52c447b5eaf_H
+#endif // H_30bcb96af35ea509126721a3a43402f8_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_9e49d1225081d1bc954af52c447b5eaf_INLINES_H
-#define H_9e49d1225081d1bc954af52c447b5eaf_INLINES_H
+#ifndef H_30bcb96af35ea509126721a3a43402f8_INLINES_H
+#define H_30bcb96af35ea509126721a3a43402f8_INLINES_H
 
-#endif // H_9e49d1225081d1bc954af52c447b5eaf_INLINES_H
+#endif // H_30bcb96af35ea509126721a3a43402f8_INLINES_H
 #endif //OBJECTS_BUILDER_PROJECT_INLINES

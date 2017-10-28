@@ -18,18 +18,28 @@
 *    Copyright (C) Dmitry Ognyannikov, 2012-2016
 *    dmogn@mail.ru
 */
-#ifndef H_9e49d1225081d1bc954af52c447b5eaf_H
-#define H_9e49d1225081d1bc954af52c447b5eaf_H
+#ifndef H_533a01f6c0191294830f7d88cab49409_H
+#define H_533a01f6c0191294830f7d88cab49409_H
 
 
 
 //BEGIN_USER_SECTION_BEFORE_CLASS_DECLARATION
+typedef enum
+{
+        FC_DRIVER_WELDING_IDLE
+} fcDriverWeldingMode;
+
+
+/* Register offsets in MODBUS registers count (2 bytes) */
+//TODO:
 
 //END_USER_SECTION_BEFORE_CLASS_DECLARATION
 
 
 /**
+Welding modbus input data parameters.
 
+This structure is writeable from driver side and readable from host side.
 */
 namespace oldportal 
 {
@@ -39,39 +49,59 @@ namespace hardware
 {
 namespace welding 
 {
+namespace data 
+{
 
-class WeldingPowerSource
-:  public virtual oldportal::fc::hardware::HardwareDevice
+struct WeldingDriverDataInput
+:  public virtual oldportal::fc::network::modbus::data::ModbusRegistersMapping
 {
 // constructors:
 public:
-WeldingPowerSource();
+WeldingDriverDataInput();
 
-
-public:
-virtual ~WeldingPowerSource();
 
 // members:
 
-public:
-oldportal::fc::hardware::welding::WeldingPowerSourceMode _mode;
-public:
-oldportal::fc::hardware::welding::WeldingPowerSourceSettings _settings;
 /**
-Modbus data (registers) structures.
+Binary flags, also called "coils"
 */
 public:
-oldportal::fc::hardware::welding::data::WeldingModbus _modbus_data;
+uint16_t _1_current;
+/**
+Binary flags, also called "coils"
+*/
+public:
+uint16_t _2_voltage;
 
 
 //methods:
 
 /**
-Update state.
-Logic processes step.
+Load structure's data from modbus registers array.
 */
 public:
-virtual void step();
+virtual void loadFromRegisterArray(const modbus_mapping_t* modbus_mapping);
+
+/**
+Load structure's data from modbus registers array.
+The structure's data starts from zero offset. Pointer registers represents the first register of the structure.
+*/
+public:
+virtual void loadFromRegisterArray(const uint16_t* registers);
+
+/**
+Save structure's data from modbus registers array.
+*/
+public:
+virtual void saveToRegisterArray(const modbus_mapping_t* modbus_mapping);
+
+/**
+Save structure's data from modbus registers array.
+
+The structure's data starts from zero offset. Pointer registers represents the first register of the structure.
+*/
+public:
+virtual void saveToRegisterArray(uint16_t* registers);
 
 
 
@@ -91,6 +121,7 @@ virtual void step();
 }// namespace fc
 }// namespace hardware
 }// namespace welding
+}// namespace data
 
 
 //BEGIN_USER_SECTION_AFTER_CLASS_DECLARATION
@@ -98,11 +129,11 @@ virtual void step();
 //END_USER_SECTION_AFTER_CLASS_DECLARATION
 
 
-#endif // H_9e49d1225081d1bc954af52c447b5eaf_H
+#endif // H_533a01f6c0191294830f7d88cab49409_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_9e49d1225081d1bc954af52c447b5eaf_INLINES_H
-#define H_9e49d1225081d1bc954af52c447b5eaf_INLINES_H
+#ifndef H_533a01f6c0191294830f7d88cab49409_INLINES_H
+#define H_533a01f6c0191294830f7d88cab49409_INLINES_H
 
-#endif // H_9e49d1225081d1bc954af52c447b5eaf_INLINES_H
+#endif // H_533a01f6c0191294830f7d88cab49409_INLINES_H
 #endif //OBJECTS_BUILDER_PROJECT_INLINES
