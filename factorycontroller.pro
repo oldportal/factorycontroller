@@ -188,7 +188,8 @@ SOURCES += main.cpp \
     factorycontroller/hardware/welding/proc/WeldingProcess.cpp \
     factorycontroller/hardware/welding/data/WeldingModbus.cpp \
     factorycontroller/hardware/welding/data/WeldingDriverData.cpp \
-    factorycontroller/hardware/welding/data/WeldingDriverDataInput.cpp
+    factorycontroller/hardware/welding/data/WeldingDriverDataInput.cpp \
+    factorycontroller/hardware/welding/data/WeldingDriverCalculationConstants.cpp
     
 
 HEADERS += factorycontroller/factorycontroller.h \ 
