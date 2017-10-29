@@ -43,7 +43,7 @@ oldportal::fc::hardware::welding::data::WeldingModbus::WeldingModbus()
             _systemLog[0].getModbusRegistersSizeof()*CONTROLLER_LOG_SIZE;
 
     // set members structures sizeof
-/*    _controllerData._modbus_registers_start_index = 0;
+    _controllerData._modbus_registers_start_index = 0;
     _driverCalculationConstants._modbus_registers_start_index = _controllerData.getModbusRegistersSizeof();
     _driverData._modbus_registers_start_index = _controllerData.getModbusRegistersSizeof() +
             _driverCalculationConstants.getModbusRegistersSizeof();
@@ -58,7 +58,7 @@ oldportal::fc::hardware::welding::data::WeldingModbus::WeldingModbus()
                 _driverData.getModbusRegistersSizeof() +
                 _driverDataInput.getModbusRegistersSizeof() +
                 _systemLog[0].getModbusRegistersSizeof()*index;
-    }*/
+    }
 
     // first structure reserved for "other error" reports
     _systemLog[0]._1_error_code = CTRLR_OTHER_ERROR;
@@ -72,7 +72,7 @@ void oldportal::fc::hardware::welding::data::WeldingModbus::loadFromRegisterArra
     assert(_modbus_registers_start_index + getModbusRegistersSizeof() <= modbus_mapping->nb_registers);
 
     _controllerData.loadFromRegisterArray(modbus_mapping);
-    //_driverCalculationConstants.loadFromRegisterArray(modbus_mapping);
+    _driverCalculationConstants.loadFromRegisterArray(modbus_mapping);
     _driverData.loadFromRegisterArray(modbus_mapping);
     _driverDataInput.loadFromRegisterArray(modbus_mapping);
     for (int index = 0; index < CONTROLLER_LOG_SIZE; index++)
@@ -95,7 +95,7 @@ void oldportal::fc::hardware::welding::data::WeldingModbus::saveToRegisterArray(
     assert(_modbus_registers_start_index + getModbusRegistersSizeof() <= modbus_mapping->nb_registers);
 
     _controllerData.saveToRegisterArray(modbus_mapping);
-    //_driverCalculationConstants.saveToRegisterArray(modbus_mapping);
+    _driverCalculationConstants.saveToRegisterArray(modbus_mapping);
     _driverData.saveToRegisterArray(modbus_mapping);
     _driverDataInput.saveToRegisterArray(modbus_mapping);
     for (int index = 0; index < CONTROLLER_LOG_SIZE; index++)

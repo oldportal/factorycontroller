@@ -53,6 +53,8 @@ WeldingModbus();
 // members:
 
 public:
+oldportal::fc::hardware::welding::data::WeldingDriverCalculationConstants _driverCalculationConstants;
+public:
 oldportal::fc::hardware::welding::data::WeldingDriverData _driverData;
 public:
 oldportal::fc::hardware::welding::data::WeldingDriverDataInput _driverDataInput;

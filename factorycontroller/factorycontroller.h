@@ -340,6 +340,7 @@ class StopWelding;
 }// namespace command
 namespace data 
 {
+struct WeldingDriverCalculationConstants;
 struct WeldingDriverData;
 struct WeldingDriverDataInput;
 class WeldingModbus;
@@ -525,6 +526,7 @@ class StepCounter;
 #include "hardware/power/PowerBus.h"
 #include "hardware/welding/data/WeldingDriverDataInput.h"
 #include "hardware/welding/data/WeldingDriverData.h"
+#include "hardware/welding/data/WeldingDriverCalculationConstants.h"
 #include "hardware/welding/data/WeldingModbus.h"
 #include "hardware/welding/WeldingPowerSourceSettings.h"
 #include "hardware/welding/WeldingPowerSourceMode.h"
@@ -667,6 +669,7 @@ namespace fc
 #include "hardware/power/PowerBus.h"
 #include "hardware/welding/data/WeldingDriverDataInput.h"
 #include "hardware/welding/data/WeldingDriverData.h"
+#include "hardware/welding/data/WeldingDriverCalculationConstants.h"
 #include "hardware/welding/data/WeldingModbus.h"
 #include "hardware/welding/WeldingPowerSourceSettings.h"
 #include "hardware/welding/WeldingPowerSourceMode.h"
