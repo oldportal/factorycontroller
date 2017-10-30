@@ -18,8 +18,8 @@
 *    Copyright (C) Dmitry Ognyannikov, 2012-2016
 *    dmogn@mail.ru
 */
-#ifndef H_07729c2030a3b8da28909aa1ea9e697d_H
-#define H_07729c2030a3b8da28909aa1ea9e697d_H
+#ifndef H_c2ed318e0178f4a31d7ebf30e4d459b2_H
+#define H_c2ed318e0178f4a31d7ebf30e4d459b2_H
 
 
 
@@ -75,16 +75,16 @@ namespace data
 
 
 
-#endif // H_07729c2030a3b8da28909aa1ea9e697d_H
+#endif // H_c2ed318e0178f4a31d7ebf30e4d459b2_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_07729c2030a3b8da28909aa1ea9e697d_INLINES_H
-#define H_07729c2030a3b8da28909aa1ea9e697d_INLINES_H
+#ifndef H_c2ed318e0178f4a31d7ebf30e4d459b2_INLINES_H
+#define H_c2ed318e0178f4a31d7ebf30e4d459b2_INLINES_H
 //BEGIN_USER_SECTION_1
 
 //END_USER_SECTION_1
 
 
-#endif // H_07729c2030a3b8da28909aa1ea9e697d_INLINES_H
+#endif // H_c2ed318e0178f4a31d7ebf30e4d459b2_INLINES_H
 
 #endif //OBJECTS_BUILDER_PROJECT_INLINES

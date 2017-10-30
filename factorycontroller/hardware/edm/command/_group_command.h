@@ -18,8 +18,8 @@
 *    Copyright (C) Dmitry Ognyannikov, 2012-2016
 *    dmogn@mail.ru
 */
-#ifndef H_fa989de0c27d94224ad0ffb4103093c6_H
-#define H_fa989de0c27d94224ad0ffb4103093c6_H
+#ifndef H_e6e549d8036e1c998619d645eaa228fd_H
+#define H_e6e549d8036e1c998619d645eaa228fd_H
 
 
 
@@ -75,16 +75,16 @@ namespace command
 
 
 
-#endif // H_fa989de0c27d94224ad0ffb4103093c6_H
+#endif // H_e6e549d8036e1c998619d645eaa228fd_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_fa989de0c27d94224ad0ffb4103093c6_INLINES_H
-#define H_fa989de0c27d94224ad0ffb4103093c6_INLINES_H
+#ifndef H_e6e549d8036e1c998619d645eaa228fd_INLINES_H
+#define H_e6e549d8036e1c998619d645eaa228fd_INLINES_H
 //BEGIN_USER_SECTION_1
 
 //END_USER_SECTION_1
 
 
-#endif // H_fa989de0c27d94224ad0ffb4103093c6_INLINES_H
+#endif // H_e6e549d8036e1c998619d645eaa228fd_INLINES_H
 
 #endif //OBJECTS_BUILDER_PROJECT_INLINES

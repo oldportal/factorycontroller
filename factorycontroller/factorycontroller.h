@@ -239,14 +239,22 @@ class EDMWorkMode;
 
 namespace command 
 {
+class GetEDMState;
+class StartEDM;
+class StopEDM;
 
 }// namespace command
 namespace data 
 {
+struct EDMDriverCalculationConstants;
+struct EDMDriverData;
+struct EDMDriverDataInput;
+class EDMModbus;
 
 }// namespace data
 namespace proc 
 {
+class EDMProcess;
 
 }// namespace proc
 }// namespace edm
@@ -293,14 +301,22 @@ class InductionHeaterSettings;
 
 namespace command 
 {
+class GetInductorState;
+class StartHeating;
+class StopHeating;
 
 }// namespace command
 namespace data 
 {
+struct InductorDriverCalculationConstants;
+struct InductorDriverData;
+struct InductorDriverDataInput;
+class InductorModbus;
 
 }// namespace data
 namespace proc 
 {
+class InductionMeltingProcess;
 
 }// namespace proc
 }// namespace metallurgy
@@ -314,14 +330,22 @@ class PowerBus;
 
 namespace command 
 {
+class GetPowerLineState;
+class SetPowerLineSettings;
+class StopPowerLine;
 
 }// namespace command
 namespace data 
 {
+struct PowerLineDriverCalculationConstants;
+struct PowerLineDriverData;
+struct PowerLineDriverDataInput;
+class PowerLineModbus;
 
 }// namespace data
 namespace proc 
 {
+class PowerLineProcess;
 
 }// namespace proc
 }// namespace power
@@ -491,10 +515,20 @@ class StepCounter;
 #include "hardware/HardwareDeviceProcess.h"
 #include "hardware/edm/EDMWorkMode.h"
 #include "hardware/edm/EDMPowerSource.h"
+#include "network/DeviceCommand.h"
+#include "network/modbus/ModbusDeviceCommand.h"
+#include "hardware/edm/command/GetEDMState.h"
+#include "hardware/edm/command/StartEDM.h"
+#include "hardware/edm/command/StopEDM.h"
 #include "network/modbus/data/ModbusRegistersMapping.h"
-#include "network/modbus/data/ControllerData.h"
-#include "network/modbus/data/InterfaceSettings.h"
+#include "hardware/edm/data/EDMDriverCalculationConstants.h"
+#include "hardware/edm/data/EDMDriverData.h"
+#include "hardware/edm/data/EDMDriverDataInput.h"
 #include "network/modbus/data/SystemLogReport.h"
+#include "network/modbus/data/InterfaceSettings.h"
+#include "network/modbus/data/ControllerData.h"
+#include "hardware/edm/data/EDMModbus.h"
+#include "hardware/edm/proc/EDMProcess.h"
 #include "hardware/mechatronics/data/StepMotorDriverDataInput.h"
 #include "hardware/mechatronics/data/StepMotorDriverData.h"
 #include "hardware/mechatronics/data/StepMotorDriverCalculationConstants.h"
@@ -502,8 +536,6 @@ class StepCounter;
 #include "hardware/mechatronics/MotorSettings.h"
 #include "hardware/mechatronics/MotorProperties.h"
 #include "hardware/mechatronics/Motor.h"
-#include "network/DeviceCommand.h"
-#include "network/modbus/ModbusDeviceCommand.h"
 #include "hardware/mechatronics/command/AccelerationMotion.h"
 #include "hardware/mechatronics/command/CurveMotion.h"
 #include "hardware/mechatronics/command/GetMotionState.h"
@@ -519,11 +551,27 @@ class StepCounter;
 #include "hardware/mechatronics/proc/StepMotion.h"
 #include "hardware/metallurgy/InductionHeaterSettings.h"
 #include "hardware/metallurgy/InductionHeater.h"
+#include "hardware/metallurgy/command/GetInductorState.h"
+#include "hardware/metallurgy/command/StartHeating.h"
+#include "hardware/metallurgy/command/StopHeating.h"
+#include "hardware/metallurgy/data/InductorDriverCalculationConstants.h"
+#include "hardware/metallurgy/data/InductorDriverData.h"
+#include "hardware/metallurgy/data/InductorDriverDataInput.h"
+#include "hardware/metallurgy/data/InductorModbus.h"
+#include "hardware/metallurgy/proc/InductionMeltingProcess.h"
 #include "hardware/power/EnergyAccumulator.h"
 #include "hardware/power/EnergyNetwork.h"
 #include "hardware/power/EnergySource.h"
 #include "hardware/power/EnergySourceInterface.h"
 #include "hardware/power/PowerBus.h"
+#include "hardware/power/command/GetPowerLineState.h"
+#include "hardware/power/command/SetPowerLineSettings.h"
+#include "hardware/power/command/StopPowerLine.h"
+#include "hardware/power/data/PowerLineDriverCalculationConstants.h"
+#include "hardware/power/data/PowerLineDriverData.h"
+#include "hardware/power/data/PowerLineDriverDataInput.h"
+#include "hardware/power/data/PowerLineModbus.h"
+#include "hardware/power/proc/PowerLineProcess.h"
 #include "hardware/welding/data/WeldingDriverDataInput.h"
 #include "hardware/welding/data/WeldingDriverData.h"
 #include "hardware/welding/data/WeldingDriverCalculationConstants.h"
@@ -634,10 +682,20 @@ namespace fc
 #include "hardware/HardwareDeviceProcess.h"
 #include "hardware/edm/EDMWorkMode.h"
 #include "hardware/edm/EDMPowerSource.h"
+#include "network/DeviceCommand.h"
+#include "network/modbus/ModbusDeviceCommand.h"
+#include "hardware/edm/command/GetEDMState.h"
+#include "hardware/edm/command/StartEDM.h"
+#include "hardware/edm/command/StopEDM.h"
 #include "network/modbus/data/ModbusRegistersMapping.h"
-#include "network/modbus/data/ControllerData.h"
-#include "network/modbus/data/InterfaceSettings.h"
+#include "hardware/edm/data/EDMDriverCalculationConstants.h"
+#include "hardware/edm/data/EDMDriverData.h"
+#include "hardware/edm/data/EDMDriverDataInput.h"
 #include "network/modbus/data/SystemLogReport.h"
+#include "network/modbus/data/InterfaceSettings.h"
+#include "network/modbus/data/ControllerData.h"
+#include "hardware/edm/data/EDMModbus.h"
+#include "hardware/edm/proc/EDMProcess.h"
 #include "hardware/mechatronics/data/StepMotorDriverDataInput.h"
 #include "hardware/mechatronics/data/StepMotorDriverData.h"
 #include "hardware/mechatronics/data/StepMotorDriverCalculationConstants.h"
@@ -645,8 +703,6 @@ namespace fc
 #include "hardware/mechatronics/MotorSettings.h"
 #include "hardware/mechatronics/MotorProperties.h"
 #include "hardware/mechatronics/Motor.h"
-#include "network/DeviceCommand.h"
-#include "network/modbus/ModbusDeviceCommand.h"
 #include "hardware/mechatronics/command/AccelerationMotion.h"
 #include "hardware/mechatronics/command/CurveMotion.h"
 #include "hardware/mechatronics/command/GetMotionState.h"
@@ -662,11 +718,27 @@ namespace fc
 #include "hardware/mechatronics/proc/StepMotion.h"
 #include "hardware/metallurgy/InductionHeaterSettings.h"
 #include "hardware/metallurgy/InductionHeater.h"
+#include "hardware/metallurgy/command/GetInductorState.h"
+#include "hardware/metallurgy/command/StartHeating.h"
+#include "hardware/metallurgy/command/StopHeating.h"
+#include "hardware/metallurgy/data/InductorDriverCalculationConstants.h"
+#include "hardware/metallurgy/data/InductorDriverData.h"
+#include "hardware/metallurgy/data/InductorDriverDataInput.h"
+#include "hardware/metallurgy/data/InductorModbus.h"
+#include "hardware/metallurgy/proc/InductionMeltingProcess.h"
 #include "hardware/power/EnergyAccumulator.h"
 #include "hardware/power/EnergyNetwork.h"
 #include "hardware/power/EnergySource.h"
 #include "hardware/power/EnergySourceInterface.h"
 #include "hardware/power/PowerBus.h"
+#include "hardware/power/command/GetPowerLineState.h"
+#include "hardware/power/command/SetPowerLineSettings.h"
+#include "hardware/power/command/StopPowerLine.h"
+#include "hardware/power/data/PowerLineDriverCalculationConstants.h"
+#include "hardware/power/data/PowerLineDriverData.h"
+#include "hardware/power/data/PowerLineDriverDataInput.h"
+#include "hardware/power/data/PowerLineModbus.h"
+#include "hardware/power/proc/PowerLineProcess.h"
 #include "hardware/welding/data/WeldingDriverDataInput.h"
 #include "hardware/welding/data/WeldingDriverData.h"
 #include "hardware/welding/data/WeldingDriverCalculationConstants.h"

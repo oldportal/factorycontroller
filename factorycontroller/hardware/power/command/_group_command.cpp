@@ -32,7 +32,7 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-log4cxx::LoggerPtr oldportal::fc::hardware::power::command::logger = log4cxx::Logger::getLogger("oldportal.fc.hardware.power.command");
+log4cxx::LoggerPtr oldportal::fc::hardware::power::command::logger = log4cxx::Logger::getLogger("oldportal.fc.hardware.welding.command");
 
 
 

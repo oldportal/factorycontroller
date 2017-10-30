@@ -32,7 +32,7 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-log4cxx::LoggerPtr oldportal::fc::hardware::edm::data::logger = log4cxx::Logger::getLogger("oldportal.fc.hardware.edm.data");
+log4cxx::LoggerPtr oldportal::fc::hardware::edm::data::logger = log4cxx::Logger::getLogger("oldportal.fc.hardware.welding.data");
 
 
 
