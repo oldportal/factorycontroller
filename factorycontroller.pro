@@ -189,7 +189,31 @@ SOURCES += main.cpp \
     factorycontroller/hardware/welding/data/WeldingModbus.cpp \
     factorycontroller/hardware/welding/data/WeldingDriverData.cpp \
     factorycontroller/hardware/welding/data/WeldingDriverDataInput.cpp \
-    factorycontroller/hardware/welding/data/WeldingDriverCalculationConstants.cpp
+    factorycontroller/hardware/welding/data/WeldingDriverCalculationConstants.cpp \
+    factorycontroller/hardware/edm/command/GetEDMState.cpp \
+    factorycontroller/hardware/edm/command/StartEDM.cpp \
+    factorycontroller/hardware/edm/command/StopEDM.cpp \
+    factorycontroller/hardware/edm/data/EDMDriverCalculationConstants.cpp \
+    factorycontroller/hardware/edm/data/EDMDriverData.cpp \
+    factorycontroller/hardware/edm/data/EDMDriverDataInput.cpp \
+    factorycontroller/hardware/edm/data/EDMModbus.cpp \
+    factorycontroller/hardware/edm/proc/EDMProcess.cpp \
+    factorycontroller/hardware/metallurgy/command/GetInductorState.cpp \
+    factorycontroller/hardware/metallurgy/command/StartHeating.cpp \
+    factorycontroller/hardware/metallurgy/command/StopHeating.cpp \
+    factorycontroller/hardware/metallurgy/data/InductorDriverCalculationConstants.cpp \
+    factorycontroller/hardware/metallurgy/data/InductorDriverData.cpp \
+    factorycontroller/hardware/metallurgy/data/InductorDriverDataInput.cpp \
+    factorycontroller/hardware/metallurgy/data/InductorModbus.cpp \
+    factorycontroller/hardware/metallurgy/proc/InductionMeltingProcess.cpp \
+    factorycontroller/hardware/power/command/GetPowerLineState.cpp \
+    factorycontroller/hardware/power/command/SetPowerLineSettings.cpp \
+    factorycontroller/hardware/power/command/StopPowerLine.cpp \
+    factorycontroller/hardware/power/data/PowerLineDriverCalculationConstants.cpp \
+    factorycontroller/hardware/power/data/PowerLineDriverData.cpp \
+    factorycontroller/hardware/power/data/PowerLineDriverDataInput.cpp \
+    factorycontroller/hardware/power/data/PowerLineModbus.cpp \
+    factorycontroller/hardware/power/proc/PowerLineProcess.cpp
     
 
 HEADERS += factorycontroller/factorycontroller.h \ 
