@@ -71,7 +71,7 @@ void oldportal::fc::hardware::power::proc::PowerLineProcess::start()
 {//BEGIN_064ada679a7beaed22351e305ddfe943
     oldportal::fc::hardware::HardwareDeviceProcess::start();
 
-    LOG4CXX_DEBUG(logger, "Process Welding start() call");
+    LOG4CXX_DEBUG(logger, "Process PowerLine start() call");
 }//END_064ada679a7beaed22351e305ddfe943
 
 

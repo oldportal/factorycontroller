@@ -71,7 +71,7 @@ void oldportal::fc::hardware::metallurgy::proc::InductionMeltingProcess::start()
 {//BEGIN_4e0e7aeec2130592188a222fec6d62e5
     oldportal::fc::hardware::HardwareDeviceProcess::start();
 
-    LOG4CXX_DEBUG(logger, "Process Welding start() call");
+    LOG4CXX_DEBUG(logger, "Process InductionMelting start() call");
 }//END_4e0e7aeec2130592188a222fec6d62e5
 
 
