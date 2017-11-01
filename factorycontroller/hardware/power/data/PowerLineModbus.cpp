@@ -85,7 +85,7 @@ void oldportal::fc::hardware::power::data::PowerLineModbus::loadFromRegisterArra
 {//BEGIN_c4b7eb5caeb2a84acca57fa34e6c7031
     assert(registers);
 
-    LOG4CXX_ERROR(logger, "function WeldingModbus::loadFromRegisterArray(const uint16_t* registers) is not supported");
+    LOG4CXX_ERROR(logger, "function PowerLineModbus::loadFromRegisterArray(const uint16_t* registers) is not supported");
 }//END_c4b7eb5caeb2a84acca57fa34e6c7031
 
 void oldportal::fc::hardware::power::data::PowerLineModbus::saveToRegisterArray(const modbus_mapping_t* modbus_mapping)
@@ -108,7 +108,7 @@ void oldportal::fc::hardware::power::data::PowerLineModbus::saveToRegisterArray(
 {//BEGIN_120c39e007483de4964bb590810b4079
     assert(registers);
 
-    LOG4CXX_ERROR(logger, "function WeldingModbus::saveToRegisterArray(uint16_t* registers) is not supported");
+    LOG4CXX_ERROR(logger, "function PowerLineModbus::saveToRegisterArray(uint16_t* registers) is not supported");
 }//END_120c39e007483de4964bb590810b4079
 
 

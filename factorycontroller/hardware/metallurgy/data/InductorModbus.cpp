@@ -85,7 +85,7 @@ void oldportal::fc::hardware::metallurgy::data::InductorModbus::loadFromRegister
 {//BEGIN_892e4a2f1b953553298a2fd837ccbdbf
     assert(registers);
 
-    LOG4CXX_ERROR(logger, "function WeldingModbus::loadFromRegisterArray(const uint16_t* registers) is not supported");
+    LOG4CXX_ERROR(logger, "function InductorModbus::loadFromRegisterArray(const uint16_t* registers) is not supported");
 }//END_892e4a2f1b953553298a2fd837ccbdbf
 
 void oldportal::fc::hardware::metallurgy::data::InductorModbus::saveToRegisterArray(const modbus_mapping_t* modbus_mapping)
@@ -108,7 +108,7 @@ void oldportal::fc::hardware::metallurgy::data::InductorModbus::saveToRegisterAr
 {//BEGIN_e19699a2f1da89db65ef2926cfc6c8a0
     assert(registers);
 
-    LOG4CXX_ERROR(logger, "function WeldingModbus::saveToRegisterArray(uint16_t* registers) is not supported");
+    LOG4CXX_ERROR(logger, "function InductorModbus::saveToRegisterArray(uint16_t* registers) is not supported");
 }//END_e19699a2f1da89db65ef2926cfc6c8a0
 
 
