@@ -71,7 +71,7 @@ void oldportal::fc::hardware::edm::proc::EDMProcess::start()
 {//BEGIN_f7b40599a51c2d60b2f7830fd52fc6ea
     oldportal::fc::hardware::HardwareDeviceProcess::start();
 
-    LOG4CXX_DEBUG(logger, "Process Welding start() call");
+    LOG4CXX_DEBUG(logger, "Process EDM start() call");
 }//END_f7b40599a51c2d60b2f7830fd52fc6ea
 
 
