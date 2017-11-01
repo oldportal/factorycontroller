@@ -85,7 +85,7 @@ void oldportal::fc::hardware::edm::data::EDMModbus::loadFromRegisterArray(const 
 {//BEGIN_3c95fe6f8d26c43e7305f25c166fe6c3
     assert(registers);
 
-    LOG4CXX_ERROR(logger, "function WeldingModbus::loadFromRegisterArray(const uint16_t* registers) is not supported");
+    LOG4CXX_ERROR(logger, "function EDMModbus::loadFromRegisterArray(const uint16_t* registers) is not supported");
 }//END_3c95fe6f8d26c43e7305f25c166fe6c3
 
 void oldportal::fc::hardware::edm::data::EDMModbus::saveToRegisterArray(const modbus_mapping_t* modbus_mapping)
@@ -108,7 +108,7 @@ void oldportal::fc::hardware::edm::data::EDMModbus::saveToRegisterArray(uint16_t
 {//BEGIN_e19ec87b1bdf55cf010603c02b9f20e2
     assert(registers);
 
-    LOG4CXX_ERROR(logger, "function WeldingModbus::saveToRegisterArray(uint16_t* registers) is not supported");
+    LOG4CXX_ERROR(logger, "function EDMModbus::saveToRegisterArray(uint16_t* registers) is not supported");
 }//END_e19ec87b1bdf55cf010603c02b9f20e2
 
 
