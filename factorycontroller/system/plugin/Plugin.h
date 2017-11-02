@@ -50,6 +50,22 @@ class Plugin
 
 //methods:
 
+/**
+List of supported classes
+*/
+public:
+virtual std::list< std::string > get_supported_classes_list() = 0;
+
+/**
+Is class supported check.
+*/
+public:
+virtual bool is_supported(std::string class_name) = 0;
+
+public:
+virtual std::shared_ptr< oldportal::fc::system::serialization::Serializable > load_class(std::string class_name) = 0;
+
+
 
 //child groups:
 

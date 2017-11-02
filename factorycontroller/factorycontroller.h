@@ -48,6 +48,7 @@ OldPortal Factory Controller project.
 #include <string>
 #include <atomic>
 #include <array>
+#include <list>
 #include <queue>
 #include <map>
 #include <vector>
