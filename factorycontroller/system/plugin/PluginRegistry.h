@@ -18,8 +18,8 @@
 *    Copyright (C) Dmitry Ognyannikov, 2012-2016
 *    dmogn@mail.ru
 */
-#ifndef H_66c36c26712c32a6a52e4b0815a7beff_H
-#define H_66c36c26712c32a6a52e4b0815a7beff_H
+#ifndef H_8b9eeb611af1c791c3eb8c870239dd67_H
+#define H_8b9eeb611af1c791c3eb8c870239dd67_H
 
 
 
@@ -29,7 +29,7 @@
 
 
 /**
-Serializable interface
+Global refistry of available plugins.
 */
 namespace oldportal 
 {
@@ -37,10 +37,10 @@ namespace fc
 {
 namespace system 
 {
-namespace serialization 
+namespace plugin 
 {
 
-class Serializable
+class PluginRegistry
 {
 // constructors:
 
@@ -49,13 +49,6 @@ class Serializable
 
 
 //methods:
-
-public:
-virtual void load() = 0;
-
-public:
-virtual void save() = 0;
-
 
 
 //child groups:
@@ -73,7 +66,7 @@ virtual void save() = 0;
 }// namespace oldportal
 }// namespace fc
 }// namespace system
-}// namespace serialization
+}// namespace plugin
 
 
 //BEGIN_USER_SECTION_AFTER_CLASS_DECLARATION
@@ -81,11 +74,11 @@ virtual void save() = 0;
 //END_USER_SECTION_AFTER_CLASS_DECLARATION
 
 
-#endif // H_66c36c26712c32a6a52e4b0815a7beff_H
+#endif // H_8b9eeb611af1c791c3eb8c870239dd67_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_66c36c26712c32a6a52e4b0815a7beff_INLINES_H
-#define H_66c36c26712c32a6a52e4b0815a7beff_INLINES_H
+#ifndef H_8b9eeb611af1c791c3eb8c870239dd67_INLINES_H
+#define H_8b9eeb611af1c791c3eb8c870239dd67_INLINES_H
 
-#endif // H_66c36c26712c32a6a52e4b0815a7beff_INLINES_H
+#endif // H_8b9eeb611af1c791c3eb8c870239dd67_INLINES_H
 #endif //OBJECTS_BUILDER_PROJECT_INLINES

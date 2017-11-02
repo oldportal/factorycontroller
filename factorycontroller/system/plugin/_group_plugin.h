@@ -18,17 +18,15 @@
 *    Copyright (C) Dmitry Ognyannikov, 2012-2016
 *    dmogn@mail.ru
 */
-#ifndef H_76cd5a8f736b39aaea5784797b28a9a9_H
-#define H_76cd5a8f736b39aaea5784797b28a9a9_H
+#ifndef H_b63da590cf67f8a9ff3c0703d95b0b37_H
+#define H_b63da590cf67f8a9ff3c0703d95b0b37_H
 
 
 
 
 //BEGIN_GROUP_COMMENT
 /**
-Modbus shared registre structures for communication with devices.
-
-Can be used in any side (con*/
+Plugin subsystem.*/
 //END_GROUP_COMMENT
 
 
@@ -41,17 +39,14 @@ namespace oldportal
 {
 namespace fc 
 {
-namespace network 
+namespace system 
 {
-namespace modbus 
-{
-namespace data 
+namespace plugin 
 {
 // global variables declaration
 extern log4cxx::LoggerPtr logger;
-}// namespace data
-}// namespace modbus
-}// namespace network
+}// namespace plugin
+}// namespace system
 }// namespace fc
 }// namespace oldportal
 
@@ -60,16 +55,13 @@ namespace oldportal
 {
 namespace fc 
 {
-namespace network 
+namespace system 
 {
-namespace modbus 
-{
-namespace data 
+namespace plugin 
 {
 // global methods declaration
-}// namespace data
-}// namespace modbus
-}// namespace network
+}// namespace plugin
+}// namespace system
 }// namespace fc
 }// namespace oldportal
 
@@ -77,16 +69,16 @@ namespace data
 
 
 
-#endif // H_76cd5a8f736b39aaea5784797b28a9a9_H
+#endif // H_b63da590cf67f8a9ff3c0703d95b0b37_H
 
 #ifdef OBJECTS_BUILDER_PROJECT_INLINES
-#ifndef H_76cd5a8f736b39aaea5784797b28a9a9_INLINES_H
-#define H_76cd5a8f736b39aaea5784797b28a9a9_INLINES_H
+#ifndef H_b63da590cf67f8a9ff3c0703d95b0b37_INLINES_H
+#define H_b63da590cf67f8a9ff3c0703d95b0b37_INLINES_H
 //BEGIN_USER_SECTION_1
 
 //END_USER_SECTION_1
 
 
-#endif // H_76cd5a8f736b39aaea5784797b28a9a9_INLINES_H
+#endif // H_b63da590cf67f8a9ff3c0703d95b0b37_INLINES_H
 
 #endif //OBJECTS_BUILDER_PROJECT_INLINES

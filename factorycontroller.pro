@@ -213,7 +213,13 @@ SOURCES += main.cpp \
     factorycontroller/hardware/power/data/PowerLineDriverData.cpp \
     factorycontroller/hardware/power/data/PowerLineDriverDataInput.cpp \
     factorycontroller/hardware/power/data/PowerLineModbus.cpp \
-    factorycontroller/hardware/power/proc/PowerLineProcess.cpp
+    factorycontroller/hardware/power/proc/PowerLineProcess.cpp \
+    factorycontroller/system/serialization/_group_serialization.cpp \
+    factorycontroller/system/serialization/Archive.cpp \
+    factorycontroller/system/serialization/Serializable.cpp \
+    factorycontroller/system/plugin/_group_plugin.cpp \
+    factorycontroller/system/plugin/Plugin.cpp \
+    factorycontroller/system/plugin/PluginRegistry.cpp
     
 
 HEADERS += factorycontroller/factorycontroller.h \ 

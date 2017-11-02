@@ -64,6 +64,7 @@ namespace system
 #include "serialization/_group_serialization.h"
 #include "storage/_group_storage.h"
 #include "util/_group_util.h"
+#include "plugin/_group_plugin.h"
 
 
 
@@ -80,6 +81,7 @@ namespace system
 #include "serialization/_group_serialization.h"
 #include "storage/_group_storage.h"
 #include "util/_group_util.h"
+#include "plugin/_group_plugin.h"
 
 
 #endif // H_452393c6ff04fb78fdcb36c0e4afe57b_INLINES_H
