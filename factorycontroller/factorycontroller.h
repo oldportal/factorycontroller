@@ -462,6 +462,12 @@ class Counter;
 class StepCounter;
 
 }// namespace util
+namespace plugin 
+{
+class Plugin;
+class PluginRegistry;
+
+}// namespace plugin
 }// namespace system
 }// namespace fc
 }// namespace oldportal
@@ -608,6 +614,8 @@ class StepCounter;
 #include "scheduler/Scheduler.h"
 #include "scheduler/Task.h"
 #include "scheduler/TaskLogMessage.h"
+#include "system/plugin/Plugin.h"
+#include "system/plugin/PluginRegistry.h"
 #include "system/serialization/Archive.h"
 #include "system/serialization/Serializable.h"
 #include "system/storage/LocalResources.h"
@@ -775,6 +783,8 @@ namespace fc
 #include "scheduler/Scheduler.h"
 #include "scheduler/Task.h"
 #include "scheduler/TaskLogMessage.h"
+#include "system/plugin/Plugin.h"
+#include "system/plugin/PluginRegistry.h"
 #include "system/serialization/Archive.h"
 #include "system/serialization/Serializable.h"
 #include "system/storage/LocalResources.h"
