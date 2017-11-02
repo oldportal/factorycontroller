@@ -28,7 +28,7 @@
 /**
 Modbus shared registre structures for communication with devices.
 
-Can be used in any side (con*/
+Can be used in any side (co*/
 //END_GROUP_COMMENT
 
 

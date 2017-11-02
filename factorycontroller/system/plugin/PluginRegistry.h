@@ -50,6 +50,28 @@ class PluginRegistry
 
 //methods:
 
+/**
+Add plugin.
+*/
+public:
+void add(std::shared_ptr< oldportal::fc::system::plugin::Plugin > plugin);
+
+/**
+Is class supported check.
+*/
+public:
+bool is_class_supported(std::string class_name);
+
+public:
+std::shared_ptr< oldportal::fc::system::serialization::Serializable > load_class(std::string class_name);
+
+/**
+Remove plugin.
+*/
+public:
+void remove(std::shared_ptr< oldportal::fc::system::plugin::Plugin > plugin);
+
+
 
 //child groups:
 
