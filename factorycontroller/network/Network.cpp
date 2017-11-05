@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::network::Network::_CLASSNAME_FULL = "oldportal::fc::network::Network";
+
+
 std::string oldportal::fc::network::Network::toString()
 {//BEGIN_69de8a8b22ede8fa53fd6d91702f6849
     return (boost::format("Network [ id: %i, _name: %s ]") % _id % _name).str();

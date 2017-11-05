@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::network::NetworkDevice::_CLASSNAME_FULL = "oldportal::fc::network::NetworkDevice";
+
+
 oldportal::fc::network::NetworkDevice::NetworkDevice()
 
 {//BEGIN_cdd0d751faedb253d8c85ef546ebbedd

@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::mechatronics::proc::LinearMotion::_CLASSNAME_FULL = "oldportal::fc::hardware::mechatronics::proc::LinearMotion";
+
+
 oldportal::fc::hardware::mechatronics::proc::LinearMotion::LinearMotion()
 
 {//BEGIN_88c48fa45a4810f1275e31c51d5281d3

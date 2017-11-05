@@ -58,6 +58,8 @@ StepMotorDriverCalculationConstants();
 
 // members:
 
+public:
+static const char* const  _CLASSNAME_FULL;
 /**
 Step is calculation unit of angle measure
 */

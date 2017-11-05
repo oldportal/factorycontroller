@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::scheduler::LocalConfiguration::_CLASSNAME_FULL = "oldportal::fc::scheduler::LocalConfiguration";
+
+
 oldportal::fc::scheduler::LocalConfiguration::LocalConfiguration()
 
 {//BEGIN_d0811f0501bcbd1ce17304b0d8468109

@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::network::command::ReadAndClearLog::_CLASSNAME_FULL = "oldportal::fc::network::command::ReadAndClearLog";
+
+
 oldportal::fc::network::command::ReadAndClearLog::ReadAndClearLog(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, oldportal::fc::network::modbus::data::SystemLogReport* log_records, uint16_t log_record_count/* = CONTROLLER_LOG_SIZE */)
     : oldportal::fc::network::DeviceCommand(device)
 {//BEGIN_7beba502117e9095cf401c036398cc43

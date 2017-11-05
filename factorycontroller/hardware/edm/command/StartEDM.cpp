@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::edm::command::StartEDM::_CLASSNAME_FULL = "oldportal::fc::hardware::edm::command::StartEDM";
+
+
 oldportal::fc::hardware::edm::command::StartEDM::StartEDM(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > device_process)
     : oldportal::fc::network::DeviceCommand(device, device_process)
 {//BEGIN_15e8d58286129a0200cfe2d1d28fc789

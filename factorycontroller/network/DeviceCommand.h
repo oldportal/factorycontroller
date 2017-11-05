@@ -59,6 +59,8 @@ protected:
 bool _command_completed;
 protected:
 bool _result_success;
+public:
+static const char* const  _CLASSNAME_FULL;
 /**
 System time in milliseconds.
 */

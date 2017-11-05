@@ -86,6 +86,8 @@ Second (short) impulse length in double impulse mode, in seconds.
 public:
 float _second_impulse_length;
 public:
+static const char* const  _CLASSNAME_FULL;
+public:
 std::string _description;
 public:
 std::string _name;

@@ -54,6 +54,8 @@ LinearMotion();
 
 private:
 float _speed;
+public:
+static const char* const  _CLASSNAME_FULL;
 
 
 //methods:

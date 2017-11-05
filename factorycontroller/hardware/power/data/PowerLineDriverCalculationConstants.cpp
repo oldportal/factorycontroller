@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::power::data::PowerLineDriverCalculationConstants::_CLASSNAME_FULL = "oldportal::fc::hardware::power::data::PowerLineDriverCalculationConstants";
+
+
 oldportal::fc::hardware::power::data::PowerLineDriverCalculationConstants::PowerLineDriverCalculationConstants()
 
 {//BEGIN_ac666a527d60439beeb087eaa7b90a8f

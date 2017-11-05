@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::network::modbus::TCPIPAddressSettings::_CLASSNAME_FULL = "oldportal::fc::network::modbus::TCPIPAddressSettings";
+
+
 oldportal::fc::network::modbus::TCPIPAddressSettings::TCPIPAddressSettings()
 
 {//BEGIN_a0953697ca38dfff140df681df9ee579

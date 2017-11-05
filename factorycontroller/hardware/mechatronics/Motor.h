@@ -74,6 +74,8 @@ Modbus data (registers) structures.
 */
 public:
 oldportal::fc::hardware::mechatronics::data::StepMotorModbus _modbus_data;
+public:
+static const char* const  _CLASSNAME_FULL;
 
 
 //methods:

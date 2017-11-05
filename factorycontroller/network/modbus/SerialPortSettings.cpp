@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::network::modbus::SerialPortSettings::_CLASSNAME_FULL = "oldportal::fc::network::modbus::SerialPortSettings";
+
+
 oldportal::fc::network::modbus::SerialPortSettings::SerialPortSettings()
 
 {//BEGIN_4198f7313c2f670c8e5dd385ec0c433d

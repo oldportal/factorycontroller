@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::scheduler::ProjectTemplate::_CLASSNAME_FULL = "oldportal::fc::scheduler::ProjectTemplate";
+
+
 oldportal::fc::scheduler::ProjectTemplate::ProjectTemplate()
 
 {//BEGIN_d7934efd3338b4717e3cb54efd378a05

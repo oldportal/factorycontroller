@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::network::modbus::data::SystemLogReport::_CLASSNAME_FULL = "oldportal::fc::network::modbus::data::SystemLogReport";
+
+
 oldportal::fc::network::modbus::data::SystemLogReport::SystemLogReport()
 
 {//BEGIN_c133229c8e8ebd04c74bc07e81e7fedd

@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::power::data::PowerLineModbus::_CLASSNAME_FULL = "oldportal::fc::hardware::power::data::PowerLineModbus";
+
+
 oldportal::fc::hardware::power::data::PowerLineModbus::PowerLineModbus()
 
 {//BEGIN_c5ce604259e3b4b40eaaea2ea791eb15

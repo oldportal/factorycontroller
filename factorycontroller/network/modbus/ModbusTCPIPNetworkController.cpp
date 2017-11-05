@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::network::modbus::ModbusTCPIPNetworkController::_CLASSNAME_FULL = "oldportal::fc::network::modbus::ModbusTCPIPNetworkController";
+
+
 oldportal::fc::network::modbus::ModbusTCPIPNetworkController::ModbusTCPIPNetworkController(std::shared_ptr< oldportal::fc::network::Network > network)
     : oldportal::fc::network::modbus::ModbusNetworkController(network)
 {//BEGIN_da7390f47b64c6919e1ad8426b698765

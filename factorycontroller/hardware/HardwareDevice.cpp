@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::HardwareDevice::_CLASSNAME_FULL = "oldportal::fc::hardware::HardwareDevice";
+
+
 oldportal::fc::hardware::HardwareDevice::HardwareDevice()
 
 {//BEGIN_001b57e88de26f85c27fce08008e0dd8

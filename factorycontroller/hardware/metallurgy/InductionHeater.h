@@ -55,6 +55,8 @@ virtual ~InductionHeater();
 
 public:
 oldportal::fc::hardware::metallurgy::InductionHeaterSettings _settings;
+public:
+static const char* const  _CLASSNAME_FULL;
 
 
 //methods:

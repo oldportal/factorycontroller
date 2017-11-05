@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::power::data::PowerLineDriverDataInput::_CLASSNAME_FULL = "oldportal::fc::hardware::power::data::PowerLineDriverDataInput";
+
+
 oldportal::fc::hardware::power::data::PowerLineDriverDataInput::PowerLineDriverDataInput()
 
 {//BEGIN_48bb3b59efe0d289d94114c0ee8b4870

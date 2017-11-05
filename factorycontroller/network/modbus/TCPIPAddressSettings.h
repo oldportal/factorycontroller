@@ -49,6 +49,8 @@ TCPIPAddressSettings();
 
 // members:
 
+public:
+static const char* const  _CLASSNAME_FULL;
 /**
 The _network_address variable specifies the host name or IP address of the host to connect to, eg. 192.168.0.5 , ::1 or server.com
 

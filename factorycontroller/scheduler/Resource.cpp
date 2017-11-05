@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::scheduler::Resource::_CLASSNAME_FULL = "oldportal::fc::scheduler::Resource";
+
+
 oldportal::fc::scheduler::Resource::Resource()
 
 {//BEGIN_e96a594288814f8de064ce71f132fe34

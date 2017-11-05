@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::network::NetworkController::_CLASSNAME_FULL = "oldportal::fc::network::NetworkController";
+
+
 oldportal::fc::network::NetworkController::NetworkController()
 
 {//BEGIN_108e13b6e9c79ba8ade22e512183ad53

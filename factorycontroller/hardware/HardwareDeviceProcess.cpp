@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::HardwareDeviceProcess::_CLASSNAME_FULL = "oldportal::fc::hardware::HardwareDeviceProcess";
+
+
 oldportal::fc::hardware::HardwareDeviceProcess::HardwareDeviceProcess()
 
 {//BEGIN_1a1b39c98ef1e25edf61bdde8f3f5ab1

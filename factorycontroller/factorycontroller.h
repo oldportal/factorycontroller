@@ -232,6 +232,7 @@ namespace hardware
 {
 class HardwareDevice;
 class HardwareDeviceProcess;
+class HardwarePlugin;
 
 namespace edm 
 {
@@ -445,6 +446,12 @@ namespace log
 {
 
 }// namespace log
+namespace plugin 
+{
+class Plugin;
+class PluginRegistry;
+
+}// namespace plugin
 namespace serialization 
 {
 class Archive;
@@ -463,12 +470,6 @@ class Counter;
 class StepCounter;
 
 }// namespace util
-namespace plugin 
-{
-class Plugin;
-class PluginRegistry;
-
-}// namespace plugin
 }// namespace system
 }// namespace fc
 }// namespace oldportal
@@ -520,6 +521,8 @@ class PluginRegistry;
 #include "network/modbus/ModbusDevice.h"
 #include "hardware/HardwareDevice.h"
 #include "hardware/HardwareDeviceProcess.h"
+#include "system/plugin/Plugin.h"
+#include "hardware/HardwarePlugin.h"
 #include "hardware/edm/EDMWorkMode.h"
 #include "hardware/edm/EDMPowerSource.h"
 #include "network/DeviceCommand.h"
@@ -615,7 +618,6 @@ class PluginRegistry;
 #include "scheduler/Scheduler.h"
 #include "scheduler/Task.h"
 #include "scheduler/TaskLogMessage.h"
-#include "system/plugin/Plugin.h"
 #include "system/plugin/PluginRegistry.h"
 #include "system/serialization/Archive.h"
 #include "system/serialization/Serializable.h"
@@ -689,6 +691,8 @@ namespace fc
 #include "network/modbus/ModbusDevice.h"
 #include "hardware/HardwareDevice.h"
 #include "hardware/HardwareDeviceProcess.h"
+#include "system/plugin/Plugin.h"
+#include "hardware/HardwarePlugin.h"
 #include "hardware/edm/EDMWorkMode.h"
 #include "hardware/edm/EDMPowerSource.h"
 #include "network/DeviceCommand.h"
@@ -784,7 +788,6 @@ namespace fc
 #include "scheduler/Scheduler.h"
 #include "scheduler/Task.h"
 #include "scheduler/TaskLogMessage.h"
-#include "system/plugin/Plugin.h"
 #include "system/plugin/PluginRegistry.h"
 #include "system/serialization/Archive.h"
 #include "system/serialization/Serializable.h"

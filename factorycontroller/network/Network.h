@@ -49,6 +49,8 @@ class Network
 public:
 int64_t _id;
 public:
+static const char* const  _CLASSNAME_FULL;
+public:
 std::string _name;
 public:
 std::string _serialPortPath;

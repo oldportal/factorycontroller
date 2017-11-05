@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::factory::cnc::ToolSet::_CLASSNAME_FULL = "oldportal::fc::factory::cnc::ToolSet";
+
+
 oldportal::fc::factory::cnc::ToolSet::~ToolSet()
 {//BEGIN_ea44afa4fc24ad35b64aad4845d945ff
 

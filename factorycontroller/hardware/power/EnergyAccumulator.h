@@ -52,6 +52,8 @@ Maximum capacity in watt*hours
 */
 public:
 float _capacity;
+public:
+static const char* const  _CLASSNAME_FULL;
 
 
 //methods:

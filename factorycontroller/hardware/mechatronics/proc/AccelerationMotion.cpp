@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::mechatronics::proc::AccelerationMotion::_CLASSNAME_FULL = "oldportal::fc::hardware::mechatronics::proc::AccelerationMotion";
+
+
 oldportal::fc::hardware::mechatronics::proc::AccelerationMotion::AccelerationMotion()
 
 {//BEGIN_6e6c0d0f888b6b2830e2a3980b75b80c

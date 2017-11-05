@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::edm::data::EDMDriverDataInput::_CLASSNAME_FULL = "oldportal::fc::hardware::edm::data::EDMDriverDataInput";
+
+
 oldportal::fc::hardware::edm::data::EDMDriverDataInput::EDMDriverDataInput()
 
 {//BEGIN_51ed7e0971aa368870db890660740131

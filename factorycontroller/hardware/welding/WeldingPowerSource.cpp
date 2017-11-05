@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::welding::WeldingPowerSource::_CLASSNAME_FULL = "oldportal::fc::hardware::welding::WeldingPowerSource";
+
+
 oldportal::fc::hardware::welding::WeldingPowerSource::WeldingPowerSource()
 
 {//BEGIN_4ec380fc71088764a3453cbf245f29a7

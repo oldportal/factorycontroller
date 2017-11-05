@@ -53,6 +53,8 @@ virtual ~EDMPowerSource();
 
 public:
 oldportal::fc::hardware::edm::EDMWorkMode _mode;
+public:
+static const char* const  _CLASSNAME_FULL;
 
 
 //methods:

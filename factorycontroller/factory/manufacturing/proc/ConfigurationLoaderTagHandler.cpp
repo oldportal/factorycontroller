@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::factory::manufacturing::proc::ConfigurationLoaderTagHandler::_CLASSNAME_FULL = "oldportal::fc::factory::manufacturing::proc::ConfigurationLoaderTagHandler";
+
+
 oldportal::fc::factory::manufacturing::proc::ConfigurationLoaderTagHandler::ConfigurationLoaderTagHandler()
 
 {//BEGIN_3f26a77f5a7a0f87a6682fcab424dbff

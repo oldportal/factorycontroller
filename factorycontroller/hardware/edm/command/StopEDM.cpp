@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::edm::command::StopEDM::_CLASSNAME_FULL = "oldportal::fc::hardware::edm::command::StopEDM";
+
+
 oldportal::fc::hardware::edm::command::StopEDM::StopEDM(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > device_process)
     : oldportal::fc::network::DeviceCommand(device, device_process)
 {//BEGIN_d0c8998911fdc99fc952fc516402cf34

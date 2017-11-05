@@ -47,6 +47,16 @@ class PluginRegistry
 
 // members:
 
+protected:
+std::list< std::shared_ptr< oldportal::fc::system::plugin::Plugin > > _plugins;
+/**
+Registered classes.
+*/
+protected:
+std::map< std::string, std::shared_ptr< oldportal::fc::system::plugin::Plugin > > _classes;
+public:
+static const char* const  _CLASSNAME_FULL;
+
 
 //methods:
 

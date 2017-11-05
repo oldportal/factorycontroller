@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::network::NetworkClock::_CLASSNAME_FULL = "oldportal::fc::network::NetworkClock";
+
+
 oldportal::fc::network::NetworkClock::NetworkClock()
 
 {//BEGIN_e78e68ce2c9012b95739d0ad514a76fb

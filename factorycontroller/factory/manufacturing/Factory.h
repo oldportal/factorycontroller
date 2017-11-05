@@ -60,6 +60,8 @@ std::shared_ptr< oldportal::fc::factory::warehouse::StorageManager > _storage_ma
 protected:
 std::shared_ptr< oldportal::fc::scheduler::Scheduler > _scheduler;
 protected:
+std::shared_ptr< oldportal::fc::system::plugin::PluginRegistry > _plugin_registry;
+protected:
 std::shared_ptr< std::thread > _run_thread;
 protected:
 std::vector< std::shared_ptr<oldportal::fc::network::Network> > _networks;
@@ -69,6 +71,8 @@ protected:
 std::vector< std::shared_ptr<oldportal::fc::scheduler::ExecutorInterface> > _executors;
 public:
 oldportal::fc::system::util::StepCounter _step_counter;
+public:
+static const char* const  _CLASSNAME_FULL;
 public:
 std::string _name;
 
@@ -83,6 +87,9 @@ std::vector< std::shared_ptr<oldportal::fc::network::NetworkController> > getNet
 
 public:
 std::vector< std::shared_ptr<oldportal::fc::network::Network> > getNetworks();
+
+public:
+std::shared_ptr< oldportal::fc::system::plugin::PluginRegistry > getPluginRegistry();
 
 public:
 std::shared_ptr< oldportal::fc::scheduler::Scheduler > getScheduler();

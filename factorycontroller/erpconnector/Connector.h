@@ -46,6 +46,8 @@ class Connector
 // members:
 
 public:
+static const char* const  _CLASSNAME_FULL;
+public:
 std::string _address;
 public:
 std::string _login;

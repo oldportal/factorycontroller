@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::edm::EDMPowerSource::_CLASSNAME_FULL = "oldportal::fc::hardware::edm::EDMPowerSource";
+
+
 oldportal::fc::hardware::edm::EDMPowerSource::~EDMPowerSource()
 {//BEGIN_c2d7c28ad30e4f8b3634cd85c7022e05
 

@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::erpconnector::Connector::_CLASSNAME_FULL = "oldportal::fc::erpconnector::Connector";
+
+
 const oldportal::fc::erpconnector::StateProxy* oldportal::fc::erpconnector::Connector::getStateProxy()
 {//BEGIN_f213a74acd2499b94d516aef020c3bde
     StateProxy *ret = 0;

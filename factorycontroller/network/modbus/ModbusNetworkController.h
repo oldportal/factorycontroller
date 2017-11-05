@@ -69,6 +69,8 @@ public:
 oldportal::fc::network::modbus::ModbusNetworkSettings _network_settings;
 public:
 oldportal::fc::network::modbus::SerialPortSettings _port_settings;
+public:
+static const char* const  _CLASSNAME_FULL;
 
 
 //methods:

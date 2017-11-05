@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::metallurgy::command::StopHeating::_CLASSNAME_FULL = "oldportal::fc::hardware::metallurgy::command::StopHeating";
+
+
 oldportal::fc::hardware::metallurgy::command::StopHeating::StopHeating(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > device_process)
     : oldportal::fc::network::DeviceCommand(device, device_process)
 {//BEGIN_fa631fcdc220746cebeb12036e972588

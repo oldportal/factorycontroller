@@ -62,6 +62,8 @@ Modbus data (registers) structures.
 */
 public:
 oldportal::fc::hardware::welding::data::WeldingModbus _modbus_data;
+public:
+static const char* const  _CLASSNAME_FULL;
 
 
 //methods:

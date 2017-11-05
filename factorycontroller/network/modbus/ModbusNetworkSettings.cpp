@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::network::modbus::ModbusNetworkSettings::_CLASSNAME_FULL = "oldportal::fc::network::modbus::ModbusNetworkSettings";
+
+
 oldportal::fc::network::modbus::ModbusNetworkSettings::ModbusNetworkSettings()
 
 {//BEGIN_31e83a27a778e7434be11dc010d2e8a0

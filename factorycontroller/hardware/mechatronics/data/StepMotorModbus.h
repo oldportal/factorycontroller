@@ -64,6 +64,8 @@ public:
 oldportal::fc::network::modbus::data::InterfaceSettings _1_interface;
 public:
 oldportal::fc::network::modbus::data::SystemLogReport _systemLog[CONTROLLER_LOG_SIZE];
+public:
+static const char* const  _CLASSNAME_FULL;
 
 
 //methods:

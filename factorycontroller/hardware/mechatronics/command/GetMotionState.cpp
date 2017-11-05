@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::mechatronics::command::GetMotionState::_CLASSNAME_FULL = "oldportal::fc::hardware::mechatronics::command::GetMotionState";
+
+
 oldportal::fc::hardware::mechatronics::command::GetMotionState::GetMotionState(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > device_process)
     : oldportal::fc::network::DeviceCommand(device, device_process)
 {//BEGIN_a84b36fc8e1ee05d4c84cfce11a1c814

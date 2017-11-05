@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::mechatronics::proc::CurveMotion::_CLASSNAME_FULL = "oldportal::fc::hardware::mechatronics::proc::CurveMotion";
+
+
 oldportal::fc::hardware::mechatronics::proc::CurveMotion::CurveMotion()
 
 {//BEGIN_182294aeb9f2778d6b09b2ff9c7576c2

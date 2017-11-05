@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::factory::cnc::edm::RepairToolOperation::_CLASSNAME_FULL = "oldportal::fc::factory::cnc::edm::RepairToolOperation";
+
+
 oldportal::fc::factory::cnc::edm::RepairToolOperation::~RepairToolOperation()
 {//BEGIN_05ef176dc9127070db1bce36885224e2
 

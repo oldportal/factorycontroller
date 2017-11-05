@@ -57,6 +57,8 @@ boost::uuids::uuid _id;
 public:
 int32_t _version;
 public:
+static const char* const  _CLASSNAME_FULL;
+public:
 std::string _description;
 public:
 std::string _name;

@@ -34,6 +34,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader::_CLASSNAME_FULL = "oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader";
+
+
 oldportal::fc::factory::manufacturing::proc::FactoryConfigurationFileLoader::FactoryConfigurationFileLoader(const std::string& configuration_filename)
     :   oldportal::fc::factory::manufacturing::FactoryLoader()
 {//BEGIN_c037b730f87c52811d3fd00dd6c2693f

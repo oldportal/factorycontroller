@@ -98,6 +98,8 @@ Disabled by default.
 */
 public:
 float _min_temperature_enabled;
+public:
+static const char* const  _CLASSNAME_FULL;
 
 
 //methods:

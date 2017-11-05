@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::metallurgy::InductionHeater::_CLASSNAME_FULL = "oldportal::fc::hardware::metallurgy::InductionHeater";
+
+
 oldportal::fc::hardware::metallurgy::InductionHeater::InductionHeater()
 
 {//BEGIN_5da8d99ad7d2cdc3bb2d67cf27615b47

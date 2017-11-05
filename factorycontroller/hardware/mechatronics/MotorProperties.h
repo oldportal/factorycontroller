@@ -59,6 +59,8 @@ The motor rotor angular intertion.
 */
 public:
 float _rotor_inertion;
+public:
+static const char* const  _CLASSNAME_FULL;
 
 
 //methods:

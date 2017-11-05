@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::metallurgy::proc::InductionMeltingProcess::_CLASSNAME_FULL = "oldportal::fc::hardware::metallurgy::proc::InductionMeltingProcess";
+
+
 oldportal::fc::hardware::metallurgy::proc::InductionMeltingProcess::InductionMeltingProcess()
 
 {//BEGIN_bb3d100e44f113d4d23b5e25561e6f34

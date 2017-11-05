@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::system::util::StepCounter::_CLASSNAME_FULL = "oldportal::fc::system::util::StepCounter";
+
+
 oldportal::fc::system::util::StepCounter::StepCounter()
 
 {//BEGIN_c892946fc38d8ac211be905fcd313059

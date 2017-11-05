@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::factory::cnc::toolpath::ToolPath::_CLASSNAME_FULL = "oldportal::fc::factory::cnc::toolpath::ToolPath";
+
+
 oldportal::fc::factory::cnc::toolpath::ToolPath::~ToolPath()
 {//BEGIN_3884fdf6ae9864f99ae39d01fc7a00d4
 

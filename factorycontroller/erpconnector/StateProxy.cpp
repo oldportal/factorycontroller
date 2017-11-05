@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::erpconnector::StateProxy::_CLASSNAME_FULL = "oldportal::fc::erpconnector::StateProxy";
+
+
 oldportal::fc::erpconnector::StateProxy::StateProxy(std::shared_ptr< oldportal::fc::erpconnector::Connector > connector)
 
 {//BEGIN_a9adfe47c216d93d795ca30d29cc833e

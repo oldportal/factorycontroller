@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::welding::proc::WeldingProcess::_CLASSNAME_FULL = "oldportal::fc::hardware::welding::proc::WeldingProcess";
+
+
 oldportal::fc::hardware::welding::proc::WeldingProcess::WeldingProcess()
 
 {//BEGIN_ba61c4d20e9c0d938f1ac1009132204c

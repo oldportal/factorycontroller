@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::system::util::Counter::_CLASSNAME_FULL = "oldportal::fc::system::util::Counter";
+
+
 oldportal::fc::system::util::Counter::Counter()
 
 {//BEGIN_43e9dd6ec2d039d1d7e51ca1c53cfb2c

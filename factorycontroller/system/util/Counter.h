@@ -51,6 +51,8 @@ Counter();
 
 private:
 std::atomic_uint_fast64_t _counter;
+public:
+static const char* const  _CLASSNAME_FULL;
 
 
 //methods:

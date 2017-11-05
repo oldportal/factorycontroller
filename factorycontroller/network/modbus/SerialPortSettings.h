@@ -56,6 +56,8 @@ SerialPortSettings();
 */
 public:
 char _parity;
+public:
+static const char* const  _CLASSNAME_FULL;
 /**
 System serial port name.
 

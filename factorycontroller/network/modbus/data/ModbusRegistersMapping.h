@@ -57,6 +57,8 @@ Registers count for save structure (structure size in array of registers).
 protected:
 uint8_t _modbus_registers_sizeof;
 public:
+static const char* const  _CLASSNAME_FULL;
+public:
 uint16_t _modbus_registers_start_index;
 
 

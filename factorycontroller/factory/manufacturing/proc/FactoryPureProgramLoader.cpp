@@ -32,6 +32,9 @@ using namespace std;
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::_CLASSNAME_FULL = "oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader";
+
+
 oldportal::fc::factory::manufacturing::proc::FactoryPureProgramLoader::FactoryPureProgramLoader()
     :   oldportal::fc::factory::manufacturing::FactoryLoader()
 {//BEGIN_e0a5d0495f08716c756e3e993ca14893

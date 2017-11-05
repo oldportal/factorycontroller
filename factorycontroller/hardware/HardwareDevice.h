@@ -84,7 +84,7 @@
 
 
 /**
- Maximum allowed motor temperature (in Celsius) 
+ Maximum allowed motor temperature (in Celsius)
 */
 namespace oldportal 
 {
@@ -120,6 +120,8 @@ Device temperature in Celsius.
 */
 public:
 float _deviceTemperature;
+public:
+static const char* const  _CLASSNAME_FULL;
 /**
 Current device mode and logic controller.
 */

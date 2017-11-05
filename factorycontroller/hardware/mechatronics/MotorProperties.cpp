@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::mechatronics::MotorProperties::_CLASSNAME_FULL = "oldportal::fc::hardware::mechatronics::MotorProperties";
+
+
 oldportal::fc::hardware::mechatronics::MotorProperties::MotorProperties()
 
 {//BEGIN_4363407ae7a3c68ce3c84821ccd8a0f3
