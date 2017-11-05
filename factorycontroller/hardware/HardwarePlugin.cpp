@@ -38,11 +38,11 @@ const char* const  oldportal::fc::hardware::HardwarePlugin::_CLASSNAME_FULL = "o
 std::list< std::string > oldportal::fc::hardware::HardwarePlugin::get_supported_classes_list()
 {//BEGIN_f957b7f83e42287cd373315aabb364a3
     std::list< std::string > ret = {
-        "oldportal::fc::hardware::edm::EDMPowerSource",
-        "oldportal::fc::hardware::mechatronics::Motor",
-        "oldportal::fc::hardware::metallurgy::InductionHeater",
-        "oldportal::fc::hardware::power::PowerBus",
-        "oldportal::fc::hardware::welding::proc::WeldingProcess"
+        oldportal::fc::hardware::edm::EDMPowerSource::_CLASSNAME_FULL,
+        oldportal::fc::hardware::mechatronics::Motor::_CLASSNAME_FULL,
+        oldportal::fc::hardware::metallurgy::InductionHeater::_CLASSNAME_FULL,
+        oldportal::fc::hardware::power::PowerBus::_CLASSNAME_FULL,
+        oldportal::fc::hardware::welding::proc::WeldingProcess::_CLASSNAME_FULL
     };
     return ret;
 }//END_f957b7f83e42287cd373315aabb364a3

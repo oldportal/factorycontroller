@@ -15,7 +15,7 @@ CONFIG   += boost
 CONFIG   += thread
 CONFIG   +=object_parallel_to_source
 
-LIBS	+= -lboost_system -lpthread -lmodbus -lboost_program_options -llog4cxx 
+LIBS	+= -lboost_system -lpthread -lmodbus -lboost_program_options -llog4cxx -lpugixml
 
 TEMPLATE = app
 
