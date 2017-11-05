@@ -26,7 +26,7 @@
 
 //BEGIN_GROUP_COMMENT
 /**
-Plugin subsystem*/
+Plugin subsyst*/
 //END_GROUP_COMMENT
 
 

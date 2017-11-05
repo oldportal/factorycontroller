@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::factory::cnc::MashineCenterInterface::_CLASSNAME_FULL = "oldportal::fc::factory::cnc::MashineCenterInterface";
+
+
 oldportal::fc::factory::cnc::MashineCenterInterface::~MashineCenterInterface()
 {//BEGIN_64f8e8562dbc1e95e3a423b6f86ac2ea
 

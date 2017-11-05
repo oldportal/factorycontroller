@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::network::modbus::ModbusDeviceCommand::_CLASSNAME_FULL = "oldportal::fc::network::modbus::ModbusDeviceCommand";
+
+
 oldportal::fc::network::modbus::ModbusDeviceCommand::ModbusDeviceCommand()
 
 {//BEGIN_5a51e40c38c53eade4f9750574d15715

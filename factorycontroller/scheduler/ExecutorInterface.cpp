@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::scheduler::ExecutorInterface::_CLASSNAME_FULL = "oldportal::fc::scheduler::ExecutorInterface";
+
+
 oldportal::fc::scheduler::ExecutorInterface::~ExecutorInterface()
 {//BEGIN_21a9e663f6e779884a26e7bfb836e4b9
 

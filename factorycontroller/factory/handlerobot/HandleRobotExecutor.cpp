@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::factory::handlerobot::HandleRobotExecutor::_CLASSNAME_FULL = "oldportal::fc::factory::handlerobot::HandleRobotExecutor";
+
+
 oldportal::fc::factory::handlerobot::HandleRobotExecutor::~HandleRobotExecutor()
 {//BEGIN_88c7450ad9608e474809bab5678ae598
 

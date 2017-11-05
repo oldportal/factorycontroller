@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::metallurgy::command::StartHeating::_CLASSNAME_FULL = "oldportal::fc::hardware::metallurgy::command::StartHeating";
+
+
 oldportal::fc::hardware::metallurgy::command::StartHeating::StartHeating(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > device_process)
     : oldportal::fc::network::DeviceCommand(device, device_process)
 {//BEGIN_e684215f88488b6ec9a0f3d38d25efd2

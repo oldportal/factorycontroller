@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::factory::warehouse::StorageManager::_CLASSNAME_FULL = "oldportal::fc::factory::warehouse::StorageManager";
+
+
 oldportal::fc::factory::warehouse::StorageManager::StorageManager()
 
 {//BEGIN_27a62bd6e9a62afec310054a9e1685f3

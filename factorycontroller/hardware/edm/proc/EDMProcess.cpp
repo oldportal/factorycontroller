@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::edm::proc::EDMProcess::_CLASSNAME_FULL = "oldportal::fc::hardware::edm::proc::EDMProcess";
+
+
 oldportal::fc::hardware::edm::proc::EDMProcess::EDMProcess()
 
 {//BEGIN_dbfc1d2d01ecf65f29c4ca7a2983d589

@@ -67,6 +67,8 @@ bool _is_response_dynamic_size;
 public:
 bool _is_sent_ok;
 public:
+static const char* const  _CLASSNAME_FULL;
+public:
 std::array< uint8_t, MODBUS_MAX_PDU_LENGTH+1 > _received_buf;
 public:
 std::array< uint8_t, MODBUS_MAX_PDU_LENGTH+1 > _send_buf;

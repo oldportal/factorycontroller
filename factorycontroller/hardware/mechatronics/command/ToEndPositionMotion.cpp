@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::mechatronics::command::ToEndPositionMotion::_CLASSNAME_FULL = "oldportal::fc::hardware::mechatronics::command::ToEndPositionMotion";
+
+
 oldportal::fc::hardware::mechatronics::command::ToEndPositionMotion::ToEndPositionMotion(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > device_process, float acceleration, float end_position)
     : oldportal::fc::network::DeviceCommand(device, device_process)
 {//BEGIN_a67ddc7c05dd441e90da575a7c945599

@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::factory::cnc::proc::CNCExecutor::_CLASSNAME_FULL = "oldportal::fc::factory::cnc::proc::CNCExecutor";
+
+
 oldportal::fc::factory::cnc::proc::CNCExecutor::CNCExecutor()
 
 {//BEGIN_f0ee8858341912d220e0076168336e4f

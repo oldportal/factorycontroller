@@ -49,6 +49,8 @@ TaskProxy(std::shared_ptr< oldportal::fc::erpconnector::Connector > connector);
 
 protected:
 std::weak_ptr< oldportal::fc::erpconnector::Connector > _connector;
+public:
+static const char* const  _CLASSNAME_FULL;
 
 
 //methods:

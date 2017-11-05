@@ -57,6 +57,8 @@ virtual ~ModbusSerialRTUNetworkController();
 
 public:
 oldportal::fc::network::modbus::SerialPortSettings _port_settings;
+public:
+static const char* const  _CLASSNAME_FULL;
 
 
 //methods:

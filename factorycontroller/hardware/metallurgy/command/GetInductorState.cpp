@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::metallurgy::command::GetInductorState::_CLASSNAME_FULL = "oldportal::fc::hardware::metallurgy::command::GetInductorState";
+
+
 oldportal::fc::hardware::metallurgy::command::GetInductorState::GetInductorState(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > device_process)
     : oldportal::fc::network::DeviceCommand(device, device_process)
 {//BEGIN_3e996a31234fd54ba6cd00049bc85b77

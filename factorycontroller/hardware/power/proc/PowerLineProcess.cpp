@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::power::proc::PowerLineProcess::_CLASSNAME_FULL = "oldportal::fc::hardware::power::proc::PowerLineProcess";
+
+
 oldportal::fc::hardware::power::proc::PowerLineProcess::PowerLineProcess()
 
 {//BEGIN_41ede663115a95af76102ba194646135

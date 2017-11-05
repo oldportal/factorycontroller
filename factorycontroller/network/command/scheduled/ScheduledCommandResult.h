@@ -52,6 +52,8 @@ class ScheduledCommandResult
 public:
 NETWORK_TIME _start_network_time;
 public:
+static const char* const  _CLASSNAME_FULL;
+public:
 uint32_t _id;
 public:
 uint32_t _previous_command_id;

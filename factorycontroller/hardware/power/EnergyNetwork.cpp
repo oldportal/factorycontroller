@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::power::EnergyNetwork::_CLASSNAME_FULL = "oldportal::fc::hardware::power::EnergyNetwork";
+
+
 oldportal::fc::hardware::power::EnergyNetwork::EnergyNetwork()
 
 {//BEGIN_f41a2011dbc8b1f10e238b17150d496f

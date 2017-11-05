@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::factory::warehouse::StoragePallet::_CLASSNAME_FULL = "oldportal::fc::factory::warehouse::StoragePallet";
+
+
 oldportal::fc::factory::warehouse::StoragePallet::StoragePallet()
 
 {//BEGIN_12dc146c8858b70cf96a9e02ac695d19

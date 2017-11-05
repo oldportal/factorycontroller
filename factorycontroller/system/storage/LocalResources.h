@@ -47,6 +47,9 @@ class LocalResources
 
 // members:
 
+public:
+static const char* const  _CLASSNAME_FULL;
+
 
 //methods:
 

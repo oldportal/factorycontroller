@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::mechatronics::proc::StepMotion::_CLASSNAME_FULL = "oldportal::fc::hardware::mechatronics::proc::StepMotion";
+
+
 oldportal::fc::hardware::mechatronics::proc::StepMotion::StepMotion()
 
 {//BEGIN_516f588b66c7ce108bd6c69cdda7ca73

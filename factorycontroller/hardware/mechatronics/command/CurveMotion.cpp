@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::mechatronics::command::CurveMotion::_CLASSNAME_FULL = "oldportal::fc::hardware::mechatronics::command::CurveMotion";
+
+
 oldportal::fc::hardware::mechatronics::command::CurveMotion::CurveMotion(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > device_process)
     : oldportal::fc::network::DeviceCommand(device, device_process)
 {//BEGIN_712e07b07e58f3aa3ce261a10882fa68

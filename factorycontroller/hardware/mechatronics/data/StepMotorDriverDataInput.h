@@ -91,6 +91,8 @@ rotor angle position in steps
 */
 public:
 int32_t _3_rotor_absolute_angle_position;
+public:
+static const char* const  _CLASSNAME_FULL;
 
 
 //methods:

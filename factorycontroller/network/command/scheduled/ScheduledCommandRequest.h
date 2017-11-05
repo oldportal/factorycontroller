@@ -60,6 +60,8 @@ class ScheduledCommandRequest
 public:
 NETWORK_TIME _start_network_time;
 public:
+static const char* const  _CLASSNAME_FULL;
+public:
 uint32_t _id;
 /**
 planned execution time in milliseconds

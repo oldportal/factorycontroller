@@ -61,6 +61,8 @@ boost::uuids::uuid _id;
 public:
 boost::uuids::uuid _templateId;
 public:
+static const char* const  _CLASSNAME_FULL;
+public:
 std::vector< std::shared_ptr<Task> > _tasks;
 
 

@@ -65,6 +65,8 @@ protected:
 std::vector< std::shared_ptr<oldportal::fc::network::NetworkController> > _network_controllers;
 protected:
 std::vector< std::shared_ptr<oldportal::fc::scheduler::ExecutorInterface> > _executors;
+public:
+static const char* const  _CLASSNAME_FULL;
 
 
 //methods:

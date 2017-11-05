@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::edm::data::EDMModbus::_CLASSNAME_FULL = "oldportal::fc::hardware::edm::data::EDMModbus";
+
+
 oldportal::fc::hardware::edm::data::EDMModbus::EDMModbus()
 
 {//BEGIN_81432d6c47c41e6d38f1bbea8da094e7

@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::mechatronics::data::StepMotorDriverCalculationConstants::_CLASSNAME_FULL = "oldportal::fc::hardware::mechatronics::data::StepMotorDriverCalculationConstants";
+
+
 oldportal::fc::hardware::mechatronics::data::StepMotorDriverCalculationConstants::StepMotorDriverCalculationConstants()
 
 {//BEGIN_e8da8280446dc69792ff6acbb957b006

@@ -219,7 +219,8 @@ SOURCES += main.cpp \
     factorycontroller/system/serialization/Serializable.cpp \
     factorycontroller/system/plugin/_group_plugin.cpp \
     factorycontroller/system/plugin/Plugin.cpp \
-    factorycontroller/system/plugin/PluginRegistry.cpp
+    factorycontroller/system/plugin/PluginRegistry.cpp \
+    factorycontroller/hardware/HardwarePlugin.cpp
     
 
 HEADERS += factorycontroller/factorycontroller.h \ 

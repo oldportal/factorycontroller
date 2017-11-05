@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::metallurgy::data::InductorModbus::_CLASSNAME_FULL = "oldportal::fc::hardware::metallurgy::data::InductorModbus";
+
+
 oldportal::fc::hardware::metallurgy::data::InductorModbus::InductorModbus()
 
 {//BEGIN_3e020cc2c9a5d135aaa31bee79863833

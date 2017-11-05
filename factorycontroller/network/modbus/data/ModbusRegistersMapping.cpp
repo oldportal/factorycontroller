@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::network::modbus::data::ModbusRegistersMapping::_CLASSNAME_FULL = "oldportal::fc::network::modbus::data::ModbusRegistersMapping";
+
+
 oldportal::fc::network::modbus::data::ModbusRegistersMapping::ModbusRegistersMapping()
 
 {//BEGIN_c186af3669cca7f31601eafd1339835b

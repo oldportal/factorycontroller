@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::mechatronics::data::StepMotorModbus::_CLASSNAME_FULL = "oldportal::fc::hardware::mechatronics::data::StepMotorModbus";
+
+
 oldportal::fc::hardware::mechatronics::data::StepMotorModbus::StepMotorModbus()
 
 {//BEGIN_40d4aec2b867efdf8c752d072f2067aa

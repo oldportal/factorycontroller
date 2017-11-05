@@ -52,6 +52,8 @@ Maximum 100% work time current in Amperes.
 */
 public:
 float _maxContinuousCurrent;
+public:
+static const char* const  _CLASSNAME_FULL;
 
 
 //methods:

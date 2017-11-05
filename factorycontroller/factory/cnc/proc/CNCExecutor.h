@@ -55,6 +55,9 @@ virtual ~CNCExecutor();
 
 // members:
 
+public:
+static const char* const  _CLASSNAME_FULL;
+
 
 //methods:
 

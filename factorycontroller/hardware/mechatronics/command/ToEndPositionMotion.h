@@ -59,6 +59,8 @@ private:
 float _acceleration;
 private:
 float _end_position;
+public:
+static const char* const  _CLASSNAME_FULL;
 
 
 //methods:

@@ -67,7 +67,7 @@ typedef enum
 
 
 /**
- Plan angle speed overspeed maximum motor speed 
+ Plan angle speed overspeed maximum motor speed
 */
 namespace oldportal 
 {
@@ -131,6 +131,8 @@ Absolute angle stop position
 */
 public:
 int32_t _8_rotor_angle_stop_position;
+public:
+static const char* const  _CLASSNAME_FULL;
 /**
 Step motor microstep scaler, 1 = full step, 2 = halfstep, 4 = 1/4 step
 */

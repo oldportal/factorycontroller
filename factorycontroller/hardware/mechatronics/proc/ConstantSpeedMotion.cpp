@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::mechatronics::proc::ConstantSpeedMotion::_CLASSNAME_FULL = "oldportal::fc::hardware::mechatronics::proc::ConstantSpeedMotion";
+
+
 oldportal::fc::hardware::mechatronics::proc::ConstantSpeedMotion::ConstantSpeedMotion()
 
 {//BEGIN_150a27487f29df9b45aae3c693753a51

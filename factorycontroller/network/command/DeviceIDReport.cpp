@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::network::command::DeviceIDReport::_CLASSNAME_FULL = "oldportal::fc::network::command::DeviceIDReport";
+
+
 oldportal::fc::network::command::DeviceIDReport::DeviceIDReport(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device)
     : oldportal::fc::network::DeviceCommand(device)
 {//BEGIN_eb79c57be27cdbf036036cddfd9a12a7

@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::factory::cnc::ChangeToolOperation::_CLASSNAME_FULL = "oldportal::fc::factory::cnc::ChangeToolOperation";
+
+
 oldportal::fc::factory::cnc::ChangeToolOperation::~ChangeToolOperation()
 {//BEGIN_aae143b2353c76e4f10ef8c0b6fe7484
 

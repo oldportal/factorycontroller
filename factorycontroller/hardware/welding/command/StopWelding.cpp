@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::welding::command::StopWelding::_CLASSNAME_FULL = "oldportal::fc::hardware::welding::command::StopWelding";
+
+
 oldportal::fc::hardware::welding::command::StopWelding::StopWelding(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > device_process)
     : oldportal::fc::network::DeviceCommand(device, device_process)
 {//BEGIN_ce3c36e95c44ed846e9e912b00b7f500

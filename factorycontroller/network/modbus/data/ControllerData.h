@@ -99,6 +99,8 @@ Maximum allowed radiator temperature (in Celsius)
 */
 public:
 int16_t _7_maximum_radiator_temperature;
+public:
+static const char* const  _CLASSNAME_FULL;
 /**
 Controller mode
 */

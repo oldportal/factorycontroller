@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::erpconnector::TaskProxy::_CLASSNAME_FULL = "oldportal::fc::erpconnector::TaskProxy";
+
+
 oldportal::fc::erpconnector::TaskProxy::TaskProxy(std::shared_ptr< oldportal::fc::erpconnector::Connector > connector)
 
 {//BEGIN_0ea35633f1ee3014d4c2fba31c8fd9c4

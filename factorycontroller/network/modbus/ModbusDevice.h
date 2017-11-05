@@ -54,6 +54,8 @@ virtual ~ModbusDevice();
 // members:
 
 public:
+static const char* const  _CLASSNAME_FULL;
+public:
 uint8_t _modbus_address;
 
 

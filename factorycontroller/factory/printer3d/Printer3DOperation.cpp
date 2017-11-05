@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::factory::printer3d::Printer3DOperation::_CLASSNAME_FULL = "oldportal::fc::factory::printer3d::Printer3DOperation";
+
+
 oldportal::fc::factory::printer3d::Printer3DOperation::~Printer3DOperation()
 {//BEGIN_042f16dc5bf9377e95da464230c8338d
 

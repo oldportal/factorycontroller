@@ -62,6 +62,8 @@ WeldingDriverData();
 
 // members:
 
+public:
+static const char* const  _CLASSNAME_FULL;
 /**
 Motor control driver mode
 */

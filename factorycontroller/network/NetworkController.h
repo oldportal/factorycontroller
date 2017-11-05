@@ -69,6 +69,8 @@ oldportal::fc::system::util::Counter _error_statistics;
 public:
 oldportal::fc::system::util::StepCounter _step_counter;
 public:
+static const char* const  _CLASSNAME_FULL;
+public:
 std::shared_ptr< oldportal::fc::network::Network > _network;
 
 

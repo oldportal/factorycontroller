@@ -59,6 +59,8 @@ virtual ~Scheduler();
 // members:
 
 public:
+static const char* const  _CLASSNAME_FULL;
+public:
 std::vector< std::shared_ptr<Project> > _activeProjects;
 public:
 std::vector< std::shared_ptr<Resource> > _resources;

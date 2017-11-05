@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::factory::handlerobot::MovePartOperation::_CLASSNAME_FULL = "oldportal::fc::factory::handlerobot::MovePartOperation";
+
+
 oldportal::fc::factory::handlerobot::MovePartOperation::~MovePartOperation()
 {//BEGIN_6a2d64572bd70c29e49a878114d4b735
 

@@ -55,6 +55,8 @@ boost::uuids::uuid _id;
 public:
 boost::uuids::uuid _templateId;
 public:
+static const char* const  _CLASSNAME_FULL;
+public:
 std::chrono::high_resolution_clock::time_point _assigned;
 public:
 std::chrono::high_resolution_clock::time_point _created;

@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::factory::manufacturing::FactoryLoader::_CLASSNAME_FULL = "oldportal::fc::factory::manufacturing::FactoryLoader";
+
+
 oldportal::fc::factory::manufacturing::FactoryLoader::FactoryLoader()
 
 {//BEGIN_16f187066a23428c655a30fd116d170c

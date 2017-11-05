@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::welding::data::WeldingModbus::_CLASSNAME_FULL = "oldportal::fc::hardware::welding::data::WeldingModbus";
+
+
 oldportal::fc::hardware::welding::data::WeldingModbus::WeldingModbus()
 
 {//BEGIN_2795534b4f8fb62c34087e6bd5501d65

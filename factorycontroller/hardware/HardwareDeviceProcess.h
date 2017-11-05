@@ -59,6 +59,8 @@ protected:
 bool _hardware_initialized;
 protected:
 std::vector< std::weak_ptr< oldportal::fc::hardware::HardwareDevice > > _hardware_devices;
+public:
+static const char* const  _CLASSNAME_FULL;
 /**
 Parent scheduler Task.
 

@@ -54,6 +54,8 @@ boost::uuids::uuid _taskId;
 public:
 int64_t _deviceId;
 public:
+static const char* const  _CLASSNAME_FULL;
+public:
 std::string _message;
 
 

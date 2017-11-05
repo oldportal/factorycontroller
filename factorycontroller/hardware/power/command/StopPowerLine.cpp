@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::power::command::StopPowerLine::_CLASSNAME_FULL = "oldportal::fc::hardware::power::command::StopPowerLine";
+
+
 oldportal::fc::hardware::power::command::StopPowerLine::StopPowerLine(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > device_process)
     : oldportal::fc::network::DeviceCommand(device, device_process)
 {//BEGIN_2119c9ba603633fe48fd88371026aa1e

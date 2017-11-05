@@ -62,6 +62,8 @@ InductorDriverDataInput();
 
 // members:
 
+public:
+static const char* const  _CLASSNAME_FULL;
 /**
 Binary flags, also called "coils"
 */

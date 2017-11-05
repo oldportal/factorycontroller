@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::factory::cnc::wood::FixPartOperation::_CLASSNAME_FULL = "oldportal::fc::factory::cnc::wood::FixPartOperation";
+
+
 oldportal::fc::factory::cnc::wood::FixPartOperation::~FixPartOperation()
 {//BEGIN_499a05c037d9cb066e5fdfcc08550b1a
 

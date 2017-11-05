@@ -52,6 +52,8 @@ System time in milliseconds.
 */
 private:
 std::chrono::high_resolution_clock::time_point _network_start_time;
+public:
+static const char* const  _CLASSNAME_FULL;
 
 
 //methods:

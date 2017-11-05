@@ -63,6 +63,8 @@ Minimum response frame size for dynamic size frame (with wariable data section s
 */
 protected:
 uint8_t _response_minimum_length;
+public:
+static const char* const  _CLASSNAME_FULL;
 
 
 //methods:

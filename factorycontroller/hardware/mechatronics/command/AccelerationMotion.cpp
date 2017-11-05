@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::mechatronics::command::AccelerationMotion::_CLASSNAME_FULL = "oldportal::fc::hardware::mechatronics::command::AccelerationMotion";
+
+
 oldportal::fc::hardware::mechatronics::command::AccelerationMotion::AccelerationMotion(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > device_process, float acceleration, float end_speed)
     : oldportal::fc::network::DeviceCommand(device, device_process)
 {//BEGIN_016062428c634fa59a004f10eb887bfc

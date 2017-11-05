@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::scheduler::TaskTemplate::_CLASSNAME_FULL = "oldportal::fc::scheduler::TaskTemplate";
+
+
 oldportal::fc::scheduler::TaskTemplate::~TaskTemplate()
 {//BEGIN_80c1b83828a4363c057ab03f335b40a2
 

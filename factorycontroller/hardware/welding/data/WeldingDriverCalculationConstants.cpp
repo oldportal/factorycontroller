@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::welding::data::WeldingDriverCalculationConstants::_CLASSNAME_FULL = "oldportal::fc::hardware::welding::data::WeldingDriverCalculationConstants";
+
+
 oldportal::fc::hardware::welding::data::WeldingDriverCalculationConstants::WeldingDriverCalculationConstants()
 
 {//BEGIN_49b04b04e818dc8cace3dfa5a5a5f3e2

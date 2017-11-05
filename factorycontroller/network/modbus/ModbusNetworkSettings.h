@@ -53,6 +53,8 @@ virtual ~ModbusNetworkSettings();
 // members:
 
 public:
+static const char* const  _CLASSNAME_FULL;
+public:
 uint32_t _byte_timeout_usec;
 /**
 Interval for network time synchronization in milliseconds.

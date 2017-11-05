@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::network::command::NetworkTimeSynchronization::_CLASSNAME_FULL = "oldportal::fc::network::command::NetworkTimeSynchronization";
+
+
 oldportal::fc::network::command::NetworkTimeSynchronization::NetworkTimeSynchronization()
 
 {//BEGIN_eb0f1b90102c8aa5e194df6319fafd88

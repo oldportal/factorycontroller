@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::edm::command::GetEDMState::_CLASSNAME_FULL = "oldportal::fc::hardware::edm::command::GetEDMState";
+
+
 oldportal::fc::hardware::edm::command::GetEDMState::GetEDMState(std::shared_ptr< oldportal::fc::hardware::HardwareDevice > device, std::shared_ptr< oldportal::fc::hardware::HardwareDeviceProcess > device_process)
     : oldportal::fc::network::DeviceCommand(device, device_process)
 {//BEGIN_b6de32d87b91565e42ed4452ad8b70b0

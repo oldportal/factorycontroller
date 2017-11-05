@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::hardware::metallurgy::data::InductorDriverData::_CLASSNAME_FULL = "oldportal::fc::hardware::metallurgy::data::InductorDriverData";
+
+
 oldportal::fc::hardware::metallurgy::data::InductorDriverData::InductorDriverData()
 
 {//BEGIN_02c2be8d5e6662a953478baf7ba136f9

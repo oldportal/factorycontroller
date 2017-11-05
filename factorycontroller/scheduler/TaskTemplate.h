@@ -51,6 +51,8 @@ virtual ~TaskTemplate();
 public:
 boost::uuids::uuid _id;
 public:
+static const char* const  _CLASSNAME_FULL;
+public:
 std::string _name;
 public:
 std::vector< std::shared_ptr<TaskTemplate> > _subtasks;

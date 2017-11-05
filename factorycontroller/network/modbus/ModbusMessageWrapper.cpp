@@ -32,6 +32,9 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
+const char* const  oldportal::fc::network::modbus::ModbusMessageWrapper::_CLASSNAME_FULL = "oldportal::fc::network::modbus::ModbusMessageWrapper";
+
+
 oldportal::fc::network::modbus::ModbusMessageWrapper::ModbusMessageWrapper(oldportal::fc::network::modbus::ModbusMessagePair* pair)
 
 {//BEGIN_b3ff4a7c3f3e9310541352e219295968

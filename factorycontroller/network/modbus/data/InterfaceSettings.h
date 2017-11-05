@@ -66,6 +66,8 @@ InterfaceSettings();
 // members:
 
 public:
+static const char* const  _CLASSNAME_FULL;
+public:
 uint16_t _1_device_type;
 /**
 controloler firmware version
