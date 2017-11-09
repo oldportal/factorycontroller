@@ -9,11 +9,11 @@ MRP/ERP integration.
 Features
 
 *    MODBUS network controller (default)
-*    Plugable interface for other industrial networks
+*    Plugable interface for other industrial networks and device types
 *    Set of default devices (reference design)
 *    Task execution scenaries
-*    Workcell-centric parallel task execution
-*    Realime (with preemptive OS kernel)
+*    Workcell-centric parallel task execution with non-blocking device command queues architecture
+*    Designed for realime (with preemptive OS kernel)
 
 License
 GNU Library or Lesser General Public License version 3.0 (LGPLv3)
