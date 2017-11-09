@@ -135,6 +135,8 @@ OldPortal Factory Controller project.
 
 #include <log4cxx/logger.h>
 
+#include "../util/util.h"
+
 //END_USER_SECTION_0
 
 
@@ -439,38 +441,6 @@ class TaskLogMessage;
 class TaskTemplate;
 
 }// namespace scheduler
-namespace system 
-{
-
-namespace log 
-{
-
-}// namespace log
-namespace plugin 
-{
-class Plugin;
-class PluginRegistry;
-
-}// namespace plugin
-namespace serialization 
-{
-class Archive;
-class Serializable;
-
-}// namespace serialization
-namespace storage 
-{
-class LocalResources;
-class LocalStorage;
-
-}// namespace storage
-namespace util 
-{
-class Counter;
-class StepCounter;
-
-}// namespace util
-}// namespace system
 }// namespace fc
 }// namespace oldportal
 
@@ -486,7 +456,6 @@ class StepCounter;
 #include "hardware/_group_hardware.h"
 #include "network/_group_network.h"
 #include "scheduler/_group_scheduler.h"
-#include "system/_group_system.h"
 #include "erpconnector/Connector.h"
 #include "erpconnector/StateProxy.h"
 #include "erpconnector/TaskProxy.h"
@@ -504,8 +473,6 @@ class StepCounter;
 #include "factory/cnc/wood/UnfixPartOperation.h"
 #include "factory/handlerobot/HandleRobotExecutor.h"
 #include "factory/handlerobot/MovePartOperation.h"
-#include "system/util/Counter.h"
-#include "system/util/StepCounter.h"
 #include "factory/manufacturing/Factory.h"
 #include "factory/manufacturing/FactoryLoader.h"
 #include "factory/manufacturing/proc/ConfigurationLoaderTagHandler.h"
@@ -521,7 +488,6 @@ class StepCounter;
 #include "network/modbus/ModbusDevice.h"
 #include "hardware/HardwareDevice.h"
 #include "hardware/HardwareDeviceProcess.h"
-#include "system/plugin/Plugin.h"
 #include "hardware/HardwarePlugin.h"
 #include "hardware/edm/EDMWorkMode.h"
 #include "hardware/edm/EDMPowerSource.h"
@@ -618,11 +584,6 @@ class StepCounter;
 #include "scheduler/Scheduler.h"
 #include "scheduler/Task.h"
 #include "scheduler/TaskLogMessage.h"
-#include "system/plugin/PluginRegistry.h"
-#include "system/serialization/Archive.h"
-#include "system/serialization/Serializable.h"
-#include "system/storage/LocalResources.h"
-#include "system/storage/LocalStorage.h"
 
 
 // global members
@@ -656,7 +617,6 @@ namespace fc
 #include "hardware/_group_hardware.h"
 #include "network/_group_network.h"
 #include "scheduler/_group_scheduler.h"
-#include "system/_group_system.h"
 #include "erpconnector/Connector.h"
 #include "erpconnector/StateProxy.h"
 #include "erpconnector/TaskProxy.h"
@@ -674,8 +634,6 @@ namespace fc
 #include "factory/cnc/wood/UnfixPartOperation.h"
 #include "factory/handlerobot/HandleRobotExecutor.h"
 #include "factory/handlerobot/MovePartOperation.h"
-#include "system/util/Counter.h"
-#include "system/util/StepCounter.h"
 #include "factory/manufacturing/Factory.h"
 #include "factory/manufacturing/FactoryLoader.h"
 #include "factory/manufacturing/proc/ConfigurationLoaderTagHandler.h"
@@ -691,7 +649,6 @@ namespace fc
 #include "network/modbus/ModbusDevice.h"
 #include "hardware/HardwareDevice.h"
 #include "hardware/HardwareDeviceProcess.h"
-#include "system/plugin/Plugin.h"
 #include "hardware/HardwarePlugin.h"
 #include "hardware/edm/EDMWorkMode.h"
 #include "hardware/edm/EDMPowerSource.h"
@@ -788,18 +745,14 @@ namespace fc
 #include "scheduler/Scheduler.h"
 #include "scheduler/Task.h"
 #include "scheduler/TaskLogMessage.h"
-#include "system/plugin/PluginRegistry.h"
-#include "system/serialization/Archive.h"
-#include "system/serialization/Serializable.h"
-#include "system/storage/LocalResources.h"
-#include "system/storage/LocalStorage.h"
 
 
 
 
 //BEGIN_USER_SECTION_1
-#ifndef FACTORY_HARDWARE_EMULATOR_HEADER
+#ifndef FACTORY_HARDWARE_EMULATOR_HEADER_ADDED
 #include "../factory-hardware-emulator/factory-hardware-emulator.h"
+#define FACTORY_HARDWARE_EMULATOR_HEADER_ADDED
 #endif
 //END_USER_SECTION_1
 

@@ -77,7 +77,7 @@ std::vector< std::shared_ptr<oldportal::fc::network::Network> > oldportal::fc::f
     return _networks;
 }//END_76a1bb1eb6971f7be5a65996536540af
 
-std::shared_ptr< oldportal::fc::system::plugin::PluginRegistry > oldportal::fc::factory::manufacturing::Factory::getPluginRegistry()
+std::shared_ptr< oldportal::util::plugin::PluginRegistry > oldportal::fc::factory::manufacturing::Factory::getPluginRegistry()
 {//BEGIN_49cb1208c5ecb5fcda8b7cc432b03e37
     return _plugin_registry;
 }//END_49cb1208c5ecb5fcda8b7cc432b03e37

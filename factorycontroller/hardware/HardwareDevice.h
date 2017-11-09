@@ -84,7 +84,7 @@
 
 
 /**
- Maximum allowed motor temperature (in Celsius)
+ Maximum allowed motor temperature (in Celsius) 
 */
 namespace oldportal 
 {

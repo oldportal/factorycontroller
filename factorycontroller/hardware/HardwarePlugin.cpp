@@ -57,9 +57,9 @@ bool oldportal::fc::hardware::HardwarePlugin::is_supported(std::string class_nam
     return false;
 }//END_3eb533001a940634c0f5cffbd626f450
 
-std::shared_ptr< oldportal::fc::system::serialization::Serializable > oldportal::fc::hardware::HardwarePlugin::load_class(std::string class_name)
+std::shared_ptr< oldportal::util::serialization::Serializable > oldportal::fc::hardware::HardwarePlugin::load_class(std::string class_name)
 {//BEGIN_51164ce62fc87552266d6072db87e353
-    std::shared_ptr< oldportal::fc::system::serialization::Serializable > ret;
+    std::shared_ptr< oldportal::util::serialization::Serializable > ret;
     //TODO: load_class()
     return ret;
 }//END_51164ce62fc87552266d6072db87e353

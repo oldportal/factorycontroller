@@ -60,7 +60,7 @@ std::chrono::high_resolution_clock::time_point _last_response;
 public:
 boost::uuids::uuid _id;
 public:
-oldportal::fc::system::util::Counter _error_statistics;
+oldportal::util::counter::Counter _error_statistics;
 public:
 static const char* const  _CLASSNAME_FULL;
 public:

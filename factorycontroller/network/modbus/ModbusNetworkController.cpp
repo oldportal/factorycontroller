@@ -223,7 +223,8 @@ void oldportal::fc::network::modbus::ModbusNetworkController::processDeviceComma
     }
     catch (std::exception& ex)
     {
-        oldportal::fc::system::log::error_hardware("MODBUS command process exception", ex.what());
+        LOG4CXX_ERROR(logger, "MODBUS command process exception" << ex.what());
+
         //TODO: add error to statistics
     }
 }//END_cb8fd5b980bc7603de060be0feb37eed

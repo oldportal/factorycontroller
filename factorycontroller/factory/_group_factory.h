@@ -26,7 +26,7 @@
 
 //BEGIN_GROUP_COMMENT
 /**
-Industrial floor-level automatization subsystem*/
+Industrial floor-level automatization subsy*/
 //END_GROUP_COMMENT
 
 

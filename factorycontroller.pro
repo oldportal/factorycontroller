@@ -13,7 +13,7 @@ CONFIG   += console
 CONFIG   -= app_bundle
 CONFIG   += boost
 CONFIG   += thread
-CONFIG   +=object_parallel_to_source
+CONFIG   += object_parallel_to_source
 
 LIBS	+= -lboost_system -lpthread -lmodbus -lboost_program_options -llog4cxx -lpugixml
 
@@ -102,18 +102,12 @@ SOURCES += main.cpp \
     factorycontroller/scheduler/LocalConfiguration.cpp \
     factorycontroller/scheduler/ExecutorInterface.cpp \
     factorycontroller/scheduler/TaskTemplate.cpp \
-    factorycontroller/system/_group_system.cpp \
-    factorycontroller/system/storage/LocalStorage.cpp \
-    factorycontroller/system/storage/LocalResources.cpp \
-    factorycontroller/system/storage/_group_storage.cpp \
-    factorycontroller/system/util/_group_util.cpp \
     factorycontroller/scheduler/Scheduler.cpp \
     factorycontroller/network/Network.cpp \
     factorycontroller/network/modbus/ModbusNetworkController.cpp \
     factorycontroller/scheduler/TaskLogMessage.cpp \
     factorycontroller/network/modbus/ModbusMessageWrapper.cpp \
     factorycontroller/network/modbus/ModbusDeviceCommand.cpp \
-    factorycontroller/system/util/StepCounter.cpp \
     factorycontroller/network/modbus/SerialPortSettings.cpp \
     factorycontroller/network/modbus/ModbusNetworkSettings.cpp \
     factorycontroller/network/command/DeviceStateReport.cpp \
@@ -128,7 +122,6 @@ SOURCES += main.cpp \
     factorycontroller/network/command/scheduled/ScheduledCommandRequest.cpp \
     factorycontroller/network/command/scheduled/ScheduledCommandResult.cpp \
     factorycontroller/network/command/scheduled/ScheduledDeviceCommandQueue.cpp \
-    factorycontroller/system/log/_group_log.cpp \
     factorycontroller/hardware/mechatronics/proc/_group_proc.cpp \
     factorycontroller/hardware/mechatronics/proc/StepMotion.cpp \
     factorycontroller/hardware/mechatronics/proc/Motion.cpp \
@@ -136,7 +129,6 @@ SOURCES += main.cpp \
     factorycontroller/hardware/mechatronics/proc/CurveMotion.cpp \
     factorycontroller/hardware/mechatronics/proc/ConstantSpeedMotion.cpp \
     factorycontroller/hardware/mechatronics/proc/AccelerationMotion.cpp \
-    factorycontroller/system/util/Counter.cpp \
     factory-hardware-emulator/EmulatorApplication.cpp \
     factory-hardware-emulator/_group_factory-hardware-emulator.cpp \
     factory-hardware-emulator/device/_group_device.cpp \
@@ -154,7 +146,6 @@ SOURCES += main.cpp \
     factory-hardware-emulator/network/scheduled/ScheduledCommandRequest.cpp \
     factory-hardware-emulator/network/scheduled/ScheduledCommandResult.cpp \
     factory-hardware-emulator/network/scheduled/ScheduledDeviceCommandQueue.cpp \
-    factory-hardware-emulator/system/_group_system.cpp \
     factorycontroller/network/modbus/data/_group_data.cpp \
     factorycontroller/network/modbus/data/ControllerData.cpp \
     factorycontroller/network/modbus/data/InterfaceSettings.cpp \
@@ -214,15 +205,16 @@ SOURCES += main.cpp \
     factorycontroller/hardware/power/data/PowerLineDriverDataInput.cpp \
     factorycontroller/hardware/power/data/PowerLineModbus.cpp \
     factorycontroller/hardware/power/proc/PowerLineProcess.cpp \
-    factorycontroller/system/serialization/_group_serialization.cpp \
-    factorycontroller/system/serialization/Archive.cpp \
-    factorycontroller/system/serialization/Serializable.cpp \
-    factorycontroller/system/plugin/_group_plugin.cpp \
-    factorycontroller/system/plugin/Plugin.cpp \
-    factorycontroller/system/plugin/PluginRegistry.cpp \
-    factorycontroller/hardware/HardwarePlugin.cpp
+    factorycontroller/hardware/HardwarePlugin.cpp \
+    util/_group_util.cpp \
+    util/log/_group_log.cpp \
+    util/serialization/_group_serialization.cpp \
+    util/serialization/Archive.cpp \
+    util/serialization/Serializable.cpp \
+    util/string/_group_string.cpp
     
 
 HEADERS += factorycontroller/factorycontroller.h \ 
-    factory-hardware-emulator/factory-hardware-emulator.h
+    factory-hardware-emulator/factory-hardware-emulator.h \
+    util/util.h
 
