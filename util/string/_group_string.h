@@ -23,7 +23,6 @@ namespace util
 namespace string 
 {
 // global variables declaration
-extern log4cxx::LoggerPtr logger;
 }// namespace string
 }// namespace util
 }// namespace oldportal

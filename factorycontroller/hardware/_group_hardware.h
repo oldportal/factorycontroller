@@ -26,7 +26,7 @@
 
 //BEGIN_GROUP_COMMENT
 /**
-Industrial hardware subsy*/
+Industrial hardware subs*/
 //END_GROUP_COMMENT
 
 

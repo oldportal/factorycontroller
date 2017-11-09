@@ -211,7 +211,10 @@ SOURCES += main.cpp \
     util/serialization/_group_serialization.cpp \
     util/serialization/Archive.cpp \
     util/serialization/Serializable.cpp \
-    util/string/_group_string.cpp
+    util/string/_group_string.cpp \
+    util/counter/_group_counter.cpp \
+    util/counter/Counter.cpp \
+    util/counter/StepCounter.cpp
     
 
 HEADERS += factorycontroller/factorycontroller.h \ 
