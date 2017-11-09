@@ -14,6 +14,16 @@
 
 //BEGIN_USER_SECTION_0
 
+// C++ Standard Libraries
+#include <cassert>
+#include <cstdint>
+#include <atomic>
+#include <iostream>
+#include <memory>
+#include <list>
+#include <map>
+#include <string>
+#include <typeinfo>
 //END_USER_SECTION_0
 
 

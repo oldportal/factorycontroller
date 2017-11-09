@@ -23,7 +23,6 @@ namespace util
 namespace serialization 
 {
 // global variables declaration
-extern log4cxx::LoggerPtr logger;
 }// namespace serialization
 }// namespace util
 }// namespace oldportal

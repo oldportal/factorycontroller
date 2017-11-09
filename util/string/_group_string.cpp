@@ -14,7 +14,7 @@
 //#include <cuchar>
 
 //#include <boost/locale.hpp>
-#include "../../../foreign_libs/utf8.h"
+#include "../../foreign_libs/utf8.h"
 
 // variant 1
 //    std::wstring_convert<std::codecvt_utf8_utf16<char16_t>,char16_t> convert;
@@ -44,7 +44,6 @@
 //END_USER_SECTION_AFTER_MASTER_INCLUDE
 
 
-log4cxx::LoggerPtr oldportal::util::string::logger = log4cxx::Logger::getLogger("oldportal.fc.system.util");
 
 
 std::string oldportal::util::string::utf16_to_utf8(std::u16string str)
