@@ -22,8 +22,14 @@
 #include <memory>
 #include <list>
 #include <map>
+#include <vector>
+#include <array>
 #include <string>
 #include <typeinfo>
+
+// pugixml XML library
+#include <pugixml.hpp>
+#include <pugiconfig.hpp>
 //END_USER_SECTION_0
 
 
@@ -57,12 +63,6 @@ class Archive;
 class Serializable;
 
 }// namespace serialization
-namespace storage 
-{
-class LocalResources;
-class LocalStorage;
-
-}// namespace storage
 namespace string 
 {
 
@@ -81,7 +81,6 @@ namespace string
 #include "log/_group_log.h"
 #include "plugin/_group_plugin.h"
 #include "serialization/_group_serialization.h"
-#include "storage/_group_storage.h"
 #include "string/_group_string.h"
 #include "counter/Counter.h"
 #include "counter/StepCounter.h"
@@ -89,8 +88,6 @@ namespace string
 #include "plugin/PluginRegistry.h"
 #include "serialization/Archive.h"
 #include "serialization/Serializable.h"
-#include "storage/LocalResources.h"
-#include "storage/LocalStorage.h"
 
 
 // global members
@@ -122,7 +119,6 @@ namespace util
 #include "log/_group_log.h"
 #include "plugin/_group_plugin.h"
 #include "serialization/_group_serialization.h"
-#include "storage/_group_storage.h"
 #include "string/_group_string.h"
 #include "counter/Counter.h"
 #include "counter/StepCounter.h"
@@ -130,8 +126,6 @@ namespace util
 #include "plugin/PluginRegistry.h"
 #include "serialization/Archive.h"
 #include "serialization/Serializable.h"
-#include "storage/LocalResources.h"
-#include "storage/LocalStorage.h"
 
 
 
