@@ -33,7 +33,10 @@ static const char* const  _CLASSNAME_FULL;
 //methods:
 
 public:
-virtual void load() = 0;
+virtual std::string get_id_as_string() const  = 0;
+
+public:
+virtual void load(pugi::xml_node& node) = 0;
 
 /**
 Second phase of load - restore pointers to other objects.

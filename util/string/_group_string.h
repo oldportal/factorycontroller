@@ -7,7 +7,7 @@
 
 //BEGIN_GROUP_COMMENT
 /**
-String operations.*/
+String operations*/
 //END_GROUP_COMMENT
 
 

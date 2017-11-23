@@ -35,6 +35,10 @@ namespace util
 namespace serialization 
 {
 // global methods declaration
+std::vector< std::shared_ptr<oldportal::util::serialization::Serializable> > load_from_xml(pugi::xml_node& archive);
+
+void save_to_xml(pugi::xml_node& archive, std::vector< std::shared_ptr<oldportal::util::serialization::Serializable> > root_objects);
+
 }// namespace serialization
 }// namespace util
 }// namespace oldportal
