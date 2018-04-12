@@ -7,7 +7,7 @@
 
 //BEGIN_GROUP_COMMENT
 /**
-Plugin subsy*/
+Plugin sub*/
 //END_GROUP_COMMENT
 
 

@@ -33,7 +33,7 @@ static const char* const  _CLASSNAME_FULL;
 //methods:
 
 public:
-virtual std::string get_id_as_string() const  = 0;
+virtual std::string get_id_as_string() const = 0;
 
 public:
 virtual void load(pugi::xml_node& node) = 0;
