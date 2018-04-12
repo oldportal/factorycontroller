@@ -1,14 +1,14 @@
 FactoryController
 
-Floor-level factory/shop automatization control software.
+Floor-level manufacturing equipment/mechatronics/robotics automatization control software.
 
-MODBUS realtime network & devices controller. 
+MODBUS realtime industrial network & devices controller. 
 Hi-level task-centric parallel execution scenaries. 
 MRP/ERP integration.
 
 Features
 
-*    MODBUS network controller (default)
+*    MODBUS network controller 
 *    Plugable interface for other industrial networks and device types
 *    Set of default devices (reference design)
 *    Task execution scenaries
@@ -18,4 +18,4 @@ Features
 License
 GNU Library or Lesser General Public License version 3.0 (LGPLv3)
 
-Copyright (C) Dmitry Ognyannikov, 2012-2017
+Copyright (C) Dmitry Ognyannikov, 2012-2018
