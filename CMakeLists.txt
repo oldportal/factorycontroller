@@ -1,4 +1,7 @@
-cmake_minimum_required(VERSION 2.6)
+# alfa version
+# QMAKE is main buid tool for the project
+
+cmake_minimum_required(VERSION 2.8)
 project(factorycontroller)
 
 enable_testing()
