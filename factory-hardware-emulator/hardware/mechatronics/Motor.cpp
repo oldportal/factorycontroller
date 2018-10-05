@@ -365,7 +365,9 @@ void oldportal::fhe::hardware::mechatronics::Motor::stepMotorSetNextStep(int8_t 
 void oldportal::fhe::hardware::mechatronics::Motor::stopAllDeviceActivity()
 {//BEGIN_827fa5cd792ee4d2e5996a97826b7edf
     LOG4CXX_INFO(logger, std::string("Motor::stopAllDeviceActivity(), _modbus_address: ") + std::to_string(_modbus_address));
-    //TODO: stopAllDeviceActivity()
+    _modbus._driverData._1_mode = DRIVER_SERVO_IDLE;
+    // model abstraction - stop motion immediately
+    _modbus._driverData._4_rotor_angle_start_speed = 0;
 }//END_827fa5cd792ee4d2e5996a97826b7edf
 
 
