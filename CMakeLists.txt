@@ -1,6 +1,3 @@
-# alfa version
-# QMAKE is main buid tool for the project
-
 cmake_minimum_required(VERSION 2.8)
 project(factorycontroller)
 
@@ -8,9 +5,468 @@ enable_testing()
 
 find_package(Boost REQUIRED)
 
-include_directories(include)
+set(CMAKE_CXX_STANDARD 14)
 
-set( factorycontroller_source main.cpp )
+include_directories(factory-hardware-emulator)
+include_directories(factory-hardware-emulator/device)
+include_directories(factory-hardware-emulator/hardware)
+include_directories(factory-hardware-emulator/hardware/mechatronics)
+include_directories(factory-hardware-emulator/network)
+include_directories(factory-hardware-emulator/network/scheduled)
+include_directories(factory-hardware-emulator/system)
+include_directories(factorycontroller)
+include_directories(factorycontroller/erpconnector)
+include_directories(factorycontroller/factory)
+include_directories(factorycontroller/factory/cnc)
+include_directories(factorycontroller/factory/cnc/edm)
+include_directories(factorycontroller/factory/cnc/proc)
+include_directories(factorycontroller/factory/cnc/toolpath)
+include_directories(factorycontroller/factory/cnc/wood)
+include_directories(factorycontroller/factory/handlerobot)
+include_directories(factorycontroller/factory/manufacturing)
+include_directories(factorycontroller/factory/manufacturing/proc)
+include_directories(factorycontroller/factory/printer3d)
+include_directories(factorycontroller/factory/warehouse)
+include_directories(factorycontroller/hardware)
+include_directories(factorycontroller/hardware/edm)
+include_directories(factorycontroller/hardware/edm/command)
+include_directories(factorycontroller/hardware/edm/data)
+include_directories(factorycontroller/hardware/edm/proc)
+include_directories(factorycontroller/hardware/mechatronics)
+include_directories(factorycontroller/hardware/mechatronics/command)
+include_directories(factorycontroller/hardware/mechatronics/data)
+include_directories(factorycontroller/hardware/mechatronics/proc)
+include_directories(factorycontroller/hardware/metallurgy)
+include_directories(factorycontroller/hardware/metallurgy/command)
+include_directories(factorycontroller/hardware/metallurgy/data)
+include_directories(factorycontroller/hardware/metallurgy/proc)
+include_directories(factorycontroller/hardware/power)
+include_directories(factorycontroller/hardware/power/command)
+include_directories(factorycontroller/hardware/power/data)
+include_directories(factorycontroller/hardware/power/proc)
+include_directories(factorycontroller/hardware/welding)
+include_directories(factorycontroller/hardware/welding/command)
+include_directories(factorycontroller/hardware/welding/data)
+include_directories(factorycontroller/hardware/welding/proc)
+include_directories(factorycontroller/network)
+include_directories(factorycontroller/network/command)
+include_directories(factorycontroller/network/command/scheduled)
+include_directories(factorycontroller/network/modbus)
+include_directories(factorycontroller/network/modbus/data)
+include_directories(factorycontroller/scheduler)
+include_directories(foreign_libs)
+include_directories(foreign_libs/utf8)
+include_directories(util)
+include_directories(util/counter)
+include_directories(util/log)
+include_directories(util/plugin)
+include_directories(util/serialization)
+include_directories(util/string)
 
-add_subdirectory( src factorycontroller )
-add_subdirectory( test factorycontroller_test )
+add_executable(factorycontroller
+        factory-hardware-emulator/device/_group_device.cpp
+        factory-hardware-emulator/device/_group_device.h
+        factory-hardware-emulator/device/Device.cpp
+        factory-hardware-emulator/device/Device.h
+        factory-hardware-emulator/hardware/mechatronics/_group_mechatronics.cpp
+        factory-hardware-emulator/hardware/mechatronics/_group_mechatronics.h
+        factory-hardware-emulator/hardware/mechatronics/Motor.cpp
+        factory-hardware-emulator/hardware/mechatronics/Motor.h
+        factory-hardware-emulator/hardware/mechatronics/MotorModbus.h
+        factory-hardware-emulator/hardware/mechatronics/MotorSettings.cpp
+        factory-hardware-emulator/hardware/mechatronics/MotorSettings.h
+        factory-hardware-emulator/hardware/mechatronics/StepMotor.cpp
+        factory-hardware-emulator/hardware/mechatronics/StepMotor.h
+        factory-hardware-emulator/hardware/_group_hardware.cpp
+        factory-hardware-emulator/hardware/_group_hardware.h
+        factory-hardware-emulator/hardware/HardwareDevice.cpp
+        factory-hardware-emulator/hardware/HardwareDevice.h
+        factory-hardware-emulator/network/scheduled/_group_scheduled.cpp
+        factory-hardware-emulator/network/scheduled/_group_scheduled.h
+        factory-hardware-emulator/network/scheduled/ScheduledCommandRequest.cpp
+        factory-hardware-emulator/network/scheduled/ScheduledCommandRequest.h
+        factory-hardware-emulator/network/scheduled/ScheduledCommandResult.cpp
+        factory-hardware-emulator/network/scheduled/ScheduledCommandResult.h
+        factory-hardware-emulator/network/scheduled/ScheduledDeviceCommandQueue.cpp
+        factory-hardware-emulator/network/scheduled/ScheduledDeviceCommandQueue.h
+        factory-hardware-emulator/network/_group_network.cpp
+        factory-hardware-emulator/network/_group_network.h
+        factory-hardware-emulator/network/ModbusNetworkController.cpp
+        factory-hardware-emulator/network/ModbusNetworkController.h
+        factory-hardware-emulator/network/NetworkClock.cpp
+        factory-hardware-emulator/network/NetworkClock.h
+        factory-hardware-emulator/system/_group_system.cpp
+        factory-hardware-emulator/system/_group_system.h
+        factory-hardware-emulator/_group_factory-hardware-emulator.cpp
+        factory-hardware-emulator/EmulatorApplication.cpp
+        factory-hardware-emulator/EmulatorApplication.h
+        factory-hardware-emulator/factory-hardware-emulator.h
+        factorycontroller/erpconnector/_group_erpconnector.cpp
+        factorycontroller/erpconnector/_group_erpconnector.h
+        factorycontroller/erpconnector/Connector.cpp
+        factorycontroller/erpconnector/Connector.h
+        factorycontroller/erpconnector/StateProxy.cpp
+        factorycontroller/erpconnector/StateProxy.h
+        factorycontroller/erpconnector/TaskProxy.cpp
+        factorycontroller/erpconnector/TaskProxy.h
+        factorycontroller/factory/cnc/edm/_group_edm.cpp
+        factorycontroller/factory/cnc/edm/_group_edm.h
+        factorycontroller/factory/cnc/edm/RepairToolOperation.cpp
+        factorycontroller/factory/cnc/edm/RepairToolOperation.h
+        factorycontroller/factory/cnc/proc/_group_proc.cpp
+        factorycontroller/factory/cnc/proc/_group_proc.h
+        factorycontroller/factory/cnc/proc/CNCExecutor.cpp
+        factorycontroller/factory/cnc/proc/CNCExecutor.h
+        factorycontroller/factory/cnc/toolpath/_group_toolpath.cpp
+        factorycontroller/factory/cnc/toolpath/_group_toolpath.h
+        factorycontroller/factory/cnc/toolpath/ToolPath.cpp
+        factorycontroller/factory/cnc/toolpath/ToolPath.h
+        factorycontroller/factory/cnc/wood/_group_wood.cpp
+        factorycontroller/factory/cnc/wood/_group_wood.h
+        factorycontroller/factory/cnc/wood/FixPartOperation.cpp
+        factorycontroller/factory/cnc/wood/FixPartOperation.h
+        factorycontroller/factory/cnc/wood/UnfixPartOperation.cpp
+        factorycontroller/factory/cnc/wood/UnfixPartOperation.h
+        factorycontroller/factory/cnc/_group_cnc.cpp
+        factorycontroller/factory/cnc/_group_cnc.h
+        factorycontroller/factory/cnc/ChangeToolOperation.cpp
+        factorycontroller/factory/cnc/ChangeToolOperation.h
+        factorycontroller/factory/cnc/MashineCenterInterface.cpp
+        factorycontroller/factory/cnc/MashineCenterInterface.h
+        factorycontroller/factory/cnc/Tool.cpp
+        factorycontroller/factory/cnc/Tool.h
+        factorycontroller/factory/cnc/ToolSet.cpp
+        factorycontroller/factory/cnc/ToolSet.h
+        factorycontroller/factory/handlerobot/_group_handlerobot.cpp
+        factorycontroller/factory/handlerobot/_group_handlerobot.h
+        factorycontroller/factory/handlerobot/HandleRobotExecutor.cpp
+        factorycontroller/factory/handlerobot/HandleRobotExecutor.h
+        factorycontroller/factory/handlerobot/MovePartOperation.cpp
+        factorycontroller/factory/handlerobot/MovePartOperation.h
+        factorycontroller/factory/manufacturing/proc/_group_proc.cpp
+        factorycontroller/factory/manufacturing/proc/_group_proc.h
+        factorycontroller/factory/manufacturing/proc/ConfigurationLoaderTagHandler.cpp
+        factorycontroller/factory/manufacturing/proc/ConfigurationLoaderTagHandler.h
+        factorycontroller/factory/manufacturing/proc/DefaultTagHandler.cpp
+        factorycontroller/factory/manufacturing/proc/DefaultTagHandler.h
+        factorycontroller/factory/manufacturing/proc/FactoryConfigurationFileLoader.cpp
+        factorycontroller/factory/manufacturing/proc/FactoryConfigurationFileLoader.h
+        factorycontroller/factory/manufacturing/proc/FactoryPureProgramLoader.cpp
+        factorycontroller/factory/manufacturing/proc/FactoryPureProgramLoader.h
+        factorycontroller/factory/manufacturing/_group_manufacturing.cpp
+        factorycontroller/factory/manufacturing/_group_manufacturing.h
+        factorycontroller/factory/manufacturing/Factory.cpp
+        factorycontroller/factory/manufacturing/Factory.h
+        factorycontroller/factory/manufacturing/FactoryLoader.cpp
+        factorycontroller/factory/manufacturing/FactoryLoader.h
+        factorycontroller/factory/printer3d/_group_printer3d.cpp
+        factorycontroller/factory/printer3d/_group_printer3d.h
+        factorycontroller/factory/printer3d/Printer3DExecutor.cpp
+        factorycontroller/factory/printer3d/Printer3DExecutor.h
+        factorycontroller/factory/printer3d/Printer3DOperation.cpp
+        factorycontroller/factory/printer3d/Printer3DOperation.h
+        factorycontroller/factory/warehouse/_group_warehouse.cpp
+        factorycontroller/factory/warehouse/_group_warehouse.h
+        factorycontroller/factory/warehouse/StorageManager.cpp
+        factorycontroller/factory/warehouse/StorageManager.h
+        factorycontroller/factory/warehouse/StoragePallet.cpp
+        factorycontroller/factory/warehouse/StoragePallet.h
+        factorycontroller/factory/warehouse/StoragePalletPlace.cpp
+        factorycontroller/factory/warehouse/StoragePalletPlace.h
+        factorycontroller/factory/_group_factory.cpp
+        factorycontroller/factory/_group_factory.h
+        factorycontroller/hardware/edm/command/_group_command.cpp
+        factorycontroller/hardware/edm/command/_group_command.h
+        factorycontroller/hardware/edm/command/GetEDMState.cpp
+        factorycontroller/hardware/edm/command/GetEDMState.h
+        factorycontroller/hardware/edm/command/StartEDM.cpp
+        factorycontroller/hardware/edm/command/StartEDM.h
+        factorycontroller/hardware/edm/command/StopEDM.cpp
+        factorycontroller/hardware/edm/command/StopEDM.h
+        factorycontroller/hardware/edm/data/_group_data.cpp
+        factorycontroller/hardware/edm/data/_group_data.h
+        factorycontroller/hardware/edm/data/EDMDriverCalculationConstants.cpp
+        factorycontroller/hardware/edm/data/EDMDriverCalculationConstants.h
+        factorycontroller/hardware/edm/data/EDMDriverData.cpp
+        factorycontroller/hardware/edm/data/EDMDriverData.h
+        factorycontroller/hardware/edm/data/EDMDriverDataInput.cpp
+        factorycontroller/hardware/edm/data/EDMDriverDataInput.h
+        factorycontroller/hardware/edm/data/EDMModbus.cpp
+        factorycontroller/hardware/edm/data/EDMModbus.h
+        factorycontroller/hardware/edm/proc/_group_proc.cpp
+        factorycontroller/hardware/edm/proc/_group_proc.h
+        factorycontroller/hardware/edm/proc/EDMProcess.cpp
+        factorycontroller/hardware/edm/proc/EDMProcess.h
+        factorycontroller/hardware/edm/_group_edm.cpp
+        factorycontroller/hardware/edm/_group_edm.h
+        factorycontroller/hardware/edm/EDMPowerSource.cpp
+        factorycontroller/hardware/edm/EDMPowerSource.h
+        factorycontroller/hardware/edm/EDMWorkMode.cpp
+        factorycontroller/hardware/edm/EDMWorkMode.h
+        factorycontroller/hardware/mechatronics/command/_group_command.cpp
+        factorycontroller/hardware/mechatronics/command/_group_command.h
+        factorycontroller/hardware/mechatronics/command/AccelerationMotion.cpp
+        factorycontroller/hardware/mechatronics/command/AccelerationMotion.h
+        factorycontroller/hardware/mechatronics/command/CurveMotion.cpp
+        factorycontroller/hardware/mechatronics/command/CurveMotion.h
+        factorycontroller/hardware/mechatronics/command/GetMotionState.cpp
+        factorycontroller/hardware/mechatronics/command/GetMotionState.h
+        factorycontroller/hardware/mechatronics/command/LinearMotion.cpp
+        factorycontroller/hardware/mechatronics/command/LinearMotion.h
+        factorycontroller/hardware/mechatronics/command/StepMotion.cpp
+        factorycontroller/hardware/mechatronics/command/StepMotion.h
+        factorycontroller/hardware/mechatronics/command/StopMotion.cpp
+        factorycontroller/hardware/mechatronics/command/StopMotion.h
+        factorycontroller/hardware/mechatronics/command/ToEndPositionMotion.cpp
+        factorycontroller/hardware/mechatronics/command/ToEndPositionMotion.h
+        factorycontroller/hardware/mechatronics/data/_group_data.cpp
+        factorycontroller/hardware/mechatronics/data/_group_data.h
+        factorycontroller/hardware/mechatronics/data/StepMotorDriverCalculationConstants.cpp
+        factorycontroller/hardware/mechatronics/data/StepMotorDriverCalculationConstants.h
+        factorycontroller/hardware/mechatronics/data/StepMotorDriverData.cpp
+        factorycontroller/hardware/mechatronics/data/StepMotorDriverData.h
+        factorycontroller/hardware/mechatronics/data/StepMotorDriverDataInput.cpp
+        factorycontroller/hardware/mechatronics/data/StepMotorDriverDataInput.h
+        factorycontroller/hardware/mechatronics/data/StepMotorModbus.cpp
+        factorycontroller/hardware/mechatronics/data/StepMotorModbus.h
+        factorycontroller/hardware/mechatronics/proc/_group_proc.cpp
+        factorycontroller/hardware/mechatronics/proc/_group_proc.h
+        factorycontroller/hardware/mechatronics/proc/AccelerationMotion.cpp
+        factorycontroller/hardware/mechatronics/proc/AccelerationMotion.h
+        factorycontroller/hardware/mechatronics/proc/ConstantSpeedMotion.cpp
+        factorycontroller/hardware/mechatronics/proc/ConstantSpeedMotion.h
+        factorycontroller/hardware/mechatronics/proc/CurveMotion.cpp
+        factorycontroller/hardware/mechatronics/proc/CurveMotion.h
+        factorycontroller/hardware/mechatronics/proc/LinearMotion.cpp
+        factorycontroller/hardware/mechatronics/proc/LinearMotion.h
+        factorycontroller/hardware/mechatronics/proc/Motion.cpp
+        factorycontroller/hardware/mechatronics/proc/Motion.h
+        factorycontroller/hardware/mechatronics/proc/StepMotion.cpp
+        factorycontroller/hardware/mechatronics/proc/StepMotion.h
+        factorycontroller/hardware/mechatronics/_group_mechatronics.cpp
+        factorycontroller/hardware/mechatronics/_group_mechatronics.h
+        factorycontroller/hardware/mechatronics/Motor.cpp
+        factorycontroller/hardware/mechatronics/Motor.h
+        factorycontroller/hardware/mechatronics/MotorProperties.cpp
+        factorycontroller/hardware/mechatronics/MotorProperties.h
+        factorycontroller/hardware/mechatronics/MotorSettings.cpp
+        factorycontroller/hardware/mechatronics/MotorSettings.h
+        factorycontroller/hardware/metallurgy/command/_group_command.cpp
+        factorycontroller/hardware/metallurgy/command/_group_command.h
+        factorycontroller/hardware/metallurgy/command/GetInductorState.cpp
+        factorycontroller/hardware/metallurgy/command/GetInductorState.h
+        factorycontroller/hardware/metallurgy/command/StartHeating.cpp
+        factorycontroller/hardware/metallurgy/command/StartHeating.h
+        factorycontroller/hardware/metallurgy/command/StopHeating.cpp
+        factorycontroller/hardware/metallurgy/command/StopHeating.h
+        factorycontroller/hardware/metallurgy/data/_group_data.cpp
+        factorycontroller/hardware/metallurgy/data/_group_data.h
+        factorycontroller/hardware/metallurgy/data/InductorDriverCalculationConstants.cpp
+        factorycontroller/hardware/metallurgy/data/InductorDriverCalculationConstants.h
+        factorycontroller/hardware/metallurgy/data/InductorDriverData.cpp
+        factorycontroller/hardware/metallurgy/data/InductorDriverData.h
+        factorycontroller/hardware/metallurgy/data/InductorDriverDataInput.cpp
+        factorycontroller/hardware/metallurgy/data/InductorDriverDataInput.h
+        factorycontroller/hardware/metallurgy/data/InductorModbus.cpp
+        factorycontroller/hardware/metallurgy/data/InductorModbus.h
+        factorycontroller/hardware/metallurgy/proc/_group_proc.cpp
+        factorycontroller/hardware/metallurgy/proc/_group_proc.h
+        factorycontroller/hardware/metallurgy/proc/InductionMeltingProcess.cpp
+        factorycontroller/hardware/metallurgy/proc/InductionMeltingProcess.h
+        factorycontroller/hardware/metallurgy/_group_metallurgy.cpp
+        factorycontroller/hardware/metallurgy/_group_metallurgy.h
+        factorycontroller/hardware/metallurgy/InductionHeater.cpp
+        factorycontroller/hardware/metallurgy/InductionHeater.h
+        factorycontroller/hardware/metallurgy/InductionHeaterSettings.cpp
+        factorycontroller/hardware/metallurgy/InductionHeaterSettings.h
+        factorycontroller/hardware/power/command/_group_command.cpp
+        factorycontroller/hardware/power/command/_group_command.h
+        factorycontroller/hardware/power/command/GetPowerLineState.cpp
+        factorycontroller/hardware/power/command/GetPowerLineState.h
+        factorycontroller/hardware/power/command/SetPowerLineSettings.cpp
+        factorycontroller/hardware/power/command/SetPowerLineSettings.h
+        factorycontroller/hardware/power/command/StopPowerLine.cpp
+        factorycontroller/hardware/power/command/StopPowerLine.h
+        factorycontroller/hardware/power/data/_group_data.cpp
+        factorycontroller/hardware/power/data/_group_data.h
+        factorycontroller/hardware/power/data/PowerLineDriverCalculationConstants.cpp
+        factorycontroller/hardware/power/data/PowerLineDriverCalculationConstants.h
+        factorycontroller/hardware/power/data/PowerLineDriverData.cpp
+        factorycontroller/hardware/power/data/PowerLineDriverData.h
+        factorycontroller/hardware/power/data/PowerLineDriverDataInput.cpp
+        factorycontroller/hardware/power/data/PowerLineDriverDataInput.h
+        factorycontroller/hardware/power/data/PowerLineModbus.cpp
+        factorycontroller/hardware/power/data/PowerLineModbus.h
+        factorycontroller/hardware/power/proc/_group_proc.cpp
+        factorycontroller/hardware/power/proc/_group_proc.h
+        factorycontroller/hardware/power/proc/PowerLineProcess.cpp
+        factorycontroller/hardware/power/proc/PowerLineProcess.h
+        factorycontroller/hardware/power/_group_power.cpp
+        factorycontroller/hardware/power/_group_power.h
+        factorycontroller/hardware/power/EnergyAccumulator.cpp
+        factorycontroller/hardware/power/EnergyAccumulator.h
+        factorycontroller/hardware/power/EnergyNetwork.cpp
+        factorycontroller/hardware/power/EnergyNetwork.h
+        factorycontroller/hardware/power/EnergySource.cpp
+        factorycontroller/hardware/power/EnergySource.h
+        factorycontroller/hardware/power/EnergySourceInterface.cpp
+        factorycontroller/hardware/power/EnergySourceInterface.h
+        factorycontroller/hardware/power/PowerBus.cpp
+        factorycontroller/hardware/power/PowerBus.h
+        factorycontroller/hardware/welding/command/_group_command.cpp
+        factorycontroller/hardware/welding/command/_group_command.h
+        factorycontroller/hardware/welding/command/GetWeldingState.cpp
+        factorycontroller/hardware/welding/command/GetWeldingState.h
+        factorycontroller/hardware/welding/command/StartWelding.cpp
+        factorycontroller/hardware/welding/command/StartWelding.h
+        factorycontroller/hardware/welding/command/StopWelding.cpp
+        factorycontroller/hardware/welding/command/StopWelding.h
+        factorycontroller/hardware/welding/data/_group_data.cpp
+        factorycontroller/hardware/welding/data/_group_data.h
+        factorycontroller/hardware/welding/data/WeldingDriverCalculationConstants.cpp
+        factorycontroller/hardware/welding/data/WeldingDriverCalculationConstants.h
+        factorycontroller/hardware/welding/data/WeldingDriverData.cpp
+        factorycontroller/hardware/welding/data/WeldingDriverData.h
+        factorycontroller/hardware/welding/data/WeldingDriverDataInput.cpp
+        factorycontroller/hardware/welding/data/WeldingDriverDataInput.h
+        factorycontroller/hardware/welding/data/WeldingModbus.cpp
+        factorycontroller/hardware/welding/data/WeldingModbus.h
+        factorycontroller/hardware/welding/proc/_group_proc.cpp
+        factorycontroller/hardware/welding/proc/_group_proc.h
+        factorycontroller/hardware/welding/proc/WeldingProcess.cpp
+        factorycontroller/hardware/welding/proc/WeldingProcess.h
+        factorycontroller/hardware/welding/_group_welding.cpp
+        factorycontroller/hardware/welding/_group_welding.h
+        factorycontroller/hardware/welding/WeldingPowerSource.cpp
+        factorycontroller/hardware/welding/WeldingPowerSource.h
+        factorycontroller/hardware/welding/WeldingPowerSourceMode.cpp
+        factorycontroller/hardware/welding/WeldingPowerSourceMode.h
+        factorycontroller/hardware/welding/WeldingPowerSourceSettings.cpp
+        factorycontroller/hardware/welding/WeldingPowerSourceSettings.h
+        factorycontroller/hardware/_group_hardware.cpp
+        factorycontroller/hardware/_group_hardware.h
+        factorycontroller/hardware/HardwareDevice.cpp
+        factorycontroller/hardware/HardwareDevice.h
+        factorycontroller/hardware/HardwareDeviceProcess.cpp
+        factorycontroller/hardware/HardwareDeviceProcess.h
+        factorycontroller/hardware/HardwarePlugin.cpp
+        factorycontroller/hardware/HardwarePlugin.h
+        factorycontroller/network/command/scheduled/_group_scheduled.cpp
+        factorycontroller/network/command/scheduled/_group_scheduled.h
+        factorycontroller/network/command/scheduled/ScheduledCommandRequest.cpp
+        factorycontroller/network/command/scheduled/ScheduledCommandRequest.h
+        factorycontroller/network/command/scheduled/ScheduledCommandResult.cpp
+        factorycontroller/network/command/scheduled/ScheduledCommandResult.h
+        factorycontroller/network/command/scheduled/ScheduledDeviceCommandQueue.cpp
+        factorycontroller/network/command/scheduled/ScheduledDeviceCommandQueue.h
+        factorycontroller/network/command/_group_command.cpp
+        factorycontroller/network/command/_group_command.h
+        factorycontroller/network/command/DeviceIDReport.cpp
+        factorycontroller/network/command/DeviceIDReport.h
+        factorycontroller/network/command/DeviceStateReport.cpp
+        factorycontroller/network/command/DeviceStateReport.h
+        factorycontroller/network/command/NetworkTimeSynchronization.cpp
+        factorycontroller/network/command/NetworkTimeSynchronization.h
+        factorycontroller/network/command/ReadAndClearLog.cpp
+        factorycontroller/network/command/ReadAndClearLog.h
+        factorycontroller/network/modbus/data/_group_data.cpp
+        factorycontroller/network/modbus/data/_group_data.h
+        factorycontroller/network/modbus/data/ControllerData.cpp
+        factorycontroller/network/modbus/data/ControllerData.h
+        factorycontroller/network/modbus/data/InterfaceSettings.cpp
+        factorycontroller/network/modbus/data/InterfaceSettings.h
+        factorycontroller/network/modbus/data/ModbusRegistersMapping.cpp
+        factorycontroller/network/modbus/data/ModbusRegistersMapping.h
+        factorycontroller/network/modbus/data/SystemLogReport.cpp
+        factorycontroller/network/modbus/data/SystemLogReport.h
+        factorycontroller/network/modbus/_group_modbus.cpp
+        factorycontroller/network/modbus/_group_modbus.h
+        factorycontroller/network/modbus/ModbusDevice.cpp
+        factorycontroller/network/modbus/ModbusDevice.h
+        factorycontroller/network/modbus/ModbusDeviceCommand.cpp
+        factorycontroller/network/modbus/ModbusDeviceCommand.h
+        factorycontroller/network/modbus/ModbusMessagePair.cpp
+        factorycontroller/network/modbus/ModbusMessagePair.h
+        factorycontroller/network/modbus/ModbusMessageWrapper.cpp
+        factorycontroller/network/modbus/ModbusMessageWrapper.h
+        factorycontroller/network/modbus/ModbusNetworkController.cpp
+        factorycontroller/network/modbus/ModbusNetworkController.h
+        factorycontroller/network/modbus/ModbusNetworkSettings.cpp
+        factorycontroller/network/modbus/ModbusNetworkSettings.h
+        factorycontroller/network/modbus/ModbusSerialRTUNetworkController.cpp
+        factorycontroller/network/modbus/ModbusSerialRTUNetworkController.h
+        factorycontroller/network/modbus/ModbusTCPIPNetworkController.cpp
+        factorycontroller/network/modbus/ModbusTCPIPNetworkController.h
+        factorycontroller/network/modbus/SerialPortSettings.cpp
+        factorycontroller/network/modbus/SerialPortSettings.h
+        factorycontroller/network/modbus/TCPIPAddressSettings.cpp
+        factorycontroller/network/modbus/TCPIPAddressSettings.h
+        factorycontroller/network/_group_network.cpp
+        factorycontroller/network/_group_network.h
+        factorycontroller/network/ConfigurationLoader.cpp
+        factorycontroller/network/ConfigurationLoader.h
+        factorycontroller/network/DeviceCommand.cpp
+        factorycontroller/network/DeviceCommand.h
+        factorycontroller/network/Network.cpp
+        factorycontroller/network/Network.h
+        factorycontroller/network/NetworkClock.cpp
+        factorycontroller/network/NetworkClock.h
+        factorycontroller/network/NetworkController.cpp
+        factorycontroller/network/NetworkController.h
+        factorycontroller/network/NetworkDevice.cpp
+        factorycontroller/network/NetworkDevice.h
+        factorycontroller/scheduler/_group_scheduler.cpp
+        factorycontroller/scheduler/_group_scheduler.h
+        factorycontroller/scheduler/ExecutorInterface.cpp
+        factorycontroller/scheduler/ExecutorInterface.h
+        factorycontroller/scheduler/LocalConfiguration.cpp
+        factorycontroller/scheduler/LocalConfiguration.h
+        factorycontroller/scheduler/Project.cpp
+        factorycontroller/scheduler/Project.h
+        factorycontroller/scheduler/ProjectTemplate.cpp
+        factorycontroller/scheduler/ProjectTemplate.h
+        factorycontroller/scheduler/Resource.cpp
+        factorycontroller/scheduler/Resource.h
+        factorycontroller/scheduler/Scheduler.cpp
+        factorycontroller/scheduler/Scheduler.h
+        factorycontroller/scheduler/Task.cpp
+        factorycontroller/scheduler/Task.h
+        factorycontroller/scheduler/TaskLogMessage.cpp
+        factorycontroller/scheduler/TaskLogMessage.h
+        factorycontroller/scheduler/TaskTemplate.cpp
+        factorycontroller/scheduler/TaskTemplate.h
+        factorycontroller/_group_factorycontroller.cpp
+        factorycontroller/factorycontroller.h
+        foreign_libs/utf8/checked.h
+        foreign_libs/utf8/core.h
+        foreign_libs/utf8/unchecked.h
+        foreign_libs/utf8.h
+        util/counter/_group_counter.cpp
+        util/counter/_group_counter.h
+        util/counter/Counter.cpp
+        util/counter/Counter.h
+        util/counter/StepCounter.cpp
+        util/counter/StepCounter.h
+        util/log/_group_log.cpp
+        util/log/_group_log.h
+        util/plugin/_group_plugin.cpp
+        util/plugin/_group_plugin.h
+        util/plugin/Plugin.cpp
+        util/plugin/Plugin.h
+        util/plugin/PluginRegistry.cpp
+        util/plugin/PluginRegistry.h
+        util/serialization/_group_serialization.cpp
+        util/serialization/_group_serialization.h
+        util/serialization/Archive.cpp
+        util/serialization/Archive.h
+        util/serialization/Serializable.cpp
+        util/serialization/Serializable.h
+        util/string/_group_string.cpp
+        util/string/_group_string.h
+        util/_group_util.cpp
+        util/util.h
+        main.cpp)
+
+target_link_libraries(factorycontroller boost_system boost_program_options pthread modbus log4cxx pugixml)
+
+install(TARGETS factorycontroller DESTINATION bin)
