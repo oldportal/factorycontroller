@@ -156,7 +156,6 @@ namespace oldportal
 {
 namespace fc 
 {
-
 namespace erpconnector 
 {
 class Connector;
@@ -166,7 +165,6 @@ class TaskProxy;
 }// namespace erpconnector
 namespace factory 
 {
-
 namespace cnc 
 {
 class ChangeToolOperation;

@@ -24,7 +24,10 @@ QMAKE_CXXFLAGS += -std=c++11
 PRECOMPILED_HEADER = factorycontroller/factorycontroller.h 
 
 SOURCES += main.cpp \
-    factorycontroller/_group_factorycontroller.cpp \ 
+    factorycontroller/_group_factorycontroller.cpp \  \
+    util/plugin/Plugin.cpp \
+    util/plugin/PluginRegistry.cpp \
+    util/plugin/_group_plugin.cpp
     factorycontroller/erpconnector/StateProxy.cpp \
     factorycontroller/erpconnector/_group_erpconnector.cpp \
     factorycontroller/erpconnector/Connector.cpp \

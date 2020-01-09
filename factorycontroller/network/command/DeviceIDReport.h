@@ -34,8 +34,8 @@ Network device ID report.
 Uses MODBUS_FUNC_REPORT_SLAVE_ID 0x11.
 
 Purposes:
-- Ping device.
 - Read device ID.
+- Ping device availability.
 */
 namespace oldportal 
 {

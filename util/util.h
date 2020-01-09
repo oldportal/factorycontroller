@@ -40,7 +40,6 @@ namespace oldportal
 {
 namespace util 
 {
-
 namespace counter 
 {
 class Counter;

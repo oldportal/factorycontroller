@@ -55,7 +55,7 @@ std::shared_ptr< oldportal::util::serialization::Serializable > oldportal::util:
     }
     else {
         // class not found, return empty
-        return std::shared_ptr< oldportal::fc::system::serialization::Serializable >();
+        return std::shared_ptr< oldportal::util::serialization::Serializable >();
     }
 }//END_200ae0d366a970a29fb39a26338dfb37
 
